@@ -1,0 +1,91 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% block content %}
+<style>
+</style>
+
+<article class="post-entry mdl-grid">
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  <div class="post-card mdl-cell mdl-cell--8-col">
+  <div class="post-card__main-image">
+    <img src="{{ project.image.url }} " >
+  </div>
+  <div class="post-card__btn" style="background: {{ project.category.color }}">
+    <i class="fa {{ project.category.icon }}"></i>
+  </div>
+  <div class="post-card__body">
+  <div class="post-card__category" style="background: {{ project.category.color }}">
+    {{ project.category.title }}
+  </div>
+  <h1>{{ project.title }}</h1>
+  <div class="post-card__date">
+    {% if project.published_date %}
+    <i class="fa fa-clock-o"></i>{{ project.published_date }}
+    {% endif %}
+  </div>
+  <div class="markdown-body">
+    <p class="post-text_line"></p>
+    {{ project.body|markdown }}
+    <div class="post-text_line"></div>
+  </div>
+
+
+  <div align="center" class="heart-particle-box">
+    <button class="heart-icon likes" id="heart-icon" data-post-id="{{project.id}}">
+    <i class="fa fa-heart fa-2x"></i></button>
+    <div class="like_count" id="heart-counter">{{ project.likes }}</div>
+  </div>
+
+  <footer class="post-footer">
+    <span class="post-comment">
+    <i class="fa fa-comment-o"></i>
+    <a href="{% url 'project_detail' slug=project.slug %}#disqus_thread"></a></span>
+    <div class="post-share">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-google-plus"></i></a>
+    </div>
+  </footer>
+</article>
+
+<div class="comment-entry mdl-grid">
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  <div class="post-card mdl-cell mdl-cell--8-col">
+    <div class="disqus" id="disqus_thread"></div>
+  </div>
+</div>
+
+<nav class="pagination__nav mdl-grid">
+  <a href="{% url 'project_detail' slug=previous.slug %}">
+    <div class="pagination__col mdl-cell mdl-cell--6-col"
+    style="background: {{project.category.color}}" rippleria>
+      {% if previous %}
+      <span class="previous">Previous</span>
+      <i class="fa fa-angle-left fa-2x"></i>
+      <span class="title-left">{{ previous.title|truncatechars:46 }}</span>
+  </a>
+    {% endif %}
+    </div>
+
+
+  <div class="pagination__col mdl-cell mdl-cell--6-col"
+  style="background: {{project.category.color}}" rippleria>
+    {% if next %}
+    <a href="{% url 'project_detail' slug=next.slug %}">
+    <span class="next">Next</span>
+    <i class="fa fa-angle-right fa-2x"></i>
+    <span class="title-right">{{ next.title|truncatechars:46 }}</span></a>
+    {% endif %}
+  </div>
+</nav>
+
+<div class="go-top"><i class="fa fa-angle-up"></i></div>
+{% endblock %}
+
+<script>
+var disqus_config = function () {
+  this.page.url = {% url 'project_detail' slug=project.slug %};
+  this.page.identifier = '{{ project.slug }}';
+};
+</script>

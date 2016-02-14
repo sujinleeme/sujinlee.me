@@ -1,0 +1,7 @@
+Django==1.9
+django-markdown==0.8.4
+Markdown==2.6.5
+Pillow==3.1.0
+requests==2.8.1
+simplejson==3.8.1
+wheel==0.26.0
