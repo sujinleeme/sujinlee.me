@@ -1,6 +1,9 @@
 # Sujin Lee's official website
+### About
+- See : https://sujinlee.me
 - Author : Design & Code by Sujin Lee
 - Tech: Django 1.8, HTML5 & CSS3, Jquery
+- Date: March, 2016
 
 ## References
 #### [ Code ]
