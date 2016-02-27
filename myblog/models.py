@@ -5,7 +5,7 @@ from django_markdown.models import MarkdownField
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
-    icon = models.CharField(max_length=50)
+    image_url = models.CharField(max_length=100)
     color = models.CharField(max_length=50)
     background_color = models.CharField(max_length=50)
 

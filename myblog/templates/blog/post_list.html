@@ -1,83 +1,73 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 {% block content %}
-<style>
-</style>
-
-
+<style></style>
 <section class="page-name">
   <h1> { BLOG }</h1>
   <p> Learning, Experiences, Thoughts </p>
 </section>
-
 <div class="card-warpper">
-
-
-<div class="mdl-grid">
-
-{% for post in posts %}
-      {% if forloop.counter0|divisibleby:"2" %}
-      <div class="mdl-cell mdl-cell--2-col"></div>
-      <div class="mdl-cell mdl-cell--4-col">
-    <div class="card">
-        <header class="card__thumb">
-          <a href="#"><img src=" {{ post.image.url }} " width="100%" ></a>
+  <div class="mdl-grid">
+    {% for post in posts %}
+    {% if forloop.counter0|divisibleby:"2" %}
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-tablet">
+      <div class="card">
+        <header class="card-thumb">
+          <img src=" {{ post.image.url }} " width="100%">
         </header>
-        <div class="card__btn" style="background: {{post.category.color}}">
-          <i class="fa {{ post.category.icon }}"></i></div>
-        <div class="card__body">
-          <div class="card__category" style="background: {{post.category.color}}">{{ post.category.title }}</div>
-          <div class="card__title">{{ post.title }}</div>
-          <div class="card__description">{{ post.summary|truncatechars:230 }}</div>
+        <div class="card-btn" style="background: {{post.category.color}}">
+          <img class="svg category-icon" src='{% static post.category.image_url %}'>
         </div>
-        <footer class="card__footer">
-          <span class="card__icon"><i class="fa fa-heart"></i>{{ post.likes }}</span>
-          <span class="card__icon">
+        <div class="card-body">
+          <div class="card-category" style="background: {{post.category.color}}">{{ post.category.title }}</div>
+          <div class="card-title">{{ post.title }}</div>
+          <div class="card-description">{{ post.summary|truncatechars:230 }}</div>
+        </div>
+        <footer class="card-footer">
+          <span class="card-icon"><i class="fa fa-heart"></i> {{ post.likes }}</span>
+          <span class="card-icon">
           <i class="fa fa-comment-o"></i>
           <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></span>
-          <span class="card__icon"><i class="fa fa-clock-o"></i>{{ post.published_date }}</span>
-          <a class="card__read-btn rippleria-dark"
+          <span class="card-icon"><i class="fa fa-clock-o"></i> {{ post.published_date }}</span>
+          <a class="card-read-btn rippleria-dark"
             style="color: {{ post.category.color }}; background: #transparent;"
             href="{% url 'post_detail' slug=post.slug %}" rippleria >
           Read</a>
       </div>
       </footer>
-
-      </div>
+    </div>
     {% endif %}
-
     {% if forloop.last or forloop.counter|divisibleby:"2" %}
-    <div class="mdl-cell mdl-cell--4-col">
-  <div class="card">
-      <header class="card__thumb">
-        <a href="#"><img src=" {{ post.image.url }} " width="100%" ></a>
-      </header>
-      <div class="card__btn" style="background: {{post.category.color}}">
-        <i class="fa {{ post.category.icon }}"></i></div>
-      <div class="card__body">
-        <div class="card__category" style="background: {{post.category.color}}">{{ post.category.title }}</div>
-        <div class="card__title">{{ post.title }}</div>
-        <div class="card__description">{{ post.summary|truncatechars:230 }}</div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-tablet">
+      <div class="card">
+        <header class="card-thumb">
+          <img src="{{ post.image.url }}" width="100%">
+        </header>
+        <div class="card-btn" style="background: {{post.category.color}}">
+          <img class="svg category-icon" src="{% static post.category.image_url %}">
+        </div>
+        <div class="card-body">
+          <div class="card-category" style="background: {{post.category.color}}">{{ post.category.title }}</div>
+          <div class="card-title">{{ post.title }}</div>
+          <div class="card-description">{{ post.summary|truncatechars:230 }}</div>
+        </div>
+        <footer class="card-footer">
+          <span class="card-icon"><i class="fa fa-heart"></i> {{ post.likes }}</span>
+          <span class="card-icon">
+          <i class="fa fa-comment-o"></i>
+          <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></span>
+          <span class="card-icon"><i class="fa fa-clock-o"></i> {{ post.published_date }}</span>
+          <a class="card-read-btn rippleria-dark"
+            style="color: {{ post.category.color }}; background: #transparent;"
+            href="{% url 'post_detail' slug=post.slug %}" rippleria >
+          Read</a>
       </div>
-      <footer class="card__footer">
-        <span class="card__icon"><i class="fa fa-heart"></i>{{ post.likes }}</span>
-        <span class="card__icon">
-        <i class="fa fa-comment-o"></i>
-        <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></span>
-        <span class="card__icon"><i class="fa fa-clock-o"></i>{{ post.published_date }}</span>
-        <a class="card__read-btn rippleria-dark"
-          style="color: {{ post.category.color }}; background: #transparent;"
-          href="{% url 'post_detail' slug=post.slug %}" rippleria >
-        Read</a>
+      </footer>
     </div>
-    </footer>
-
-    </div>
-    <div class="mdl-cell mdl-cell--2-col"></div>
-  {% endif %}
-  {% endfor %}
-</div>
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    {% endif %}
+    {% endfor %}
+  </div>
 </div>
 {% endblock content %}
-</div>
-</div>

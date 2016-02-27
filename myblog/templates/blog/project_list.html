@@ -1,51 +1,43 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 {% block content %}
-<style>
-</style>
-
-
 <section class="page-name">
-  <h1> { Project }</h1>
-  <p> Learning, Experiences, Thoughts </p>
+   <h1>{ PROJECT }</h1>
+   <p> Web, Music </p>
 </section>
-
 <div class="card-warpper">
-
-
 <div class="mdl-grid">
-
-{% for project in projects %}
-      {% if forloop.counter0|divisibleby:"2" %}
-      <div class="mdl-cell mdl-cell--2-col"></div>
-      <div class="mdl-cell mdl-cell--4-col">
-        <figure class="pr-card" style="background: {{project.category.color}}">
-            <img src=" {{ project.image.url }} ">
-            <figcaption>
-              <i class="fa {{ project.category.icon }}"></i>
-              <h4>{{ project.category }}</h4>
-              <h2>{{ project.title }}</h2>
-              <h3>{{ project.published_date }}</h3>
-            </figcaption><a href="{% url 'project_detail' slug=project.slug %}" rippleria></a>
-          </figure>
-        </div>
-    {% endif %}
-
-    {% if forloop.last or forloop.counter|divisibleby:"2" %}
-    <div class="mdl-cell mdl-cell--4-col">
+   {% for project in projects %}
+   {% if forloop.counter0|divisibleby:"2" %}
+   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+   <div class="mdl-cell mdl-cell--4-col">
       <figure class="pr-card" style="background: {{project.category.color}}">
-          <img src=" {{ project.image.url }} ">
-          <figcaption>
-            <i class="fa {{ project.category.icon }}"></i>
-            <h4>{{ project.category }}</h4>
+         <img class="" src=" {{ project.image.url }} ">
+         <figcaption>
+            <img class="svg pr-category-icon" src="{% static project.category.image_url %}">
+            <h3>{{ project.category }}</h3>
             <h2>{{ project.title }}</h2>
-            <h3>{{ project.published_date }}</h3>
-          </figcaption><a href="{% url 'project_detail' slug=project.slug %}" rippleria></a>
-        </figure>
-      </div>
-    <div class="mdl-cell mdl-cell--2-col"></div>
-  {% endif %}
-  {% endfor %}
-</div>
+            <h4>{{ project.published_date|date:"M. Y" }}</h4>
+         </figcaption>
+         <a href="{% url 'project_detail' slug=project.slug %}" rippleria></a>
+      </figure>
+   </div>
+   {% endif %}
+   {% if forloop.last or forloop.counter|divisibleby:"2" %}
+   <div class="mdl-cell mdl-cell--4-col">
+      <figure class="pr-card" style="background: {{project.category.color}}">
+         <img class="" src=" {{ project.image.url }} ">
+         <figcaption>
+            <img class="svg pr-category-icon" src="{% static project.category.image_url %}">
+            <h3>{{ project.category }}</h3>
+            <h2>{{ project.title }}</h2>
+            <h4>{{ project.published_date|date:"M. Y" }}</h4>
+         </figcaption>
+         <a href="{% url 'project_detail' slug=project.slug %}" rippleria></a>
+      </figure>
+      <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+      {% endif %}
+      {% endfor %}
+   </div>
 </div>
 {% endblock content %}

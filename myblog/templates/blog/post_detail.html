@@ -2,76 +2,83 @@
 {% load staticfiles %}
 {% load django_markdown %}
 {% block content %}
-<style>
-  body {background: rgb(247, 249, 251);}
-</style>
-
-<article class="post-entry mdl-grid">
+<section class="page-name">
+  <h1> { BLOG }</h1>
+  <p> Learning, Experiences, Thoughts </p>
+</section>
+<article class="mdl-grid">
   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
   <div class="post-card mdl-cell mdl-cell--8-col">
-  <div class="post-card__main-image">
-    <img src="{{ post.image.url }} " >
-  </div>
-  <div class="post-card__btn" style="background: {{ post.category.color }}">
-    <i class="fa {{ post.category.icon }}"></i>
-  </div>
-  <div class="post-card__body">
-  <div class="post-card__category" style="background: {{ post.category.color }}">
-    {{ post.category.title }}
-  </div>
-  <h1>{{ post.title }}</h1>
-  <div class="post-card__date">
-    {% if post.published_date %}
-    <i class="fa fa-clock-o"></i>{{ post.published_date }}
-    {% endif %}
-  </div>
-  <div class="markdown-body">
-    <p class="post-text_line"></p>
-    {{ post.body|markdown }}
-    <div class="post-text_line"></div>
-  </div>
-
-
-  <div align="center" class="heart-particle-box">
-    <button class="heart-icon likes" id="heart-icon" data-post-id="{{post.id}}">
-    <i class="fa fa-heart fa-2x"></i></button>
-    <div class="like_count" id="heart-counter">{{ post.likes }}</div>
-  </div>
-
-  <footer class="post-footer">
-    <span class="post-comment">
-    <i class="fa fa-comment-o"></i>
-    <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></span>
-    <div class="post-share">
-      <a href="#"><i class="fa fa-facebook"></i></a>
-      <a href="#"><i class="fa fa-twitter"></i></a>
-      <a href="#"><i class="fa fa-google-plus"></i></a>
+  <div class="post-card_body">
+    <div class="post-card_main-image">
+      <img itemprop="image" src="{{ post.image.url }}" >
     </div>
-  </footer>
+    <div class="post-card_btn" style="background: {{ post.category.color }}">
+      <img class="post-category-icon" src="{% static post.category.image_url %}">
+    </div>
+    <div class="post-card_category" style="background: {{ post.category.color }}">
+      {{ post.category.title }}
+    </div>
+    <h1 itemprop="name">{{ post.title }}</h1>
+    <div class="post-card_date">
+      {% if post.published_date %}
+      <i class="fa fa-clock-o"></i>{{ post.published_date }}
+      {% endif %}
+    </div>
+    <div itemprop="description" class="markdown-body">
+      <p class="post-text_line"></p>
+      {{ post.body|markdown }}
+      <div class="post-text_line"></div>
+    </div>
+    <div class="heart-particle-box" align="center">
+      <button class="heart-icon likes post-likes" id="heart-icon" data-post-id="{{post.id}}">
+      <i class="fa fa-heart fa-2x"></i></button>
+      <div class="like_count_blog" id="heart-counter">{{ post.likes }}</div>
+    </div>
+    <footer class="post-footer">
+      <span class="post-comment">
+      <i class="fa fa-comment-o"></i>
+      <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></span>
+      <div class="post-share">
+        <div class="more-button">
+          <i class="fa fa-share-alt"></i>
+          <div class="container">
+            <a href="" onclick="fbshare()" class="share-btn">
+            <i class="fa fa-facebook"></i></a>
+            <a href="#" class="share-btn tweet"
+              data-via="sujinleeme"
+              data-hashtags="{{ post.category.title }}">
+            <i class="fa fa-twitter"></i></a>
+            <a href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{post.slug }}"
+              onclick="javascript:window.open(this.href,
+              '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
+              class="share-btn">
+            <i class="fa fa-google-plus"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
 </article>
-
 <div class="comment-entry mdl-grid">
   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
   <div class="post-card mdl-cell mdl-cell--8-col">
     <div class="disqus" id="disqus_thread"></div>
   </div>
 </div>
-
-<nav class="pagination__nav mdl-grid">
+<nav class="pagination_nav mdl-grid">
   <a href="{% url 'post_detail' slug=previous.slug %}">
-    <div class="pagination__col mdl-cell mdl-cell--6-col"
-    style="background: {{post.category.color}}" rippleria>
+    <div class="pagination_col mdl-cell mdl-cell--6-col"
+      style="background: {{post.category.color}}" rippleria>
       {% if previous %}
       <span class="previous">Previous</span>
       <i class="fa fa-angle-left fa-2x"></i>
       <span class="title-left">{{ previous.title|truncatechars:46 }}</span>
   </a>
-    {% endif %}
-    </div>
-
-
-  <div class="pagination__col mdl-cell mdl-cell--6-col"
-  style="background: {{post.category.color}}" rippleria>
+  {% endif %}
+  </div>
+  <div class="pagination_col mdl-cell mdl-cell--6-col"
+    style="background: {{post.category.color}}" rippleria>
     {% if next %}
     <a href="{% url 'post_detail' slug=next.slug %}">
     <span class="next">Next</span>
@@ -80,6 +87,16 @@
     {% endif %}
   </div>
 </nav>
-
 <div class="go-top"><i class="fa fa-angle-up"></i></div>
+<script>
+  function fbshare(){
+      FB.ui({
+        method: 'share',
+        href: 'http://sujinlee.me/blog/{{post.slug }}',
+        {% if post.image %}
+       picture: 'http://sujinlee.me/{{ post.image.url }}', {% endif %}
+        caption: '{{ post.title }}',
+      }, function(response){});
+  }
+</script>
 {% endblock %}

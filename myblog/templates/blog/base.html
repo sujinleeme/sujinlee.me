@@ -1,80 +1,71 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/Blog">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Hello. I am Sujin!">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="media/myblog/image/favicon.png">
+    <link rel="icon" type="image/png" href="{% static 'image/background/favicon.png' %}">
     <title>Sujin Lee</title>
-
-
-    <!-- Page styles -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel='stylesheet' type='text/css'>
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Montserrat+Alternates:400,700' rel='stylesheet' type='text/css'>
-    <link href="//storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css" rel="stylesheet">
+    <link href="//storage.googleapis.com/code.getmdl.io/1.0.6/material.min.css" rel="stylesheet">
     <link href="//cdn.rawgit.com/konpa/devicon/master/devicon.min.css" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet">
-    <link href="{% static 'css/blog.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/markdown.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/text.css' %}" rel="stylesheet" type="text/css">
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
   </head>
-
-  <body>
+  <body itemscope itemtype="http://schema.org/Product">
     <div id="wrapper">
-      <header class="nav-wrap">
+      <header id ="header" class="nav-wrap">
         <div class="title"><a href="/">
-          Sujin Lee</a></div>
-          <nav class="Offscreen Nav-List">
-            <a href="#" class="Button">
-    <i class="Menu-Bar Menu-Top"></i>
-    <i class="Menu-Bar Menu-Middle"></i>
-    <i class="Menu-Bar Menu-Bottom"></i>
-  </a>
-  <ul>
-              <li><a class="rippleria" href="/" rippleria>HOME</a></li>
-              <li><a class="rippleria" href="/blog" rippleria>BLOG</a></li>
-              <li><a class="rippleria" href="/project" rippleria>PROJECT</a></li>
-              <li><a class="rippleria" href="/about" rippleria>ABOUT</a></li>
-            </ul>
-          </nav>
-
-        </header>
-        <main id="contents">
-          {% block content %}{% endblock %}
-        </main>
-
-
-<footer class="footer" align="right">
-  <div class="socials">
-        <a href=""><i class="fa fa-medium fa-2.0x"></i></a>
-        <a href=""><i class="fa fa-linkedin fa-2.0x"></i></a>
-        <a href=""><i class="fa fa-github fa-2.0x"></i></a>
-        <a href=""><i class="fa fa-facebook fa-2.0x"></i></a>
-        <a href=""><i class="fa fa-twitter fa-2.0x"></i></a>
-        <a href=""><i class="fa fa-instagram fa-2.0x"></i></a>
+          Sujin Lee</a>
+        </div>
+        <nav class="Offscreen Nav-List">
+          <a href="#" class="Button">
+          <i class="Menu-Bar Menu-Top"></i>
+          <i class="Menu-Bar Menu-Middle"></i>
+          <i class="Menu-Bar Menu-Bottom"></i>
+          </a>
+          <ul>
+            <li><a class="rippleria" href="/" rippleria>HOME</a></li>
+            <li><a class="rippleria" href="/blog" rippleria>BLOG</a></li>
+            <li><a class="rippleria" href="/project" rippleria>PROJECT</a></li>
+            <li><a class="rippleria" href="/about" rippleria>ABOUT</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main id="contents">
+        {% block content %}{% endblock %}
+      </main>
+      <footer id="#footer" class="footer" align="right">
+        <div class="socials">
+          <a href="http://www.medium.com/@sujinlee"><i class="fa fa-medium fa-2.0x"></i></a>
+          <a href="http://www.linkedin.com/in/leesujin"><i class="fa fa-linkedin fa-2.0x"></i></a>
+          <a href="http://www.github.com/sujinleeme"><i class="fa fa-github fa-2.0x"></i></a>
+          <a href="http://www.facebook.com/sujiniworld"><i class="fa fa-facebook fa-2.0x"></i></a>
+          <a href="http://www.twitter.com/sujinleeme"><i class="fa fa-twitter fa-2.0x"></i></a>
+          <a href="http://www.instagram.com/sujinlee.me/"><i class="fa fa-instagram fa-2.0x"></i></a>
+        </div>
+        <div class="copyright">
+          <i class="fa fa-copyright"></i> SUJIN LEE
+        </div>
+      </footer>
     </div>
-      <div class="copyright">
-        <i class="fa fa-copyright"></i> SUJIN LEE</div>
-  </footer>
-  </div>
-
-        {% block jsblock %}
-        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script scr="//sujinlee.disqus.com/embed.js"></script>
-        <script src="//sujinlee.disqus.com/count.js" id="dsq-count-scr" async></script>
-        <script src="{% static 'js/prefixfree.min.js' %}"></script>
-        <script src="{% static 'js/script.js' %}"></script>
-        <script src="{% static 'js/highlight.pack.js' %}"></script>
-        <script src="{% static 'js/spectragram.js' %}"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-
-
-        {% endblock %}
-        {% block jsblock2 %}{% endblock %}
-
+    {% block jsblock %}
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script scr="//sujinlee.disqus.com/embed.js"></script>
+    <script src="//sujinlee.disqus.com/count.js" id="dsq-count-scr" async></script>
+    <script src="{% static 'js/prefixfree.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/highlight.pack.js' %}"></script>
+    <script src="{% static 'js/social.js' %}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    {% endblock %}
   </body>
 </html>

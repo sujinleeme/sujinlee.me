@@ -53,8 +53,7 @@ def project_detail(request, slug):
     return render(request,'blog/project_detail.html', context)
 
 #Likes
-@login_required
-def like_count(request):
+def like_count_blog(request):
     if request.method == 'GET':
         post_id = request.GET['post_id']
 
@@ -69,7 +68,6 @@ def like_count(request):
     return HttpResponse(likes)
 
 
-@login_required
 def like_count_project(request):
     if request.method == 'GET':
         project_id = request.GET['project_id']
@@ -80,6 +78,6 @@ def like_count_project(request):
             likes = project.likes + 1
         else:
             likes = project.likes
-        project.likes = project_likes
-        project_likes.save()
-    return HttpResponse(project_likes)
+        project.likes = likes
+        project.save()
+    return HttpResponse(likes)

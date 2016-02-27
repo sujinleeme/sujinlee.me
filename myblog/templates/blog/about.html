@@ -2,38 +2,53 @@
 {% load staticfiles %}
 {% block content %}
 <style>
-  body {
-  }
+  .Offscreen {background: #8c39ff;}
 </style>
-
 <section class="page-name">
-    <h1> { ABOUT }</h1>
-    <p> Taste my flavors</p>
+  <h1> { ABOUT }</h1>
 </section>
-
-  <main class="mdl-grid">
-
-      <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="post-card mdl-cell mdl-cell--8-col">
-    <p>Hi, My Name is SUJIN LEE
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam elit vel fermentum volutpat. Sed convallis nulla nec velit luctus gravida vel id nisl. Nulla molestie, diam vel vehicula ultrices, metus ipsum porta odio, id molestie tellus est sed massa. Mauris congue nisl dui, aliquam hendrerit neque facilisis vulputate. Nam ullamcorper metus ac ex tincidunt cursus. Morbi tempor odio ut urna congue cursus. Fusce ac accumsan mi. Nulla ultrices luctus varius. Pellentesque molestie libero eu fermentum rutrum.
-
-  Nunc id rutrum libero, non feugiat odio. Fusce hendrerit libero nibh, a cursus odio maximus nec. Nullam leo sem, convallis sit amet egestas non, pulvinar sit amet ipsum. Etiam interdum tempor enim, a varius neque imperdiet quis. In in odio urna. Etiam congue, nisi gravida viverra consequat, dui ipsum molestie nulla, quis maximus massa orci sed augue. Donec hendrerit rhoncus augue quis tristique.
-</p>
-    <img src="http://www.iconsbyhour.co.uk/images/2pm/0216_name.svg"></img>
+<main class="mdl-grid">
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  <div class="quote-box mdl-cell mdl-cell--8-col">
+    <p><i class="fa fa-quote-left"></i><br>
+      Study the science of art. Study the art of science.
+      Develop your senses-learn how to see.<br>
+      Realize that everything connects you to everything else. - Leonardo da Vinci</i><br>
+      <i class="fa fa-quote-right"></i>
+    </p>
+  </div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  <div class=" mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--8-col-phone">
+    <div class="profile-box mdl-grid">
+      <div class="mdl-cell--12-col mdl-cell--4-col-tablet mdl-cell--8-col-phone">
+        <img id="about" src="{% static 'image/background/profile-about.png' %}" alt="profile" align="middle">
+      </div>
     </div>
-    <div class="mdl-cell mdl-cell--2-col"></div>
-    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="post-card mdl-cell mdl-cell--4-col">
-      <div class="instagram"></div>
-</div>
-
-<div class="post-card mdl-cell mdl-cell--4-col">
-  <p>Hi, My Name is SUJIN LEE
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam elit vel fermentum volutpat. Sed convallis nulla nec velit luctus gravida vel id nisl. Nulla molestie, diam vel vehicula ultrices, metus ipsum porta odio, id molestie tellus est sed massa. Mauris congue nisl dui, aliquam hendrerit neque facilisis vulputate. Nam ullamcorper metus ac ex tincidunt cursus. Morbi tempor odio ut urna congue cursus. Fusce ac accumsan mi. Nulla ultrices luctus varius. Pellentesque molestie libero eu fermentum rutrum.
-
-Nunc id rutrum libero, non feugiat odio. Fusce hendrerit libero nibh, a cursus odio maximus nec. Nullam leo sem, convallis sit amet egestas non, pulvinar sit amet ipsum. Etiam interdum tempor enim, a varius neque imperdiet quis. In in odio urna. Etiam congue, nisi gravida viverra consequat, dui ipsum molestie nulla, quis maximus massa orci sed augue. Donec hendrerit rhoncus augue quis tristique.
-</p>
-<div>
-
+    <div class="contact-box mdl-grid">
+      <div class="mdl-cell--12-col mdl-cell--4-col-tablet mdl-cell--8-col-phone">
+        <h3>Site</h3>
+        <p><a href="https://github.com/sujinleeme/official-website">GitHub</a></p>
+        <h3>CV</h3>
+        <p><a href="https://www.linkedin.com/in/leesujin">LinkedIn</a></p>
+        <h3>Contact</h3>
+        <p><a href="mailto:sujinlee.me@gmail.com?Subject=Hello%20Sujin" target="_top">sujinlee.me@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="about-box mdl-cell mdl-cell--5-col mdl-cell--5-col-tablet mdl-cell--8-col-phone">
+    <h3>BIO</h3>
+    <p>Hello, World! I am Sujin Lee from Seoul, Korea.<br>I write code.  I play music.</p>
+    <p>After finished an undergraduate studying Music Composition & Music Education at Sookmyung Women’s University, I have pursued my passions of music and programming with equal vigor, aiming to make creative work that inspires. I want to use programming to unlock the secret of music masterpiece in the nearest future. I had learned classical music since I was young, but I have been born again as python and web developer.</p>
+    <p>I am currently working in CONNECT foundation, which was established by Naver Corp. to provide software engineering education for the IT industry.</p>
+    <p>While I enjoy all aspects of my job, lately I run Django Girl Seoul Community with friends to encourage women to jump into technology and manage workshops about programming in Python and Django.</p>
+    <p>If you want to say hello, I'm mostly on <a href="https://twitter.com/sujinleeme">twitter</a> or <a href="https://www.facebook.com/sujiniworld">facebook</a>, I always love hearing about you and new projects.</p>
+  </div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  <div class="made-box mdl-cell mdl-cell--8-col">
+  <p>Design & Code by <strong>Sujin Lee</strong> <i class="fa fa-heart"></i> Made with <a href="https://www.djangoproject.com/">django</a> & <a href="https://www.google.com/design/spec/material-design/introduction.html">Google Material Design</a>
+  <p>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+</main>
 {% endblock content %}

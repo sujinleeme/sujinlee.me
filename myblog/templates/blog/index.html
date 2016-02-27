@@ -2,41 +2,31 @@
 {% load staticfiles %}
 {% block content %}
 <style>
-body {background: #6200EA;}
-.nav-wrap {background: none;}
-.title a {color: #fff; opacity: 0.9;}
-.socials a:hover {opacity: 0.3;}
-.Menu-Bar {  background: #fff;}
-.Offscreen {
-  background: rgb(247, 249, 251);
-}
-.Nav-List a {color: #6200EA;}
-.socials a {color: #fff; opacity: 0.6;}
-.copyright {color: #fff; opacity: 0.6;}
+  body {background: #6200ea;}
+  .nav-wrap {background: none;}
+  .title a {color: #fff; opacity: 0.9;}
+  .Menu-Bar {background: #fff;}
+  .Offscreen {background: rgb(247, 249, 251);}
+  .Nav-List a {color: #6200ea;}
+  .socials a {color: #fff; opacity: 0.6;}
+  .socials a:hover {opacity: 0.3;}
+  .copyright {color: #fff; opacity: 0.6;}
 </style>
-
-
-      <!--div id="gradient"-->
-        <img id="bg" src="media/myblog/image/profile-bg.png" align="right" alt="bg"></img>
-        <div id="large-header" class="large-header">
-          <canvas id="demo-canvas" >
-      </canvas>
-      </div>
-    </div>
-        <div class="index-title">
-        <a href="/about" class="index-title__style rippleria-dark" rippleria>
-        <h1>Sujin Lee</h1>
-        <h2>{ DEVELOPER }</h2>
-        <!-- Icon from Free Icon Set by Taras Shypka -->
-        <img class="svg svg-icons" src="media/myblog/image/svg-icons/code.svg">
-        <img class="svg svg-icons" src="media/myblog/image/svg-icons/close.svg">
-        <img class="svg svg-icons" src="media/myblog/image/svg-icons/image.svg">
-        <img class="svg svg-icons" src="media/myblog/image/svg-icons/close.svg">
-        <img class="svg svg-icons" src="media/myblog/image/svg-icons/music.svg">
-        </a>
-        </div>
-      </div>
-
+<img id="bg" src="{% static 'image/background/profile-bg.png' %}" align="right" alt="bg">
+<div id="large-header" class="large-header">
+  <canvas id="demo-canvas">
+  </canvas>
+</div>
+<div class="index-title">
+  <a href="/about" class="index-title_style rippleria-dark" rippleria>
+    <h1>Sujin Lee</h1>
+    <h2>{ the connectivist }</h2>
+    <img class="svg index-icon" src="{% static 'image/svg-icons/code.svg' %}">
+    <img class="svg index-icon" src="{% static 'image/svg-icons/close.svg' %}">
+    <img class="svg index-icon" src="{% static 'image/svg-icons/image.svg' %}">
+    <img class="svg index-icon" src="{% static 'image/svg-icons/close.svg' %}">
+    <img class="svg index-icon" src="{% static 'image/svg-icons/music.svg' %}">
+  </a>
+</div>
 <script src="/static/js/index.js"></script>
-
 {% endblock content %}

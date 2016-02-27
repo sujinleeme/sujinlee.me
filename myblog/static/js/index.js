@@ -1,94 +1,104 @@
-// Credits - AnimatedHeaderBackgrounds Demo 2 by Rachel Smith - Thanks to Codrops
+/*-- mouse effect --*/
+/*
+title: Connections with JavaScript
+date: Aug 4, 2013
+author: Matheus Marsiglio
+available at: http://codepen.io/matmarsiglio/pen/Avmxb
+*/
+var canvasDots = function() {
+    var canvas = document.querySelector('canvas'),
+        ctx = canvas.getContext('2d'),
+        colorDot = '#6200ea',
+        color = '#fff';
+    canvas.width = window.innerWidth;
+    canvas.height = (window.innerHeight) - 120;
+    canvas.style.display = 'block';
+    ctx.fillStyle = colorDot;
+    ctx.lineWidth = .15;
+    ctx.strokeStyle = color;
+    var mousePosition = {
+        x: 30 * canvas.width / 100,
+        y: 30 * canvas.height / 100
+    };
+    var dots = {
+        nb: 350,
+        distance: 60,
+        d_radius: 250,
+        array: []
+    };
 
-(function() {
-
-    var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
-
-    // Main
-    initHeader();
-    addListeners();
-
-    function initHeader() {
-        width = window.innerWidth;
-        height = (window.innerHeight)-60;
-        target = {x: 0, y: height};
-
-        largeHeader = document.getElementById('large-header');
-        largeHeader.style.height = height+'px';
-
-        canvas = document.getElementById('demo-canvas');
-        canvas.width = width;
-        canvas.height = height;
-        ctx = canvas.getContext('2d');
-
-        // create particles
-        circles = [];
-        for(var x = 0; x < width*0.7; x++) {
-            var c = new Circle();
-            circles.push(c);
-        }
-        animate();
+    function Dot() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = -.5 + Math.random();
+        this.vy = -.5 + Math.random();
+        this.radius = 1 + Math.random();
     }
-
-    // Event handling
-    function addListeners() {
-        window.addEventListener('scroll', scrollCheck);
-        window.addEventListener('resize', resize);
-    }
-
-    function scrollCheck() {
-        if(document.body.scrollTop > height) animateHeader = false;
-        else animateHeader = true;
-    }
-
-    function resize() {
-        width = window.innerWidth;
-        height = (window.innerHeight)-60;
-        largeHeader.style.height = height+'px';
-        canvas.width = width;
-        canvas.height = height;
-    }
-
-    function animate() {
-        if(animateHeader) {
-            ctx.clearRect(0,0,width,height);
-            for(var i in circles) {
-                circles[i].draw();
-            }
-        }
-        requestAnimationFrame(animate);
-    }
-
-    // Canvas manipulation
-    function Circle() {
-        var _this = this;
-
-        // constructor
-        (function() {
-            _this.pos = {};
-            init();
-            console.log(_this);
-        })();
-
-        function init() {
-            _this.pos.x = Math.random()*width;
-            _this.pos.y = height+Math.random()*100;
-            _this.alpha = 0.1+Math.random()*0.5;
-            _this.scale = 0.1+Math.random()*0.5;
-            _this.velocity = Math.random()
-        }
-
-        this.draw = function() {
-            if(_this.alpha <= 0) {
-                init();
-            }
-            _this.pos.y -= _this.velocity;
-            _this.alpha -= 0.0005;
+    Dot.prototype = {
+        create: function() {
             ctx.beginPath();
-            ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 3 * Math.PI, false);
-            ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2,
+                false);
             ctx.fill();
-        };
-    }
+        },
+        animate: function() {
+            for (i = 0; i < dots.nb; i++) {
+                var dot = dots.array[i];
+                if (dot.y < 0 || dot.y > canvas.height) {
+                    dot.vx = dot.vx;
+                    dot.vy = -dot.vy;
+                } else if (dot.x < 0 || dot.x > canvas.width) {
+                    dot.vx = -dot.vx;
+                    dot.vy = dot.vy;
+                }
+                dot.x += dot.vx;
+                dot.y += dot.vy;
+            }
+        },
+        line: function() {
+            for (i = 0; i < dots.nb; i++) {
+                for (j = 0; j < dots.nb; j++) {
+                    i_dot = dots.array[i];
+                    j_dot = dots.array[j];
+                    if ((i_dot.x - j_dot.x) < dots.distance && (
+                            i_dot.y - j_dot.y) < dots.distance && (
+                            i_dot.x - j_dot.x) > -dots.distance &&
+                        (i_dot.y - j_dot.y) > -dots.distance) {
+                        if ((i_dot.x - mousePosition.x) < dots.d_radius &&
+                            (i_dot.y - mousePosition.y) < dots.d_radius &&
+                            (i_dot.x - mousePosition.x) > -dots.d_radius &&
+                            (i_dot.y - mousePosition.y) > -dots.d_radius
+                        ) {
+                            ctx.beginPath();
+                            ctx.moveTo(i_dot.x, i_dot.y);
+                            ctx.lineTo(j_dot.x, j_dot.y);
+                            ctx.stroke();
+                            ctx.closePath();
+                        }
+                    }
+                }
+            }
+        }
+    };
 
-})();
+    function createDots() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (i = 0; i < dots.nb; i++) {
+            dots.array.push(new Dot());
+            dot = dots.array[i];
+            dot.create();
+        }
+        dot.line();
+        dot.animate();
+    }
+    window.onmousemove = function(parameter) {
+        mousePosition.x = parameter.pageX;
+        mousePosition.y = parameter.pageY;
+    }
+    mousePosition.x = window.innerWidth / 2;
+    mousePosition.y = window.innerHeight / 2;
+    setInterval(createDots, 1000 / 40);
+};
+window.onload = function() {
+    canvasDots();
+};

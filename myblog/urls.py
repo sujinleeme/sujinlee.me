@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^blog/(?P<slug>[-_\w]*)/$',views.post_detail, name='post_detail'),
     url(r'^blog/$', views.post_list, name='post_list'),
     url(r'^about/$', views.about, name='about'),
-    url(r'^like/$', views.like_count, name='like_count'),
+    url(r'^like-blog/$', views.like_count_blog, name='like_count_blog'),
+    url(r'^like-project/$', views.like_count_project, name='like_count_project'),
 ]
