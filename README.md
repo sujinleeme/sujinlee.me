@@ -10,7 +10,7 @@
 ##### Django third party apps
 * [django-Markdown](https://github.com/klen/django_markdown)
 
-##### CSS Library
+##### CSS Tools
 * [prefix-free](https://leaverou.github.io/prefixfree/)
 * [Normalize.css](http://necolas.github.io/normalize.css/)
 
