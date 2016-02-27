@@ -19,8 +19,8 @@ Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Articl
 ##### Main Concept
 * Color & Font & Concept : [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
 
-##### UX Layout for mobile & pc
-* 12 column grid web design : [Material Design Lite](http://www.getmdl.io/)
+##### Responsive Web Design
+* 12 column grid : [Material Design Lite](http://www.getmdl.io/)
 
 ##### UI Effect
 * [jQuery SVG image replacement)](http://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement)
