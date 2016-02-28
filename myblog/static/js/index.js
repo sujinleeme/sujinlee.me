@@ -7,6 +7,7 @@ available at: http://codepen.io/matmarsiglio/pen/Avmxb
 */
 
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  console.log('mobile is working')
   var canvasDots = function() {
       var canvas = document.querySelector('canvas'),
           ctx = canvas.getContext('2d'),
@@ -16,7 +17,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
       canvas.height = (window.innerHeight) - 120;
       canvas.style.display = 'block';
       ctx.fillStyle = colorDot;
-      ctx.lineWidth = .15;
+      ctx.lineWidth = 0.15;
       ctx.strokeStyle = color;
       var mousePosition = {
           x: 30 * canvas.width / 100,
@@ -32,8 +33,8 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
       function Dot() {
           this.x = Math.random() * canvas.width;
           this.y = Math.random() * canvas.height;
-          this.vx = -.5 + Math.random();
-          this.vy = -.5 + Math.random();
+          this.vx = -0.5 + Math.random();
+          this.vy = -0.5 + Math.random();
           this.radius = 1 + Math.random();
       }
       Dot.prototype = {
@@ -131,8 +132,8 @@ var canvasDots = function() {
     function Dot() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = -.5 + Math.random();
-        this.vy = -.5 + Math.random();
+        this.vx = -0.5 + Math.random();
+        this.vy = -0.5 + Math.random();
         this.radius = 1 + Math.random();
     }
     Dot.prototype = {
