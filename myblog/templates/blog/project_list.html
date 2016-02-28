@@ -10,7 +10,7 @@
    {% for project in projects %}
    {% if forloop.counter0|divisibleby:"2" %}
    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-   <div class="mdl-cell mdl-cell--4-col">
+   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-tablet">
       <figure class="pr-card" style="background: {{project.category.color}}">
          <img class="" src=" {{ project.image.url }} ">
          <figcaption>
@@ -24,7 +24,7 @@
    </div>
    {% endif %}
    {% if forloop.last or forloop.counter|divisibleby:"2" %}
-   <div class="mdl-cell mdl-cell--4-col">
+   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-tablet">
       <figure class="pr-card" style="background: {{project.category.color}}">
          <img class="" src=" {{ project.image.url }} ">
          <figcaption>

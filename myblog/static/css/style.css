@@ -702,7 +702,7 @@ figure.pr-card * {
 }
 
 figure.pr-card img {
-  height: 100%;
+  width: 100%;
   vertical-align: top;
 }
 
@@ -869,7 +869,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 .made-box {
   box-shadow: 0 0 2em rgba(0,0,0,0.1);
   background: #fff;
-  padding-right: 1em;
+  padding: 1em 2em 1em 2em;
   border: 2px solid #6200ea;
   color: #6200ea;
   margin-bottom: 10vh;
@@ -1218,6 +1218,9 @@ available at: https://github.com/nsept/rippleria
     left: -8em;
   }
 
+  .card {
+    width: 88%;
+  }
   .post-card_body {
     padding: 2em;
   }
@@ -1240,5 +1243,56 @@ available at: https://github.com/nsept/rippleria
 
   .comment-entry {
     margin-bottom: 5vh;
+  }
+}
+
+/* iphone 5 */
+@media only screen and (max-width: 375px) {
+  figure.pr-card {
+    width: 285px;
+  }
+}
+
+/* tablet */
+@media only screen and (max-width: 600px) {
+  .post-footer {
+    padding-left: 40%;
+    margin-bottom: 3em;
+  }
+
+  .more-button:hover,.more-button:active {
+    width: 100px;
+  }
+
+  .container .share-btn {
+    padding: .6em;
+  }
+
+  .more-button:hover > .container,.more-button:active > .container {
+    left: 1em;
+    opacity: 1;
+    width: 100px;
+  }
+}
+
+/* iphone 6 */
+@media only screen and (max-width: 375px) {
+  .post-footer {
+    padding-left: 35%;
+    margin-bottom: 3em;
+  }
+
+  .more-button:hover,.more-button:active {
+    width: 95px;
+  }
+
+  .container .share-btn {
+    padding: .6em;
+  }
+
+  .more-button:hover > .container,.more-button:active > .container {
+    left: 1.2em;
+    opacity: 1;
+    width: 95px;
   }
 }
