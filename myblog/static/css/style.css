@@ -123,7 +123,7 @@ img {
 }
 
 .copyright {
-  padding-right: 2em;
+  padding-right: 1em;
   color: #80939d;
 }
 
@@ -571,7 +571,7 @@ a.overlay {
 
 .post-footer {
   color: #80939d;
-  font-size: 1em;
+  font-size: 0.9em;
   padding-left: 42%;
   margin-bottom: 3em;
 }
@@ -694,10 +694,11 @@ figure.pr-card * {
 
 figure.pr-card img {
   height: 240px;
+  width: 100%;
+
 }
 
 .object-fit_cover {
-  object-fit: cover;
 }
 
 figure.pr-card:hover svg path {
@@ -1236,6 +1237,8 @@ available at: https://github.com/nsept/rippleria
   }
 }
 
+/*-- reponsive mobile web --*/
+
 @media only screen and (max-width: 600px) {
   .post-footer {
     padding-left: 36%;
@@ -1243,7 +1246,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .more-button:hover,.more-button:active {
-    width: 100px;
+    width: 100px;e
   }
 
   .container .share-btn {
@@ -1274,8 +1277,8 @@ available at: https://github.com/nsept/rippleria
     height: 180px;
   }
 }
-/* iphone 4,5,6 */
 
+/* iphone 4,5,6 */
 @media only screen and (max-width: 384px) {
   .card-thumb {
     height: 160px;
@@ -1352,5 +1355,4 @@ available at: https://github.com/nsept/rippleria
     opacity: 1;
     width: 95px;
   }
-
 }
