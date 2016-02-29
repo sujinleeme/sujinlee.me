@@ -3,21 +3,21 @@
 {% load django_markdown %}
 {% block content %}
 <section class="page-name">
-  <h1>{ PROJECT }</h1>
+  <h1> { PROJECT }</h1>
   <p> Web, Music </p>
 </section>
 <article class="mdl-grid">
   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  <div class="post-card mdl-cell mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+  <div class="post-card mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+  <div class="post-card_main-image">
+    <img itemprop="image" src="{{ project.image.url }}" >
+  </div>
+  <div class="post-card_category" style="background: {{ project.category.color }}">
+    {{ project.category.title }}
+  </div>
   <div class="post-card_body">
-    <div class="post-card_main-image">
-      <img itemprop="image" src="{{ project.image.url }}" >
-    </div>
     <div class="post-card_btn" style="background: {{ project.category.color }}">
       <img class="post-category-icon" src="{% static project.category.image_url %}">
-    </div>
-    <div class="post-card_category" style="background: {{ project.category.color }}">
-      {{ project.category.title }}
     </div>
     <h1 itemprop="name">{{ project.title }}</h1>
     <div class="post-card_date">
@@ -26,7 +26,7 @@
       {% endif %}
     </div>
     <div itemprop="description" class="markdown-body">
-      <p class="post-text_line"></p>
+      <div class="post-text_line"></div>
       {{ project.body|markdown }}
       <div class="post-text_line"></div>
     </div>
@@ -62,7 +62,7 @@
 </article>
 <div class="comment-entry mdl-grid">
   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  <div class="post-card mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+  <div class="post-card mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <div class="disqus" id="disqus_thread"></div>
   </div>
 </div>

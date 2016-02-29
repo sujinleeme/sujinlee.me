@@ -109,12 +109,11 @@ h6 tt,h6 code {
 h1 {
   font-size: 26px;
   text-align: center;
-  padding-top: .6em;
 }
 
 @media only screen and (max-width: 550px) {
   h1 {
-    padding-top: 1em;
+    font-size: 20px;
   }
 }
 

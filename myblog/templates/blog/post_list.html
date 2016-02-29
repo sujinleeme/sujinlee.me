@@ -11,38 +11,12 @@
     {% for post in posts %}
     {% if forloop.counter0|divisibleby:"2" %}
     <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-tablet">
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
       <div class="card">
+        <a class="overlay rippleria-dark"
+            href="{% url 'post_detail' slug=post.slug %}" rippleria>
         <header class="card-thumb">
-          <img src=" {{ post.image.url }} " width="100%">
-        </header>
-        <div class="card-btn" style="background: {{post.category.color}}">
-          <img class="svg category-icon" src='{% static post.category.image_url %}'>
-        </div>
-        <div class="card-body">
-          <div class="card-category" style="background: {{post.category.color}}">{{ post.category.title }}</div>
-          <div class="card-title">{{ post.title }}</div>
-          <div class="card-description">{{ post.summary|truncatechars:230 }}</div>
-        </div>
-        <footer class="card-footer">
-          <span class="card-icon"><i class="fa fa-heart"></i> {{ post.likes }}</span>
-          <span class="card-icon">
-          <i class="fa fa-comment-o"></i>
-          <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></span>
-          <span class="card-icon"><i class="fa fa-clock-o"></i> {{ post.published_date }}</span>
-          <a class="card-read-btn rippleria-dark"
-            style="color: {{ post.category.color }}; background: #transparent;"
-            href="{% url 'post_detail' slug=post.slug %}" rippleria >
-          Read</a>
-      </div>
-      </footer>
-    </div>
-    {% endif %}
-    {% if forloop.last or forloop.counter|divisibleby:"2" %}
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-tablet">
-      <div class="card">
-        <header class="card-thumb">
-          <img src="{{ post.image.url }}" width="100%">
+          <img src="{{ post.image.url }}">
         </header>
         <div class="card-btn" style="background: {{post.category.color}}">
           <img class="svg category-icon" src="{% static post.category.image_url %}">
@@ -52,16 +26,40 @@
           <div class="card-title">{{ post.title }}</div>
           <div class="card-description">{{ post.summary|truncatechars:230 }}</div>
         </div>
+      </a>
         <footer class="card-footer">
           <span class="card-icon"><i class="fa fa-heart"></i> {{ post.likes }}</span>
-          <span class="card-icon">
-          <i class="fa fa-comment-o"></i>
-          <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></span>
+          <span class="card-icon"><i class="fa fa-comment-o"></i>
+            <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a>
+          </span>
           <span class="card-icon"><i class="fa fa-clock-o"></i> {{ post.published_date }}</span>
-          <a class="card-read-btn rippleria-dark"
-            style="color: {{ post.category.color }}; background: #transparent;"
-            href="{% url 'post_detail' slug=post.slug %}" rippleria >
-          Read</a>
+      </div>
+      </footer>
+    </div>
+    {% endif %}
+    {% if forloop.last or forloop.counter|divisibleby:"2" %}
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+      <div class="card">
+        <a class="overlay rippleria-dark"
+            href="{% url 'post_detail' slug=post.slug %}" rippleria>
+        <header class="card-thumb">
+          <img src="{{ post.image.url }}">
+        </header>
+        <div class="card-btn" style="background: {{post.category.color}}">
+          <img class="svg category-icon" src="{% static post.category.image_url %}">
+        </div>
+        <div class="card-body">
+          <div class="card-category" style="background: {{post.category.color}}">{{ post.category.title }}</div>
+          <div class="card-title">{{ post.title }}</div>
+          <div class="card-description">{{ post.summary|truncatechars:230 }}</div>
+        </div>
+      </a>
+        <footer class="card-footer">
+          <span class="card-icon"><i class="fa fa-heart"></i> {{ post.likes }}</span>
+          <span class="card-icon"><i class="fa fa-comment-o"></i>
+            <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a>
+          </span>
+          <span class="card-icon"><i class="fa fa-clock-o"></i> {{ post.published_date }}</span>
       </div>
       </footer>
     </div>

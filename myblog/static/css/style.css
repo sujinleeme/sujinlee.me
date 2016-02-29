@@ -30,6 +30,7 @@ img {
   image-rendering: auto;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
+  object-fit: cover;
 }
 
 #wrapper {
@@ -341,14 +342,20 @@ img {
 
 .card {
   position: relative;
-  padding: 12px;
-  width: 70%;
+  width: 76%;
   margin: 0 auto 3em;
-  height: 400px;
+  height: 360px;
   border-radius: 0;
   background: #fff;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   transition: box-shadow .3s;
+}
+
+a.overlay {
+  width: 100%;
+  height:100%;
+  position: absolute;
+  color: inherit;
 }
 
 .card:hover {
@@ -358,11 +365,9 @@ img {
 .card-category {
   position: absolute;
   top: -25px;
-  left: 5px;
+  left: 0px;
   height: 25px;
   padding: 0 15px;
-  background: #;
-  border-radius: 2px;
   line-height: 25px;
   color: #fff;
   font-size: 11px;
@@ -392,40 +397,40 @@ img {
 }
 
 .card-thumb {
-  height: 240px;
+  height: 180px;
   overflow: hidden;
   transition: height .3s;
 }
 
 .card-thumb img {
-  display: block;
-  width: 100%;
   transition: opacity 0.2s,transform .2s;
   transform: scale(1);
 }
 
 .card:hover .card-thumb {
-  height: 70px;
+  height: 84px;
   opacity: .3;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
+  cursor: pointer;
 }
 
 .card-body {
   position: relative;
-  padding: 20px;
+  padding: 2em;
   height: 185px;
   transition: height .4s;
 }
 
 .card:hover .card-body {
   height: 290px;
+  cursor: pointer;
 }
 
 .card-title {
   padding: 0 0 10px;
   margin: 0;
-  font-size: 20px;
+  font-size: 1.3em;
   line-height: 27px;
   font-family: 'Spoqa Han Sans','Spoqa Han Sans JP',sans-serif;
   font-weight: 400;
@@ -435,9 +440,9 @@ img {
   position: absolute;
   left: 20px;
   right: 20px;
-  bottom: 65px;
+  bottom: px;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   color: #666c74;
   font-size: 13px;
   line-height: 20px;
@@ -449,20 +454,22 @@ img {
 
 .card:hover .card-description {
   opacity: 1;
+  cursor: pointer;
   transition-delay: .5s;
   transform: translateY(0);
+
 }
 
 .card-footer {
   position: absolute;
   color: #80939d;
-  bottom: 15px;
-  left: 20px;
-  right: 20px;
+  bottom: 0em;
+  padding: 2em;
   font-size: 11px;
 }
 
 .card-icon {
+  position: relative;
   display: inline-block;
   vertical-align: middle;
   margin-right: 9px;
@@ -473,26 +480,18 @@ img {
 }
 
 .card-icon a {
-  color: #80939d;
+  color: inherit;
   pointer-events: none;
   cursor: default;
 }
 
 .card-read-btn {
-  margin-top: -3px;
-  border: none;
   border-radius: 2px;
-  position: relative;
-  min-width: 13px;
-  padding: 5px;
-  display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0;
   overflow: hidden;
   cursor: pointer;
-  text-align: center;
-  vertical-align: middle;
-  float: right;
+  right: 0;
 }
 
 .card-read-btn:hover {
@@ -503,22 +502,18 @@ img {
 
 /*-- post_detail.html--*/
 .post-card {
-  border-radius: 0;
-  padding: 1em;
-  right: 0;
-  left: 0;
   box-shadow: 0 0 2em rgba(0,0,0,0.1);
   background: #fff;
 }
 
 .post-card_body {
-  padding: 4.5em;
+  padding: 0em 5em 3em 5em;
 }
 
 .post-card_btn {
   float: right;
   position: relative;
-  margin: -24em -2em 1em 1em;
+  margin: -27em -4em 0em 0em;
   width: 53px;
   height: 53px;
   border-radius: 50%;
@@ -535,25 +530,23 @@ img {
 
 .post-card_main-image {
   overflow: hidden;
-  margin-top: 20px;
+  height: 350px;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
-  height: 300px;
-  z-index: 1;
 }
 
 .post-card_category {
-  position: absolute;
-  padding: 0 1em;
-  margin-left: -2em;
-  border-radius: 2px;
+  position: relative;
+  width: 120px;
+  margin-left:0;
+  bottom: 28px;
   color: #fff;
-  font-size: 13px;
+  font-size: 0.9em;
   line-height: 28px;
   text-transform: uppercase;
   font-family: 'Montserrat',sans-serif;
-  letter-spacing: .01em;
+  letter-spacing: 0em;
+  text-align: center;
 }
 
 .post-card_date {
@@ -562,7 +555,7 @@ img {
   display: inline-block;
   vertical-align: middle;
   display: inline-block;
-  font-size: 16px/1;
+  font-size: 14px;
   color: #80939d;
 }
 
@@ -571,16 +564,15 @@ img {
 }
 
 .post-text_line {
-  width: 9em;
-  margin: 4em auto;
-  border-bottom: 1px solid #e4e8ea;
-  opacity: .2;
+  width: 18em;
+  margin: 3em auto;
+  border-bottom: 2.3px solid #f6f8fa;
 }
 
 .post-footer {
   color: #80939d;
   font-size: 1em;
-  padding-left: 45%;
+  padding-left: 42%;
   margin-bottom: 3em;
 }
 
@@ -671,11 +663,10 @@ img {
 /*-- project_list --*/
 figure.pr-card {
   text-align: center;
-  position: relative;
   -webkit-perspective: 50em;
   perspective: 50em;
   margin: 0 auto 3em;
-  width: 330px;
+  width: 90%;
   height: 240px;
   background: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -702,8 +693,11 @@ figure.pr-card * {
 }
 
 figure.pr-card img {
-  width: 100%;
-  vertical-align: top;
+  height: 240px;
+}
+
+.object-fit_cover {
+  object-fit: cover;
 }
 
 figure.pr-card:hover svg path {
@@ -712,7 +706,7 @@ figure.pr-card:hover svg path {
 }
 
 figure.pr-card:hover img {
-  opacity: .2;
+  opacity: 0.2;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }
@@ -748,6 +742,7 @@ figure.pr-card h2 {
 
 figure.pr-card h3 {
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 figure.pr-card h4 {
@@ -899,7 +894,7 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
   position: relative;
   width: 200px;
   height: 200px;
-  margin-top: -8em;
+  margin-top: -4em;
   left: 50%;
   transform: translate(-50%,-50%);
   margin-bottom: -60px;
@@ -908,7 +903,7 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 #heart-icon {
   margin-top: 150px;
   color: #fa7d6c;
-  font-size: .9em;
+  font-size: 15px;
   opacity: .3;
   border: 0;
   background: none;
@@ -949,6 +944,7 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
   position: absolute;
   margin-left: 52px;
   opacity: .3;
+  font-size: 15px;
 }
 
 .heart-particle i.fa-heart-o {
@@ -1102,16 +1098,17 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 /*-- pagination left --*/
 .previous {
   margin-left: 16%;
-  font-size: 1em;
+  font-size: 0.8em;
   text-transform: uppercase;
   opacity: .7;
   line-height: 1.4em;
   text-align: left;
+  font-size: 1em;
   display: block;
 }
 
 .title-left {
-  font-size: 18px;
+  font-size: 1.3em;
   line-height: 1.4em;
   float: left;
 }
@@ -1136,7 +1133,7 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 
 .title-right {
   margin-right: 16%;
-  font-size: 18px;
+  font-size: 1.3em;
   line-height: 1.4em;
   float: right;
 }
@@ -1208,7 +1205,7 @@ available at: https://github.com/nsept/rippleria
   margin: auto;
 }
 
-/*-- mobile --*/
+/*-- tablet --*/
 @media only screen and (max-width: 550px) {
   .nav-wrap {
     padding-left: 4em;
@@ -1221,24 +1218,17 @@ available at: https://github.com/nsept/rippleria
   .card {
     width: 88%;
   }
+
+  .pr-card {
+    width: 88%;
+  }
+
   .post-card_body {
-    padding: 2em;
-  }
-
-  .post-card_main-image {
-    width: 260px;
-  }
-
-  .post-card_btn {
-    margin: -23em -1em 1em 1em;
-  }
-
-  .post-card_category {
-    margin: 1em 0 0 -1em;
+    padding: 0 2em 0 2em;
   }
 
   .disqus {
-    padding: 1em;
+    padding: 2em;
   }
 
   .comment-entry {
@@ -1246,18 +1236,10 @@ available at: https://github.com/nsept/rippleria
   }
 }
 
-/* iphone 5 */
-@media only screen and (max-width: 375px) {
-  figure.pr-card {
-    width: 285px;
-  }
-}
-
-/* tablet */
 @media only screen and (max-width: 600px) {
   .post-footer {
-    padding-left: 40%;
-    margin-bottom: 3em;
+    padding-left: 36%;
+    margin-bottom: 3.5em;
   }
 
   .more-button:hover,.more-button:active {
@@ -1275,11 +1257,86 @@ available at: https://github.com/nsept/rippleria
   }
 }
 
-/* iphone 6 */
-@media only screen and (max-width: 375px) {
+/* tablet */
+@media only screen and (max-width: 550px) {
+  .post-card_btn {
+    float: right;
+    position: relative;
+    margin: -15.6em -1.3em 0em 0em;
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    color: #fff;
+  }
+
+  .post-card_main-image {
+    overflow: hidden;
+    height: 180px;
+  }
+}
+/* iphone 4,5,6 */
+
+@media only screen and (max-width: 384px) {
+  .card-thumb {
+    height: 160px;
+    overflow: hidden;
+    transition: height .3s;
+  }
+
+  .post-card_btn {
+    float: right;
+    position: relative;
+    margin: -11.9em -1.3em 0em 0em;
+    width: 40px;
+    height: 40px;
+  }
+  .post-card_date {
+    font-size: 10px;
+  }
+  .post-category-icon {
+    object-fit: contain;
+    position: absolute;
+    width: 1.3em;
+    height: 1.3em;
+    margin: .7em;
+  }
+
+  .post-card_category {
+    position: relative;
+    width: 75px;
+    font-size: 10px;
+    margin-left:0;
+    bottom: 20px;
+    line-height: 2em;
+    text-transform: uppercase;
+    font-family: 'Montserrat',sans-serif;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+
+  .post-card_main-image {
+    overflow: hidden;
+    height: 140px;
+  }
+
+  .heart-particle-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-top: -1em;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-bottom: -90px;
+  }
+
   .post-footer {
-    padding-left: 35%;
     margin-bottom: 3em;
+  }
+
+  .post-text_line {
+    width: 100%;
+    margin: 3em 0 0em 0em;
+    border-bottom: 2.3px solid #f6f8fa;
   }
 
   .more-button:hover,.more-button:active {
@@ -1295,4 +1352,5 @@ available at: https://github.com/nsept/rippleria
     opacity: 1;
     width: 95px;
   }
+
 }

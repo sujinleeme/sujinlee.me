@@ -9,15 +9,15 @@
 <article class="mdl-grid">
   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
   <div class="post-card mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+  <div class="post-card_main-image">
+    <img itemprop="image" src="{{ post.image.url }}" >
+  </div>
+  <div class="post-card_category" style="background: {{ post.category.color }}">
+    {{ post.category.title }}
+  </div>
   <div class="post-card_body">
-    <div class="post-card_main-image">
-      <img itemprop="image" src="{{ post.image.url }}" >
-    </div>
     <div class="post-card_btn" style="background: {{ post.category.color }}">
       <img class="post-category-icon" src="{% static post.category.image_url %}">
-    </div>
-    <div class="post-card_category" style="background: {{ post.category.color }}">
-      {{ post.category.title }}
     </div>
     <h1 itemprop="name">{{ post.title }}</h1>
     <div class="post-card_date">
@@ -26,13 +26,13 @@
       {% endif %}
     </div>
     <div itemprop="description" class="markdown-body">
-      <p class="post-text_line"></p>
+      <div class="post-text_line"></div>
       {{ post.body|markdown }}
       <div class="post-text_line"></div>
     </div>
     <div class="heart-particle-box" align="center">
       <button class="heart-icon likes post-likes" id="heart-icon" data-post-id="{{post.id}}">
-      <i class="fa fa-heart fa-2x"></i></button>
+      <i class="fa fa-heart"></i></button>
       <div class="like_count_blog" id="heart-counter">{{ post.likes }}</div>
     </div>
     <footer class="post-footer">
