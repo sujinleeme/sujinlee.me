@@ -67,7 +67,7 @@
   </div>
 </div>
 <nav class="pagination_nav mdl-grid">
-  <a href="{% url 'post_detail' slug=previous.slug %}">
+  <a href="{% url 'project_detail' slug=previous.slug %}">
     <div class="pagination_col mdl-cell mdl-cell--6-col"
       style="background: {{project.category.color}}" rippleria>
       {% if previous %}
@@ -80,7 +80,7 @@
   <div class="pagination_col mdl-cell mdl-cell--6-col"
     style="background: {{project.category.color}}" rippleria>
     {% if next %}
-    <a href="{% url 'post_detail' slug=next.slug %}">
+    <a href="{% url 'project_detail' slug=next.slug %}">
     <span class="next">Next</span>
     <i class="fa fa-angle-right fa-2x"></i>
     <span class="title-right">{{ next.title|truncatechars:46 }}</span></a>
