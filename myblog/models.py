@@ -7,7 +7,6 @@ class Category(models.Model):
     title = models.CharField(max_length=50)
     image_url = models.CharField(max_length=100)
     color = models.CharField(max_length=50)
-    background_color = models.CharField(max_length=50)
 
     def __str__(self):
         return (self.title)
