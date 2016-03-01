@@ -1239,6 +1239,7 @@ available at: https://github.com/nsept/rippleria
 
 @media only screen and (max-width: 600px) {
   .post-footer {
+    padding-left: 39%;
     padding-bottom: 2em;
   }
 
@@ -1379,6 +1380,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .post-footer {
+    padding-left: 34%;
     padding-top: 1.3em;
     padding-bottom: 1.3em;
   }
