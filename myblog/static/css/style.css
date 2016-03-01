@@ -567,18 +567,12 @@ a.overlay {
   margin-right: 5px;
 }
 
-.post-text_line {
-  width: 100%;
-  margin: 3em auto;
-  padding-top: 1em;
-  border-bottom: 2px solid #ebeeef;
-}
 
 .post-footer {
   color: #80939d;
   line-height: 1em;
   font-size: 0.9em;
-  padding-left: 45%;
+  padding-left: 44.5%;
   margin-bottom: 3em;
 }
 
@@ -1347,15 +1341,15 @@ available at: https://github.com/nsept/rippleria
     position: relative;
     width: 200px;
     height: 200px;
-    margin-top: -1em;
+    margin-top: -5em;
     left: 50%;
     transform: translate(-50%,-50%);
     margin-bottom: -90px;
   }
 
   .post-footer {
-    margin-bottom: 3em;
-    padding-top: 0.3em;
+    padding-top: 1.3em;
+    padding-bottom: 1.3em;
   }
 
   .more-button:hover,.more-button:active {
@@ -1363,7 +1357,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .container .share-btn {
-    padding: .7em;
+    padding-left: .7em;
   }
 
   .more-button:hover > .container,.more-button:active > .container {
