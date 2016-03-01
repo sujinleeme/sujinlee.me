@@ -1,13 +1,4 @@
 /*-- mouse effect --*/
-
-/* open new window */
-$('.markdown-body').ready(function(){
-  $('a').click(function(){
-    window.open(this.href);
-    return false;
-  });
-});
-
 /*
 title: Connections with JavaScript
 date: Aug 4, 2013
