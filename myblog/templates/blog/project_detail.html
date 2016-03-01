@@ -32,7 +32,7 @@
     <div class="heart-particle-box" align="center">
       <button class="heart-icon likes project-likes" id="heart-icon" data-project-id="{{project.id}}">
       <i class="fa fa-heart"></i></button>
-      <div class="like_count_blog" id="heart-counter">{{ project.likes }}</div>
+      <div class="like_count_project" id="heart-counter">{{ project.likes }}</div>
     </div>
     <footer class="post-footer">
       <span class="post-comment">
@@ -48,7 +48,7 @@
               data-via="sujinleeme"
               data-hashtags="{{ project.category.title }}">
             <i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{project.slug }}"
+            <a href="https://plus.google.com/share?url=http://sujinlee.me/project/{{project.slug }}"
               onclick="javascript:window.open(this.href,
               '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
               class="share-btn">
@@ -91,7 +91,7 @@
   function fbshare(){
       FB.ui({
         method: 'share',
-        href: 'http://sujinlee.me/blog/{{project.slug }}',
+        href: 'http://sujinlee.me/project/{{project.slug }}',
         {% if project.image %}
        picture: 'http://sujinlee.me/{{ project.image.url }}', {% endif %}
         caption: '{{ project.title }}',

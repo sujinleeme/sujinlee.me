@@ -1383,6 +1383,7 @@ available at: https://github.com/nsept/rippleria
     padding-left: 34%;
     padding-top: 1.3em;
     padding-bottom: 1.3em;
+    font-size: 0.9em;
   }
 
   .more-button:hover,.more-button:active {
@@ -1390,12 +1391,12 @@ available at: https://github.com/nsept/rippleria
   }
 
   .container .share-btn {
-    padding-left: .7em;
+    padding-left: .6em;
   }
 
   .more-button:hover > .container,.more-button:active > .container {
     left: 1.2em;
     opacity: 1;
-    width: 105px;
+    width: 100px;
   }
 }
