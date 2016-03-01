@@ -523,9 +523,9 @@ a.overlay {
 .post-category-icon {
   object-fit: contain;
   position: absolute;
-  width: 1.9em;
-  height: 1.9em;
-  margin: .9em;
+  width: 2.1em;
+  height: 2.1em;
+  margin: .85em;
 }
 
 .post-card_main-image {
@@ -572,7 +572,7 @@ a.overlay {
   color: #80939d;
   line-height: 1em;
   font-size: 0.9em;
-  padding-left: 44.5%;
+  padding-left: 43.5%;
   margin-bottom: 3em;
 }
 
@@ -1310,9 +1310,9 @@ available at: https://github.com/nsept/rippleria
   .post-card_btn {
     float: right;
     position: relative;
-    margin: -11.9em -1.3em 0em 0em;
-    width: 40px;
-    height: 40px;
+    margin: -11.3em -1.3em 0em 0em;
+    width: 43px;
+    height: 43px;
   }
 
   .post-card_date {
@@ -1322,9 +1322,9 @@ available at: https://github.com/nsept/rippleria
   .post-category-icon {
     object-fit: contain;
     position: absolute;
-    width: 1.6em;
-    height: 1.6em;
-    margin: .6em;
+    width: 1.7em;
+    height: 1.7em;
+    margin: .7em;
   }
 
   .post-card_category {
