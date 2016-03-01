@@ -387,8 +387,8 @@ a.overlay {
 
 .card-btn {
   position: absolute;
-  top: 21px;
-  right: 20px;
+  top: 13px;
+  right: 13px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -494,6 +494,7 @@ a.overlay {
   right: 0;
 }
 
+
 .card-read-btn:hover {
   background: #f4f4f4;
   cursor: pointer;
@@ -507,7 +508,7 @@ a.overlay {
 }
 
 .post-card_body {
-  padding: 0em 5em 3em 5em;
+  padding: 0em 5em 5em 5em;
 }
 
 .post-card_btn {
@@ -523,9 +524,9 @@ a.overlay {
 .post-category-icon {
   object-fit: contain;
   position: absolute;
-  width: 2.1em;
-  height: 2.1em;
-  margin: .85em;
+  width: 1.9em;
+  height: 1.9em;
+  margin: 0.98em;
 }
 
 .post-card_main-image {
@@ -550,7 +551,6 @@ a.overlay {
 }
 
 .post-card_date {
-  padding: 1em 0 1em 1em;
   float: right;
   display: inline-block;
   vertical-align: middle;
@@ -560,7 +560,7 @@ a.overlay {
 }
 
 .markdown-body {
-  padding: 8em 0 3em 0;
+  padding: 5em 0 3em 0;
 }
 
 .post-card_date i {
@@ -571,9 +571,8 @@ a.overlay {
 .post-footer {
   color: #80939d;
   line-height: 1em;
-  font-size: 0.9em;
+  font-size: 1em;
   padding-left: 43.5%;
-  margin-bottom: 3em;
 }
 
 .post-footer .post-comment a {
@@ -903,7 +902,7 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 #heart-icon {
   margin-top: 150px;
   color: #fa7d6c;
-  font-size: 15px;
+  font-size: 16px;
   opacity: .3;
   border: 0;
   background: none;
@@ -944,7 +943,7 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
   position: absolute;
   margin-left: 52px;
   opacity: .3;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .heart-particle i.fa-heart-o {
@@ -1251,6 +1250,7 @@ available at: https://github.com/nsept/rippleria
   .markdown-body {
     padding: 4em 0 3em 0;
   }
+
   .container .share-btn {
     padding: .6em;
   }
@@ -1286,6 +1286,12 @@ available at: https://github.com/nsept/rippleria
 
 /* iphone 4,5,6 */
 @media only screen and (max-width: 384px) {
+  .footer {
+    font-size: 0.8em;
+    padding: .7rem 0;
+    width: 100%;
+  }
+
   .copyright {
     padding-right: 1.5em;
   }
@@ -1307,10 +1313,18 @@ available at: https://github.com/nsept/rippleria
     transition: height .3s;
   }
 
+  .page-name p {
+    font-size: 1em;
+  }
+
+  .markdown-body {
+    padding: 3em 0 3em 0;
+  }
+
   .post-card_btn {
     float: right;
     position: relative;
-    margin: -11.3em -1.3em 0em 0em;
+    margin: -12.3em -1.3em 0em 0em;
     width: 43px;
     height: 43px;
   }
@@ -1320,20 +1334,18 @@ available at: https://github.com/nsept/rippleria
   }
 
   .post-category-icon {
-    object-fit: contain;
-    position: absolute;
-    width: 1.7em;
-    height: 1.7em;
-    margin: .7em;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0.8em;
   }
 
   .post-card_category {
     position: relative;
     width: 100px;
-    font-size: 10px;
+    font-size: 11px;
     margin-left:0;
-    bottom: 20px;
-    line-height: 2.05em;
+    bottom: 23px;
+    line-height: 2.1em;
     text-transform: uppercase;
     font-family: 'Montserrat',sans-serif;
     letter-spacing: 0em;
@@ -1353,6 +1365,18 @@ available at: https://github.com/nsept/rippleria
     left: 50%;
     transform: translate(-50%,-50%);
     margin-bottom: -90px;
+  }
+  .previous {
+    font-size: 0.8em;
+  }
+  .next {
+    font-size: 0.8em;
+  }
+  .title-left {
+    font-size: 1.1em
+  }
+  .title-right {
+    font-size: 1.1em;
   }
 
   .post-footer {

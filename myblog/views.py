@@ -15,7 +15,6 @@ def about(request):
     return render(request, 'blog/about.html')
 
 #blog
-
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts':posts})
@@ -34,7 +33,6 @@ def post_detail(request, slug):
     return render(request,'blog/post_detail.html', context)
 
 # project
-
 def project_list(request):
     projects = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/project_list.html', {'projects':projects})

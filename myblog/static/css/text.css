@@ -24,6 +24,24 @@ body {
     color: #fff;
 }
 
+@media only screen and (max-width: 384px) {
+  h1 {
+  }
+  p {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  p {
+    font-size: 0.8em;
+  }
+}
+
 /*
 title: Github Markdown Stylesheet
 author: Chris Patuzzo
@@ -114,15 +132,8 @@ h6 tt,h6 code {
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 1.6em;
   text-align: center;
-}
-
-@media only screen and (max-width: 550px) {
-  h1 {
-    font-size: 20px;
-    margin-top: 10px;
-  }
 }
 
 h2 {
@@ -149,7 +160,6 @@ h6 {
 
 p,blockquote,ul,ol,dl,li,table,pre {
   margin: 16px 0;
-  width: 100%;
   font-size: 14px;
 }
 
@@ -408,23 +418,15 @@ pre code {
   background: transparent;
 }
 
-.hljs pre {
-  background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px;
-}
 
 pre {
-  background-color: #f8f8f8;
+  background: #282a36;
   font-size: 13px;
   line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
   border-radius: 3px;
+  width: inherit;
 }
 
 pre code,pre tt {
@@ -445,7 +447,6 @@ http://zenorocha.mit-license.org
 .hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
   background: #282a36;
 }
 
