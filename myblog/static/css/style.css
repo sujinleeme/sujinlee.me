@@ -537,7 +537,6 @@ a.overlay {
 
 .post-card_category {
   position: relative;
-  width: 120px;
   margin-left:0;
   bottom: 28px;
   color: #fff;
@@ -576,6 +575,7 @@ a.overlay {
 
 .post-footer {
   color: #80939d;
+  line-height: 1em;
   font-size: 0.9em;
   padding-left: 45%;
   margin-bottom: 3em;
@@ -590,7 +590,6 @@ a.overlay {
 }
 
 .post-share {
-  line-height: 1em;
   border-left: 1px solid #e4e8ea;
   display: inline-block;
   padding-left: 1em;
@@ -1354,7 +1353,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .post-footer {
-    margin-bottom: 2em;
+    margin-bottom: 3em;
     padding-top: 0.3em;
   }
 
