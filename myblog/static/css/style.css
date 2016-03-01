@@ -1289,6 +1289,17 @@ available at: https://github.com/nsept/rippleria
     padding-right: 1.5em;
   }
 
+  .card-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+  }
+
   .card-thumb {
     height: 160px;
     overflow: hidden;
@@ -1302,9 +1313,11 @@ available at: https://github.com/nsept/rippleria
     width: 40px;
     height: 40px;
   }
+
   .post-card_date {
-    font-size: 10px;
+    font-size: 0.8em;
   }
+
   .post-category-icon {
     object-fit: contain;
     position: absolute;
@@ -1315,7 +1328,6 @@ available at: https://github.com/nsept/rippleria
 
   .post-card_category {
     position: relative;
-    width: 75px;
     font-size: 10px;
     margin-left:0;
     bottom: 20px;
@@ -1328,7 +1340,7 @@ available at: https://github.com/nsept/rippleria
 
   .post-card_main-image {
     overflow: hidden;
-    height: 140px;
+    height: 141px;
   }
 
   .heart-particle-box {
@@ -1342,26 +1354,21 @@ available at: https://github.com/nsept/rippleria
   }
 
   .post-footer {
-    margin-bottom: 3em;
-  }
-
-  .post-text_line {
-    width: 100%;
-    margin: 3em 0 0em 0em;
-    border-bottom: 2.3px solid #f6f8fa;
+    margin-bottom: 2em;
+    padding-top: 0.3em;
   }
 
   .more-button:hover,.more-button:active {
-    width: 95px;
+    width: 105px;
   }
 
   .container .share-btn {
-    padding: .6em;
+    padding: .7em;
   }
 
   .more-button:hover > .container,.more-button:active > .container {
     left: 1.2em;
     opacity: 1;
-    width: 95px;
+    width: 105px;
   }
 }
