@@ -1,4 +1,15 @@
 /*-- mouse effect --*/
+
+/* open new window */
+$(document).ready(function(){
+  $('a[href]').click(function(){
+    window.open(this.href);
+    return false;
+  });
+});
+
+
+
 /*
 title: Connections with JavaScript
 date: Aug 4, 2013

@@ -550,13 +550,17 @@ a.overlay {
 }
 
 .post-card_date {
-  padding: 5px 0 0 5px;
+  padding: 1em 0 1em 1em;
   float: right;
   display: inline-block;
   vertical-align: middle;
   display: inline-block;
-  font-size: 14px;
+  font-size: 1em;
   color: #80939d;
+}
+
+.markdown-body {
+  padding: 8em 0 3em 0;
 }
 
 .post-card_date i {
@@ -564,9 +568,10 @@ a.overlay {
 }
 
 .post-text_line {
-  width: 18em;
+  width: 100%;
   margin: 3em auto;
-  border-bottom: 2.3px solid #f6f8fa;
+  padding-top: 1em;
+  border-bottom: 2px solid #ebeeef;
 }
 
 .post-footer {

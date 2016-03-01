@@ -15,7 +15,14 @@ body {
   word-wrap: break-word;
 }
 
-
+::-moz-selection {
+   background-color: #6200ea;
+   color: #fff;
+}
+::selection {
+    background-color: #6200ea;
+    color: #fff;
+}
 
 /*
 title: Github Markdown Stylesheet
@@ -35,7 +42,7 @@ i {
 }
 
 a {
-  color: #4183C4;
+  color: #6200ea;
   text-decoration: none;
 }
 
@@ -119,7 +126,8 @@ h1 {
 
 h2 {
   font-size: 20px;
-  border-bottom: 1px solid #eee;
+  font-weight: lighter;
+  border-bottom: 1px solid #ebeeef;
 }
 
 h3 {
@@ -235,7 +243,7 @@ dl dd > :last-child {
 }
 
 blockquote {
-  border-left: 4px solid #ddd;
+  border-left: 4px solid #ebeeef;
   padding: 0 15px;
   color: #777;
 }
@@ -258,7 +266,7 @@ table {
 }
 
 table tr {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ebeeef;
   background-color: #fff;
   margin: 0;
   padding: 0;
@@ -270,14 +278,14 @@ table tr:nth-child(2n) {
 
 table tr th {
   font-weight: 700;
-  border: 1px solid #ccc;
+  border: 1px solid #ebeeef;
   text-align: left;
   margin: 0;
   padding: 6px 13px;
 }
 
 table tr td {
-  border: 1px solid #ccc;
+  border: 1px solid #ebeeef;
   text-align: left;
   margin: 0;
   padding: 6px 13px;
@@ -301,7 +309,7 @@ span.frame {
 }
 
 span.frame > span {
-  border: 1px solid #ddd;
+  border: 1px solid #ebeeef;
   display: block;
   float: left;
   overflow: hidden;
@@ -425,58 +433,70 @@ pre code,pre tt {
 }
 
 /*
-Style with support for rainbow parens
+Dracula Theme v1.2.0
+https://github.com/zenorocha/dracula-theme
+Copyright 2015, All rights reserved
+Code licensed under the MIT license
+http://zenorocha.mit-license.org
+@author Éverton Ribeiro <nuxlli@gmail.com>
+@author Zeno Rocha <hi@zenorocha.com>
 */
+
 .hljs {
   display: block;
   overflow-x: auto;
-  padding: .5em;
-  color: #a3b3c3;
+  padding: 0.5em;
+  background: #282a36;
 }
 
-.hljs-comment,.hljs-quote {
-  color: #969896;
-  font-style: italic;
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #8be9fd;
 }
 
-.hljs-keyword,.hljs-selector-tag,.hljs-literal,.hljs-type,.hljs-addition {
-  color: #c9c;
+.hljs-function .hljs-keyword {
+  color: #ff79c6;
 }
 
-.hljs-number,.hljs-selector-attr,.hljs-selector-pseudo {
-  color: #f99157;
+.hljs,
+.hljs-subst {
+  color: #f8f8f2;
 }
 
-.hljs-string,.hljs-doctag,.hljs-regexp {
-  color: #8abeb7;
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #f1fa8c;
 }
 
-.hljs-title,.hljs-name,.hljs-section,.hljs-built_in {
-  color: #b5bd68;
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #6272a4;
 }
 
-.hljs-variable,.hljs-template-variable,.hljs-selector-id,.hljs-class .hljs-title {
-  color: #fc6;
-}
-
-.hljs-section,.hljs-name,.hljs-strong {
-  font-weight: 700;
-}
-
-.hljs-symbol,.hljs-bullet,.hljs-subst,.hljs-meta,.hljs-link {
-  color: #f99157;
-}
-
-.hljs-deletion {
-  color: #dc322f;
-}
-
-.hljs-formula {
-  background: #eee8d5;
-}
-
-.hljs-attr,.hljs-attribute {
-  color: #81a2be;
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
 }
 
 .hljs-emphasis {
