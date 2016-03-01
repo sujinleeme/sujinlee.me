@@ -1,14 +1,12 @@
 /*-- mouse effect --*/
 
 /* open new window */
-$(document).ready(function(){
-  $('a[href]').click(function(){
+$('.markdown-body').ready(function(){
+  $('a').click(function(){
     window.open(this.href);
     return false;
   });
 });
-
-
 
 /*
 title: Connections with JavaScript
