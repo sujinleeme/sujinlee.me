@@ -1240,7 +1240,7 @@ available at: https://github.com/nsept/rippleria
 
 @media only screen and (max-width: 600px) {
   .post-footer {
-    padding-left: 36%;
+    padding-left: 34%;
     margin-bottom: 3.5em;
   }
 
@@ -1315,13 +1315,14 @@ available at: https://github.com/nsept/rippleria
   .post-category-icon {
     object-fit: contain;
     position: absolute;
-    width: 1.3em;
-    height: 1.3em;
-    margin: .7em;
+    width: 1.6em;
+    height: 1.6em;
+    margin: .6em;
   }
 
   .post-card_category {
     position: relative;
+    width: 100px;
     font-size: 10px;
     margin-left:0;
     bottom: 20px;
