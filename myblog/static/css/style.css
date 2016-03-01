@@ -1224,7 +1224,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .post-card_body {
-    padding: 0 2em 0 2em;
+    padding: 0 2em 2em 2em;
   }
 
   .disqus {
@@ -1240,14 +1240,17 @@ available at: https://github.com/nsept/rippleria
 
 @media only screen and (max-width: 600px) {
   .post-footer {
-    padding-left: 34%;
-    margin-bottom: 3.5em;
+    padding-left: 39%;
+    padding-bottom: 2em;
   }
 
   .more-button:hover,.more-button:active {
-    width: 100px;e
+    width: 100px;
   }
 
+  .markdown-body {
+    padding: 4em 0 3em 0;
+  }
   .container .share-btn {
     padding: .6em;
   }
@@ -1256,6 +1259,10 @@ available at: https://github.com/nsept/rippleria
     left: 1em;
     opacity: 1;
     width: 100px;
+  }
+
+  .post-footer {
+    margin: 0;
   }
 }
 
@@ -1349,6 +1356,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .post-footer {
+    padding-left: 34%;
     padding-top: 1.3em;
     padding-bottom: 1.3em;
   }
