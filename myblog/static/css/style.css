@@ -544,6 +544,7 @@ a.overlay {
   line-height: 28px;
   text-transform: uppercase;
   font-family: 'Montserrat',sans-serif;
+  width: 130px;
   letter-spacing: 0em;
   text-align: center;
 }
