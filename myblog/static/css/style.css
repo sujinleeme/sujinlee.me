@@ -253,7 +253,7 @@ img {
 .Button {
   position: absolute;
   left: -10em;
-  top: 3em;
+  top: 2.7em;
   width: 4em;
   height: 3.5em;
   cursor: pointer;
@@ -1296,7 +1296,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .copyright {
-    padding-right: 1.3em;
+    padding-right: 1.2em;
   }
 
   .card-btn {
