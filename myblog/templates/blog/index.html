@@ -11,7 +11,20 @@
   .socials a {color: #fff; opacity: 0.6;}
   .socials a:hover {opacity: 0.3;}
   .copyright {color: #fff; opacity: 0.6;}
+  .title {display: none;}
+  .footer {display: none;}
+  .large-header {display: none;}
 </style>
+
+<script>
+$('.title').fadeIn(1000,function() {
+    $('.large-header').fadeIn(2000,function() {
+      $('.footer').fadeIn(2000);
+    });
+});
+</script>
+
+
 <img id="bg" src="{% static 'image/background/profile-index.png' %}" align="right" onload="imgLoaded(this)">
 <div id="large-header" class="large-header">
   <canvas id="demo-canvas">
