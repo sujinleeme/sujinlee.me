@@ -32,15 +32,8 @@ img {
   image-rendering: crisp-edges;
   image-rendering: pixelated;
   object-fit: cover;
-  opacity: 1;
-  -webkit-transition: opacity 150ms;
-  -moz-transition: opacity 150ms;
-  -ms-transition: opacity 150ms;
-  transition: opacity 150ms;
 }
 
-.loaded img{
-}
 
 #wrapper {
   min-height: 100%;
