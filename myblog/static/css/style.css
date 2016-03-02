@@ -523,7 +523,7 @@ a.overlay {
 .post-card_btn {
   float: right;
   position: relative;
-  margin: -27em -4em 0em 0em;
+  margin: -27.5em -4em 0em 0em;
   width: 53px;
   height: 53px;
   border-radius: 50%;
@@ -569,7 +569,7 @@ a.overlay {
 }
 
 .markdown-body {
-  padding: 5em 0 3em 0;
+  padding: 3em 0 3em 0;
 }
 
 .post-card_date i {
