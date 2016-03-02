@@ -12,7 +12,7 @@
   .socials a:hover {opacity: 0.3;}
   .copyright {color: #fff; opacity: 0.6;}
 </style>
-<img id="bg" src="{% static 'image/background/profile-bg.png' %}" align="right" alt="bg">
+<img id="bg" src="{% static 'image/background/profile-bg.png' %}" align="right" onload="imgLoaded(this)">
 <div id="large-header" class="large-header">
   <canvas id="demo-canvas">
   </canvas>

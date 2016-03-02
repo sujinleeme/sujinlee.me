@@ -16,7 +16,7 @@
         <a class="overlay rippleria-dark"
             href="{% url 'post_detail' slug=post.slug %}" rippleria>
         <header class="card-thumb">
-          <img src="{{ post.image.url }}">
+          <img src="{{ post.image.url }}" onload="imgLoaded(this)">
         </header>
         <div class="card-btn" style="background: {{post.category.color}}">
           <img class="svg category-icon" src="{% static post.category.image_url %}">

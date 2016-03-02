@@ -17,7 +17,7 @@
   </div>
   <div class="post-card_body">
     <div class="post-card_btn" style="background: {{ post.category.color }}">
-      <img class="post-category-icon" src="{% static post.category.image_url %}">
+      <img class="post-category-icon" src="{% static post.category.image_url %}" onload="imgLoaded(this)">
     </div>
     <h1 itemprop="name">{{ post.title }}</h1>
     <div class="post-card_date">
