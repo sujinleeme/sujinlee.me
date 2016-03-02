@@ -26,6 +26,7 @@ a:hover {
   transition: all .5s ease;
 }
 
+/* image */
 img {
   image-rendering: auto;
   image-rendering: crisp-edges;
