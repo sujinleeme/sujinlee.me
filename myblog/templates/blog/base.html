@@ -19,6 +19,14 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/text.css' %}" rel="stylesheet" type="text/css">
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+    function imgLoaded(img){
+    var $img = $(img);
+
+    $img.parent().addClass('loaded');
+};
+    </script>
+
   </head>
   <body itemscope itemtype="http://schema.org/Product">
     <div id="wrapper">

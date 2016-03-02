@@ -10,7 +10,7 @@
   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
   <div class="post-card mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
   <div class="post-card_main-image">
-    <img itemprop="image" src="{{ project.image.url }}" >
+    <img itemprop="image" src="{{ project.image.url }}" onload="imgLoaded(this)">
   </div>
   <div class="post-card_category" style="background: {{ project.category.color }}">
     {{ project.category.title }}

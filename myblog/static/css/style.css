@@ -33,6 +33,14 @@ img {
   object-fit: cover;
 }
 
+.loaded img{
+    opacity: 1;
+    -webkit-transition: opacity 150ms;
+    -moz-transition: opacity 150ms;
+    -ms-transition: opacity 150ms;
+    transition: opacity 150ms;
+}
+
 #wrapper {
   min-height: 100%;
   position: relative;
