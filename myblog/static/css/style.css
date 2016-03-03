@@ -562,7 +562,8 @@ a.overlay {
 }
 
 .markdown-body {
-  padding: 3em 0 3em 0;
+  padding: 3em 0 0 0;
+  border-bottom: 2px solid #ebeeef;
 }
 
 .post-card_date i {
@@ -574,7 +575,7 @@ a.overlay {
   color: #80939d;
   line-height: 1em;
   font-size: 1em;
-  padding-left: 43.5%;
+  padding-left: 42.5%;
 }
 
 .post-footer .post-comment a {
@@ -898,7 +899,6 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
   position: relative;
   width: 200px;
   height: 200px;
-  margin-top: -4em;
   left: 50%;
   transform: translate(-50%,-50%);
   margin-bottom: -60px;
@@ -1244,7 +1244,7 @@ available at: https://github.com/nsept/rippleria
 
 @media only screen and (max-width: 600px) {
   .post-footer {
-    padding-left: 39%;
+    padding-left: 34%;
     padding-bottom: 2em;
   }
 
@@ -1253,7 +1253,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .markdown-body {
-    padding: 4em 0 3em 0;
+    padding: 4em 0 0em 0;
   }
 
   .container .share-btn {
@@ -1264,10 +1264,6 @@ available at: https://github.com/nsept/rippleria
     left: 1em;
     opacity: 1;
     width: 100px;
-  }
-
-  .post-footer {
-    margin: 0;
   }
 }
 
@@ -1323,7 +1319,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .markdown-body {
-    padding: 3em 0 3em 0;
+    padding: 3em 0 0 0;
   }
 
   .post-card_btn {
@@ -1366,7 +1362,7 @@ available at: https://github.com/nsept/rippleria
     position: relative;
     width: 200px;
     height: 200px;
-    margin-top: -5em;
+    margin-top: -1em;
     left: 50%;
     transform: translate(-50%,-50%);
     margin-bottom: -90px;
@@ -1385,7 +1381,7 @@ available at: https://github.com/nsept/rippleria
   }
 
   .post-footer {
-    padding-left: 34%;
+    padding-left: 38%;
     padding-top: 1.3em;
     padding-bottom: 1.3em;
     font-size: 0.9em;
