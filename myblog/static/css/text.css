@@ -64,6 +64,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: line-through;
+}
+
 a.absent {
   color: #c00;
 }
