@@ -64,7 +64,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+.markdown-body a:hover {
   text-decoration: line-through;
 }
 
