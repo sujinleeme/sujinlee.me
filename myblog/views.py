@@ -73,9 +73,22 @@ def like_count_project(request):
     if project_id:
         project = Project.objects.get(id=int(project_id))
         if project:
-            likes = project.likes + 1
+            if request.session.get('has_liked_'+project_id, False):
+                print("already liked")
+                if not project.likes < 1:
+                    likes = project.likes - 1
+                    try:
+                        del request.session['has_liked_'+project_id]
+                    except KeyError:
+                        print("keyerror")
+                else:
+                    likes = 0
+            else:
+                print("new like")
+                request.session['has_liked_'+project_id] = True
+                likes = project.likes + 1
         else:
-            likes = project.likes
+            likes = 0
         project.likes = likes
         project.save()
     return HttpResponse(likes)

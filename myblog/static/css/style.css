@@ -375,7 +375,7 @@ a.overlay {
   font-size: 11px;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: 'Montserrat',sans-serif;
+  font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
   letter-spacing: .01em;
 }
 
@@ -546,7 +546,7 @@ a.overlay {
   font-size: 0.9em;
   line-height: 28px;
   text-transform: uppercase;
-  font-family: 'Montserrat',sans-serif;
+  font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
   width: 130px;
   letter-spacing: 0em;
   text-align: center;
@@ -733,7 +733,7 @@ figure.pr-card .pr-category-icon {
 
 figure.pr-card h2,figure.pr-card h3,figure.pr-card h4 {
   margin: 0;
-  font-family: 'Montserrat',sans-serif;
+  font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
   text-decoration: none;
 }
 

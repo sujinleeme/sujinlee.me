@@ -93,7 +93,7 @@ $(document).ready(function() {
         }, function(data) {
             $('.like_count_project').html(data);
         });
-        $(this).off('click');
+        //$(this).off('click');
     });
 });
 /*-- Disqus Comment --*/
