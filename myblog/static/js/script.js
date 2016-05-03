@@ -1,4 +1,5 @@
 /*-- open navigation menu --*/
+
 $(".Button").on("click", function(e) {
     $(this).parent().toggleClass("is-Open");
 });
@@ -41,6 +42,10 @@ $(function() {
         }, 'xml');
     });
 });
+
+
+
+
 /*-- like button --*/
 /*
 title: Periscope Likes Tutorial
@@ -48,29 +53,34 @@ date: Jun 6, 2015
 author: Zan Ilic
 available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 */
-$('button').on('click', 'i', function() {
-    // Init
-    var rand = Math.floor((Math.random() * 100) + 1);
-    var flows = ["flowOne", "flowTwo", "flowThree"];
-    var colors = ["colOne", "colTwo", "colThree", "colFour", "colFive",
-        "colSix"
-    ];
-    var timing = (Math.random() * (1.3 - 1.0) + 1.0).toFixed(1);
-    // Animate Particle
-    $('<div class="heart-particle part-' + rand + ' ' + colors[Math.floor(
-            (Math.random() * 6))] + '" style="font-size:' + Math.floor(
-            Math.random() * (28 - 12) + 16) +
-        'px;"><i class="fa fa-heart"></i><i class="fa fa-heart"></i></div>'
-    ).appendTo('.heart-particle-box').css({
-        animation: "" + flows[Math.floor((Math.random() * 3))] +
-            " " + timing + "s linear"
-    });
-    $('.part-' + rand).show();
-    // Remove Particle
-    setTimeout(function() {
-        $('.part-' + rand).remove();
-    }, timing * 1000 - 100);
+/*
+    modified from Periscope Likes Tutorial
+    Author URL: http://zanilic.com
+*/
+
+
+$('button').on('click', function() {
+  $('.icon').toggle();
+
+  var rand = Math.floor((Math.random() * 100) + 1);
+  var flows = ["flows"];
+  var colors = ["heart-particle-col"];
+  var timing = (1.3).toFixed(1);
+  //$("#heart-icon").css({"opacity": 0.8});
+  // Animate Particle
+  $('<div class="heart-particle part-' + rand + ' ' + colors[Math.floor((Math.random()))] + '" style="font-size:' + Math.floor(Math.random() * (28 - 12)) + 'px;"><i class="fa fa-heart"></i><i class="fa fa-heart"></i></div>').appendTo('.heart-particle-box').css({
+    animation: "" + flows[Math.floor((Math.random()))] + " " + timing + "s linear"
+  });
+  $('.part-' + rand).show();
+  // Remove Particle
+  setTimeout(function() {
+    $('.part-' + rand).remove();
+  }, timing * 1000 - 100);
 });
+
+
+
+
 /* like counting */
 $(document).ready(function() {
     $('.post-likes').click(function() {

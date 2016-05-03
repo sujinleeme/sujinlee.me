@@ -590,7 +590,7 @@ a.overlay {
 .post-share {
   border-left: 1px solid #e4e8ea;
   display: inline-block;
-  padding-left: 1em;
+  padding-left: 1.3em;
   padding-bottom: 0.3em;
 }
 
@@ -894,6 +894,7 @@ date: Aug 4, 2013
 author: Zan Ilic
 available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 */
+
 .heart-particle-box {
   position: relative;
   width: 200px;
@@ -905,35 +906,30 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 
 #heart-icon {
   margin-top: 150px;
-  color: #fa7d6c;
+  color: #f55567;
   font-size: 16px;
-  opacity: .3;
-  border: 0;
+  border: 1px;
+  opacity: 1;
   background: none;
+  transition: .3s ease-in-out;
 }
 
 #heart-icon:hover {
-  opacity: 1;
-  border: 0;
+  border: 1px;
   background: none;
   cursor: pointer;
-  transition: all .9s;
+  transition: .5s ease-in-out;
 }
 
 #heart-icon:focus {
   outline: 0;
-  opacity: 1;
-  border: 0;
-}
-
-#heart-icon:active {
-  opacity: 1;
-  border: 0;
+  border: 1px;
 }
 
 #heart-counter {
   font-weight: 700;
-  color: #fa7d6c;
+  font-size: 0.8em;
+  opacity: 1;
 }
 
 .heart-particle {
@@ -946,130 +942,41 @@ available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 .heart-particle i {
   position: absolute;
   margin-left: 52px;
-  opacity: .3;
+  opacity: .4;
   font-size: 16px;
 }
 
-.heart-particle i.fa-heart-o {
-  z-index: -1;
-  opacity: .8;
+.heart-particle-col {
+  color: #f55567;
 }
 
-.colOne {
-  color: #8ACACE;
-}
 
-.colTwo {
-  color: #F49364;
-}
 
-.colThree {
-  color: #FA7D6C;
-}
+/* Animations */
 
-.colFour {
-  color: #50549f;
-}
-
-.colFive {
-  color: #CBA26D;
-}
-
-.colSix {
-  color: #F8DF4A;
-}
-
-/*-- Animations --*/
-@keyframes flowOne {
+@keyframes flows {
   0% {
     opacity: 0;
-    bottom: 0;
-    left: 14%;
+    bottom: 0%;
+    left: 10%;
   }
-
   40% {
-    opacity: .8;
+    opacity: 0.8;
   }
-
   50% {
     opacity: 1;
-    left: 0;
+    left: 0%;
   }
-
   60% {
-    opacity: .2;
+    opacity: 0.3;
   }
-
-  80% {
-    bottom: 80%;
-  }
-
-  100% {
-    opacity: 0;
-    bottom: 100%;
-    left: 18%;
-  }
-}
-
-@keyframes flowTwo {
-  0% {
-    opacity: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  40% {
-    opacity: .8;
-  }
-
-  50% {
-    opacity: 1;
-    left: 11%;
-  }
-
-  60% {
-    opacity: .2;
-  }
-
   80% {
     bottom: 60%;
   }
-
   100% {
     opacity: 0;
     bottom: 80%;
-    left: 0;
-  }
-}
-
-@keyframes flowThree {
-  0% {
-    opacity: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  40% {
-    opacity: .8;
-  }
-
-  50% {
-    opacity: 1;
-    left: 30%;
-  }
-
-  60% {
-    opacity: .2;
-  }
-
-  80% {
-    bottom: 70%;
-  }
-
-  100% {
-    opacity: 0;
-    bottom: 90%;
-    left: 0;
+    left: 0%;
   }
 }
 

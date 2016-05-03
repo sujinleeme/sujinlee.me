@@ -29,8 +29,9 @@
       {{ project.body|markdown }}
     </div>
     <div class="heart-particle-box" align="center">
-      <button class="heart-icon likes project-likes" id="heart-icon" data-project-id="{{project.id}}">
-      <i class="fa fa-heart"></i></button>
+      <button class="likes project-likes" id="heart-icon" data-project-id="{{project.id}}">
+      <i class="icon fa fa-heart-o"></i>
+      <i class="icon fa fa-heart" style="display: none"></i>
       <div class="like_count_project" id="heart-counter">{{ project.likes }}</div>
     </div>
     <footer class="post-footer">
