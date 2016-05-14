@@ -43,30 +43,27 @@ $(function() {
     });
 });
 
-
-
-
+// cookies
 /*-- like button --*/
 /*
+Reference Code
 title: Periscope Likes Tutorial
 date: Jun 6, 2015
 author: Zan Ilic
 available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 */
-/*
-    modified from Periscope Likes Tutorial
-    Author URL: http://zanilic.com
-*/
 
-
+$(document).ready(function() {
 $('button').on('click', function() {
-  $('.icon').toggle();
+  // change button type by clicking
+  $('.heart-shaped').toggle();
 
+  // initailize
   var rand = Math.floor((Math.random() * 100) + 1);
   var flows = ["flows"];
   var colors = ["heart-particle-col"];
   var timing = (1.3).toFixed(1);
-  //$("#heart-icon").css({"opacity": 0.8});
+
   // Animate Particle
   $('<div class="heart-particle part-' + rand + ' ' + colors[Math.floor((Math.random()))] + '" style="font-size:' + Math.floor(Math.random() * (28 - 12)) + 'px;"><i class="fa fa-heart"></i><i class="fa fa-heart"></i></div>').appendTo('.heart-particle-box').css({
     animation: "" + flows[Math.floor((Math.random()))] + " " + timing + "s linear"
@@ -77,8 +74,7 @@ $('button').on('click', function() {
     $('.part-' + rand).remove();
   }, timing * 1000 - 100);
 });
-
-
+});
 
 
 /* like counting */
@@ -91,9 +87,9 @@ $(document).ready(function() {
         }, function(data) {
             $('.like_count_blog').html(data);
         });
-        $(this).off('click');
     });
 });
+
 $(document).ready(function() {
     $('.project-likes').click(function() {
         var id;
@@ -103,9 +99,9 @@ $(document).ready(function() {
         }, function(data) {
             $('.like_count_project').html(data);
         });
-        //$(this).off('click');
     });
 });
+
 /*-- Disqus Comment --*/
 (function() {
     var d = document,
@@ -114,6 +110,7 @@ $(document).ready(function() {
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
 })();
+
 /*-- click button --*/
 /*
 title: Rippleria Plugin

@@ -28,12 +28,20 @@
     <div itemprop="description" class="markdown-body">
       {{ project.body|markdown }}
     </div>
+
     <div class="heart-particle-box" align="center">
       <button class="likes project-likes" id="heart-icon" data-project-id="{{project.id}}">
-      <i class="icon fa fa-heart-o"></i>
-      <i class="icon fa fa-heart" style="display: none"></i>
+      {% if liked %}
+      <i class="heart-shaped fa fa-heart" style="display: line-block"></i>
+      <i class="heart-shaped fa fa-heart-o" style="display: none"></i>
+      {% else %}
+      <i class="heart-shaped fa fa-heart" style="display: none"></i>
+      <i class="heart-shaped fa fa-heart-o" style="display: line-block"></i>
+      {% endif %}
+    </button>
       <div class="like_count_project" id="heart-counter">{{ project.likes }}</div>
     </div>
+
     <footer class="post-footer">
       <span class="post-comment">
       <i class="fa fa-comment-o"></i>

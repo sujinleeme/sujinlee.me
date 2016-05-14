@@ -29,8 +29,15 @@
       {{ post.body|markdown }}
     </div>
     <div class="heart-particle-box" align="center">
-      <button class="heart-icon likes post-likes" id="heart-icon" data-post-id="{{post.id}}">
-      <i class="fa fa-heart"></i></button>
+      <button class="likes post-likes" id="heart-icon" data-post-id="{{post.id}}">
+      {% if liked %}
+      <i class="heart-shaped fa fa-heart" style="display: line-block"></i>
+      <i class="heart-shaped fa fa-heart-o" style="display: none"></i>
+      {% else %}
+      <i class="heart-shaped fa fa-heart" style="display: none"></i>
+      <i class="heart-shaped fa fa-heart-o" style="display: line-block"></i>
+      {% endif %}
+    </button>
       <div class="like_count_blog" id="heart-counter">{{ post.likes }}</div>
     </div>
     <footer class="post-footer">
