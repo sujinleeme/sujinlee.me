@@ -28,9 +28,8 @@ def post_detail(request, slug):
         previous = post.get_previous_by_published_date()
     except Post.DoesNotExist:
         previous = None
-    if request.session.get('has_liked_'+str(post_id), False):
+    if request.session.get('has_liked_'+str(post_id), liked):
         liked = True
-    print("liked {}_{}".format(liked, post_id))
     context = {'post':post,'next':next,'previous':previous,"liked": liked}
     return render(request,'blog/post_detail.html', context)
 
@@ -51,9 +50,8 @@ def project_detail(request, slug):
         previous = project.get_previous_by_published_date()
     except Project.DoesNotExist:
         previous = None
-    if request.session.get('has_liked_'+str(project_id), False):
+    if request.session.get('has_liked_'+str(project_id), liked):
         liked = True
-    print("liked {}_{}".format(liked,project_id))
     context = {'project':project,'next':next,'previous':previous,"liked": liked}
     return render(request,'blog/project_detail.html', context)
 
@@ -64,7 +62,7 @@ def like_count_blog(request):
         post_id = request.GET['post_id']
         post = Post.objects.get(id=int(post_id))
         if request.session.get('has_liked_'+post_id, False):
-            print("I unlike this post")
+            print("unlike")
             if post.likes > 0:
                 likes = post.likes - 1
                 try:
@@ -72,7 +70,7 @@ def like_count_blog(request):
                 except KeyError:
                     print("keyerror")
         else:
-            print("I like post")
+            print("like")
             request.session['has_liked_'+post_id] = True
             likes = post.likes + 1
     post.likes = likes
@@ -85,7 +83,7 @@ def like_count_project(request):
         project_id = request.GET['project_id']
         project = Project.objects.get(id=int(project_id))
         if request.session.get('has_liked_'+project_id, False):
-            print("I unlike this post")
+            print("unlike")
             if project.likes > 0:
                 likes = project.likes - 1
                 try:
@@ -93,7 +91,7 @@ def like_count_project(request):
                 except KeyError:
                     print("keyerror")
         else:
-            print("I like post")
+            print("like")
             request.session['has_liked_'+project_id] = True
             likes = project.likes + 1
     project.likes = likes

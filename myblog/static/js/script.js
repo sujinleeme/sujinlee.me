@@ -1,8 +1,8 @@
 /*-- open navigation menu --*/
-
-$(".Button").on("click", function(e) {
+$(".Meun-Button").on("click", function(e) {
     $(this).parent().toggleClass("is-Open");
 });
+
 /*-- svg image --*/
 /*
 title: change svg to img
@@ -43,7 +43,6 @@ $(function() {
     });
 });
 
-// cookies
 /*-- like button --*/
 /*
 Reference Code

@@ -26,6 +26,13 @@ a:hover {
   transition: all .5s ease;
 }
 
+/* align */
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto }
+}
+
 /* image */
 img {
   image-rendering: auto;
@@ -33,7 +40,6 @@ img {
   image-rendering: pixelated;
   object-fit: cover;
 }
-
 
 #wrapper {
   min-height: 100%;
@@ -252,7 +258,7 @@ img {
   box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 
-.Button {
+.Meun-Button {
   position: absolute;
   left: -10em;
   top: 2.7em;
@@ -263,7 +269,7 @@ img {
   background: none;
 }
 
-.Button:hover {
+.Meun-Button:hover {
   background: none;
   opacity: .3;
 }
@@ -955,9 +961,6 @@ button.likes {
 .heart-particle-col {
   color: #f55567;
 }
-
-
-
 
 /* Animations */
 
