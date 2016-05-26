@@ -50,9 +50,10 @@
         <div class="more-button">
           <i class="fa fa-share-alt"></i>
           <div class="container">
-            <a href="" onclick="fbshare()" class="share-btn">
+            <a href="#" onclick="fbshare()" class="share-btn">
             <i class="fa fa-facebook"></i></a>
             <a href="#" class="share-btn tweet"
+              data-text = "{{ project.title }}"
               data-via="sujinleeme"
               data-hashtags="{{ project.category.title }}">
             <i class="fa fa-twitter"></i></a>
@@ -99,6 +100,7 @@
   function fbshare(){
       FB.ui({
         method: 'share',
+        title: '{{ project.title }}',
         href: 'http://sujinlee.me/project/{{project.slug }}',
         {% if project.image %}
        picture: 'http://sujinlee.me/{{ project.image.url }}', {% endif %}

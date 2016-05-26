@@ -1,10 +1,12 @@
 {% extends 'blog/base.html' %}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="dd" />
+<meta name="twitter:description" content="dd" />
+<meta name="twitter:image" content="dd" />
+
 {% load staticfiles %}
 {% load django_markdown %}
 {% block content %}
-
-<meta property="og:title"              content="{{ post.title }}" />
-<meta property="og:description"        content="{{ post.summary|truncatechars:100 }}" />
 
 <section class="page-name">
   <h1> { BLOG }</h1>
@@ -52,9 +54,10 @@
         <div class="more-button">
           <i class="fa fa-share-alt"></i>
           <div class="container">
-            <a href="" onclick="fbshare()" class="share-btn">
+            <a href="#" onclick="fbshare()" class="share-btn">
             <i class="fa fa-facebook"></i></a>
             <a href="#" class="share-btn tweet"
+              data-text = "{{ post.title }}"
               data-via="sujinleeme"
               data-hashtags="{{ post.category.title }}">
             <i class="fa fa-twitter"></i></a>
@@ -101,8 +104,9 @@
   function fbshare(){
       FB.ui({
         method: 'share',
-        href: 'http://sujinlee.me/blog/{{post.slug }}',
+        href: 'http://sujinlee.me/blog/{{ post.slug }}',
         mobile_iframe: true,
+        title: '{{ post.title }}',
         {% if post.image %}
         picture: 'http://sujinlee.me/{{ post.image.url }}', {% endif %}
         name: '{{ post.title }}',
