@@ -2,6 +2,10 @@
 {% load staticfiles %}
 {% load django_markdown %}
 {% block content %}
+
+<meta property="og:title"              content="{{ post.title }}" />
+<meta property="og:description"        content="{{ post.summary|truncatechars:100 }}" />
+
 <section class="page-name">
   <h1> { BLOG }</h1>
   <p> Learning, Experiences, Thoughts </p>
@@ -103,7 +107,6 @@
         picture: 'http://sujinlee.me/{{ post.image.url }}', {% endif %}
         name: '{{ post.title }}',
         caption: 'sujinlee.me',
-        description: '{{ post.summary|truncatechars:100 }}'
       }, function(response){});
   }
 </script>
