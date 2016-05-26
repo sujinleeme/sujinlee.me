@@ -98,9 +98,12 @@
       FB.ui({
         method: 'share',
         href: 'http://sujinlee.me/blog/{{post.slug }}',
+        mobile_iframe: true,
         {% if post.image %}
-       picture: 'http://sujinlee.me/{{ post.image.url }}', {% endif %}
-        caption: '{{ post.title }}',
+        picture: 'http://sujinlee.me/{{ post.image.url }}', {% endif %}
+        name: '{{ post.title }}',
+        caption: 'sujinlee.me',
+        description: '{{ post.summary|truncatechars:100 }}'
       }, function(response){});
   }
 </script>

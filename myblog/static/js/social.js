@@ -20,6 +20,7 @@ $(".tweet").each(function() {
         target: "_blank"
     });
 });
+
 /*- facebook -*/
 window.fbAsyncInit = function() {
     FB.init({
