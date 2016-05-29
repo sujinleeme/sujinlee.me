@@ -1,6 +1,15 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 {% load django_markdown %}
+{% block ogtags %}
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="{{ post.title }}" />
+  <meta property="article:author" content="https://www.facebook.com/sujiniworld" />
+  <meta property="og:description" content="{{ project.summary|truncatechars:230 }}" />
+  <meta property="og:image"content="{{ project.image.url }}" />
+  <meta property="og:url" content="{% url 'proejct_detail' slug=project.slug %}" />
+{% endblock %}
 {% block content %}
 <section class="page-name">
   <h1> { PROJECT }</h1>

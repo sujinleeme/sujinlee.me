@@ -1,13 +1,16 @@
 {% extends 'blog/base.html' %}
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="dd" />
-<meta name="twitter:description" content="dd" />
-<meta name="twitter:image" content="dd" />
-
 {% load staticfiles %}
 {% load django_markdown %}
+{% block ogtags %}
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="{{ post.title }}" />
+<meta property="article:author" content="https://www.facebook.com/sujiniworld" />
+<meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
+<meta property="og:image"content="{{ post.image.url }}" />
+<meta property="og:url" content="{% url 'post_detail' slug=post.slug %}" />
+{% endblock %}
 {% block content %}
-
 <section class="page-name">
   <h1> { BLOG }</h1>
   <p> Learning, Experiences, Thoughts </p>
