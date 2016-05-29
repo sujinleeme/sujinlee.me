@@ -1,6 +1,9 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 {% load django_markdown %}
+{% block title %}
+<title>{{ post.title }}</title>
+{% endblock %}
 {% block ogtags %}
 <meta property="og:type" content="article" />
 <meta property="og:locale" content="en_US" />

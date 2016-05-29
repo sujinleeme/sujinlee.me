@@ -7,7 +7,9 @@
     <meta name="description" content="Sujin Lee">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{% static 'image/background/favicon.png' %}">
+    {% block title %}
     <title>Sujin Lee</title>
+    {% endblock %}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel='stylesheet' type='text/css'>
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css' rel='stylesheet' type='text/css'>
@@ -24,7 +26,8 @@
     $img.parent().addClass('loaded');
 };
     </script>
-
+  {% block ogtags %}
+  {% endblock %}
   </head>
   <body itemscope itemtype="http://schema.org/Product">
     <div id="wrapper">
