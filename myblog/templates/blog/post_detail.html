@@ -109,10 +109,8 @@
         method: 'share',
         href: 'http://sujinlee.me/blog/{{ post.slug }}',
         mobile_iframe: true,
-        title: '{{ post.title }}',
         {% if post.image %}
         picture: 'http://sujinlee.me/{{ post.image.url }}', {% endif %}
-        name: '{{ post.title }}',
         caption: 'sujinlee.me',
       }, function(response){});
   }
