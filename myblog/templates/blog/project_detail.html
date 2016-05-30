@@ -11,7 +11,7 @@
   <meta property="article:author" content="https://www.facebook.com/sujiniworld" />
   <meta property="og:description" content="{{ project.summary|truncatechars:230 }}" />
   <meta property="og:image"content="{{ project.image.url }}" />
-  <meta property="og:url" content="{% url 'project_detail' slug=project.slug %}" />
+  <meta property="og:url" content="http://sujinlee.me/project/{{ project.slug }}" />
 {% endblock %}
 {% block content %}
 <section class="page-name">
@@ -116,7 +116,7 @@ function fbshare() {
             action_type: 'og.shares',
             action_properties: JSON.stringify({
                 object: {
-                    'og:url': '{% url 'post_detail ' slug=project.slug %}', // your url to share
+                    'og:url': 'http://sujinlee.me/blog/{{ project.slug }}',
                     'og:title': '{{ project.title }}',
                     'og:description': '{{ project.summary }}',
                     'og:image': '{{ project.image.url }}'
@@ -127,7 +127,7 @@ function fbshare() {
         function(response) {
             if (response && !response.error_message) {
                 // then get post content
-                alert('successfully posted. Status id : ' + response.project_id);
+                alert('successfully posted.');
             } else {
                 alert('Something went error.');
             }

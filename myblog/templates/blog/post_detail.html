@@ -11,7 +11,7 @@
 <meta property="article:author" content="https://www.facebook.com/sujiniworld" />
 <meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
 <meta property="og:image"content="{{ post.image.url }}" />
-<meta property="og:url" content="{% url 'post_detail' slug=post.slug %}" />
+<meta property="og:url" content="http://sujinlee.me/blog/{{post.slug }}" />
 {% endblock %}
 {% block content %}
 <section class="page-name">
@@ -67,7 +67,7 @@
               data-via="sujinleeme"
               data-hashtags="{{ post.category.title }}">
             <i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{post.slug }}"
+            <a href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{ post.slug }}"
               onclick="javascript:window.open(this.href,
               '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
               class="share-btn">
@@ -114,7 +114,7 @@ function fbshare() {
             action_type: 'og.shares',
             action_properties: JSON.stringify({
                 object: {
-                    'og:url': '{% url 'post_detail' slug=post.slug %}',
+                    'og:url': 'http://sujinlee.me/blog/{{post.slug }}',
                     'og:title': '{{ post.title }}',
                     'og:description': '{{ post.summary }}',
                     'og:image': '{{ post.image.url }}'
@@ -125,7 +125,7 @@ function fbshare() {
         function(response) {
             if (response && !response.error_message) {
                 // then get post content
-                alert('successfully posted. Status id : ' + response.post_id);
+                alert('successfully posted');
             } else {
                 alert('Something went error.');
             }
