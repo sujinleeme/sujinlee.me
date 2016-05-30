@@ -228,7 +228,6 @@ available at: https://github.com/nsept/rippleria
         $('[rippleria]').rippleria();
     });
 })(window.jQuery, window, document);
-
 /* sticky back to the top button */
 $(document).ready(function() {
     // Show or hide the sticky footer button

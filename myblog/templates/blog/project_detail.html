@@ -5,13 +5,13 @@
 <title>{{ project.title }}</title>
 {% endblock %}
 {% block ogtags %}
-  <meta property="og:type" content="article" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:title" content="{{ post.title }}" />
-  <meta property="article:author" content="https://www.facebook.com/sujiniworld" />
-  <meta property="og:description" content="{{ project.summary|truncatechars:230 }}" />
-  <meta property="og:image" content="http://www.sujinlee.me/{{ project.image.url }}" />
-  <meta property="og:url" content="http://sujinlee.me/project/{{ project.slug }}" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="{{ post.title }}" />
+<meta property="article:author" content="https://www.facebook.com/sujiniworld" />
+<meta property="og:description" content="{{ project.summary|truncatechars:230 }}" />
+<meta property="og:image" content="http://www.sujinlee.me/{{ project.image.url }}" />
+<meta property="og:url" content="http://sujinlee.me/project/{{ project.slug }}" />
 {% endblock %}
 {% block content %}
 <section class="page-name">
@@ -40,7 +40,6 @@
     <div itemprop="description" class="markdown-body">
       {{ project.body|markdown }}
     </div>
-
     <div class="heart-particle-box" align="center">
       <button class="likes project-likes" id="heart-icon" data-project-id="{{project.id}}">
       {% if liked %}
@@ -50,10 +49,9 @@
       <i class="heart-shaped fa fa-heart" style="display: none"></i>
       <i class="heart-shaped fa fa-heart-o" style="display: line-block"></i>
       {% endif %}
-    </button>
+      </button>
       <div class="like_count_project" id="heart-counter">{{ project.likes }}</div>
     </div>
-
     <footer class="post-footer">
       <span class="post-comment">
       <i class="fa fa-comment-o"></i>
@@ -69,8 +67,9 @@
               data-via="sujinleeme"
               data-hashtags="{{ project.category.title }}">
             <i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http://sujinlee.me/project/{{project.slug }}"
-              onclick="googleshare()"
+            <a href="https://plus.google.com/share?url=http://sujinlee.me/project/{{ project.slug }}"
+              onclick="javascript:window.open(this.href,
+              '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
               class="share-btn">
             <i class="fa fa-google-plus"></i></a>
           </div>
@@ -108,29 +107,29 @@
 </nav>
 <div class="go-top"><i class="fa fa-angle-up"></i></div>
 <script>
-//facebook
-function fbshare() {
-    FB.ui({
-            method: 'share_open_graph',
-            action_type: 'og.shares',
-            action_properties: JSON.stringify({
-                object: {
-                    'og:url': 'http://sujinlee.me/project/{{ project.slug }}',
-                    'og:title': '{{ project.title }}',
-                    'og:description': '{{ project.summary }}',
-                    'og:image': 'http://sujinlee.me/project/{{ project.image.url }}'
-                }
-            })
-        },
-        // callback
-        function(response) {
-            if (response && !response.error_message) {
-                // then get post content
-                alert('successfully posted.');
-            } else {
-                alert('Something went error.');
-            }
-        });
-}
+// facebook share
+  function fbshare() {
+      FB.ui({
+              method: 'share_open_graph',
+              action_type: 'og.shares',
+              action_properties: JSON.stringify({
+                  object: {
+                      'og:url': 'http://sujinlee.me/blog/{{post.slug }}',
+                      'og:title': '{{ post.title }}',
+                      'og:description': '{{ post.summary }}',
+                      'og:image': 'http://sujinlee.me/{{ post.image.url }}'
+                  }
+              })
+          },
+          // callback
+          function(response) {
+              if (response && !response.error_message) {
+                  // then get post content
+                  alert('successfully posted');
+              } else {
+                  alert('Something went error.');
+              }
+          });
+  }
 </script>
 {% endblock %}

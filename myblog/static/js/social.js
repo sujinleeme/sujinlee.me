@@ -41,7 +41,3 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 /*- google plus -*/
-function googleshare() {
-    window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
-    return false;
-}

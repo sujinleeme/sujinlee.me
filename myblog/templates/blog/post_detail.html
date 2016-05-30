@@ -10,7 +10,7 @@
 <meta property="og:title" content="{{ post.title }}" />
 <meta property="article:author" content="https://www.facebook.com/sujiniworld" />
 <meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
-<meta property="og:image" content="http://www.sujinlee.me/{{ post.image.url }}" />
+<meta property="og:image"content="{{ post.image.url }}" />
 <meta property="og:url" content="http://sujinlee.me/blog/{{post.slug }}" />
 {% endblock %}
 {% block content %}
@@ -68,7 +68,9 @@
               data-hashtags="{{ post.category.title }}">
             <i class="fa fa-twitter"></i></a>
             <a href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{ post.slug }}"
-              onclick="googleshare()">
+              onclick="javascript:window.open(this.href,
+              '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
+              class="share-btn">
             <i class="fa fa-google-plus"></i></a>
           </div>
         </div>
@@ -105,7 +107,7 @@
 </nav>
 <div class="go-top"><i class="fa fa-angle-up"></i></div>
 <script>
-
+// facebook share
 function fbshare() {
     FB.ui({
             method: 'share_open_graph',
