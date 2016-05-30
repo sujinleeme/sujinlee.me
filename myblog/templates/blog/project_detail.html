@@ -70,8 +70,7 @@
               data-hashtags="{{ project.category.title }}">
             <i class="fa fa-twitter"></i></a>
             <a href="https://plus.google.com/share?url=http://sujinlee.me/project/{{project.slug }}"
-              onclick="javascript:window.open(this.href,
-              '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
+              onclick="googleshare()"
               class="share-btn">
             <i class="fa fa-google-plus"></i></a>
           </div>
@@ -109,17 +108,17 @@
 </nav>
 <div class="go-top"><i class="fa fa-angle-up"></i></div>
 <script>
-
+//facebook
 function fbshare() {
     FB.ui({
             method: 'share_open_graph',
             action_type: 'og.shares',
             action_properties: JSON.stringify({
                 object: {
-                    'og:url': 'http://sujinlee.me/blog/{{ project.slug }}',
+                    'og:url': 'http://sujinlee.me/project/{{ project.slug }}',
                     'og:title': '{{ project.title }}',
                     'og:description': '{{ project.summary }}',
-                    'og:image': '{{ project.image.url }}'
+                    'og:image': 'http://sujinlee.me/project/{{ project.image.url }}'
                 }
             })
         },

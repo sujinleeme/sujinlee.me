@@ -68,9 +68,7 @@
               data-hashtags="{{ post.category.title }}">
             <i class="fa fa-twitter"></i></a>
             <a href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{ post.slug }}"
-              onclick="javascript:window.open(this.href,
-              '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-              class="share-btn">
+              onclick="googleshare()">
             <i class="fa fa-google-plus"></i></a>
           </div>
         </div>
@@ -117,7 +115,7 @@ function fbshare() {
                     'og:url': 'http://sujinlee.me/blog/{{post.slug }}',
                     'og:title': '{{ post.title }}',
                     'og:description': '{{ post.summary }}',
-                    'og:image': '{{ post.image.url }}'
+                    'og:image': 'http://sujinlee.me/{{ post.image.url }}'
                 }
             })
         },
