@@ -116,8 +116,7 @@ function fbshare() {
             action_type: 'og.shares',
             action_properties: JSON.stringify({
                 object: {
-                    'og:url': '{% url '
-                    post_detail ' slug=project.slug %}', // your url to share
+                    'og:url': '{% url 'post_detail ' slug=project.slug %}', // your url to share
                     'og:title': '{{ project.title }}',
                     'og:description': '{{ project.summary }}',
                     'og:image': '{{ project.image.url }}'
