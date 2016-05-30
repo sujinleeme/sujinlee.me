@@ -596,10 +596,17 @@ a.overlay {
 .post-share {
   border-left: 1px solid #e4e8ea;
   display: inline-block;
-  padding-left: 1.25em;
+  padding-left: 1.05em;
   padding-bottom: 0.3em;
 }
 
+.container ul {
+   list-style: none;
+}
+
+.container ul li {
+   display: inline-block;
+}
 .post-footer a {
   color: #80939d;
   text-decoration: none;
@@ -636,6 +643,7 @@ a.overlay {
   position: absolute;
   transition: all .4s ease-in-out;
 }
+
 
 .container .share-btn {
   padding: .8em;
@@ -1033,11 +1041,10 @@ button.likes {
   float: left;
 }
 
-.fa-angle-left {
+.pagination_col .fa-angle-left {
   float: left;
   width: 16%;
-  margin-right: 8%;
-  margin-left: -8%;
+  margin: 2% 8% 0 -8%;
 }
 
 /*-- pagination right --*/
@@ -1058,8 +1065,8 @@ button.likes {
   float: right;
 }
 
-.fa-angle-right {
-  margin-right: -8%;
+.pagination_col .fa-angle-right {
+  margin: 2% -8% 0 0;
   float: right;
 }
 

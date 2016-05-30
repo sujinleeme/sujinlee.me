@@ -60,17 +60,18 @@
         <div class="more-button">
           <i class="fa fa-share-alt"></i>
           <div class="container">
-            <a href="#" onclick="fbshare()" class="share-btn">
+            <a class="facebook customer share share-btn"
+            href="http://www.facebook.com/sharer.php?u=http://sujinlee.me/project/{{ project.slug }}"
+            title="Facebook share" target="_blank">
             <i class="fa fa-facebook"></i></a>
-            <a href="#" class="share-btn tweet"
-              data-text = "{{ project.title }}"
-              data-via="sujinleeme"
-              data-hashtags="{{ project.category.title }}">
+            <a class="twitter customer share share-btn"
+            href="http://twitter.com/share?url=http://sujinlee.me/project/{{ project.slug }}
+            &amp;text={{ project.title }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
+            target="_blank" title="Twitter Share">
             <i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http://sujinlee.me/project/{{ project.slug }}"
-              onclick="javascript:window.open(this.href,
-              '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-              class="share-btn">
+            <a class="google_plus customer share share-btn"
+            href="https://plus.google.com/share?url=http://sujinlee.me/project/{{ project.slug }}"
+            target="_blank" title="Google Plus Share">
             <i class="fa fa-google-plus"></i></a>
           </div>
         </div>
@@ -89,8 +90,8 @@
     <div class="pagination_col mdl-cell mdl-cell--6-col"
       style="background: {{project.category.color}}" rippleria>
       {% if previous %}
-      <span class="previous">Previous</span>
       <i class="fa fa-angle-left fa-2x"></i>
+      <span class="previous">Previous</span>
       <span class="title-left">{{ previous.title|truncatechars:46 }}</span>
   </a>
   {% endif %}
@@ -98,9 +99,9 @@
   <div class="pagination_col mdl-cell mdl-cell--6-col"
     style="background: {{project.category.color}}" rippleria>
     {% if next %}
+    <i class="fa fa-angle-right fa-2x"></i>
     <a href="{% url 'project_detail' slug=next.slug %}">
     <span class="next">Next</span>
-    <i class="fa fa-angle-right fa-2x"></i>
     <span class="title-right">{{ next.title|truncatechars:46 }}</span></a>
     {% endif %}
   </div>

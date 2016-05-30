@@ -10,7 +10,7 @@
 <meta property="og:title" content="{{ post.title }}" />
 <meta property="article:author" content="https://www.facebook.com/sujiniworld" />
 <meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
-<meta property="og:image"content="{{ post.image.url }}" />
+<meta property="og:image"content="http://sujinlee.me/{{ post.image.url }}" />
 <meta property="og:url" content="http://sujinlee.me/blog/{{post.slug }}" />
 {% endblock %}
 {% block content %}
@@ -60,17 +60,18 @@
         <div class="more-button">
           <i class="fa fa-share-alt"></i>
           <div class="container">
-            <a href="#" onclick="fbshare()" class="share-btn">
+            <a class="facebook customer share share-btn"
+            href="http://www.facebook.com/sharer.php?u=http://sujinlee.me/blog/{{ post.slug }}"
+            title="Facebook share" target="_blank">
             <i class="fa fa-facebook"></i></a>
-            <a href="#" class="share-btn tweet"
-              data-text = "{{ post.title }}"
-              data-via="sujinleeme"
-              data-hashtags="{{ post.category.title }}">
+            <a class="twitter customer share share-btn"
+            href="http://twitter.com/share?url=http://sujinlee.me/blog/{{ post.slug }}
+            &amp;text={{ post.title }} via @sujinleeme &amp;hashtags={{ post.category.title }}"
+            target="_blank" title="Twitter Share">
             <i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{ post.slug }}"
-              onclick="javascript:window.open(this.href,
-              '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-              class="share-btn">
+            <a class="google_plus customer share share-btn"
+            href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{ post.slug }}"
+            target="_blank" title="Google Plus Share">
             <i class="fa fa-google-plus"></i></a>
           </div>
         </div>
@@ -89,8 +90,8 @@
     <div class="pagination_col mdl-cell mdl-cell--6-col"
       style="background: {{post.category.color}}" rippleria>
       {% if previous %}
-      <span class="previous">Previous</span>
       <i class="fa fa-angle-left fa-2x"></i>
+      <span class="previous">Previous</span>
       <span class="title-left">{{ previous.title|truncatechars:46 }}</span>
   </a>
   {% endif %}
@@ -98,38 +99,12 @@
   <div class="pagination_col mdl-cell mdl-cell--6-col"
     style="background: {{post.category.color}}" rippleria>
     {% if next %}
+    <i class="fa fa-angle-right fa-2x"></i>
     <a href="{% url 'post_detail' slug=next.slug %}">
     <span class="next">Next</span>
-    <i class="fa fa-angle-right fa-2x"></i>
     <span class="title-right">{{ next.title|truncatechars:46 }}</span></a>
     {% endif %}
   </div>
 </nav>
 <div class="go-top"><i class="fa fa-angle-up"></i></div>
-<script>
-// facebook share
-function fbshare() {
-    FB.ui({
-            method: 'share_open_graph',
-            action_type: 'og.shares',
-            action_properties: JSON.stringify({
-                object: {
-                    'og:url': 'http://sujinlee.me/blog/{{post.slug }}',
-                    'og:title': '{{ post.title }}',
-                    'og:description': '{{ post.summary }}',
-                    'og:image': 'http://sujinlee.me/{{ post.image.url }}'
-                }
-            })
-        },
-        // callback
-        function(response) {
-            if (response && !response.error_message) {
-                // then get post content
-                alert('successfully posted');
-            } else {
-                alert('Something went error.');
-            }
-        });
-}
-</script>
 {% endblock %}
