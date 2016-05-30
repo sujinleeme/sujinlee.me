@@ -1192,6 +1192,9 @@ available at: https://github.com/nsept/rippleria
 
 /* tablet */
 @media only screen and (max-width: 550px) {
+  .Menu-Button {
+    left: -7.5em;
+  }
   .post-card_btn {
     float: right;
     position: relative;
