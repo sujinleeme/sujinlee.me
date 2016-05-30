@@ -10,7 +10,7 @@
 <meta property="og:title" content="{{ post.title }}" />
 <meta property="article:author" content="https://www.facebook.com/sujiniworld" />
 <meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
-<meta property="og:image" content="http://sujinlee.me/{{ post.image.url }}" />
+<meta property="og:image"content="http://sujinlee.me/{{ post.image.url }}" />
 <meta property="og:url" content="http://sujinlee.me/blog/{{post.slug }}" />
 {% endblock %}
 {% block content %}
@@ -54,8 +54,8 @@
     </div>
     <footer class="post-footer">
       <span class="post-comment">
-      <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"><i class="fa fa-comment-o"></i></a>
-      </span>
+      <i class="fa fa-comment-o"></i>
+      <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></span>
       <div class="post-share">
         <div class="more-button">
           <i class="fa fa-share-alt"></i>
@@ -124,4 +124,3 @@
     }
 </script>
 {% endblock %}
- Highlights by 0
