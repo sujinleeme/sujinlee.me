@@ -54,8 +54,8 @@
     </div>
     <footer class="post-footer">
       <span class="post-comment">
-      <i class="fa fa-comment-o"></i>
-      <a href="{% url 'project_detail' slug=project.slug %}#disqus_thread"></a></span>
+      <a href="{% url 'project_detail' slug=project.slug %}#disqus_thread">
+      <i class="fa fa-comment-o"></i></a></span>
       <div class="post-share">
         <div class="more-button">
           <i class="fa fa-share-alt"></i>
@@ -113,7 +113,7 @@
                 method: 'share_open_graph',
                 action_type: 'og.shares',
                 action_properties: JSON.stringify({
-                    object: {
+                    post: {
                         'og:url': 'http://sujinlee.me/project/{{ project.slug }}',
                         'og:title': '{{ project.title }}',
                         'og:description': '{{ project.summary }}',
