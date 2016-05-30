@@ -107,15 +107,30 @@
 </nav>
 <div class="go-top"><i class="fa fa-angle-up"></i></div>
 <script>
-  function fbshare(){
-      FB.ui({
-        method: 'share',
-        href: 'http://sujinlee.me/blog/{{ post.slug }}',
-        mobile_iframe: true,
-        {% if post.image %}
-        picture: 'http://sujinlee.me/{{ post.image.url }}', {% endif %}
-        caption: 'sujinlee.me',
-      }, function(response){});
-  }
+
+function fbshare() {
+    FB.ui({
+            method: 'share_open_graph',
+            action_type: 'og.shares',
+            action_properties: JSON.stringify({
+                object: {
+                    'og:url': '{% url '
+                    post_detail ' slug=post.slug %}', // your url to share
+                    'og:title': '{{ post.title }}',
+                    'og:description': '{{ post.summary }}',
+                    'og:image': '{{ post.image.url }}'
+                }
+            })
+        },
+        // callback
+        function(response) {
+            if (response && !response.error_message) {
+                // then get post content
+                alert('successfully posted. Status id : ' + response.post_id);
+            } else {
+                alert('Something went error.');
+            }
+        });
+}
 </script>
 {% endblock %}
