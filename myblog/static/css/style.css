@@ -297,7 +297,7 @@ img {
   top: 2.5em;
 }
 
-.Button:hover .Menu-Bar {
+.Meun-Button:hover .Menu-Bar {
   opacity: .8;
   z-index: 10;
 }
@@ -1135,10 +1135,10 @@ available at: https://github.com/nsept/rippleria
 /*-- tablet --*/
 @media only screen and (max-width: 550px) {
   .nav-wrap {
-    padding-left: 4em;
+    padding-left: 3.8em;
   }
 
-  .Button {
+  .Meun-Button {
     left: -8em;
   }
 
@@ -1166,6 +1166,10 @@ available at: https://github.com/nsept/rippleria
 /*-- reponsive mobile web --*/
 
 @media only screen and (max-width: 600px) {
+  .Menu-Button {
+    left: -7em;
+  }
+
   .post-footer {
     padding-left: 34%;
     padding-bottom: 2em;
@@ -1193,8 +1197,9 @@ available at: https://github.com/nsept/rippleria
 /* tablet */
 @media only screen and (max-width: 550px) {
   .Menu-Button {
-    left: -7.5em;
+    left: -9em;
   }
+
   .post-card_btn {
     float: right;
     position: relative;
@@ -1213,6 +1218,10 @@ available at: https://github.com/nsept/rippleria
 
 /* iphone 4,5,6 */
 @media only screen and (max-width: 384px) {
+  .Meun-Button {
+    left: -7.2em;
+  }
+
   .footer {
     font-size: 0.9em;
     padding: .7rem 0;
