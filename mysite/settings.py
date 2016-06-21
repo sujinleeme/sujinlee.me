@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django_markdown',
-    'myblog'
+    'myblog',
+    'myrun',
 ]
 
 MIDDLEWARE_CLASSES = [

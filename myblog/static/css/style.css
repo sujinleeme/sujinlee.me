@@ -62,7 +62,6 @@ img {
   font-family: 'Montserrat Alternates',sans-serif;
   font-size: 2em;
   color: #6200ea;
-  transition: color .5s ease;
   line-height: 84px;
   letter-spacing: .02em;
   z-index: 3;
@@ -70,7 +69,6 @@ img {
 
 .title a:hover {
   opacity: .3;
-  border-radius: 0;
   transition: all .5s;
 }
 
@@ -276,11 +274,11 @@ img {
 
 .Menu-Bar {
   display: block;
-  left: .8em;
+  left: 0.8em;
   right: 0;
-  height: .1em;
+  height: 0.1em;
   position: absolute;
-  transition: all 200ms ease;
+  transition: all 400ms ease;
   background: #6200ea;
   transform-origin: 50% 50%;
 }
@@ -339,6 +337,9 @@ img {
 
 .Nav-List a:hover {
   text-decoration: line-through;
+  opacity: .2;
+  cursor: pointer;
+  transition: all .8s;
 }
 
 /*-- post_list.html --*/

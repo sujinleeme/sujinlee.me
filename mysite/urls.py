@@ -22,6 +22,7 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('myblog.urls')),
+    url(r'', include('myrun.urls')),
     url('^markdown/', include('django_markdown.urls'))
 ]
 
