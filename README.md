@@ -12,7 +12,6 @@
 
 ##### CSS Tools
 * [prefix-free](https://leaverou.github.io/prefixfree/)
-* [Normalize.css](http://necolas.github.io/normalize.css/)
 
 #### [ Design ]
 Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Article News Card UI by Justin Kwak](https://dribbble.com/shots/2001637-Article-News-Card-UI)
