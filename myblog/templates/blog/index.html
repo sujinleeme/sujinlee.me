@@ -17,6 +17,7 @@
   .index-title {display: none;}
 </style>
 
+<!--img id="bg" src="{% static 'image/background/profile-index.png' %}" align="right" onload="imgLoaded(this)"-->
 <div id="large-header" class="large-header">
   <canvas id="demo-canvas">
   </canvas>
@@ -34,13 +35,3 @@
 </div>
 <script src="/static/js/index.js"></script>
 {% endblock content %}
-{% block jsblock2 %}
-<script>
-$('.title').fadeIn(500,function() {
-    $('.index-title').fadeIn(1000,function() {
-      $('.large-header').fadeIn(1200)
-      $('.footer').fadeIn(2000);
-    });
-});
-</script>
-{% endblock %}
