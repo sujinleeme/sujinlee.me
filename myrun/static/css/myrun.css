@@ -1,0 +1,133 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+    word-wrap: break-word;
+    line-height: 1.6;
+    color: #fff;
+    background: -webkit-linear-gradient(left, #48BBDE, #F47EC6);
+    background: linear-gradient(to right, #48BBDE, #F47EC6);
+}
+h1 {
+    font-size: 3em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 15px;
+}
+h2 {
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 15px;
+}
+h3 {
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 100;
+    text-align: left;
+    margin-bottom: 15px;
+}
+h4 {
+    font-size: 0.9em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 15px;
+}
+p {
+    font-size: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 15px;
+    z-index: 1;
+}
+.tbl-header {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.tbl-content {
+    height: 500px;
+    overflow-x: auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-radius: 10px;
+}
+th {
+    padding: 0.8em 0.8em;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 0.85em;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+th {
+    text-align: center;
+}
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+tbody td {
+    position: relative;
+}
+tbody td:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+}
+.footer {
+    text-align: center;
+    font-weight: 200;
+    border-top: solid 1px rgba(255, 255, 255, 0.1);
+}
+a {
+    color: #fff;
+}
+a: hover {} section {
+    margin: 50px;
+}
+.today {
+    text-align: left;
+}
+.city {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 12px;
+    position: relative;
+    width: 2em;
+    padding: 5px 8px;
+    border-radius: 15px;
+    text-decoration: bold;
+}
+/* scroll */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}

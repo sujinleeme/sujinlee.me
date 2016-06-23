@@ -1,25 +1,3 @@
-/*- twitter -*/
-var TWEET_URL = "https://twitter.com/intent/tweet";
-$(".tweet").each(function() {
-    var elem = $(this),
-        // Use current page URL as default link
-        url = encodeURIComponent(elem.attr("data-url") || document.location
-            .href),
-        // Use page title as default tweet message
-        text = elem.attr("data-text") || document.title,
-        via = elem.attr("data-via") || "",
-        related = encodeURIComponent(elem.attr("data-related")) || "",
-        hashtags = encodeURIComponent(elem.attr("data-hashtags")) || "";
-    // Set href to tweet page
-    elem.attr({
-        href: TWEET_URL + "?hashtags=" + hashtags +
-            "&original_referer=" + encodeURIComponent(document.location
-                .href) + "&related=" + related +
-            "&source=tweetbutton&text=" + text + "&url=" + url +
-            "&via=" + via,
-        target: "_blank"
-    });
-});
 /*- facebook -*/
 window.fbAsyncInit = function() {
     FB.init({
@@ -38,4 +16,35 @@ window.fbAsyncInit = function() {
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-/*- google plus -*/
+
+
+/*-- social popup UI --*/
+/*
+title: Add share popup to links
+author: Partrick Kahl
+available at: https://codepen.io/patrickkahl/pen/DxmfG
+*/
+;(function($){
+  $.fn.customerPopup = function (e, intWidth, intHeight, blnResize) {
+
+    // Prevent default anchor event
+    e.preventDefault();
+
+    // Set values for window
+    intWidth = intWidth || '500';
+    intHeight = intHeight || '400';
+    strResize = (blnResize ? 'yes' : 'no');
+
+    // Set title and open popup with focus on it
+    var strTitle = ((typeof this.attr('title') !== 'undefined') ? this.attr('title') : 'Social Share'),
+        strParam = 'width=' + intWidth + ',height=' + intHeight + ',resizable=' + strResize,
+        objWindow = window.open(this.attr('href'), strTitle, strParam).focus();
+  }
+  // pop new window
+  $(document).ready(function ($) {
+    $('.customer.share').on("click", function(e) {
+      $(this).customerPopup(e);
+    });
+  });
+
+}(jQuery));

@@ -18,6 +18,8 @@ def post_list(request):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
+    post_id = post.pk
+    liked = False
     try:
         next = post.get_next_by_published_date()
     except Post.DoesNotExist:
@@ -26,7 +28,9 @@ def post_detail(request, slug):
         previous = post.get_previous_by_published_date()
     except Post.DoesNotExist:
         previous = None
-    context = {'post':post,'next':next,'previous':previous}
+    if request.session.get('has_liked_'+str(post_id), liked):
+        liked = True
+    context = {'post':post,'next':next,'previous':previous,"liked": liked}
     return render(request,'blog/post_detail.html', context)
 
 # project
@@ -36,6 +40,8 @@ def project_list(request):
 
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
+    project_id = project.pk
+    liked = False
     try:
         next = project.get_next_by_published_date()
     except Project.DoesNotExist:
@@ -44,48 +50,50 @@ def project_detail(request, slug):
         previous = project.get_previous_by_published_date()
     except Project.DoesNotExist:
         previous = None
-    context = {'project':project,'next':next,'previous':previous}
+    if request.session.get('has_liked_'+str(project_id), liked):
+        liked = True
+    context = {'project':project,'next':next,'previous':previous,"liked": liked}
     return render(request,'blog/project_detail.html', context)
 
 #Likes
 def like_count_blog(request):
+    liked = False
     if request.method == 'GET':
         post_id = request.GET['post_id']
-
-    if post_id:
         post = Post.objects.get(id=int(post_id))
-        if post:
-            likes = post.likes + 1
+        if request.session.get('has_liked_'+post_id, False):
+            print("unlike")
+            if post.likes > 0:
+                likes = post.likes - 1
+                try:
+                    del request.session['has_liked_'+post_id]
+                except KeyError:
+                    print("keyerror")
         else:
-            likes = post.likes
-        post.likes = likes
-        post.save()
-    return HttpResponse(likes)
-
+            print("like")
+            request.session['has_liked_'+post_id] = True
+            likes = post.likes + 1
+    post.likes = likes
+    post.save()
+    return HttpResponse(likes, liked)
 
 def like_count_project(request):
+    liked = False
     if request.method == 'GET':
         project_id = request.GET['project_id']
-
-    if project_id:
         project = Project.objects.get(id=int(project_id))
-        if project:
-            if request.session.get('has_liked_'+project_id, False):
-                print("already liked")
-                if not project.likes < 1:
-                    likes = project.likes - 1
-                    try:
-                        del request.session['has_liked_'+project_id]
-                    except KeyError:
-                        print("keyerror")
-                else:
-                    likes = 0
-            else:
-                print("new like")
-                request.session['has_liked_'+project_id] = True
-                likes = project.likes + 1
+        if request.session.get('has_liked_'+project_id, False):
+            print("unlike")
+            if project.likes > 0:
+                likes = project.likes - 1
+                try:
+                    del request.session['has_liked_'+project_id]
+                except KeyError:
+                    print("keyerror")
         else:
-            likes = 0
-        project.likes = likes
-        project.save()
-    return HttpResponse(likes)
+            print("like")
+            request.session['has_liked_'+project_id] = True
+            likes = project.likes + 1
+    project.likes = likes
+    project.save()
+    return HttpResponse(likes, liked)

@@ -1,31 +1,31 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/Blog">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Sujin Lee">
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="description" content="Personal Website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{% static 'image/background/favicon.png' %}">
+    {% block title %}
     <title>Sujin Lee</title>
+    {% endblock %}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel='stylesheet' type='text/css'>
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Montserrat+Alternates:400,700' rel='stylesheet' type='text/css'>
-    <link href="//storage.googleapis.com/code.getmdl.io/1.0.6/material.min.css" rel="stylesheet">
-    <link href="//cdn.rawgit.com/konpa/devicon/master/devicon.min.css" rel="stylesheet">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet">
+    <link href="{% static 'css/mdl-grid.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/text.css' %}" rel="stylesheet" type="text/css">
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
-    function imgLoaded(img){
-    var $img = $(img);
-    $img.parent().addClass('loaded');
-};
+      function imgLoaded(img){
+      var $img = $(img);
+      $img.parent().addClass('loaded');
+      };
     </script>
-
+    {% block ogtags %}
+    {% endblock %}
   </head>
   <body itemscope itemtype="http://schema.org/Product">
     <div id="wrapper">
@@ -34,7 +34,7 @@
           Sujin Lee</a>
         </div>
         <nav class="Offscreen Nav-List">
-          <a href="#" class="Button">
+          <a href="#" class="Meun-Button">
           <i class="Menu-Bar Menu-Top"></i>
           <i class="Menu-Bar Menu-Middle"></i>
           <i class="Menu-Bar Menu-Bottom"></i>
@@ -65,7 +65,6 @@
       </footer>
     </div>
     {% block jsblock %}
-    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script scr="//sujinlee.disqus.com/embed.js"></script>
     <script src="//sujinlee.disqus.com/count.js" id="dsq-count-scr" async></script>
     <script src="{% static 'js/prefixfree.min.js' %}"></script>
@@ -75,13 +74,13 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <!--google-analytics-->
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-53782262-2', 'auto');
-  ga('send', 'pageview');
-</script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-53782262-2', 'auto');
+      ga('send', 'pageview');
+    </script>
     {% endblock %}
   </body>
 </html>

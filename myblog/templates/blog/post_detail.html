@@ -1,6 +1,18 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 {% load django_markdown %}
+{% block title %}
+<title>{{ post.title }}</title>
+{% endblock %}
+{% block ogtags %}
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="{{ post.title }}" />
+<meta property="article:author" content="https://www.facebook.com/sujiniworld" />
+<meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
+<meta property="og:image"content="http://sujinlee.me/{{ post.image.url }}" />
+<meta property="og:url" content="http://sujinlee.me/blog/{{post.slug }}" />
+{% endblock %}
 {% block content %}
 <section class="page-name">
   <h1> { BLOG }</h1>
@@ -29,8 +41,15 @@
       {{ post.body|markdown }}
     </div>
     <div class="heart-particle-box" align="center">
-      <button class="heart-icon likes post-likes" id="heart-icon" data-post-id="{{post.id}}">
-      <i class="fa fa-heart"></i></button>
+      <button class="likes post-likes" id="heart-icon" data-post-id="{{post.id}}">
+      {% if liked %}
+      <i class="heart-shaped fa fa-heart" style="display: line-block"></i>
+      <i class="heart-shaped fa fa-heart-o" style="display: none"></i>
+      {% else %}
+      <i class="heart-shaped fa fa-heart" style="display: none"></i>
+      <i class="heart-shaped fa fa-heart-o" style="display: line-block"></i>
+      {% endif %}
+      </button>
       <div class="like_count_blog" id="heart-counter">{{ post.likes }}</div>
     </div>
     <footer class="post-footer">
@@ -41,16 +60,17 @@
         <div class="more-button">
           <i class="fa fa-share-alt"></i>
           <div class="container">
-            <a href="" onclick="fbshare()" class="share-btn">
+            <a class="facebook share-btn" href="#"
+              target="_blank" onclick="fbshare()">
             <i class="fa fa-facebook"></i></a>
-            <a href="#" class="share-btn tweet"
-              data-via="sujinleeme"
-              data-hashtags="{{ post.category.title }}">
+            <a class="twitter customer share share-btn"
+              href="http://twitter.com/share?url=http://sujinlee.me/blog/{{ post.slug }}
+              &amp;text={{ post.title }} via @sujinleeme &amp;hashtags={{ post.category.title }}"
+              target="_blank" title="Twitter Share">
             <i class="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{post.slug }}"
-              onclick="javascript:window.open(this.href,
-              '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-              class="share-btn">
+            <a class="google_plus customer share share-btn"
+              href="https://plus.google.com/share?url=http://sujinlee.me/blog/{{ post.slug }}"
+              target="_blank" title="Google Plus Share">
             <i class="fa fa-google-plus"></i></a>
           </div>
         </div>
@@ -69,8 +89,8 @@
     <div class="pagination_col mdl-cell mdl-cell--6-col"
       style="background: {{post.category.color}}" rippleria>
       {% if previous %}
-      <span class="previous">Previous</span>
       <i class="fa fa-angle-left fa-2x"></i>
+      <span class="previous">Previous</span>
       <span class="title-left">{{ previous.title|truncatechars:46 }}</span>
   </a>
   {% endif %}
@@ -78,23 +98,29 @@
   <div class="pagination_col mdl-cell mdl-cell--6-col"
     style="background: {{post.category.color}}" rippleria>
     {% if next %}
+    <i class="fa fa-angle-right fa-2x"></i>
     <a href="{% url 'post_detail' slug=next.slug %}">
     <span class="next">Next</span>
-    <i class="fa fa-angle-right fa-2x"></i>
     <span class="title-right">{{ next.title|truncatechars:46 }}</span></a>
     {% endif %}
   </div>
 </nav>
 <div class="go-top"><i class="fa fa-angle-up"></i></div>
 <script>
-  function fbshare(){
-      FB.ui({
-        method: 'share',
-        href: 'http://sujinlee.me/blog/{{post.slug }}',
-        {% if post.image %}
-       picture: 'http://sujinlee.me/{{ post.image.url }}', {% endif %}
-        caption: '{{ post.title }}',
-      }, function(response){});
-  }
+  // facebook share
+    function fbshare() {
+        FB.ui({
+                method: 'share_open_graph',
+                action_type: 'og.shares',
+                action_properties: JSON.stringify({
+                    object: {
+                        'og:url': 'http://sujinlee.me/blog/{{post.slug }}',
+                        'og:title': '{{ post.title }}',
+                        'og:description': '{{ post.summary }}',
+                        'og:image': 'http://sujinlee.me/{{ post.image.url }}'
+                    }
+                })
+            });
+    }
 </script>
 {% endblock %}

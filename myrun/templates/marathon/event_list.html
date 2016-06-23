@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>2016 마라톤 대회 일정 | Sujin Lee</title>
+    <meta name="description" content="2016 마라톤 일정">
+    <meta name="author" content="Sujin Lee">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel='stylesheet' type='text/css'>
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css' rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/myrun.css' %}" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="main">
+      <section class="items">
+        <h1>#마라톤, 같이 달려볼래?</h1>
+        <h2>올해 전국에서 {{ count_total_events}}개 대회가 열린대. 도전해볼까?</h2>
+        <p>{{ today }}</p>
+      </section>
+      <section class="items">
+        <h3>다가오는 대회 | {{ count_upcoming_events }}개 </h3>
+        <div class="tbl-header">
+          <table>
+            <thead>
+              <tr>
+                <th>일시</th>
+                <th>대회명</th>
+                <th>신청기간</th>
+                <th>레이스</th>
+                <th>장소</th>
+                <th>내용</th>
+                <th>주최</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table>
+            <tbody>
+              {% for event in upcoming_events %}
+              <tr>
+                <td>{{ event.date }}</td>
+                <td>
+                  <p class="city">{{ event.city }}</p>
+                  <a href="{{ event.website }}">{{ event.title }}</a>
+                </td>
+                <td>{{ event.application_period }}</td>
+                <td>{{ event.race }}</td>
+                <td>{{ event.location }}</td>
+                <td>{{ event.description|truncatechars:100 }}</td>
+                <td>{{ event.host }} </br>
+                  {{ event.phone }}
+                </td>
+              </tr>
+        </div>
+        {% endfor %}
+        </tbody>
+        </table>
+    </div>
+    </section>
+    <section class="item">
+      <h3>종료된 대회 | {{ count_past_events }}개</h3>
+      <div class="tbl-header">
+        <table cellpadding='0' cellspacing='0'>
+          <thead>
+            <tr>
+              <th>일시</th>
+              <th>대회명</th>
+              <th>신청기간</th>
+              <th>레이스</th>
+              <th>장소</th>
+              <th>내용</th>
+              <th>주최</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table>
+          <tbody>
+            {% for event in past_events %}
+            <tr>
+              <td>{{ event.date }}</td>
+              <td>
+                <p class="city">{{ event.city }}</p>
+                <a href="{{ event.website }}">{{ event.title }}</a>
+              </td>
+              <td>{{ event.application_period }}</td>
+              <td>{{ event.race }}</td>
+              <td>{{ event.location }}</td>
+              <td>{{ event.description|truncatechars:100 }}</td>
+              <td>{{ event.host }} </br>
+                {{ event.phone }}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    </div>
+    <div class="footer">
+      <a href="http://www.marathon.pe.kr/schedule_index.html">
+        <h4>마라톤 온라인
+      </a>이 제공하는 2016년간 행사 데이터를 크롤링한 웹페이지 입니다.</br>
+      파이썬 웹 프레임워크 <a href="https://www.djangoproject.com/">Django</a>로 만들었습니다.
+      <a href="https://github.com/sujinleeme/official-website/tree/master/myrun">[github]</a></h4>
+    </div>
+  </body>
+  <script src="{% static 'js/myrun.js' %}"></script>
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+</html>
