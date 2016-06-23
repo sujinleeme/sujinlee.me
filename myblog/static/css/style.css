@@ -443,8 +443,7 @@ a.overlay {
 .card-title {
   padding: 0 0 10px;
   margin: 0;
-  font-size: 1.2em;
-  line-height: 1em;
+  font-size: 1.1em;
   font-family: 'Spoqa Han Sans','Spoqa Han Sans JP',sans-serif;
   font-weight: 400;
 }
@@ -1208,7 +1207,7 @@ available at: https://github.com/nsept/rippleria
   .post-card_btn {
     float: right;
     position: relative;
-    margin: -15.6em -1.3em 0em 0em;
+    margin: -13.6em -1.3em 0em 0em;
     width: 53px;
     height: 53px;
     border-radius: 50%;
@@ -1265,9 +1264,9 @@ available at: https://github.com/nsept/rippleria
   .post-card_btn {
     float: right;
     position: relative;
-    margin: -12.3em -1.3em 0em 0em;
-    width: 43px;
-    height: 43px;
+    margin: -11em -1.3em 0em 0em;
+    width: 3em;
+    height: 3em;
   }
 
   .post-card_date {
@@ -1282,8 +1281,9 @@ available at: https://github.com/nsept/rippleria
 
   .post-card_category {
     position: relative;
-    width: 100px;
-    font-size: 11px;
+    width: 10.5em;
+    font-size: 0.7em;
+    padding: 0.2em;
     margin-left:0;
     bottom: 23px;
     line-height: 2.1em;
