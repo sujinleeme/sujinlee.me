@@ -12,7 +12,6 @@
 
 ##### CSS Tools
 * [prefix-free](https://leaverou.github.io/prefixfree/)
-* [Normalize.css](http://necolas.github.io/normalize.css/)
 
 #### [ Design ]
 Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Article News Card UI by Justin Kwak](https://dribbble.com/shots/2001637-Article-News-Card-UI)
@@ -23,7 +22,7 @@ Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Articl
 * 12 column grid : [Material Design Lite](http://www.getmdl.io/)
 
 ##### UI Effect
-* [jQuery SVG image replacement)](http://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement)
+* [jQuery SVG image replacement](http://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement)
 * [Connections with JavaScript](http://codepen.io/matmarsiglio/pen/Avmxb) by  Matheus Marsiglio
 * [Rippleria Plugin](https://github.com/nsept/rippleria) by Nsept
 * [Periscope Likes](http://zanilic.com/periscope-likes-tutorial-jquery-css3) by Zan Ilic
