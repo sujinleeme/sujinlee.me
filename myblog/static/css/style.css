@@ -1283,7 +1283,6 @@ available at: https://github.com/nsept/rippleria
     position: relative;
     width: 10.5em;
     font-size: 0.7em;
-    padding: 0.2em;
     margin-left:0;
     bottom: 23px;
     line-height: 2.1em;
@@ -1295,7 +1294,7 @@ available at: https://github.com/nsept/rippleria
 
   .post-card_main-image {
     overflow: hidden;
-    height: 141px;
+    height: 142px;
   }
 
   .heart-particle-box {
