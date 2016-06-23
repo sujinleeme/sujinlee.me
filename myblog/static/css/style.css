@@ -102,7 +102,7 @@ img {
 /*---- footer --*/
 .footer {
   background: none;
-  font-size: 1em;
+  font-size: 0.9em;
   font-family: 'Montserrat';
   padding: .9rem 0;
   width: 100%;
@@ -112,7 +112,7 @@ img {
 
 .socials {
   position: absolute;
-  left: 0;
+  left: 1em;
 }
 
 .socials a {
@@ -177,14 +177,15 @@ img {
   border: .1em solid #fff;
   opacity: .8;
   display: inline-block;
-  padding: 3em 5em;
+  padding: 2em 3em;
   height: inherit;
   transition: color 1.5s ease;
 }
 
 .index-title_style h1 {
   font-family: 'Montserrat Alternates',sans-serif;
-  font-size: 2em;
+  top: 0.5em;
+  font-size: 1.7em;
   cursor: pointer;
 }
 
@@ -229,13 +230,13 @@ img {
 
 .page-name h1 {
   font-family: 'Montserrat',sans-serif;
-  font-size: 1.7em;
+  font-size: 1.5em;
   text-align: center;
 }
 
 .page-name p {
   font-family: 'Spoqa Han Sans','Spoqa Han Sans JP',sans-serif;
-  font-size: 1.2em;
+  font-size: 1em;
   text-align: center;
 }
 
@@ -389,9 +390,15 @@ a.overlay {
 .category-icon {
   object-fit: contain;
   position: absolute;
+<<<<<<< HEAD
   width: 1.6em;
   height: 1.6em;
   margin: .6em;
+=======
+  width: 1.5em;
+  height: 1.5em;
+  margin: .64em;
+>>>>>>> devel
 }
 
 .card-btn {
@@ -439,8 +446,8 @@ a.overlay {
 .card-title {
   padding: 0 0 10px;
   margin: 0;
-  font-size: 1.3em;
-  line-height: 27px;
+  font-size: 1.2em;
+  line-height: 1em;
   font-family: 'Spoqa Han Sans','Spoqa Han Sans JP',sans-serif;
   font-weight: 400;
 }
@@ -449,11 +456,10 @@ a.overlay {
   position: absolute;
   left: 20px;
   right: 20px;
-  bottom: px;
   margin: 0;
-  padding: 10px;
+  padding: 1em;
   color: #666c74;
-  font-size: 13px;
+  font-size: 0.8em;
   line-height: 20px;
   opacity: 0;
   transition: opacity 0.3s,transform .3s;
@@ -523,7 +529,7 @@ a.overlay {
 .post-card_btn {
   float: right;
   position: relative;
-  margin: -27.5em -4em 0em 0em;
+  margin: -23.5em -4em 0em 0em;
   width: 53px;
   height: 53px;
   border-radius: 50%;
@@ -533,9 +539,9 @@ a.overlay {
 .post-category-icon {
   object-fit: contain;
   position: absolute;
-  width: 1.9em;
-  height: 1.9em;
-  margin: 0.98em;
+  width: 1.7em;
+  height: 1.7em;
+  margin: 0.78em;
 }
 
 .post-card_main-image {
@@ -550,7 +556,7 @@ a.overlay {
   margin-left:0;
   bottom: 28px;
   color: #fff;
-  font-size: 0.9em;
+  font-size: 0.8em;
   line-height: 28px;
   text-transform: uppercase;
   font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
@@ -564,12 +570,12 @@ a.overlay {
   display: inline-block;
   vertical-align: middle;
   display: inline-block;
-  font-size: 1em;
+  font-size: 0.8em;
   color: #80939d;
 }
 
 .markdown-body {
-  padding: 5em 0 0 0;
+  padding: 4em 0 0 0;
   border-bottom: 2px solid #ebeeef;
 }
 
@@ -580,7 +586,7 @@ a.overlay {
 .post-footer {
   color: #80939d;
   line-height: 1em;
-  font-size: 1em;
+  font-size: 0.9em;
   padding-left: 42.5%;
 }
 
@@ -750,22 +756,21 @@ figure.pr-card h2,figure.pr-card h3,figure.pr-card h4 {
   margin: 0;
   font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
   text-decoration: none;
+  padding-bottom: 0.1em;
 }
 
 figure.pr-card h2 {
   font-weight: 400;
   border-bottom: none;
-  font-size: 20px;
-  line-height: 1em;
+  font-size: 1.1em;
 }
 
 figure.pr-card h3 {
-  font-size: 14px;
+  font-size: 0.8em;
   text-transform: uppercase;
 }
 
 figure.pr-card h4 {
-  font-weight: 400;
   font-size: 1em;
 }
 
@@ -824,7 +829,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 .quote-box {
   box-shadow: 0 0 2em rgba(0,0,0,0.1);
   background: #fff;
-  padding: 1em 2em;
+  padding: 0em;
   border: 6px solid #6200ea;
   border-style: double;
   color: #6200ea;
@@ -834,7 +839,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 .quote-box p {
   font-style: italic;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .about-box {
@@ -946,10 +951,16 @@ button.likes {
 }
 
 #heart-counter {
+<<<<<<< HEAD
   font-weight: 700;
   font-size: 0.8em;
   opacity: 1;
   font-size: 13px;
+=======
+  font-weight: 400;
+  font-size: 0.9em;
+  opacity: 0.9;
+>>>>>>> devel
   color: #f55567;
 }
 

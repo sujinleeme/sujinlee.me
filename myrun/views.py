@@ -14,7 +14,11 @@ def event_list(request):
     upcoming_events = [e for e in events if now < e['date'] < new_year]
     count_upcoming_events = len(upcoming_events)
 
+<<<<<<< HEAD
     past_events = events[count_upcoming_events:]
+=======
+    past_events = events[count_upcoming_events+1:]
+>>>>>>> devel
     count_past_events = len(past_events)
 
     context = {

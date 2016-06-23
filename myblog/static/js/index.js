@@ -1,3 +1,10 @@
+$('.title').fadeIn(2000,function() {
+    $('.index-title').fadeIn(3000,function() {
+      $('.large-header').fadeIn(2500)
+      $('.footer').fadeIn(2900);
+    });
+});
+
 /*-- mouse effect --*/
 /*
 title: Connections with JavaScript
