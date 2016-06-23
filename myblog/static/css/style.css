@@ -390,15 +390,12 @@ a.overlay {
 .category-icon {
   object-fit: contain;
   position: absolute;
-<<<<<<< HEAD
   width: 1.6em;
   height: 1.6em;
   margin: .6em;
-=======
   width: 1.5em;
   height: 1.5em;
   margin: .64em;
->>>>>>> devel
 }
 
 .card-btn {
@@ -951,16 +948,12 @@ button.likes {
 }
 
 #heart-counter {
-<<<<<<< HEAD
   font-weight: 700;
   font-size: 0.8em;
   opacity: 1;
   font-size: 13px;
-=======
   font-weight: 400;
-  font-size: 0.9em;
   opacity: 0.9;
->>>>>>> devel
   color: #f55567;
 }
 

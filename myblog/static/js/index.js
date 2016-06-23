@@ -1,6 +1,6 @@
 $('.title').fadeIn(2000,function() {
-    $('.index-title').fadeIn(3000,function() {
-      $('.large-header').fadeIn(2500)
+    $('.index-title').fadeIn(2500,function() {
+      $('.large-header').fadeIn(2900)
       $('.footer').fadeIn(2900);
     });
 });
