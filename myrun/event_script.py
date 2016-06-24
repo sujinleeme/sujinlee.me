@@ -48,6 +48,7 @@ def all_events(start):
     except:
         print("Fail to read contents")
     print("{} events are empty.".format(total-len(all_data)))
+    print(all_data)
     return(data_formatting(all_data))
 
 def data_formatting(data):
