@@ -1,5 +1,6 @@
 html {
   -webkit-font-smoothing: antialiased;
+  font-size: 16px;
 }
 
 header {
@@ -10,7 +11,7 @@ header {
 body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
-  color: #3F4743;
+  color: #262c2f;
   line-height: 1.6;
   word-wrap: break-word;
 }
@@ -83,23 +84,13 @@ a.anchor {
   bottom: 0;
 }
 
-h1,h2,h3 {
+h1,h2,h3,h4,h5,h6 {
   margin: 20px 0 10px;
   padding: 0;
-  font-weight: 100;
   cursor: text;
   position: relative;
-  font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
   font-weight: 400;
-}
-
-h4,h5,h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: 500;
-  cursor: text;
-  position: relative;
-  font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
+  color: #1e1e1e;
 }
 
 h2:first-child,h1:first-child,h1:first-child + h2,h3:first-child,h4:first-child,h5:first-child,h6:first-child {
@@ -142,11 +133,10 @@ h1 {
 
 h2 {
   font-size: 20px;
-  border-bottom: 1px solid #ebeeef;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 18px;;
 }
 
 h4 {
@@ -165,6 +155,7 @@ h6 {
 p,blockquote,ul,ol,dl,li,table,pre {
   margin: 16px 0;
   font-size: 14px;
+  line-height: 1.8em;
 }
 
 hr {
@@ -257,9 +248,9 @@ dl dd > :last-child {
 }
 
 blockquote {
-  border-left: 4px solid #ebeeef;
+  border-left: 4px solid #F2EAFD;
   padding: 0 15px;
-  color: #777;
+  color: #6c7d86;
 }
 
 blockquote:before {
@@ -280,26 +271,27 @@ table {
 }
 
 table tr {
-  border-top: 1px solid #ebeeef;
+  border-top: 1px solid #F2EAFD;
   background-color: #fff;
   margin: 0;
   padding: 0;
 }
 
 table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+  background-color: #fff;
 }
 
 table tr th {
   font-weight: 700;
-  border: 1px solid #ebeeef;
+  border: 1px solid #F2EAFD;
+  background: #F2EAFD;
   text-align: left;
   margin: 0;
   padding: 6px 13px;
 }
 
 table tr td {
-  border: 1px solid #ebeeef;
+  border: 1px solid  #F2EAFD;
   text-align: left;
   margin: 0;
   padding: 6px 13px;
@@ -409,19 +401,27 @@ code,tt {
   margin: 0 2px;
   padding: 0 5px;
   white-space: nowrap;
-  border: 1px solid #eaeaea;
-  background-color: #f8f8f8;
-  border-radius: 3px;
+  border: 1px solid #F2EAFD;
+  background-color: #F2EAFD;
+  border-radius: 4px;
+
 }
 
 pre code {
   margin: 0;
   padding: 0;
-  white-space: pre;
+	white-space:      pre;      /* CSS 2.0 */
+	white-space:      pre-wrap; /* CSS 2.1 */
+	white-space:      pre-line; /* CSS 3.0 */
+	white-space:     -pre-wrap; /* Opera 4-6 */
+	white-space:   -o-pre-wrap; /* Opera 7 */
+	white-space: -moz-pre-wrap; /* Mozilla */
+	white-space:  -hp-pre-wrap; /* HP Printers */
+	word-wrap: break-word;      /* IE 5+ */
   border: none;
   background: transparent;
+  color: #fff;
 }
-
 
 pre {
   background: #282a36;
@@ -429,7 +429,7 @@ pre {
   line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
-  border-radius: 3px;
+  border-radius: 2px;
   width: inherit;
 }
 

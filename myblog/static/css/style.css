@@ -175,22 +175,24 @@ img {
   cursor: pointer;
   border-radius: 5px;
   border: .1em solid #fff;
-  opacity: .8;
+  opacity: .6;
+  font-family: 'Montserrat',sans-serif;
   display: inline-block;
   padding: 2em 3em;
   height: inherit;
-  transition: color 1.5s ease;
+  transition: all 1.5s;
 }
 
 .index-title_style h1 {
   font-family: 'Montserrat Alternates',sans-serif;
   top: 0.5em;
-  font-size: 1.7em;
+  font-size: 1.8em;
+  letter-spacing: .05em;
+  color: #fff;
   cursor: pointer;
 }
 
 .index-title_style h2 {
-  font-family: 'Montserrat',sans-serif;
   font-size: 1em;
   text-transform: uppercase;
   border-bottom: 0;
@@ -198,20 +200,27 @@ img {
   letter-spacing: .05em;
   display: block;
   cursor: pointer;
+  color: #fff;
 }
 
 .index-title_style:hover {
   color: #6200ea;
-  border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  transition: background-color 1.2s;
+  transition: all .5s;
   opacity: .8;
+  transition: all 1.5s;
 }
 
+
 .index-title_style:hover svg path {
-  fill: #6200EA !important;
-  transition: color 1.5s ease;
+  fill: #6200ea !important;
+  transition: all .5s;
+}
+
+.index-title_style:hover h1, .index-title_style:hover h2 {
+  color: #6200ea;
+  transition: all .5s;
 }
 
 .index-icon {
@@ -572,7 +581,7 @@ a.overlay {
 
 .markdown-body {
   padding: 4em 0 0 0;
-  border-bottom: 2px solid #ebeeef;
+  border-bottom: 1px solid #ebeeef;
 }
 
 .post-card_date i {
@@ -689,6 +698,7 @@ figure.pr-card {
   width: 90%;
   height: 240px;
   background: #fff;
+  color: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   transition: all .5s ease;
 }
@@ -715,11 +725,8 @@ figure.pr-card * {
 figure.pr-card img {
   height: 240px;
   width: 100%;
-
 }
 
-.object-fit_cover {
-}
 
 figure.pr-card:hover svg path {
   fill: #fff !important;
@@ -759,15 +766,18 @@ figure.pr-card h2 {
   font-weight: 400;
   border-bottom: none;
   font-size: 1.1em;
+  color: #fff;
 }
 
 figure.pr-card h3 {
   font-size: 0.8em;
   text-transform: uppercase;
+  color: #fff;
 }
 
 figure.pr-card h4 {
   font-size: 1em;
+  color: #fff;
 }
 
 figcaption {
@@ -847,6 +857,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 
 .about-box h3 {
   font-family: 'Montserrat',sans-serif;
+  color: #fff;
 }
 
 .about-box a {
@@ -952,7 +963,6 @@ button.likes {
   opacity: 1;
   font-size: 13px;
   font-weight: 400;
-  opacity: 0.9;
   color: #f55567;
 }
 
