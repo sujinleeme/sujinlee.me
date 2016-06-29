@@ -133,7 +133,7 @@ h6 tt,h6 code {
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   text-align: center;
 }
 
@@ -162,7 +162,6 @@ p,blockquote,ul,ol,dl,li,table,pre {
   margin: 16px 0;
   font-size: 14px;
   line-height: 1.8em;
-  letter-spacing: .027em;
 }
 
 hr {
