@@ -453,8 +453,9 @@ a.overlay {
   padding: 0 0 10px;
   margin: 0;
   font-size: 1.1em;
-  font-family: 'Spoqa Han Sans','Spoqa Han Sans JP',sans-serif;
-  font-weight: 400;
+  font-weight: 100;
+  color: #030304;
+  font-family: 'Montserrat',sans-serif;
 }
 
 .card-description {
@@ -463,7 +464,7 @@ a.overlay {
   right: 20px;
   margin: 0;
   padding: 1em;
-  color: #666c74;
+  color: #1d2224;
   font-size: 0.8em;
   line-height: 20px;
   opacity: 0;
@@ -757,7 +758,6 @@ figure.pr-card .pr-category-icon {
 
 figure.pr-card h2,figure.pr-card h3,figure.pr-card h4 {
   margin: 0;
-  font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
   text-decoration: none;
   padding-bottom: 0.1em;
 }

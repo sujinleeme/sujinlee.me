@@ -11,7 +11,7 @@ header {
 body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
-  color: #262c2f;
+  color: #1d2224;
   line-height: 1.6;
   word-wrap: break-word;
 }
@@ -89,8 +89,14 @@ h1,h2,h3,h4,h5,h6 {
   padding: 0;
   cursor: text;
   position: relative;
-  font-weight: 400;
-  color: #1e1e1e;
+  font-weight: 200;
+  color: #030304;
+  font-family: 'Montserrat',sans-serif;
+}
+
+.markdown-body h2:before {
+   content: "# ";
+   color: #e4d3fb;
 }
 
 h2:first-child,h1:first-child,h1:first-child + h2,h3:first-child,h4:first-child,h5:first-child,h6:first-child {
@@ -156,6 +162,7 @@ p,blockquote,ul,ol,dl,li,table,pre {
   margin: 16px 0;
   font-size: 14px;
   line-height: 1.8em;
+  letter-spacing: .027em;
 }
 
 hr {
@@ -250,6 +257,7 @@ dl dd > :last-child {
 blockquote {
   border-left: 4px solid #F2EAFD;
   padding: 0 15px;
+  margin: 20px 40px;
   color: #6c7d86;
 }
 
