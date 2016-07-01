@@ -10,9 +10,6 @@
 ##### Django third party apps
 * [django-Markdown](https://github.com/klen/django_markdown)
 
-##### CSS Tools
-* [prefix-free](https://leaverou.github.io/prefixfree/)
-
 #### [ Design ]
 Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Article News Card UI by Justin Kwak](https://dribbble.com/shots/2001637-Article-News-Card-UI)
 ##### Main Concept
@@ -35,5 +32,3 @@ Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Articl
 * [Spoqa Han Sans](http://www.spoqa-han-sans.com/)
 * [Montserrat](https://www.google.com/fonts/specimen/Montserrat)
 * [Montserrat Alternates](https://www.google.com/fonts/specimen/Montserrat+Alternates)
-
-
