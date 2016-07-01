@@ -59,8 +59,8 @@ img {
 
 .title a {
   cursor: pointer;
-  font-family: 'Montserrat Alternates',sans-serif;
-  font-size: 2em;
+  font-family: 'Montserrat',sans-serif;
+  font-size: 2.3em;
   color: #6200ea;
   line-height: 84px;
   letter-spacing: .02em;
@@ -168,7 +168,6 @@ img {
 .index-title a {
   color: #fff;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .index-title_style {
