@@ -2,7 +2,6 @@ sujinvenv/
 db.sqlite3
 *__pycache__
 *.pyc
-myblog/image/*
 .DS_Store
 staticfiles
 image
