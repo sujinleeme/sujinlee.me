@@ -108,19 +108,26 @@ a {
 a: hover {} section {
     margin: 50px;
 }
+
 .today {
     text-align: left;
 }
+
 .city {
     background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font-size: 12px;
     position: relative;
     width: 2em;
     padding: 5px 8px;
     border-radius: 15px;
-    text-decoration: bold;
+    z-index: 0;
 }
+
+.city p {
+  z-index: 1;
+  font-weight: 600;
+  font-size: 12px;
+}
+
 /* scroll */
 ::-webkit-scrollbar {
     width: 6px;

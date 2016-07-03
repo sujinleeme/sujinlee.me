@@ -11,13 +11,16 @@ def event_list(request):
     now = datetime.datetime.now().strftime("%Y/%m/%d %H:%M")
     new_year = "2017/01/01 00:00"
 
-    upcoming_events = [e for e in events if now < e['date'] < new_year]
+    #upcoming events
+    upcoming_events = list(reversed([e for e in events if now < e['date'] < new_year]))
     count_upcoming_events = len(upcoming_events)
 
+    #past events
     past_events = events[count_upcoming_events:]
     past_events = events[count_upcoming_events+1:]
     count_past_events = len(past_events)
 
+    #context
     context = {
     'events': events,
     'count_total_events': count_total_events,

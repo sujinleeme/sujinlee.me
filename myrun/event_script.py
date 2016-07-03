@@ -15,7 +15,7 @@ print('Working Date : {}'.format(today))
 def count_annual_event():
     read = requests.get("http://www.roadrun.co.kr/schedule/list.php?today=1451574000&todays=Y")
     soup = BeautifulSoup(read.content, 'html.parser')
-    table = soup.find('body').find_all('table')[5:6]
+    table = soup.find('body').find_all('table')[6:7]
     trs = [tr.find_all('table')[3] for tr in table][0].find_all('tr')
     total = len(trs[::2])
     print("Ready to crawl {} marathon events since 2016.".format(total))
@@ -29,6 +29,7 @@ def extract_event_data(url):
     info = list(filter(None, info))[1::2]
     #join description
     info[11:len(info)] = [' '.join(info[11:len(info)])]
+    print(info)
     return(info)
 
 def all_events(start):
@@ -48,13 +49,19 @@ def all_events(start):
     except:
         print("Fail to read contents")
     print("{} events are empty.".format(total-len(all_data)))
-    print(all_data)
     return(data_formatting(all_data))
 
 def data_formatting(data):
     keys = ['title', 'host', 'email', 'date', 'phone', 'race', 'city',
             'location', 'host', 'application_period', 'website', 'description']
+
+    str_keys = ['대회명', '대표자명', 'E-mail', '대회일시', '전화번호', '대회종목',
+                '대회지역', '대회장소', '주최단체', '접수기간', '홈페이지', '기타소개']
+
+    #formatted date string:
     for i in range(len(data)):
+        #remove empty data string
+        data[i] = [x.replace(x, '.') if x in str_keys else x for x in data[i]]
         # formatted 'date'
         date = list(map(int, re.findall('\d+', data[i][3])))
         # wrong user input
@@ -64,8 +71,9 @@ def data_formatting(data):
         # wrong user input (1000 hour)
         date = [10 if x==1000 else x for x in date]
         data[i][3] = datetime.datetime(*date).strftime("%Y/%m/%d %H:%M")
+
         # formatted 'application_period'
-        data[i][9] = '{}/{}/{} - {}/{}/{}'.format(*(re.findall('\d+', data[i][9])))
+        #data[i][9] = '{}/{}/{} - {}/{}/{}'.format(*(re.findall('\d+', data[i][9])))
         data[i] = dict(zip(keys, data[i]))
     data = sorted(data, key=lambda k: k['date'], reverse=True)
     print('Data formatting...')
