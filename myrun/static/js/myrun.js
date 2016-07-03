@@ -1,4 +1,3 @@
-
 	//ripple on click effect, big thanks to 440 design here on codepen for this
   //check it out here  http://codepen.io/440design/pen/iEztk
 	$(function(){
