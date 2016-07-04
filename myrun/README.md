@@ -3,4 +3,8 @@
 파이썬 웹 프레임워크인 Django를 사용했습니다.
 
 ## libraries
+### Python
 [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+### JS
+* [Apple-like one page scroller website](https://github.com/peachananr/onepage-scroll) by peachananr
