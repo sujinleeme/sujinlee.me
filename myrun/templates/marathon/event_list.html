@@ -7,12 +7,12 @@
     <meta name="description"          content="마라톤 온라인이 제공하는 2016년간 행사 데이터를 크롤링한 웹페이지입니다.">
     <meta name="viewport"             content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <meta name="author"               content="Sujin Lee">
-    <meta property="og:url"           content="http://sujinlee.me/marathon-event" />
+    <meta property="og:url"           content="http://www.sujinlee.me/marathon-event" />
     <meta property="og:type"          content="website" />
     <meta property="article:author"   content="https://www.facebook.com/sujiniworld" />
     <meta property="og:title"         content="#마라톤, 같이 달려볼래? 한눈에 보는 2016 마라톤 대회" />
     <meta property="og:description"   content="마라톤 온라인이 제공하는 2016년간 행사 데이터를 크롤링한 웹페이지입니다." />
-    <meta property="og:image"         content="http://sujinlee.me/marathon-event/image/run_logo.png" />
+    <meta property="og:image"         content="http://www.sujinlee.me/static/image/run_logo.png" />
     <link rel="icon" type="image/png" href="{% static 'image/run_logo.png' %}">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel='stylesheet' type='text/css'>
@@ -49,17 +49,20 @@
             <h1>#마라톤, 같이 달려볼래?</h1>
             <h2>올해 전국에서 {{ count_total_events}}개 대회가 열린대. 도전해볼까?</h2>
             <div class="today">{{ today }}</div>
-            <div class="fb-like" data-href="http://www.sujinlee.me/marathon-event/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            <div class="fb-like"
+                 data-href="http://www.sujinlee.me/marathon-event/"
+                 data-layout="standard" data-action="like" data-size="small"
+                 data-show-faces="true" data-share="true">
+            </div>
             <img class="main_image" src="{% static 'image/main.svg' %}">
             <span class="scroll-btn">
-<a href="#">
-  <span class="mouse">
-    <span>
-    </span>
-  </span>
-</a>
-</span>
-
+            <a href="#1">
+            <span class="mouse">
+            <span>
+            </span>
+            </span>
+            </a>
+            </span>
           </div>
         </section>
         <section class="page2">
