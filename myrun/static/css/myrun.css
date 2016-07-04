@@ -152,3 +152,123 @@ tbody td:hover:before {
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.4);
 }
+
+.main_image {
+  opacity: 0.18;
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  width: 50%;
+  z-index: 0;
+}
+
+/*
+title: Animated Mouse-scroll Down Button
+author: Sven
+available at : http://codepen.io/svenschebaum/pen/IlABK
+*/
+
+.scroll-btn {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+  top: 210%;
+	text-align: center;
+}
+.scroll-btn > * {
+	display: inline-block;
+	line-height: 18px;
+	font-size: 13px;
+	font-weight: normal;
+	color: #ffffff;
+}
+.scroll-btn > *:hover,
+.scroll-btn > *:focus,
+.scroll-btn > *.active {
+	color: #ffffff;
+}
+.scroll-btn > *:hover,
+.scroll-btn > *:focus,
+.scroll-btn > *:active,
+.scroll-btn > *.active {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.scroll-btn .mouse {
+	position: relative;
+	display: block;
+	width: 35px;
+	height: 60px;
+	margin: 0 auto 20px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.scroll-btn .mouse > * {
+	position: absolute;
+	display: block;
+	width: 8px;
+	height: 8px;
+	margin: -4px 0 0 -4px;
+	background: white;
+	border-radius: 50%;
+	-webkit-animation: ani-mouse 2.5s linear infinite;
+	-moz-animation: ani-mouse 2.5s linear infinite;
+	animation: ani-mouse 2.5s linear infinite;
+}
+
+@-webkit-keyframes ani-mouse {
+	0% {
+	opacity: 1;
+	top: 29%;
+	}
+	15% {
+	opacity: 1;
+	top: 50%;
+	}
+	50% {
+	opacity: 0;
+	top: 50%;
+	}
+	100% {
+	opacity: 0;
+	top: 29%;
+	}
+}
+@-moz-keyframes ani-mouse {
+	0% {
+	opacity: 1;
+	top: 29%;
+	}
+	15% {
+	opacity: 1;
+	top: 50%;
+	}
+	50% {
+	opacity: 0;
+	top: 50%;
+	}
+	100% {
+	opacity: 0;
+	top: 29%;
+	}
+}
+@keyframes ani-mouse {
+	0% {
+	opacity: 1;
+	top: 29%;
+	}
+	15% {
+	opacity: 1;
+	top: 50%;
+	}
+	50% {
+	opacity: 0;
+	top: 50%;
+	}
+	100% {
+	opacity: 0;
+	top: 29%;
+	}
+}
