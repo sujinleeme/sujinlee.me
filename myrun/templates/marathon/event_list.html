@@ -101,7 +101,8 @@
                     <td>{{ event.location }}</td>
                     <td>{{ event.description|truncatechars:100 }}</td>
                     <td>{{ event.host }} </br>
-                      {{ event.phone }}
+                        {{ event.phone }} </br>
+                        {{ event.email }}
                     </td>
                   </tr>
             </div>
@@ -143,7 +144,8 @@
                     <td>{{ event.location }}</td>
                     <td>{{ event.description|truncatechars:100 }}</td>
                     <td>{{ event.host }} </br>
-                      {{ event.phone }}
+                        {{ event.phone }} </br>
+                        {{ event.email }}
                     </td>
                   </tr>
                   {% endfor %}

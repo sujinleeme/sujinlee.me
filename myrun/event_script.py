@@ -29,7 +29,6 @@ def extract_event_data(url):
     info = list(filter(None, info))[1::2]
     #join description
     info[11:len(info)] = [' '.join(info[11:len(info)])]
-    print(info)
     return(info)
 
 def all_events(start):
@@ -73,7 +72,11 @@ def data_formatting(data):
         data[i][3] = datetime.datetime(*date).strftime("%Y/%m/%d %H:%M")
 
         # formatted 'application_period'
-        #data[i][9] = '{}/{}/{} - {}/{}/{}'.format(*(re.findall('\d+', data[i][9])))
+        try:
+            data[i][9] = '{}/{}/{} - {}/{}/{}'.format(*(re.findall('\d+', data[i][9])))
+        except IndexError:
+            print("Found unexpected 'application_period' type. But it will be ignored.")
+            pass
         data[i] = dict(zip(keys, data[i]))
     data = sorted(data, key=lambda k: k['date'], reverse=True)
     print('Data formatting...')
