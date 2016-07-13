@@ -48,6 +48,7 @@ title: Github Markdown Stylesheet
 author: Chris Patuzzo
 available at: https://gist.github.com/tuzz/3331384
 */
+
 body > :first-child {
   margin-top: 0 !important;
 }
@@ -84,7 +85,7 @@ a.anchor {
   bottom: 0;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5 {
   margin: 20px 0 10px;
   padding: 0;
   cursor: text;
@@ -140,7 +141,7 @@ h6 tt,h6 code {
 }
 
 h1 {
-  font-size: 1.3em;
+  font-size: 30px;
   text-align: center;
 }
 
@@ -163,12 +164,14 @@ h5 {
 h6 {
   color: #777;
   font-size: 12px;
+  font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
+  font-weight: 400;
 }
 
-p,blockquote,ul,ol,dl,li,table,pre {
+p,blockquote,ul,ol,dl,table,pre {
   margin: 16px 0;
   font-size: 14px;
-  line-height: 1.8em;
+  line-height: 2em;
 }
 
 hr {
@@ -439,17 +442,18 @@ pre code {
 
 pre {
   background: #282a36;
-  font-size: 13px;
-  line-height: 19px;
+  line-height: 1.9em;
   overflow: auto;
   padding: 6px 10px;
   border-radius: 2px;
   width: inherit;
+  font-family: 'Source Code Pro', monospace;
 }
 
 pre code,pre tt {
   background-color: transparent;
   border: none;
+  font-family: 'Source Code Pro', monospace;
 }
 
 /*

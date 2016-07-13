@@ -5,12 +5,9 @@
 <title>{{ project.title }}</title>
 {% endblock %}
 {% block ogtags %}
-<meta property="og:type" content="article" />
-<meta property="og:locale" content="en_US" />
 <meta property="og:title" content="{{ post.title }}" />
-<meta property="article:author" content="https://www.facebook.com/sujiniworld" />
 <meta property="og:description" content="{{ project.summary|truncatechars:230 }}" />
-<meta property="og:image" content="http://www.sujinlee.me/{{ project.image.url }}" />
+<meta property="og:image" content="http://www.sujinlee.me/{{ project.image.url }}/" />
 <meta property="og:url" content="http://sujinlee.me/project/{{ project.slug }}" />
 {% endblock %}
 {% block content %}
@@ -65,7 +62,7 @@
             <i class="fa fa-facebook"></i></a>
             <a class="twitter customer share share-btn"
               href="http://twitter.com/share?url=http://sujinlee.me/project/{{ project.slug }}
-              &amp;text={{ project.title }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
+              &amp;text={{ project.title }} http://sujinlee.me/blog/{{ project.slug }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
               target="_blank" title="Twitter Share">
             <i class="fa fa-twitter"></i></a>
             <a class="google_plus customer share share-btn"
@@ -110,16 +107,20 @@
   // facebook share
     function fbshare() {
         FB.ui({
+                app_id: '1081681621896558'
                 method: 'share_open_graph',
                 action_type: 'og.shares',
+                mobile_iframe: true,
                 action_properties: JSON.stringify({
-                    object: {
-                        'og:url': 'http://sujinlee.me/project/{{ project.slug }}',
-                        'og:title': '{{ project.title }}',
-                        'og:description': '{{ project.summary }}',
-                        'og:image': 'http://sujinlee.me/{{ project.image.url }}'
+                    object: 'http://sujinlee.me/blog/{{post.slug }}/',
                     }
                 })
+                function(response) {
+                  if (response && !response.error_message) {
+                    alert('Posting completed.');
+                  } else {
+                    alert('Error while posting.');
+                  }
             });
     }
 </script>
