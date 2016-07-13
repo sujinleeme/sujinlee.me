@@ -95,40 +95,6 @@
       ga('create', 'UA-53782262-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <!--Facebook SDK -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1081681621896558',
-          xfbml      : true,
-          version    : 'v2.6'
-        });
-      };
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <!--Facebook Open Graph -->
-    <script>
-      function fbshare() {
-        FB.ui({
-            method: 'share_open_graph',
-            action_type: 'og.shares',
-            action_properties: JSON.stringify({
-              object: {
-                'og:url': 'http: //sujinlee.me/blog/{{ blog.slug }}',
-                'og:title': '{{ blog.title }}',
-                'og:description': '{{ blog.summary|truncatechars:230 }}',
-                'og:image': 'http://www.sujinlee.me/{{ blog.image.url }}/',
-                'og:type': 'Sujin Lee:blog',
-              }
-            })
-          });
-    </script>
     {% endblock %}
   </body>
 </html>
