@@ -141,7 +141,7 @@ h6 tt,h6 code {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 1.7em;
   text-align: center;
 }
 
@@ -168,7 +168,7 @@ h6 {
   font-weight: 400;
 }
 
-p,blockquote,ul,ol,dl,table,pre {
+p,blockquote,ul,ol,dl,table{
   margin: 16px 0;
   font-size: 14px;
   line-height: 2em;
@@ -442,7 +442,7 @@ pre code {
 
 pre {
   background: #282a36;
-  line-height: 1.9em;
+  line-height: 1.7em;
   overflow: auto;
   padding: 6px 10px;
   border-radius: 2px;
