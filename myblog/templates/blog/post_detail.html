@@ -59,7 +59,8 @@
           <i class="fa fa-share-alt"></i>
           <div class="container">
             <a class="facebook share-btn customer share"
-              target="_blank" onclick="fbshare()">
+              href = "http://www.facebook.com/share.php?u=http://sujinlee.me/blog/{{ post.slug }}"
+              target="_blank" onclick="return fbshare()">
             <i class="fa fa-facebook"></i></a>
             <a class="twitter share-btn customer share"
               href="http://twitter.com/share?url=http://sujinlee.me/blog/{{ post.slug }}
