@@ -115,23 +115,28 @@
     <!--Facebook Open Graph -->
     <script>
       function fbshare() {
-          FB.ui({
-                  app_id: '1081681621896558'
-                  method: 'share_open_graph',
-                  action_type: 'og.shares',
-                  mobile_iframe: true,
-                  action_properties: JSON.stringify({
-                      object: 'http://sujinlee.me/blog/{{post.slug }}/',
-                      }
-                  })
-                  function(response) {
-                    if (response && !response.error_message) {
-                      alert('Posting completed.');
-                    } else {
-                      alert('Error while posting.');
-                    }
-              });
-      }
+        FB.ui({
+            method: 'share_open_graph',
+            action_type: 'og.shares',
+            action_properties: JSON.stringify({
+              object: {
+                'og:url': 'http: //sujinlee.me/blog/{{ blog.slug }}',
+                'og:title': '{{ blog.title }}',
+                'og:description': '{{ blog.summary|truncatechars:230 }}',
+                'og:image': 'http://www.sujinlee.me/{{ blog.image.url }}/',
+                'og:type': 'Sujin Lee:blog',
+              }
+            })
+          },
+
+          function(response) {
+            if (response && !response.error_message) {
+              // then get post content
+              alert('successfully posted');
+            } else {
+              alert('Something went error.');
+            }
+          });
     </script>
     {% endblock %}
   </body>
