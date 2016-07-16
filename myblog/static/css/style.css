@@ -57,9 +57,14 @@ img {
   background: #f7f9fb;
 }
 
+.title {
+  padding-top: 1.3em;
+}
+
 .title a {
   cursor: pointer;
-  font-family: 'Montserrat',sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
   font-size: 2.3em;
   color: #6200ea;
   line-height: 84px;
@@ -80,7 +85,7 @@ img {
 
 .nav a {
   color: #3F4743;
-  font-family: 'Montserrat',sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   text-align: center;
   border-bottom: 5px solid transparent;
   letter-spacing: .02em;
@@ -103,7 +108,8 @@ img {
 .footer {
   background: none;
   font-size: 0.9em;
-  font-family: 'Montserrat';
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
   padding: .9rem 0;
   width: 100%;
   bottom: 0;
@@ -174,8 +180,8 @@ img {
   cursor: pointer;
   border-radius: 5px;
   border: .1em solid #fff;
-  opacity: .6;
-  font-family: 'Montserrat',sans-serif;
+  opacity: .8;
+  font-family: 'Josefin Sans', sans-serif;
   display: inline-block;
   padding: 2em 3em;
   height: inherit;
@@ -183,9 +189,10 @@ img {
 }
 
 .index-title_style h1 {
-  font-family: 'Montserrat Alternates',sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   top: 0.5em;
-  font-size: 1.8em;
+  font-weight: 700;
+  font-size: 2em;
   letter-spacing: .05em;
   color: #fff;
   cursor: pointer;
@@ -193,6 +200,7 @@ img {
 
 .index-title_style h2 {
   font-size: 1em;
+  font-weight: 600;
   text-transform: uppercase;
   border-bottom: 0;
   line-height: 1em;
@@ -231,19 +239,22 @@ img {
 }
 
 .page-name {
-  padding: 3em 3em 1em;
-  color: #3F4743;
-  letter-spacing: .01em;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  padding: 4em 3em 2em;
+  color: #6200ea;
 }
 
 .page-name h1 {
-  font-family: 'Montserrat',sans-serif;
-  font-size: 1.5em;
+  color: #6200ea;
+  font-weight: 700;
+  font-size: 1.75em;
   text-align: center;
 }
 
 .page-name p {
-  font-family: 'Spoqa Han Sans','Spoqa Han Sans JP',sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
   font-size: 1em;
   text-align: center;
 }
@@ -251,7 +262,6 @@ img {
 .Offscreen {
   height: 100%;
   background: #6200ea;
-  opacity: .9;
   position: fixed;
   right: 0;
   width: 36%;
@@ -268,7 +278,6 @@ img {
 .Meun-Button {
   position: absolute;
   left: -10em;
-  top: 2.7em;
   width: 4em;
   height: 3.5em;
   cursor: pointer;
@@ -329,11 +338,12 @@ img {
 
 .Nav-List ul,.Nav-List li {
   margin: 0;
-  padding: 0;
+  padding-left: 0.5em;
   list-style-type: none;
   line-height: 1.4em;
-  font-family: 'Montserrat',sans-serif;
-  border-bottom: 5px solid transparent;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  border-bottom: 9px solid transparent;
   letter-spacing: .02em;
   font-size: 1.5em;
 }
@@ -452,9 +462,9 @@ a.overlay {
   padding: 0 0 10px;
   margin: 0;
   font-size: 1.1em;
-  font-weight: 100;
+  font-weight: 400;
   color: #030304;
-  font-family: 'Montserrat',sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .card-description {
@@ -855,7 +865,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 }
 
 .about-box h3 {
-  font-family: 'Montserrat',sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   color: #fff;
 }
 
@@ -871,7 +881,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 .contact-box {
   box-shadow: 0 0 2em rgba(0,0,0,0.1);
   background: #fff;
-  padding: 2em 3em;
+  padding: 3em 0em 3em 3em;
   color: #6200ea;
 }
 
@@ -884,7 +894,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 }
 
 .contact-box h3 {
-  font-family: 'Montserrat',sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .contact-box p {
@@ -1296,7 +1306,7 @@ available at: https://github.com/nsept/rippleria
     bottom: 23px;
     line-height: 2.1em;
     text-transform: uppercase;
-    font-family: 'Montserrat',sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     letter-spacing: 0em;
     text-align: center;
   }
