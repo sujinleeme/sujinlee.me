@@ -494,7 +494,7 @@ a.overlay {
   position: absolute;
   color: #80939d;
   bottom: 0em;
-  padding: 2em;
+  padding: 0 0 2.5em 3em;
   font-size: 11px;
 }
 
