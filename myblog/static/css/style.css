@@ -239,7 +239,7 @@ img {
 }
 
 .page-name {
-  font-family: 'Josefin Sans', sans-serif;
+
   font-weight: 700;
   padding: 4em 3em 2em;
   color: #6200ea;
@@ -247,15 +247,16 @@ img {
 
 .page-name h1 {
   color: #6200ea;
+  font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   font-size: 1.75em;
   text-align: center;
 }
 
 .page-name p {
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 1.1em;
   text-align: center;
 }
 
@@ -463,8 +464,7 @@ a.overlay {
   margin: 0;
   font-size: 1.1em;
   font-weight: 400;
-  color: #030304;
-  font-family: 'Josefin Sans', sans-serif;
+  color: #050505;
 }
 
 .card-description {
@@ -473,7 +473,7 @@ a.overlay {
   right: 20px;
   margin: 0;
   padding: 1em;
-  color: #1d2224;
+  color: #353a3d;
   font-size: 0.8em;
   line-height: 20px;
   opacity: 0;
@@ -894,7 +894,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 }
 
 .contact-box h3 {
-  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
 }
 
 .contact-box p {
