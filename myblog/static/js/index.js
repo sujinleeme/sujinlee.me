@@ -32,8 +32,8 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
       };
       var dots = {
           nb: 150,
-          distance: 60,
-          d_radius: 100,
+          distance: 300,
+          d_radius: 20,
           array: []
       };
 
@@ -130,9 +130,9 @@ var canvasDots = function() {
         y: 30 * canvas.height / 100
     };
     var dots = {
-        nb: 350,
-        distance: 60,
-        d_radius: 250,
+        nb: 200,
+        distance: 40,
+        d_radius: 500,
         array: []
     };
 
