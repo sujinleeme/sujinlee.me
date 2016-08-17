@@ -102,7 +102,7 @@ body, .onepage-wrapper, html {
 
 .main section .page_container {
   position: relative;
-  margin: 0 50px 0px 50px;
+  margin: 5vh;
   max-width: 100%;
   z-index: 3;
 }

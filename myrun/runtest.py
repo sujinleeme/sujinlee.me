@@ -6,9 +6,10 @@
 import re
 import datetime
 import requests
-import urllib.request
 import json
 import forecastio
+import urllib.request
+import codecs
 from bs4 import BeautifulSoup
 
 today = datetime.datetime.now()
@@ -27,6 +28,8 @@ def count_annual_event():
         print("Can't crawl data from website.")
     return(total)
 
+# extract raw event data from original website
+# -- 'title', 'host', 'email', 'date', 'phone', 'race', 'city', 'location', 'host', 'application_period', 'website', 'description'
 def extract_event_data(url):
     content = urllib.request.urlopen(str(url))
     soup = BeautifulSoup(content.read().decode('euc-kr', 'ignore'), 'html.parser')
@@ -35,31 +38,45 @@ def extract_event_data(url):
     info = list(filter(None, info))[1::2]
     #join description
     info[11:len(info)] = [' '.join(info[11:len(info)])]
+    print("Ready to save {} events in file".format(len(all_data)))
     return(info)
 
-def get_all_events_data(start):
+#
+def all_events(start):
     #store all data in empty list
     all_data = []
     total = int(count_annual_event())
     #get final URL query
     end = int(start) + total
+    print(end)
     print("Collecting data... wait for a second.")
     try:
         for i in range(start, end):
             url = 'http://www.roadrun.co.kr/schedule/view.php?no={}'.format(i)
-            new_data = extract_event_data(url) #values
+            new_data = extract_event_data(url)
+            print(new_data)#values
             if len(new_data) != 9:
                 all_data.append(new_data)
+                print(new_data)
         print("Merge all events data...")
     except:
-        print("Fail to read contents")
-    print("{} events are empty.".format(total-len(all_data)))
+        pass
+    #    print("Fail to read contents")
+    #print("{} events are empty.".format(total-len(all_data)))
     return(data_formatting(all_data))
 
+# with open("event_data.py", "w") as f:
+#     try:
+#         f.write('# -*- coding: utf-8 -*-\nevent_data={}'.format(str(all_data)))
+#         print("Updated all data successfully!")
+#     except:
+#         print("Error processing")
+
+
 def data_formatting(data):
-    keys = ["title", "host", "email", "date", "phone", "race", "city",
-            "location", "host", "application_period", "website", "description",
-            "latitude", "longtitude", "map_url", "temperature", "weather"]
+    keys = ['title', 'host', 'email', 'date', 'phone', 'race', 'city',
+            'location', 'host', 'application_period', 'website', 'description',
+            'latitude', 'longtitude', 'map_url', 'weather']
 
     #str_keys = ['대회명', '대표자명', 'E-mail', '대회일시', '전화번호', '대회종목',
     #            '대회지역', '대회장소', '주최단체', '접수기간', '홈페이지', '기타소개']
@@ -74,9 +91,8 @@ def data_formatting(data):
         # covert 12 hour to 24 hour
         if '오후' in data[i][3]:
             date[3] += 12
-        # wrong user input (1000 hour or 1300 hour)
+        # wrong user input (1000 hour)
         date = [10 if x==1000 else x for x in date]
-        date = [13 if x==1300 else x for x in date]
         data[i][3] = datetime.datetime(*date).strftime("%Y/%m/%d %H:%M")
 
         # formatted 'application_period'
@@ -86,21 +102,19 @@ def data_formatting(data):
             print("Found unexpected 'application_period' type. But it will be ignored.")
             pass
 
-        #get location data
+        # location
         location = re.sub(',', ' ', data[i][7])
         #get map data
-        geocode = get_map_data(location)
+        geocode = get_map(location)
         #get weather data
-        weather = get_weather_data(geocode[0], geocode[1], date)
-        print(weather)
-        data[i] = [*data[i], *geocode, *weather]
-
+        weather = get_weather(geocode[0], geocode[1], date)
+        data[i] = [*data[i], *geocode, weather]
         data[i] = dict(zip(keys, data[i]))
-    data = sorted(data, key=lambda k: k['date'], reverse=True)
+    #data = sorted(data, key=lambda k: k['date'], reverse=True)
     print('Data formatting...')
     return(data)
 
-def get_map_data(place):
+def get_map(place):
     baseUrl = 'https://apis.daum.net/local/v1/search/keyword.json'
     params = {'apikey':'317394cebdea4b6359a849bcf994be38', 'sort':1, 'query':place}
     content = requests.get(baseUrl, params=params).json()
@@ -108,46 +122,65 @@ def get_map_data(place):
     try:
         if len(mapData) == 0: #can't search place
             place = ' '.join(place.split()[:-1])
-            return (get_map_data(place))
+            return (get_map(place))
         else:
             mapData = mapData[0]
-            map_list = [mapData['latitude'], mapData['longitude'], 'http://map.daum.net/link/map/{}'.format(mapData['id'])]
-            return (map_list)
+            result = [mapData['latitude'], mapData['longitude'], 'http://map.daum.net/link/map/{}'.format(mapData['id'])]
+            return (result)
     except KeyError:
-        map_list = ['', '', '']
-        return (map_list)
+        result = ['none', 'none', 'none']
+        return (result)
 
-def get_weather_data(latitude, longitude, date):
-    apikey = "d5e9ae1a96b8e4a1509ceba9e8ebd92d"
-    formatted_date = datetime.datetime(*date)
-    if len(longitude) == 0:
-        weather_list = ['', '']
-        return(weather_list)
+def get_weather(latitude, longitude, date):
+    apikey = "6df93a29e9e01749131071518afe72ff"
+    if longitude == 'none' or latitude == 'none':
+        result = 'none'
     else:
+        formatted_date = datetime.datetime(*date)
         try:
             forecast = forecastio.load_forecast(apikey, latitude, longitude, time=formatted_date)
             weather = forecast.currently()
-            weather_list = [('{}°C'.format(weather.temperature)), weather.icon]
-            return(weather_list)
+            result = ('{}°C {}'.format(weather.temperature, weather.icon))
         except:
-            weather_list = ['', '']
-            return(weather_list)
+            result = 'none'
+    return (result)
+
+    #except KeyError:
+
+    #    return(get_result)
 
 # read evevnt data since first event in 2016
 # link: http://www.roadrun.co.kr/schedule/view.php?no=6198
-all_data = (get_all_events_data(6198))
-print("Ready to save {} events in file".format(len(all_data)))
 
-with open("event_data.py", "w") as f:
-    try:
-        f.write('# -*- coding: utf-8 -*-\nevent_dict={}'.format(str(all_data)))
-        print("event_data.py Updated all data successfully!")
-    except:
-        print("event_data.py Error processing")
 
-with open('event_data.json', 'w', encoding='utf8') as json_file:
-    try:
-        f.write('# -*- coding: utf-8 -*-\nevent_dict={}'.format(str(all_data)))
+# save output in event_data.py
+all_data = (all_events(6198))
+
+fhand = codecs.open('event_data.py', mode='w', encoding='utf-8')
+count=0
+fhand.write("# -*- coding: utf-8 -*-\nevent_data={\n")
+for data in all_data:
+    try :
+        count = count + 1
+        if count > 1 : fhand.write(",\n")
+        output = data
+        fhand.write(output)
+        print("Save all data successfully")
     except:
-        print("event_data.json Updated all data successfully!")
-    #print("event_data.py Error processing")
+        continue
+        print("Error processing")
+fhand.write("\n}\n")
+fhand.close()
+
+# save output in event_data.py
+
+
+#fhand = codecs.open('event_data.py', mode='w', encoding='utf-8')
+#    fhand.write("# -*- coding: utf-8 -*-\nevent_data={\n")
+# #    count=0
+# with open("event_data.py", "w") as f:
+#     try:
+#         f.write('# -*- coding: utf-8 -*-\nevent_data={}'.format(str(all_data)))
+#         print("Updated all data successfully!")
+#     except:
+#         print("Error processing")

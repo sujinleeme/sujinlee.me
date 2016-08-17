@@ -5,7 +5,7 @@ import datetime
 from . import event_data
 # Create your views here.
 def event_list(request):
-    events = event_data.event_data
+    events = event_data.event_dict
     count_total_events = len(events)
     today = date.today()
     now = datetime.datetime.now().strftime("%Y/%m/%d %H:%M")
