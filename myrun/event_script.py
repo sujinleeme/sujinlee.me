@@ -92,7 +92,6 @@ def data_formatting(data):
         geocode = get_map_data(location)
         #get weather data
         weather = get_weather_data(geocode[0], geocode[1], date)
-        print(weather)
         data[i] = [*data[i], *geocode, *weather]
 
         data[i] = dict(zip(keys, data[i]))
@@ -121,7 +120,7 @@ def get_weather_data(latitude, longitude, date):
     apikey = "d5e9ae1a96b8e4a1509ceba9e8ebd92d"
     formatted_date = datetime.datetime(*date)
     if len(longitude) == 0:
-        weather_list = ['', '']
+        weather_list = ['', 'null']
         return(weather_list)
     else:
         try:
@@ -130,7 +129,7 @@ def get_weather_data(latitude, longitude, date):
             weather_list = [('{}°C'.format(weather.temperature)), weather.icon]
             return(weather_list)
         except:
-            weather_list = ['', '']
+            weather_list = ['', 'null']
             return(weather_list)
 
 # read evevnt data since first event in 2016

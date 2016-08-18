@@ -12,6 +12,9 @@ For these reasons, I've decided revamp this website. For now, I can check weathe
 * Weather : [Forcast.io](https://developer.forecast.io/)
 * Map : [Daum MAP](http://apis.map.daum.net/web/)
 
-### UI
+### Javascript
 * [Apple-like one page scroller website](https://github.com/peachananr/onepage-scroll) by peachananr
-* [Skycons](https://github.com/darkskyapp/skycons) by The Dark Sky Company
+
+### Weather Icons
+* [Climacons](http://adamwhitcroft.com/climacons/) by [Adam Whitcroft](https://twitter.com/adamwhitcroft)
+

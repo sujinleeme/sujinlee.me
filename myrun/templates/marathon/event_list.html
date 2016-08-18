@@ -92,7 +92,7 @@
                   {% for event in upcoming_events %}
                   <tr>
                     <td>{{ event.date }}
-                        <canvas class="{{ event.weather }} weather_icon" width="30" height="30"></canvas></br>
+                        <img class="weather_icons" src="{% static 'image/' %}{{event.weather}}.svg">
                         {{ event.temperature }}
                     <td>
                       <p class="city">{{ event.city }}</p>
@@ -138,7 +138,7 @@
                   {% for event in past_events %}
                   <tr>
                     <td>{{ event.date }}
-                        <canvas class="{{ event.weather }} weather_icon" width="30" height="30"></canvas></br>
+                        <img class="weather_icons" src="{% static 'image/' %}{{event.weather}}.svg">
                         {{ event.temperature }}
                     <td>
                       <p class="city">{{ event.city }}</p>

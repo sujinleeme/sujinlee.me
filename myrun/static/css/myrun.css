@@ -20,14 +20,6 @@ a {
     color: #fff !important;
 }
 
-canvas {
-    text-align: center;
-}
-
-.weather_icon {
-    padding: 1em;
-}
-
 h1 {
     font-size: 3.4em;
     left: 0;
@@ -168,6 +160,13 @@ tbody td:hover:before {
     right: 0%;
     width: 53%;
     z-index: 0;
+}
+.weather_icons {
+    fill: #fff;
+    width: 4rem;
+    height: 4rem;
+    display: block;
+    margin: auto auto -0.5rem auto;
 }
 /*
 title: Animated Mouse-scroll Down Button
