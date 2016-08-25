@@ -1,7 +1,13 @@
 # RUN UNLIMITED // KOREA (2016 Korea Marathon Events Web-Crawling) 
-I love running. In Korea, [Marathon Online](http://www.marathon.pe.kr/schedule_index.html) is the most famous marathon information website for over 15 years and all the runners use it. However, this site has old user interface design, and encoding problem.
-For these reasons, I've decided revamp this website. For now, I can check weather, location as well as information and decide where I will go and enjoy event!
+* Visit Website : [www.sujinlee.me/runkorea[(www.sujinlee.me/runkorea)]
 
+I love running. In Korea, [Marathon Online](http://www.marathon.pe.kr/schedule_index.html) is the most famous marathon information website for over 15 years and all the runners use it. However, this site uses old interface design, and has several encoding issues.
+For these reasons, I've decided to revamp this website. For now, You can check weather forecast, location with map as well as general information and decide where You will go and enjoy next running event!
+
+```
+There will be some wrong user input data related to location & date in orgnial website.
+Therefore, several events may not have weather & map data.
+```
 ## Built With
 * Django 1.9 
 * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), [Requests](http://docs.python-requests.org/en/master/), Regex with python 3.5
@@ -26,3 +32,4 @@ For these reasons, I've decided revamp this website. For now, I can check weathe
 ## Next Working
 * Json for APIs
 * Mobile Web View
+* Copy event information text with clipboard.js

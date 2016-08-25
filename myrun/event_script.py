@@ -19,10 +19,14 @@ def count_annual_event():
     read = requests.get("http://www.roadrun.co.kr/schedule/list.php?today=1451574000&todays=Y")
     soup = BeautifulSoup(read.content, 'html.parser')
     try:
-        table = soup.find('body').find_all('table')[9:10]
+        table = soup.find('body').find_all('table')[10:11]
         trs = [tr for tr in table][0].find_all('tr')
         total = int(len(trs)/2)
-        print("Ready to crawl {} marathon events since 2016.".format(total))
+        if total == 0:
+            print("Can't read data table from original website")
+        else:
+            print("Ready to crawl {} marathon events since 2016.".format(total))
+
     except:
         print("Can't crawl data from website.")
     return(total)
@@ -59,7 +63,7 @@ def get_all_events_data(start):
 def data_formatting(data):
     keys = ["title", "host", "email", "date", "phone", "race", "city",
             "location", "host", "application_period", "website", "description",
-            "latitude", "longtitude", "map_url", "temperature", "weather"]
+            "latitude", "longitude", "map_url", "temperature", "weather"]
 
     #str_keys = ['대회명', '대표자명', 'E-mail', '대회일시', '전화번호', '대회종목',
     #            '대회지역', '대회장소', '주최단체', '접수기간', '홈페이지', '기타소개']
@@ -99,6 +103,7 @@ def data_formatting(data):
     print('Data formatting...')
     return(data)
 
+# daum mpa API
 def get_map_data(place):
     baseUrl = 'https://apis.daum.net/local/v1/search/keyword.json'
     params = {'apikey':'317394cebdea4b6359a849bcf994be38', 'sort':1, 'query':place}
@@ -116,6 +121,7 @@ def get_map_data(place):
         map_list = ['', '', '']
         return (map_list)
 
+# forcase.io API
 def get_weather_data(latitude, longitude, date):
     apikey = "d5e9ae1a96b8e4a1509ceba9e8ebd92d"
     formatted_date = datetime.datetime(*date)

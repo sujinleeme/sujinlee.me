@@ -30,5 +30,4 @@ def event_list(request):
     'count_past_events': count_past_events,
     'today': today,
     }
-
     return render(request, 'marathon/event_list.html', context)
