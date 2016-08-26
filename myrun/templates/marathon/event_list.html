@@ -16,7 +16,6 @@
     <meta property="og:image" content="http://www.sujinlee.me/static/image/home-min.png" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel='stylesheet' type='text/css'>
-    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css' rel='stylesheet' type='text/css'>
     <link href="//fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type='text/css'>
     <link href="{% static 'css/myrun.css' %}" rel="stylesheet">
     <link href="https://twitter.com/sujinleeme"  rel="me">
@@ -45,19 +44,19 @@
         <li class="nav__item">
           <a href="" class="nav__link">
             <div class="nav__thumb "></div>
-            <p class="nav__label">Home</p>
+            <p class="nav__label">home</p>
           </a>
         </li>
         <li class="nav__item">
           <a href="" class="nav__link">
             <div class="nav__thumb"></div>
-            <p class="nav__label">Comming</p>
+            <p class="nav__label">upcoming</p>
           </a>
         </li>
         <li class="nav__item">
           <a href="" class="nav__link">
             <div class="nav__thumb"></div>
-            <p class="nav__label">Past</p>
+            <p class="nav__label">past</p>
           </a>
         </li>
         <li class="nav__item">
@@ -81,28 +80,30 @@
       <!-- home -->
       <section class="section section--active">
         <article class="section__wrapper">
-          <h1><mark class="highlighter">RUN UNLIMITED</mark> <mark class="dash">// KOREA</mark></h1>
-          <h2>한번도 안 달려본 사람은 있어도 <br>한번만 달려본 사람은 없습니다 </h2>
-          <h2>올해 2016년, 전국  {{ count_total_events}}개 마라톤 대회 중</br>
-            {{ count_upcoming_events }}개 대회가 남았습니다
-          </h2>
-          <h2>지금 도전해보세요 </h2>
-          <h2 class="today">{{ today }}</h2>
-          <a href="http://www.sujinlee.me/runkorea/" class="twitter-share-button" data-show-count="true">Tweet</a>
-          <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-          <div id="fb-root"></div>
-          <div id="fboverlay" class="fb-like"
-            data-href="http://www.sujinlee.me/runkorea/"
-            data-layout="standard" data-action="like" data-size="small"
-            data-show-faces="true" data-share="true" data-colorscheme="dark">
+          <div class="home">
+            <h1><mark class="highlighter">RUN UNLIMITED</mark> <mark class="dash">// KOREA</mark></h1>
+            <h2>한번도 안 달려본 사람은 있어도 <br>한번만 달려본 사람은 없습니다 </h2>
+            <h2>올해 2016년, 전국  {{ count_total_events}}개 마라톤 대회 중</br>
+              {{ count_upcoming_events }}개 대회가 남았습니다
+            </h2>
+            <h2>지금 도전해보세요 </h2>
+            <h2 class="today">{{ today }}</h2>
+            <a href="http://www.sujinlee.me/runkorea/" class="twitter-share-button" data-show-count="true">Tweet</a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <div id="fb-root"></div>
+            <div id="fboverlay" class="fb-like"
+              data-href="http://www.sujinlee.me/runkorea/"
+              data-layout="standard" data-action="like" data-size="small"
+              data-show-faces="true" data-share="true" data-colorscheme="dark">
+            </div>
           </div>
         </article>
       </section>
       <section class="section">
         <article class="section__wrapper">
-          <h1 class="section__title">Comming Events ({{ count_upcoming_events }})</h1>
+          <h1 class="section__title">upcoming Events ({{ count_upcoming_events }})</h1>
           <div class="tbl-header">
-            <table>
+            <table id="event_title">
               <thead>
                 <tr>
                   <th>일시</th>
@@ -117,7 +118,7 @@
             </table>
           </div>
           <div class="tbl-content" id="table_scroll">
-            <table>
+            <table id="event">
               <tbody>
                 {% for event in upcoming_events %}
                 <tr>
@@ -152,7 +153,7 @@
         <div class="page_container">
           <h1 class="section__title">past events ({{ count_past_events }})</h1>
           <div class="tbl-header">
-            <table cellpadding='0' cellspacing='0'>
+            <table id="event_title">
               <thead>
                 <tr>
                   <th>일시</th>
@@ -167,7 +168,7 @@
             </table>
           </div>
           <div class="tbl-content" id="table_scroll">
-            <table>
+            <table id="event">
               <tbody>
                 {% for event in past_events %}
                 <tr>

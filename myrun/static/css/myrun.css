@@ -95,6 +95,24 @@ h4 {
     z-index: 9;
 }
 
+
+@media only screen and (max-width: 519px) {
+   .home {
+    width: 310px;
+    padding-left: 1rem;
+}
+    h1 {
+        font-size: 3.6rem;
+    }
+
+
+.twitter-share-button {
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+}
+
 /* data table */
 .tbl-header {
     background-color: rgba(255, 255, 255, 0.1);
@@ -133,7 +151,7 @@ th {
     text-align: center;
 }
 tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 tbody td {
     position: relative;
@@ -145,24 +163,93 @@ tbody td:hover:before {
     right: 0;
     top: -9999px;
     bottom: -9999px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     z-index: -1;
 }
-.footer {
-    padding: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+
+
+#table_scroll::-webkit-scrollbar {
+    width: 2.5vh;
+}
+#table_scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2.5vh rgba(255, 255, 255, 0.9);
+}
+#table_scroll::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 2.5vh rgba(255, 255, 255, 0.9);
+}
+
+
+@media screen and (max-width: 600px) {
+  tbody {
+
+    height: 100%;
+  }
+  table#event thead { display: none; }
+  table#event tbody td { 
+    display: block;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  table#event tbody tr:hover {
+      border: 2px solid #1a1a1a;
+  } 
+
+  table#event tbody td br {
+    display: none;
+}
+  table#event tbody tr td:nth-child(1) { 
+    
+    color: #1a1a1a;
     text-align: center;
-    font-weight: 200;
-    width: 100%;
-    z-index: 99;
-    border-top: solid 1px rgba(255, 255, 255, 0.1);
+    display: inline;
+    border-bottom: none;
+    top: 2rem;
+  }
+
+  table#event tbody tr td:nth-child(2) { 
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  table#event tbody tr td:nth-child(-n+2):before { 
+    content: '';
+    text-align: center;
+    width: 0rem;
+  }
+
+  table#event tbody tr td:last-child {
+      padding-bottom: 1rem;
+  }
+   table#event tbody td:before { 
+    content: attr(data-th);
+    position: static; 
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    width: 5rem;  
+  }
+  
+   table#event_title {
+    display: none;
+   }
+   tbody#event tbody {
+       left:0;
+   }
+
+   table#event tbody td:before .city {
+       display: inline;
+   }
+   
+   span.city {
+       top: -6rem;
+       left: 1rem;
+   }
+   
 }
-.footer a {
-    font-weight: 400;
-    text-decoration: none;
-}
+
+
+
+
 .today h2 {
     font-weight: 100;
 }
@@ -178,15 +265,7 @@ tbody td:hover:before {
     margin: -2em 0 0.4em 0;
     display: block;
     border: 1px solid #1a1a1a;
-}
-#table_scroll::-webkit-scrollbar {
-    width: 2.5vh;
-}
-#table_scroll::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 2.5vh rgba(255, 255, 255, 0.9);
-}
-#table_scroll::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 2.5vh rgba(255, 255, 255, 0.9);
+    text-align: center;
 }
 
 .weather_icons {
@@ -196,16 +275,10 @@ tbody td:hover:before {
     margin: auto auto -0.5rem auto;
 }
 .weather_icons path {
-    fill: #1a1a1a !important;
+    fill: #1a1a1a;
     transition: all .5s;
 }
-.weather_icons_reverse {
-    fill: #4BFB6C;
-    width: 4rem;
-    height: 4rem;
-    display: block;
-    margin: auto auto -0.5rem auto;
-}
+
 /* navigation */
 
 * {
@@ -270,6 +343,18 @@ ul {
     color: #4BFB6C;
     transition: all 0.3s ease-in-out;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 519px) {
+    .nav__label {
+        letter-spacing: 3px;
+        font-size: 0.5rem;
+    }
+
+}
+
+
+/* lay out */
+
 .page {
     margin: -0.5rem;
     height: 100vh;
@@ -412,24 +497,16 @@ ul {
 .section p:last-child {
     margin-bottom: 0;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
+    
     article.section__wrapper {
         padding: 1rem;
     }
+    .tbl-content{
+        height: 80vh;
+    }
 }
 
-/*
-@media only screen and (max-width: 500px) {
-    h1 {
-        
-    }
-    .nav__label {
-        font-size: 14px;
-    }
-    article.section__wrapper {
-        padding: 0 1rem;
-    }
-}*/
 /* about */
 
 .accordion {
