@@ -570,13 +570,12 @@ ul {
 }
 
 
-.github a {
+.box-content .github {
     text-decoration: none;
-    border-bottom: 2px solid #1a1a1a;
-    color: #fff;
+    font-weight: 600;
     transition: background 0.1s cubic-bezier(.33, .66, .66, 1);
 }
-.github a:hover {
+.box-content .github:hover {
     background: #1a1a1a;
     color: #fff;
 }
