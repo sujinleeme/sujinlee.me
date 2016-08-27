@@ -48,6 +48,22 @@ for (var i = 0, row; row = tablebody.rows[i]; i++) {
   } 
 }
 
+/* table */
+var headertext = [],
+headers = document.querySelectorAll(".event_title_2 th"),
+tablerows = document.querySelectorAll(".event_title th"),
+tablebody = document.querySelector(".event_2 tbody");
+
+for(var i = 0; i < headers.length; i++) {
+  var current = headers[i];
+  headertext.push(current.textContent.replace(/\r?\n|\r/,""));
+} 
+for (var i = 0, row; row = tablebody.rows[i]; i++) {
+  for (var j = 0, col; col = row.cells[j]; j++) {
+    col.setAttribute("data-th", headertext[j]);
+  } 
+}
+
 /*-- svg image --*/
 /*
 title: change svg to img

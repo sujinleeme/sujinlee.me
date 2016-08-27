@@ -207,7 +207,7 @@ tbody td:hover:before {
   }
 
   table#event tbody tr td:nth-child(2) { 
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: center;
   }
 
@@ -568,6 +568,21 @@ ul {
 .box-content a:hover {
     background: #4BFB6C;
 }
+
+
+.github a {
+    text-decoration: none;
+    border-bottom: 2px solid #1a1a1a;
+    color: #fff;
+    transition: background 0.1s cubic-bezier(.33, .66, .66, 1);
+}
+.github a:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+
+
 .box-close {
     position: absolute;
     height: 64px;

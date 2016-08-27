@@ -101,7 +101,7 @@
       </section>
       <section class="section">
         <article class="section__wrapper">
-          <h1 class="section__title">upcoming Events ({{ count_upcoming_events }})</h1>
+          <h1 class="section__title">upcoming events ({{ count_upcoming_events }})</h1>
           <div class="tbl-header">
             <table id="event_title">
               <thead>
@@ -150,10 +150,9 @@
     </section>
     <section class="section">
       <article class="section__wrapper">
-        <div class="page_container">
           <h1 class="section__title">past events ({{ count_past_events }})</h1>
           <div class="tbl-header">
-            <table id="event_title">
+            <table id="event_title" class="event_title_2">
               <thead>
                 <tr>
                   <th>일시</th>
@@ -168,12 +167,12 @@
             </table>
           </div>
           <div class="tbl-content" id="table_scroll">
-            <table id="event">
+            <table id="event" class="event_2">
               <tbody>
                 {% for event in past_events %}
                 <tr>
                   <td>{{ event.date }}
-                    <img class="svg weather_icons weather_icons_bl" src="{% static 'image/weather/' %}{{event.weather}}.svg">
+                    <img class="svg weather_icons" src="{% static 'image/weather/' %}{{event.weather}}.svg">
                     {{ event.temperature }}
                   </td>
                   <td>
@@ -195,7 +194,6 @@
               </tbody>
             </table>
           </div>
-        </div>
       </article>
     </section>
     <section class="section">
@@ -321,7 +319,7 @@
             <div class="box-content">
               <p><a href="http://www.marathon.pe.kr/schedule_index.html" target="_blank"> 마라톤 온라인</a>이 제공하는 2016년간 행사 데이터를 파이썬으로 크롤링하여 시각화한 사이트입니다. </br>
                 사용자가 입력한 주소 데이터가 없거나 부정확한 경우, 지도 상의 위치 또는 날씨 정보를 읽지 못할 수 있습니다.</br>
-                PYTHON 3.5와 DJANGO로 만들었으며, 코드는 <a href="https://github.com/sujinleeme/official-website/tree/master/myrun" target="_blank">GITHUB</a>에서 확인하실 수 있습니다.
+                PYTHON 3.5와 DJANGO로 만들었으며, 코드는 <a class='github' href="https://github.com/sujinleeme/official-website/tree/master/myrun" target="_blank">GITHUB</a>에서 확인하실 수 있습니다.
               </p>
             </div>
           </section>
