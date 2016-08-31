@@ -293,6 +293,9 @@ tbody td:hover:before {
         top: -6rem;
         left: 1rem;
     }
+    span.temperature {
+        padding-bottom: 1rem;
+    }
 }
 .today h2 {
     font-weight: 100;
@@ -460,7 +463,7 @@ ul {
     background-position: center;
     background-size: cover;
 }
-.section:nth-child(5) {
+.section:nth-child(5) {    
     color: #1a1a1a;
     background: #F4F2F9;
     background-image: url("data:image/svg+xml, %3Csvg%20version%3D%271.1%27%20id%3D%27Layer_1%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20xmlns%3Axlink%3D%27http%3A//www.w3.org/1999/xlink%27%20x%3D%270px%27%20y%3D%270px%27%0A%20%20%20%20%20fill%3D%27#4BFB6C%27%20width%3D%27300px%27%20height%3D%27300px%27%20viewBox%3D%270%200%2012%2012%27%20enable-background%3D%27new%200%200%2012%2012%27%20xml%3Aspace%3D%27preserve%27%3E%0A%3Cpath%20d%3D%27M12%2C3.535V0H8.465L0%2C8.465V12h3.535L12%2C3.535z%20M0%2C0h3.535L0%2C3.535V0z%20M8.465%2C12L12%2C8.465V12H8.465z%27/%3E%0A%3C/svg%3E");
@@ -694,6 +697,7 @@ input:checked + section.box .box-title:before {
     background: #1a1a1a;
     color: #fff;
 }
+
 /* nav */
 
 .burger {

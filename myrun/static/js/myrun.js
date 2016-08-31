@@ -1,5 +1,4 @@
 
-
 /* Preloader */
 $(window).load(function() { // makes sure the whole site is loaded
   $('#status').fadeOut(); // will first fade out the loading animation
@@ -244,7 +243,7 @@ window.fbAsyncInit = function() {
 var headertext = [],
 headers = document.querySelectorAll(".event_title_past th"),
 tablerows = document.querySelectorAll(".event_title th"),
-tablebody = document.querySelector(".event_2 tbody");
+tablebody = document.querySelector(".event_title_past tbody");
 
 for(var i = 0; i < headers.length; i++) {
   var current = headers[i];
