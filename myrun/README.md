@@ -27,7 +27,8 @@ Therefore, several events may not have weather & map data.
 ## Release
 * 2016. 06. 23. - First published
 * 2016. 08. 18. - Add weather & map(latitude, longitude, map url) data with APIs, weather icons
-* 2016. 08. 23. - UX & Design renewal / Mobile Web View
+* 2016. 08. 23. - UX & Design renewal & Mobile Web View
+* 2016. 08. 31. - Google Translate Widget & English Translation
 
 ## Next Working
 * Json for APIs

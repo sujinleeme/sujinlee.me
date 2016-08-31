@@ -1,9 +1,9 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+<head>
     <meta charset="utf-8">
-    <link title="favicon" href="http://www.sujinlee.me/static/image/favicon/logo.png" rel="shortcut icon" type="image/png" >
+    <link title="favicon" href="http://www.sujinlee.me/static/image/favicon/logo.png" rel="shortcut icon" type="image/png">
     <title>RUN UNLIMITED KOREA</title>
     <meta name="description" content="마라톤 온라인이 제공하는 2016년간 행사 데이터를 크롤링한 웹페이지입니다">
     <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -18,353 +18,442 @@
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel='stylesheet' type='text/css'>
     <link href="//fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type='text/css'>
     <link href="{% static 'css/myrun.css' %}" rel="stylesheet">
-    <link href="https://twitter.com/sujinleeme"  rel="me">
+    <link href="https://twitter.com/sujinleeme" rel="me">
     <script src="//code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
     <script src="//apis.daum.net/maps/maps3.js?apikey=317394cebdea4b6359a849bcf994be38" rel="stylesheet" type="text/javascript"></script>
     <script src="/static/js/myrun.js" rel="stylesheet" type="text/javascript"></script>
     <script src="{% static 'js/prefixfree.min.js' %}" rel="stylesheet" type="text/javascript"></script>
-  </head>
-  <!--facebook plugin-->
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.6&appId=1081681621896558";
-    fjs.parentNode.insertBefore(js, fjs);
+</head>
+<!--facebook plugin-->
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.6&appId=1081681621896558";
+        fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-  </script>
-  <!-- Preloader -->
-  <body>
+</script>
+
+<body>
+    <script>
+        $('body').data('count_upcoming_events', {
+            {
+                count_upcoming_events
+            }
+        });
+        $('body').data('count_total_events', {
+            {
+                count_total_events
+            }
+        });
+        $('input[type=checkbox]').removeAttr('checked');
+    </script>
     <div id="preloader">
-      <div id="status"></div>
+        <div id="status"></div>
     </div>
     <!-- Navigation -->
-    <nav class="nav nav--active">
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a href="" class="nav__link">
-            <div class="nav__thumb "></div>
-            <p class="nav__label">home</p>
-          </a>
-        </li>
-        <li class="nav__item">
-          <a href="" class="nav__link">
-            <div class="nav__thumb"></div>
-            <p class="nav__label">upcoming</p>
-          </a>
-        </li>
-        <li class="nav__item">
-          <a href="" class="nav__link">
-            <div class="nav__thumb"></div>
-            <p class="nav__label">past</p>
-          </a>
-        </li>
-        <li class="nav__item">
-          <a href="" class="nav__link">
-            <div class="nav__thumb"></div>
-            <p class="nav__label">map</p>
-          </a>
-        </li>
-        <li class="nav__item">
-          <a href="" class="nav__link">
-            <div class="nav__thumb"></div>
-            <p class="nav__label">about</p>
-          </a>
-        </li>
-      </ul>
-      <div class="burger burger--close">
-        <div class="burger__patty"></div>
-      </div>
+    <nav class="nav nav--active notranslate">
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb "></div>
+                    <p class="nav__label">home</p>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb"></div>
+                    <p class="nav__label">upcoming</p>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb"></div>
+                    <p class="nav__label">past</p>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb"></div>
+                    <p class="nav__label">map</p>
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" class="nav__link">
+                    <div class="nav__thumb"></div>
+                    <p class="nav__label">about</p>
+                </a>
+            </li>
+        </ul>
+        <div class="burger burger--close">
+            <div class="burger__patty"></div>
+        </div>
     </nav>
     <div class="page">
-      <!-- home -->
-      <section class="section section--active">
-        <article class="section__wrapper">
-          <div class="home">
-            <h1><mark class="highlighter">RUN UNLIMITED</mark> <mark class="dash">// KOREA</mark></h1>
-            <h2>한번도 안 달려본 사람은 있어도 <br>한번만 달려본 사람은 없습니다 </h2>
-            <h2>올해 2016년, 전국  {{ count_total_events}}개 마라톤 대회 중</br>
+        <!-- home -->
+        <section class="section section--active">
+
+            <article class="section__wrapper">
+                <div class="home">
+                    <div id="google_translate_element"></div>
+                    <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({
+                                pageLanguage: 'ko',
+                                includedLanguages: 'en,ko',
+                                layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT,
+                                autoDisplay: false,
+                                multilanguagePage: true,
+                                gaTrack: true,
+                                gaId: 'UA-53782262-2'
+                            }, 'google_translate_element');
+                        }
+                    </script>
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                    <h1 class="notranslate"><mark class="highlighter">RUN UNLIMITED</mark> <mark class="dash">// KOREA</mark></h1>
+                    <div class="trsl_msg">
+                        <h2 class="notranslate">한번도 안 달려본 사람은 있어도 <br>한번만 달려본 사람은 없습니다 </h2>
+                        <h2 class="notranslate">올해 2016년, 전국  {{ count_total_events }}개 마라톤 대회 중</br>
               {{ count_upcoming_events }}개 대회가 남았습니다
             </h2>
-            <h2>지금 도전해보세요 </h2>
-            <h2 class="today">{{ today }}</h2>
-            <a href="http://www.sujinlee.me/runkorea/" class="twitter-share-button" data-show-count="true">Tweet</a>
-            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <div id="fb-root"></div>
-            <div id="fboverlay" class="fb-like"
-              data-href="http://www.sujinlee.me/runkorea/"
-              data-layout="standard" data-action="like" data-size="small"
-              data-show-faces="true" data-share="true" data-colorscheme="dark">
-            </div>
-          </div>
-        </article>
-      </section>
-      <section class="section">
-        <article class="section__wrapper">
-          <h1 class="section__title">upcoming events ({{ count_upcoming_events }})</h1>
-          <div class="tbl-header">
-            <table id="event_title">
-              <thead>
-                <tr>
-                  <th>일시</th>
-                  <th>대회명</th>
-                  <th>신청기간</th>
-                  <th>레이스</th>
-                  <th>장소</th>
-                  <th>내용</th>
-                  <th>주최</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div class="tbl-content" id="table_scroll">
-            <table id="event">
-              <tbody>
-                {% for event in upcoming_events %}
-                <tr>
-                  <td>{{ event.date }}
-                    <img class="svg weather_icons weather_icons_bl" src="{% static 'image/weather/' %}{{event.weather}}.svg">
-                    {{ event.temperature }}
-                  </td>
-                  <td>
-                    <span class="city">{{ event.city }}</span>
-                    <a href="{{ event.website }}" class="NewTab">{{ event.title }}</a>
-                  </td>
-                  <td>{{ event.application_period }}</td>
-                  <td>{{ event.race }}</td>
-                  <td><a href="{{ event.map_url }}" class="NewTab">
+                        <h2 class="notranslate">지금 도전해보세요 </h2>
+                    </div>
+                    <h2 class="today">{{ today }}</h2>
+
+                    <a href="http://www.sujinlee.me/runkorea/" class="twitter-share-button" data-show-count="true">Tweet</a>
+                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <div id="fb-root"></div>
+                    <div id="fboverlay" class="fb-like" data-href="http://www.sujinlee.me/runkorea/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true" data-colorscheme="dark">
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+        <section class="section">
+            <article class="section__wrapper">
+                <h1 class="section__title">upcoming events ({{ count_upcoming_events }})</h1>
+                <div class="tbl-header">
+                    <table id="event_title">
+                        <thead>
+                            <tr>
+                                <th>날짜</th>
+                                <th>행사명</th>
+                                <th>신청기간</th>
+                                <th>레이스</th>
+                                <th>장소</th>
+                                <th>내용</th>
+                                <th>주최</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-content tbl_scroll" id="mobile_scroll">
+                    <table id="event">
+                        <tbody>
+                            {% for event in upcoming_events %}
+                            <tr>
+                                <td class="notranslate">{{ event.date }}
+                                    <img class="svg weather_icons weather_icons_bl" src="{% static 'image/weather/' %}{{event.weather}}.svg"> {{ event.temperature }}
+                                </td>
+                                <td>
+                                    <span class="city">{{ event.city }}</span>
+                                    <a href="{{ event.website }}" class="NewTab">{{ event.title }}</a>
+                                </td>
+                                <td>{{ event.application_period }}</td>
+                                <td>{{ event.race }}</td>
+                                <td><a href="{{ event.map_url }}" class="NewTab">
                     {{ event.location }}</a>
-                  </td>
-                  <td>{{ event.description|truncatechars:100 }}</td>
-                  <td>{{ event.host }} </br>
-                    {{ event.phone }} </br>
-                    {{ event.email }}
-                  </td>
-                </tr>
-          </div>
-          {% endfor %}
-          </tbody>
-          </table>
+                                </td>
+                                <td>{{ event.description|truncatechars:100 }}</td>
+                                <td>{{ event.host }} </br>
+                                    {{ event.phone }} </br>
+                                    {{ event.email }}
+                                </td>
+                            </tr>
+                </div>
+                {% endfor %}
+                </tbody>
+                </table>
     </div>
     </article>
     </section>
     <section class="section">
-      <article class="section__wrapper">
-          <h1 class="section__title">past events ({{ count_past_events }})</h1>
-          <div class="tbl-header">
-            <table id="event_title" class="event_title_2">
-              <thead>
-                <tr>
-                  <th>일시</th>
-                  <th>대회명</th>
-                  <th>신청기간</th>
-                  <th>레이스</th>
-                  <th>장소</th>
-                  <th>내용</th>
-                  <th>주최</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div class="tbl-content" id="table_scroll">
-            <table id="event" class="event_2">
-              <tbody>
-                {% for event in past_events %}
-                <tr>
-                  <td>{{ event.date }}
-                    <img class="svg weather_icons" src="{% static 'image/weather/' %}{{event.weather}}.svg">
-                    {{ event.temperature }}
-                  </td>
-                  <td>
-                    <span class="city">{{ event.city }}</span>
-                    <a href="{{ event.website }}" class="NewTab">{{ event.title }}</a>
-                  </td>
-                  <td>{{ event.application_period }}</td>
-                  <td>{{ event.race }}</td>
-                  <td><a href="{{ event.map_url }}" class="NewTab">
+        <article class="section__wrapper">
+            <h1 class="section__title">past events ({{ count_past_events }})</h1>
+            <div class="tbl-header">
+                <table id="event_title" class="event_title_past">
+                    <thead>
+                        <tr>
+                            <th>일시</th>
+                            <th>대회명</th>
+                            <th>신청기간</th>
+                            <th>레이스</th>
+                            <th>장소</th>
+                            <th>내용</th>
+                            <th>주최</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tbl-content tbl_scroll" id="mobile_scroll">
+                <table id="event" class="event_2">
+                    <tbody>
+                        {% for event in past_events %}
+                        <tr>
+                            <td>{{ event.date }}
+                                <img class="svg weather_icons" src="{% static 'image/weather/' %}{{event.weather}}.svg"> {{ event.temperature }}
+                            </td>
+                            <td>
+                                <span class="city">{{ event.city }}</span>
+                                <a href="{{ event.website }}" class="NewTab">{{ event.title }}</a>
+                            </td>
+                            <td>{{ event.application_period }}</td>
+                            <td>{{ event.race }}</td>
+                            <td><a href="{{ event.map_url }}" class="NewTab">
                     {{ event.location }}</a>
-                  </td>
-                  <td>{{ event.description|truncatechars:100 }}</td>
-                  <td>{{ event.host }} </br>
-                    {{ event.phone }} </br>
-                    {{ event.email }}
-                  </td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-      </article>
+                            </td>
+                            <td>{{ event.description|truncatechars:100 }}</td>
+                            <td>{{ event.host }} </br>
+                                {{ event.phone }} </br>
+                                {{ event.email }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </article>
     </section>
     <section class="section">
-      <article class="section__map">
-        <div id="map" style="width:100%;height:140vh;"></div>
-        <script src="//apis.daum.net/maps/maps3.js?apikey=317394cebdea4b6359a849bcf994be38"  type="text/javascript"></script>
-        <script>
-          //create daum map API
-          var mapContainer = document.getElementById('map'), 
-            mapOption = { 
-                  center: new daum.maps.LatLng(37.54699, 127.09598),
-                  level: 12 
-              };
-          
-          var map = new daum.maps.Map(mapContainer, mapOption);
-          var imageSrc = '{% static 'image/map/map-marker-green.svg' %}', 
-              imageSize = new daum.maps.Size(30, 30), 
-              imageOprion = {offset: new daum.maps.Point(27, 69)};
-        </script>
-        {% for event in upcoming_events %}
-        <script>
-          //draw map maker
-          var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
-              markerPosition = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }}); 
-          var marker = new daum.maps.Marker({
-            position: markerPosition,
-            image: markerImage 
-          });
-          
-          marker.setMap(map);  
-          
-          var content = '<div class="customoverlay customoverlay--coming">' +
-              '  <a href="{{ event.website }}" target="_blank">' +
-              '    <span class="title">{{ event.title }}</span>' +
-              '  </a>' +
-              '</div>';
-          
-          
-          var position = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }});  
-          
-          var customOverlay = new daum.maps.CustomOverlay({
-              map: map,
-              position: position,
-              content: content,
-              yAnchor: 1 
-          });
-        </script>
-        {% endfor %}
-        {% for event in past_events %}
-        <script>
-          // daum map
-          var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
-              markerPosition = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }}); 
-          var marker = new daum.maps.Marker({
-            position: markerPosition,
-            image: markerImage 
-          });
-          
-          marker.setMap(map);  
-          
-          var content = '<div class="customoverlay customoverlay--coming">' +
-              '  <a href="{{ event.website }}" target="_blank">' +
-              '    <span class="title">{{ event.title }}</span>' +
-              '  </a>' +
-              '</div>';
-          
-          
-          var position = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }});  
-          
-          var customOverlay = new daum.maps.CustomOverlay({
-              map: map,
-              position: position,
-              content: content,
-              yAnchor: 1 
-          });
-        </script>
-        {% endfor %}
-        <script>
-          var imageSrc = '{% static 'image/map/map-marker-gray.svg' %}', 
-              imageSize = new daum.maps.Size(30, 30),
-              imageOprion = {offset: new daum.maps.Point(27, 69)}; 
-        </script>
-        {% for event in past_events %}
-        <script>
-          var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
-              markerPosition = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }}); 
-          
-          var marker = new daum.maps.Marker({
-            position: markerPosition,
-            image: markerImage 
-          
-          marker.setMap(map);  
-          
-          
-          var content = '<div class="customoverlay customoverlay--past">' +
-              '  <a href="{{ event.website }}" target="_blank">' +
-              '    <span class="title">{{ event.title }}</span>' +
-              '  </a>' +
-              '</div>';
-          
-          
-          
-          var position = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }});  
-          
-          
-          var customOverlay = new daum.maps.CustomOverlay({
-              map: map,
-              position: position,
-              content: content,
-              yAnchor: 1 
-          });
-        </script>
-        {% endfor %}
-      </article>
+        <article class="section__map">
+            <div id="map" style="width:100%;height:140vh;"></div>
+            <script src="//apis.daum.net/maps/maps3.js?apikey=317394cebdea4b6359a849bcf994be38" type="text/javascript"></script>
+            <script>
+                //create daum map API
+                var mapContainer = document.getElementById('map'),
+                    mapOption = {
+                        center: new daum.maps.LatLng(37.54699, 127.09598),
+                        level: 12
+                    };
+
+                var map = new daum.maps.Map(mapContainer, mapOption);
+                var imageSrc = '{% static '
+                image / map / map - marker - green.svg ' %}',
+                    imageSize = new daum.maps.Size(30, 30),
+                    imageOprion = {
+                        offset: new daum.maps.Point(27, 69)
+                    };
+            </script>
+            {% for event in upcoming_events %}
+            <script>
+                //draw map maker
+                var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
+                    markerPosition = new daum.maps.LatLng({
+                        {
+                            event.latitude
+                        }
+                    }, {
+                        {
+                            event.longitude
+                        }
+                    });
+                var marker = new daum.maps.Marker({
+                    position: markerPosition,
+                    image: markerImage
+                });
+
+                marker.setMap(map);
+
+                var content = '<div class="customoverlay customoverlay--coming">' +
+                    '  <a href="{{ event.website }}" target="_blank">' +
+                    '    <span class="title">{{ event.title }}</span>' +
+                    '  </a>' +
+                    '</div>';
+
+                var position = new daum.maps.LatLng({
+                    {
+                        event.latitude
+                    }
+                }, {
+                    {
+                        event.longitude
+                    }
+                });
+
+                var customOverlay = new daum.maps.CustomOverlay({
+                    map: map,
+                    position: position,
+                    content: content,
+                    yAnchor: 1
+                });
+            </script>
+            {% endfor %} {% for event in past_events %}
+            <script>
+                // daum map
+                var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
+                    markerPosition = new daum.maps.LatLng({
+                        {
+                            event.latitude
+                        }
+                    }, {
+                        {
+                            event.longitude
+                        }
+                    });
+                var marker = new daum.maps.Marker({
+                    position: markerPosition,
+                    image: markerImage
+                });
+
+                marker.setMap(map);
+
+                var content = '<div class="customoverlay customoverlay--coming">' +
+                    '  <a href="{{ event.website }}" target="_blank">' +
+                    '    <span class="title">{{ event.title }}</span>' +
+                    '  </a>' +
+                    '</div>';
+
+                var position = new daum.maps.LatLng({
+                    {
+                        event.latitude
+                    }
+                }, {
+                    {
+                        event.longitude
+                    }
+                });
+
+                var customOverlay = new daum.maps.CustomOverlay({
+                    map: map,
+                    position: position,
+                    content: content,
+                    yAnchor: 1
+                });
+            </script>
+            {% endfor %}
+            <script>
+                var imageSrc = '{% static '
+                image / map / map - marker - gray.svg ' %}',
+                    imageSize = new daum.maps.Size(30, 30),
+                    imageOprion = {
+                        offset: new daum.maps.Point(27, 69)
+                    };
+            </script>
+            {% for event in past_events %}
+            <script>
+                var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
+                    markerPosition = new daum.maps.LatLng({
+                        {
+                            event.latitude
+                        }
+                    }, {
+                        {
+                            event.longitude
+                        }
+                    });
+
+                var marker = new daum.maps.Marker({
+                            position: markerPosition,
+                            image: markerImage
+
+                                marker.setMap(map);
+
+                            var content = '<div class="customoverlay customoverlay--past">' +
+                                '  <a href="{{ event.website }}" target="_blank">' +
+                                '    <span class="title">{{ event.title }}</span>' +
+                                '  </a>' +
+                                '</div>';
+
+                            var position = new daum.maps.LatLng({
+                                {
+                                    event.latitude
+                                }
+                            }, {
+                                {
+                                    event.longitude
+                                }
+                            });
+
+                            var customOverlay = new daum.maps.CustomOverlay({
+                                map: map,
+                                position: position,
+                                content: content,
+                                yAnchor: 1
+                            });
+            </script>
+            {% endfor %}
+        </article>
     </section>
     <section class="section">
-      <article class="section__wrapper">
-        <nav class="accordion arrows">
-          <input type="radio" name="accordion" id="cb1" />
-          <section class="box">
-            <label class="box-title" for="cb1">about</label>
-            <label class="box-close" for="acc-close"></label>
-            <div class="box-content">
-              <p><a href="http://www.marathon.pe.kr/schedule_index.html" target="_blank"> 마라톤 온라인</a>이 제공하는 2016년간 행사 데이터를 파이썬으로 크롤링하여 시각화한 사이트입니다. </br>
-                사용자가 입력한 주소 데이터가 없거나 부정확한 경우, 지도 상의 위치 또는 날씨 정보를 읽지 못할 수 있습니다.</br>
-                PYTHON 3.5와 DJANGO로 만들었으며, 코드는 <a class='github' href="https://github.com/sujinleeme/official-website/tree/master/myrun" target="_blank">GITHUB</a>에서 확인하실 수 있습니다.
-              </p>
-            </div>
-          </section>
-          <input type="radio" name="accordion" id="cb2" />
-          <section class="box">
-            <label class="box-title" for="cb2">motivation</label>
-            <label class="box-close" for="acc-close"></label>
-            <div class="box-content">
-              저는 달리기를 좋아합니다. 달리기 만큼 쉽고 좋은 운동은 없지요. </br>
-              지난 15년간, <a href="http://www.marathon.pe.kr/schedule_index.html" target="_blank"> 마라톤 온라인</a> 사이트는 국내 아마추어, 프로 마라토너들에게 많은 사랑을 받아왔습니다. </br>
-              그러나 오래된 인터페이스 디자인과 한글 인코딩 문제가 있어 다양한 브라우저에서 확인하기 어려웠습니다. </br>
-              이에 전국 마라톤 대회 일정을 확인하고, 그곳의 날씨 정보와 지도상 위치를 확인할 수 있는 간단한 웹사이트를 개발 공부삼아 만들게 되었습니다. </br>
-              올해도 전국에서 약 300여 개의 마라톤 행사가 열린다고 합니다. </br>
-              오늘도 자신의 한계를 뛰어넘는 도전을 하고 있을 러너들을 응원합니다.
-            </div>
-          </section>
-          <input type="radio" name="accordion" id="cb3" />
-          <section class="box">
-            <label class="box-title" for="cb3">contact</label>
-            <label class="box-close" for="acc-close"></label>
-            <div class="box-content">
-              <strong>CODE & DESIGN. SUJIN LEE</strong></br>
-              <a href="mailto:sujinlee.me@gmail.com" class="NewTab">sujinlee.me@gmail.com</a>
-              <div class="social-icons">
-                <a href="http://www.sujinlee.me" class="NewTab"><span></span></a>
-                <a href="https://www.facebook.com/sujiniworld" class="NewTab"><span></span></a>
-                <a href="https://twitter.com/sujinleeme" class="NewTab"><span></span></a>
-                <a href="https://github.com/sujinleeme" class="NewTab"><span></span></a>
-              </div>
-            </div>
-          </section>
-          <input type="radio" name="accordion" id="acc-close" />
-        </nav>
-      </article>
+        <article class="section__wrapper">
+            <nav class="accordion arrows">
+                <input type="radio" name="accordion" id="cb1" />
+                <section class="box notranslate">
+                    <label class="box-title" for="cb1">motivation</label>
+                    <label class="box-close" for="acc-close"></label>
+                    <div class="box-content motivation">
+                        <p>
+                            저는 달리기를 좋아합니다. 달리기 만큼 쉽고 좋은 운동은 없지요. </br>
+                            지난 15년간, <a href="http://www.marathon.pe.kr/schedule_index.html" target="_blank">마라톤 온라인</a> 사이트는 국내 아마추어, 프로 마라토너들에게 많은 사랑을 받아왔습니다. </br>
+                            그러나 오래된 인터페이스 디자인과 한글 인코딩 문제가 있어 다양한 브라우저에서 확인하기 어려웠습니다. </br>
+                            이에 전국 마라톤 대회 일정을 확인하고, 그곳의 날씨 정보와 지도상 위치를 확인할 수 있는 간단한 웹사이트를 개발 공부삼아 만들게 되었습니다. </br>
+                            올해도 전국에서 약 300여 개의 마라톤 행사가 열린다고 합니다. </br>
+                            오늘도 자신의 한계를 뛰어넘는 도전을 하고 있을 러너들을 응원합니다.
+                        </p>
+                    </div>
+                </section>
+                <input type="radio" name="accordion" id="cb2" />
+                <section class="box notranslate">
+                    <label class="box-title" for="cb2">development</label>
+                    <label class="box-close" for="acc-close"></label>
+                    <div class="box-content development">
+                        <p><a href="http://www.marathon.pe.kr/schedule_index.html" target="_blank"> 마라톤 온라인</a>이 제공하는 2016년간 행사 데이터를 파이썬으로 크롤링하여 시각화한 사이트입니다. </br>
+                            사용자가 입력한 주소 데이터가 없거나 부정확한 경우, 지도 상의 위치 또는 날씨 정보를 읽지 못할 수 있습니다.</br>
+                            PYTHON 3.5와 DJANGO로 만들었으며, 코드는 <a class="github" href="https://github.com/sujinleeme/official-website/tree/master/myrun" target="_blank">GITHUB</a>에서 확인하실 수 있습니다.
+                        </p>
+                    </div>
+                </section>
+                <input type="radio" name="accordion" id="cb3" />
+                <section class="box notranslate">
+                    <label class="box-title" for="cb3">contact</label>
+                    <label class="box-close" for="acc-close"></label>
+                    <div class="box-content contact">
+                        <strong>CODE & DESIGN. SUJIN LEE</strong></br>
+                        <a href="mailto:sujinlee.me@gmail.com" class="NewTab">sujinlee.me@gmail.com</a>
+                        <div class="social-icons">
+                            <a href="http://www.sujinlee.me" class="NewTab"><span></span></a>
+                            <a href="https://www.facebook.com/sujiniworld" class="NewTab"><span></span></a>
+                            <a href="https://twitter.com/sujinleeme" class="NewTab"><span></span></a>
+                            <a href="https://github.com/sujinleeme" class="NewTab"><span></span></a>
+                        </div>
+                    </div>
+                </section>
+                <input type="radio" name="accordion" id="acc-close" />
+            </nav>
+        </article>
     </section>
     </div>
     <!--google-analytics-->
-    <script src="{% static 'js/myrun.js' %}"  type="text/javascript"></script>
+    <script src="{% static 'js/myrun.js' %}" type="text/javascript"></script>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-53782262-2', 'auto');
-      ga('send', 'pageview');
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-53782262-2', 'auto');
+        ga('send', 'pageview');
     </script>
-  </body>
+</body>
 </html>
