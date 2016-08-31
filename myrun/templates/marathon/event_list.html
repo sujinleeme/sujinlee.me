@@ -229,164 +229,117 @@
             </div>
         </article>
     </section>
-    <section class="section">
+    <sec<section class="section">
         <article class="section__map">
             <div id="map" style="width:100%;height:140vh;"></div>
-            <script src="//apis.daum.net/maps/maps3.js?apikey=317394cebdea4b6359a849bcf994be38" type="text/javascript"></script>
-            <script>
-                //create daum map API
-                var mapContainer = document.getElementById('map'),
-                    mapOption = {
-                        center: new daum.maps.LatLng(37.54699, 127.09598),
-                        level: 12
-                    };
-
-                var map = new daum.maps.Map(mapContainer, mapOption);
-                var imageSrc = '{% static '
-                image / map / map - marker - green.svg ' %}',
-                    imageSize = new daum.maps.Size(30, 30),
-                    imageOprion = {
-                        offset: new daum.maps.Point(27, 69)
-                    };
-            </script>
-            {% for event in upcoming_events %}
-            <script>
-                //draw map maker
-                var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
-                    markerPosition = new daum.maps.LatLng({
-                        {
-                            event.latitude
-                        }
-                    }, {
-                        {
-                            event.longitude
-                        }
-                    });
-                var marker = new daum.maps.Marker({
-                    position: markerPosition,
-                    image: markerImage
-                });
-
-                marker.setMap(map);
-
-                var content = '<div class="customoverlay customoverlay--coming">' +
-                    '  <a href="{{ event.website }}" target="_blank">' +
-                    '    <span class="title">{{ event.title }}</span>' +
-                    '  </a>' +
-                    '</div>';
-
-                var position = new daum.maps.LatLng({
-                    {
-                        event.latitude
-                    }
-                }, {
-                    {
-                        event.longitude
-                    }
-                });
-
-                var customOverlay = new daum.maps.CustomOverlay({
-                    map: map,
-                    position: position,
-                    content: content,
-                    yAnchor: 1
-                });
-            </script>
-            {% endfor %} {% for event in past_events %}
-            <script>
-                // daum map
-                var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
-                    markerPosition = new daum.maps.LatLng({
-                        {
-                            event.latitude
-                        }
-                    }, {
-                        {
-                            event.longitude
-                        }
-                    });
-                var marker = new daum.maps.Marker({
-                    position: markerPosition,
-                    image: markerImage
-                });
-
-                marker.setMap(map);
-
-                var content = '<div class="customoverlay customoverlay--coming">' +
-                    '  <a href="{{ event.website }}" target="_blank">' +
-                    '    <span class="title">{{ event.title }}</span>' +
-                    '  </a>' +
-                    '</div>';
-
-                var position = new daum.maps.LatLng({
-                    {
-                        event.latitude
-                    }
-                }, {
-                    {
-                        event.longitude
-                    }
-                });
-
-                var customOverlay = new daum.maps.CustomOverlay({
-                    map: map,
-                    position: position,
-                    content: content,
-                    yAnchor: 1
-                });
-            </script>
-            {% endfor %}
-            <script>
-                var imageSrc = '{% static '
-                image / map / map - marker - gray.svg ' %}',
-                    imageSize = new daum.maps.Size(30, 30),
-                    imageOprion = {
-                        offset: new daum.maps.Point(27, 69)
-                    };
-            </script>
-            {% for event in past_events %}
-            <script>
-                var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
-                    markerPosition = new daum.maps.LatLng({
-                        {
-                            event.latitude
-                        }
-                    }, {
-                        {
-                            event.longitude
-                        }
-                    });
-
-                var marker = new daum.maps.Marker({
-                            position: markerPosition,
-                            image: markerImage
-
-                                marker.setMap(map);
-
-                            var content = '<div class="customoverlay customoverlay--past">' +
-                                '  <a href="{{ event.website }}" target="_blank">' +
-                                '    <span class="title">{{ event.title }}</span>' +
-                                '  </a>' +
-                                '</div>';
-
-                            var position = new daum.maps.LatLng({
-                                {
-                                    event.latitude
-                                }
-                            }, {
-                                {
-                                    event.longitude
-                                }
-                            });
-
-                            var customOverlay = new daum.maps.CustomOverlay({
-                                map: map,
-                                position: position,
-                                content: content,
-                                yAnchor: 1
-                            });
-            </script>
-            {% endfor %}
+        <script src="//apis.daum.net/maps/maps3.js?apikey=317394cebdea4b6359a849bcf994be38"  type="text/javascript"></script>
+        <script>
+          //create daum map API
+          var mapContainer = document.getElementById('map'), 
+            mapOption = { 
+                  center: new daum.maps.LatLng(37.54699, 127.09598),
+                  level: 12 
+              };
+          
+          var map = new daum.maps.Map(mapContainer, mapOption);
+          var imageSrc = '{% static 'image/map/map-marker-green.svg' %}', 
+              imageSize = new daum.maps.Size(30, 30), 
+              imageOprion = {offset: new daum.maps.Point(27, 69)};
+        </script>
+        {% for event in upcoming_events %}
+        <script>
+          //draw map maker
+          var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
+              markerPosition = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }}); 
+          var marker = new daum.maps.Marker({
+            position: markerPosition,
+            image: markerImage 
+          });
+          
+          marker.setMap(map);  
+          
+          var content = '<div class="customoverlay customoverlay--coming">' +
+              '  <a href="{{ event.website }}" target="_blank">' +
+              '    <span class="title">{{ event.title }}</span>' +
+              '  </a>' +
+              '</div>';
+          
+          
+          var position = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }});  
+          
+          var customOverlay = new daum.maps.CustomOverlay({
+              map: map,
+              position: position,
+              content: content,
+              yAnchor: 1 
+          });
+        </script>
+        {% endfor %}
+        {% for event in past_events %}
+        <script>
+          // daum map
+          var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
+              markerPosition = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }}); 
+          var marker = new daum.maps.Marker({
+            position: markerPosition,
+            image: markerImage 
+          });
+          
+          marker.setMap(map);  
+          
+          var content = '<div class="customoverlay customoverlay--coming">' +
+              '  <a href="{{ event.website }}" target="_blank">' +
+              '    <span class="title">{{ event.title }}</span>' +
+              '  </a>' +
+              '</div>';
+          
+          
+          var position = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }});  
+          
+          var customOverlay = new daum.maps.CustomOverlay({
+              map: map,
+              position: position,
+              content: content,
+              yAnchor: 1 
+          });
+        </script>
+        {% endfor %}
+        <script>
+          var imageSrc = '{% static 'image/map/map-marker-gray.svg' %}', 
+              imageSize = new daum.maps.Size(30, 30),
+              imageOprion = {offset: new daum.maps.Point(27, 69)}; 
+        </script>
+        {% for event in past_events %}
+        <script>
+          var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOprion),
+              markerPosition = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }}); 
+          
+          var marker = new daum.maps.Marker({
+            position: markerPosition,
+            image: markerImage 
+          
+          marker.setMap(map);  
+          
+          
+          var content = '<div class="customoverlay customoverlay--past">' +
+              '  <a href="{{ event.website }}" target="_blank">' +
+              '    <span class="title">{{ event.title }}</span>' +
+              '  </a>' +
+              '</div>';
+          
+          
+          
+          var position = new daum.maps.LatLng({{ event.latitude }}, {{ event.longitude }});  
+          
+          
+          var customOverlay = new daum.maps.CustomOverlay({
+              map: map,
+              position: position,
+              content: content,
+              yAnchor: 1 
+          });
+        </script>
+        {% endfor %}
         </article>
     </section>
     <section class="section">
