@@ -37,20 +37,22 @@
         <div class="title"><a href="/">
           <i class="fa fa-connectdevelop" aria-hidden="true"></i></a>
         </div>
-        <nav class="Offscreen Nav-List">
-          <a href="#" class="Meun-Button">
-          <i class="Menu-Bar Menu-Top"></i>
-          <i class="Menu-Bar Menu-Middle"></i>
-          <i class="Menu-Bar Menu-Bottom"></i>
-          </a>
-          <ul>
-            <li><a class="rippleria" href="/" rippleria>HOME</a></li>
-            <li><a class="rippleria" href="/blog" rippleria>BLOG</a></li>
-            <li><a class="rippleria" href="/project" rippleria>PROJECT</a></li>
-            <li><a class="rippleria" href="/about" rippleria>ABOUT</a></li>
-          </ul>
-        </nav>
-      </header>
+        <div class="menu-section">
+          <div class="menu-toggle">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+          </div>
+          <nav>
+            <ul role="navigation" class="hidden">
+              <li><a class="" href="/" >HOME</a></li>
+              <li><a class="" href="/blog" >BLOG</a></li>
+              <li><a class="" href="/project" >PROJECT</a></li>
+              <li><a class="" href="/about" >ABOUT</a></li>
+            </ul>
+          </nav>
+        </div>
+    </header>
       <main id="contents">
         {% block content %}{% endblock %}
       </main>

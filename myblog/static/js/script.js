@@ -1,6 +1,11 @@
 /*-- open navigation menu --*/
-$(".Meun-Button").on("click", function(e) {
-    $(this).parent().toggleClass("is-Open");
+$(".menu-toggle").on('click', function() {
+  $(this).toggleClass("on");
+  $('.menu-section').toggleClass("on");
+  $("nav ul").toggleClass('hidden');
+  $(".one, .two, .three").toggleClass("color-on");
+  $("#wrapper").toggleClass("wrapper-on");
+  $(".title").toggleClass("title-on");
 });
 
 /*-- svg image --*/

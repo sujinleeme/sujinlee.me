@@ -46,63 +46,6 @@ img {
   position: relative;
 }
 
-/*---- navigation ----*/
-.nav-wrap {
-  padding: 0 170px 0 80px;
-  height: 64px;
-  margin: 0;
-  padding-left: 6em;
-  max-width: 100%;
-  display: flex;
-  background: #f7f9fb;
-}
-
-.title {
-  padding-top: 1.4em;
-}
-
-.title a {
-  cursor: pointer;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 600;
-  font-size: 2.3em;
-  color: #6200ea;
-  line-height: 84px;
-  letter-spacing: .02em;
-  z-index: 3;
-}
-
-.title a:hover {
-  opacity: .3;
-  transition: all .5s;
-}
-
-.nav {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.nav a {
-  color: #3F4743;
-  font-family: 'Josefin Sans', sans-serif;
-  text-align: center;
-  border-bottom: 5px solid transparent;
-  letter-spacing: .02em;
-  font-size: 1.4em;
-  line-height: 59px;
-  padding: 0 1.5em;
-}
-
-.nav a:hover {
-  color: #6200ea;
-  border-radius: 0;
-  border-bottom: 5px solid #6200ea;
-  border-radius: 0;
-  text-align: center;
-  cursor: pointer;
-  transition: all .5s ease;
-}
 
 /*---- footer --*/
 .footer {
@@ -118,7 +61,7 @@ img {
 
 .socials {
   position: absolute;
-  left: 1em;
+  left: 2rem;
 }
 
 .socials a {
@@ -135,13 +78,13 @@ img {
 }
 
 .copyright {
-  padding-right: 2em;
+  padding-right: 3em;
   color: #80939d;
 }
 
 /*---- index.html --*/
 #demo-canvas {
-  height: 100%;
+  height: 80vh;
 }
 
 #bg {
@@ -259,107 +202,132 @@ img {
   text-align: center;
 }
 
-.Offscreen {
-  height: 100%;
-  background: #6200ea;
-  position: fixed;
-  right: 0;
-  width: 36%;
-  transform: translate3d(100%,0,0);
-  transition: all 600ms ease;
-  z-index: 3;
+
+/* animation nav */
+
+/*---- navigation ----*/
+.nav-wrap {
+  margin: 0;
+  padding: 0rem 3rem;
+  max-width: 100%;
+  display: flex;
+  background: #f7f9fb;
 }
 
-.Offscreen.is-Open {
-  transform: translate3d(0,0,0);
-  box-shadow: 0 0 50px rgba(0,0,0,0.8);
-}
-
-.Meun-Button {
-  position: absolute;
-  left: -10em;
-  width: 4em;
-  height: 3.5em;
+.nav-wrap .title {
+  padding-top: 0.9rem;
   cursor: pointer;
-  transition: inherit;
-  background: none;
-}
-
-.Meun-Button:hover {
-  background: none;
-  opacity: .3;
-}
-
-.Menu-Bar {
-  display: block;
-  left: 0.8em;
-  right: 0;
-  height: 0.1em;
-  position: absolute;
-  transition: all 400ms ease;
-  background: #6200ea;
-  transform-origin: 50% 50%;
-}
-
-.Menu-Bar.Menu-Top {
-  top: .5em;
-}
-
-.Menu-Bar.Menu-Middle {
-  top: 1.5em;
-}
-
-.Menu-Bar.Menu-Bottom {
-  top: 2.5em;
-}
-
-.Meun-Button:hover .Menu-Bar {
-  opacity: .8;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 2.3em;
+  color: #6200ea;
+  line-height: 84px;
+  letter-spacing: .02em;
   z-index: 10;
 }
 
-.is-Open .Menu-Bar.Menu-Top {
-  transform: rotate(45deg);
-  top: 1.5em;
+.title a:hover {
+  opacity: .3;
+  transition: all .5s;
 }
 
-.is-Open .Menu-Bar.Menu-Middle {
-  height: 0;
-}
-
-.is-Open .Menu-Bar.Menu-Bottom {
-  transform: rotate(-45deg);
-  top: 1.5em;
-}
-
-.Nav-List {
-  padding: 4em 3em;
-}
-
-.Nav-List ul,.Nav-List li {
-  margin: 0;
-  padding-left: 0.5em;
-  list-style-type: none;
-  line-height: 1.4em;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 700;
-  border-bottom: 9px solid transparent;
-  letter-spacing: .02em;
-  font-size: 1.5em;
-}
-
-.Nav-List a {
-  color: #fff;
-  opacity: .8;
-  text-decoration: none;
-}
-
-.Nav-List a:hover {
-  text-decoration: line-through;
-  opacity: .2;
+.menu-toggle {
+  width: 1.8rem;
+  height: 1.8rem;
+  position: fixed;
+  top: 1.8rem;
   cursor: pointer;
-  transition: all .8s;
+  right: 3rem;
+  z-index: 10;
 }
+.menu-toggle.on .one {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+.menu-toggle.on .two {
+  opacity: 0;
+}
+.menu-toggle.on .three {
+  transform: rotate(-45deg) translate(8px, -9px);
+}
+
+.one,
+.two,
+.three {
+  width: 100%;
+  height: 1px;
+  background: #6200ea;
+  margin: 10px auto;
+  backface-visibility: hidden;
+  transition-duration: 0.3s;
+}
+
+.color-on {
+  background: #fff;
+}
+
+.title-on {
+  color: #fff;
+  z-index: 10;
+}
+.wrapper-on {
+  overflow: hidden;
+}
+
+.footer-on {
+  position: fixed;
+  z-index: 10;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.footer-on .socials a{
+  color: #fff;
+}
+
+.footer-on .copyright{
+  color: #fff;
+}
+  
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  font-family: Open Sans;
+  list-style: none;
+  margin-top: 25vh;
+  text-align: center;
+}
+nav ul.hidden {
+  display: none;
+}
+nav ul a {
+  transition-duration: 0.5s;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 28vh auto;
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 5px;
+  padding-bottom: 1em;
+}
+nav ul a:hover {
+  color: #fff;
+  opacity: 0.2;
+}
+
+.menu-section.on {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #6200ea;
+  position: absolute;
+  left: 0;
+}
+
 
 /*-- post_list.html --*/
 /*-- blog card --*/
@@ -1159,9 +1127,8 @@ available at: https://github.com/nsept/rippleria
   .nav-wrap {
     padding-left: 3.8em;
   }
-
-  .Meun-Button {
-    left: -8em;
+  .menu-toggle{
+    right: 2rem;
   }
 
   .card {
