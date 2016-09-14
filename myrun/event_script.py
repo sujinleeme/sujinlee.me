@@ -149,10 +149,3 @@ with open("event_data.py", "w") as f:
         print("event_data.py Updated all data successfully!")
     except:
         print("event_data.py Error processing")
-
-with open('event_data.json', 'w', encoding='utf8') as json_file:
-    try:
-        f.write('# -*- coding: utf-8 -*-\nevent_dict={}'.format(str(all_data)))
-    except:
-        print("event_data.json Updated all data successfully!")
-    #print("event_data.py Error processing")

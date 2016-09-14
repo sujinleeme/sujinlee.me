@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Post, Project, Category
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, render_to_response, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
 
 def index(request):
     return render(request, 'blog/index.html')
@@ -97,3 +98,6 @@ def like_count_project(request):
     project.likes = likes
     project.save()
     return HttpResponse(likes, liked)
+
+def custom_404(request):
+    return render_to_response('404.html')

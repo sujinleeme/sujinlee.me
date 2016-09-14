@@ -6,6 +6,7 @@ $(window).load(function() { // makes sure the whole site is loaded
   $('body').delay(150).css({
     'overflow': 'hidden'
   });
+  $('.goog-te-combo').removeAttr('checked');
 })
 
 /* navigation */
@@ -183,15 +184,15 @@ $("#google_translate_element").change(function () {
     $('table#event tbody tr td:nth-child(5)').attr('data-th', 'PLACE');
     $('table#event tbody tr td:nth-child(6)').attr('data-th', 'CONTENTS');
     $('table#event tbody tr td:nth-child(7)').attr('data-th', 'HOST');
-    $('.section:nth-child(5) div.motivation').html('<p>I love running. In Korea, <a href="http://www.marathon.pe.kr/schedule_index.html" target="_blank">Marathon Online Website</a> \
+    $('.section:nth-child(5) div.motivation').html('<p>I love running.</br> In Korea, <a href="http://www.marathon.pe.kr/schedule_index.html" target="_blank">Marathon Online Website</a> \
       is the most famous marathon information for 15 years website and all the runners in Korea use it.</br> \
       However, this site uses old interface design, and has several encoding issues.</br> \
       For these reasons, I have decided to revamp this website.</br> \
       For now, you can check weather forecast, location with map as well as general information and decide where you will go and enjoy next running event!</p>');
     $('.section:nth-child(5) div.development ').html('<p>After I made a simple web crawler built with Python 3.5 \
-    for gathering Marathon site data. I developed a data visualization website for it using Django web framework. \
-    Since original website has some wrong user input data related to location, time and date, several fields may not have accurate information. \
-    As a result, several events may not have weather or map data. You can find source code on \
+    for gathering Marathon site data.</br> I developed a data visualization website for it using Django web framework. </br> \
+    Since original website has some wrong user input data related to location, time and date, several fields may not have accurate information. </br> \
+    As a result, several events may not have weather or map data. </br> You can find source code on \
     <a class="github" href="https://github.com/sujinleeme/official-website/tree/master/myrun" target="_blank">GITHUB</a></p>');
   }
   else{

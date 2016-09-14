@@ -5,7 +5,9 @@ $(".menu-toggle").on('click', function() {
   $("nav ul").toggleClass('hidden');
   $(".one, .two, .three").toggleClass("color-on");
   $("#wrapper").toggleClass("wrapper-on");
-  $(".title").toggleClass("title-on");
+  $(".logo a").toggleClass("logo-on");
+  $(".footer").toggleClass("footer-on");
+
 });
 
 /*-- svg image --*/

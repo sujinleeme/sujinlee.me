@@ -30,7 +30,7 @@ a:hover {
 .centered {
   display: block;
   margin-left: auto;
-  margin-right: auto }
+  margin-right: auto;
 }
 
 /* image */
@@ -49,14 +49,13 @@ img {
 
 /*---- footer --*/
 .footer {
-  background: none;
-  font-size: 0.9em;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 600;
-  padding: .9rem 0;
-  width: 100%;
-  bottom: 0;
-  position: relative;
+    background: none;
+    font-size: 0.9em;
+    font-family: 'Space Mono', monospace;
+    padding: 0.8rem;
+    bottom: 0;
+    position: relative;
+    z-index: 10;
 }
 
 .socials {
@@ -65,9 +64,9 @@ img {
 }
 
 .socials a {
-  padding: .7em;
+  padding-right: 1rem;
   color: #80939d;
-  font-size: 1em;
+  font-size: 0.9rem;
 }
 
 .socials a:hover {
@@ -78,13 +77,13 @@ img {
 }
 
 .copyright {
-  padding-right: 3em;
+  padding-right: 2rem;
   color: #80939d;
 }
 
 /*---- index.html --*/
 #demo-canvas {
-  height: 80vh;
+  height: 100vh;
 }
 
 #bg {
@@ -118,41 +117,40 @@ img {
   color: #fff;
   text-align: center;
 }
-
+/*
 .index-title_style {
   cursor: pointer;
   border-radius: 5px;
   border: .1em solid #fff;
   opacity: .8;
-  font-family: 'Josefin Sans', sans-serif;
   display: inline-block;
   padding: 2em 3em;
   height: inherit;
   transition: all 1.5s;
-}
+}*/
 
-.index-title_style h1 {
-  font-family: 'Josefin Sans', sans-serif;
-  top: 0.5em;
+.index-title h1 {
+  font-family: 'Share Tech Mono', monospace;
   font-weight: 700;
   font-size: 2em;
-  letter-spacing: .05em;
+  letter-spacing: .9rem;
   color: #fff;
-  cursor: pointer;
+  padding: 1rem;
 }
 
-.index-title_style h2 {
+.index-title h2 {
   font-size: 1em;
   font-weight: 600;
-  text-transform: uppercase;
+  font-family: 'Space Mono', monospace;
   border-bottom: 0;
   line-height: 1em;
-  letter-spacing: .05em;
+  letter-spacing: 1rem;
   display: block;
   cursor: pointer;
   color: #fff;
 }
 
+/*
 .index-title_style:hover {
   color: #6200ea;
   background-color: #fff;
@@ -171,14 +169,13 @@ img {
 .index-title_style:hover h1, .index-title_style:hover h2 {
   color: #6200ea;
   transition: all .5s;
-}
+}*/
 
 .index-icon {
   object-fit: contain;
-  width: 1.7em;
-  height: 1.7em;
-  margin-top: 1em;
-  padding: .5em;
+  height: 1.6rem;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 .page-name {
@@ -189,7 +186,7 @@ img {
 
 .page-name h1 {
   color: #6200ea;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Share Tech Mono', monospace;
   font-weight: 700;
   font-size: 1.75em;
   text-align: center;
@@ -197,7 +194,7 @@ img {
 
 .page-name p {
   font-weight: 400;
-  text-transform: uppercase;
+  font-family: 'Space Mono', monospace;
   font-size: 1.1em;
   text-align: center;
 }
@@ -214,10 +211,9 @@ img {
   background: #f7f9fb;
 }
 
-.nav-wrap .title {
-  padding-top: 0.9rem;
+.title {
+  padding-top: 0.7rem;
   cursor: pointer;
-  font-family: 'Josefin Sans', sans-serif;
   font-weight: 600;
   font-size: 2.3em;
   color: #6200ea;
@@ -264,10 +260,8 @@ img {
 .color-on {
   background: #fff;
 }
-
-.title-on {
+.nav-wrap .title-on {
   color: #fff;
-  z-index: 10;
 }
 .wrapper-on {
   overflow: hidden;
@@ -277,7 +271,8 @@ img {
   position: fixed;
   z-index: 10;
   color: #fff;
-  opacity: 0.8;
+  opacity: 0.5;
+  width: 100%;
 }
 
 .footer-on .socials a{
@@ -288,15 +283,14 @@ img {
   color: #fff;
 }
   
-
 nav ul {
   margin: 0;
   padding: 0;
-  font-family: Open Sans;
   list-style: none;
   margin-top: 25vh;
   text-align: center;
 }
+
 nav ul.hidden {
   display: none;
 }
@@ -308,10 +302,11 @@ nav ul a {
   line-height: 1.5;
   margin: 28vh auto;
   display: block;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Share Tech Mono', monospace;
   font-weight: 600;
-  letter-spacing: 5px;
+  letter-spacing: 1rem;
   padding-bottom: 1em;
+  cursor: pointer;
 }
 nav ul a:hover {
   color: #fff;
@@ -326,8 +321,18 @@ nav ul a:hover {
   background-color: #6200ea;
   position: absolute;
   left: 0;
+  animation: moveFromBottomFade .7s ease both;
 }
 
+.pt-page-moveToBottomFade {
+	-webkit-animation: moveToBottomFade .7s ease both;
+	animation: moveToBottomFade .7s ease both;
+}
+
+
+@keyframes moveFromBottomFade {
+	from { opacity: 0.3; transform: translateY(-50%); }
+}
 
 /*-- post_list.html --*/
 /*-- blog card --*/
@@ -819,9 +824,9 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 }
 
 .quote-box p {
-  font-style: italic;
+  font-family: 'Space Mono', monospace;
   font-weight: 700;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 .about-box {
@@ -1058,8 +1063,12 @@ button.likes {
 .pagination_col .fa-angle-right {
   margin: 2% -8% 0 0;
   float: right;
+  color: #fff;
 }
 
+.fa-2x {
+  font-size: 2rem;
+}
 /*---- click button ----*/
 /*
 title: Rippleria Plugin
@@ -1124,6 +1133,7 @@ available at: https://github.com/nsept/rippleria
 
 /*-- tablet --*/
 @media only screen and (max-width: 550px) {
+  
   .nav-wrap {
     padding-left: 3.8em;
   }
@@ -1150,20 +1160,10 @@ available at: https://github.com/nsept/rippleria
   .comment-entry {
     margin-bottom: 5vh;
   }
-}
-
-/*-- reponsive mobile web --*/
-
-@media only screen and (max-width: 600px) {
-  .Menu-Button {
-    left: -7em;
-  }
-
   .post-footer {
     padding-left: 34%;
     padding-bottom: 2em;
   }
-
   .more-button:hover,.more-button:active {
     width: 100px;
   }
@@ -1181,14 +1181,9 @@ available at: https://github.com/nsept/rippleria
     opacity: 1;
     width: 100px;
   }
-}
-
-/* tablet */
-@media only screen and (max-width: 550px) {
-  .Menu-Button {
-    left: -9em;
+  .index-title_style {
+    padding: 2em 1em;
   }
-
   .post-card_btn {
     float: right;
     position: relative;
@@ -1203,126 +1198,35 @@ available at: https://github.com/nsept/rippleria
     overflow: hidden;
     height: 180px;
   }
-}
 
-/* iphone 4,5,6 */
-@media only screen and (max-width: 384px) {
-  .Meun-Button {
-    left: -7.2em;
+  .title-right {
+    margin-right: 16%;
+    font-size: 0.9rem;
   }
 
   .footer {
-    font-size: 0.9em;
-    padding: .7rem 0;
-    width: 100%;
+    font-size: 0.8rem;
   }
 
-  .copyright {
-    padding-right: 1.2em;
+  .socials {
+    left: 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 412px) {
+  .socials {
+    visibility: hidden;
   }
 
-  .card-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    color: #fff;
-    font-weight: 700;
+  .index-title h2{
+    font-size: 0.8rem;
+    letter-spacing: 0.5rem;
   }
-
-  .card-thumb {
-    height: 160px;
-    overflow: hidden;
-    transition: height .3s;
-  }
-
-  .page-name p {
-    font-size: 1em;
-  }
-
-  .markdown-body {
-    padding: 3em 0 0 0;
-  }
-
-  .post-card_btn {
-    float: right;
-    position: relative;
-    margin: -11em -1.3em 0em 0em;
-    width: 3em;
-    height: 3em;
-  }
-
-  .post-card_date {
-    font-size: 0.85em;
-  }
-
-  .post-category-icon {
-    width: 1.5em;
-    height: 1.5em;
-    margin: 0.8em;
-  }
-
-  .post-card_category {
-    position: relative;
-    width: 10.5em;
-    font-size: 0.7em;
-    margin-left:0;
-    bottom: 23px;
-    line-height: 2.1em;
-    text-transform: uppercase;
-    font-family: 'Josefin Sans', sans-serif;
-    letter-spacing: 0em;
-    text-align: center;
-  }
-
-  .post-card_main-image {
-    overflow: hidden;
-    height: 142px;
-  }
-
-  .heart-particle-box {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin-top: -1em;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    margin-bottom: -90px;
-  }
-
-  .previous {
-    font-size: 0.8em;
-  }
-  .next {
-    font-size: 0.8em;
-  }
-  .title-left {
-    font-size: 1.1em
-  }
-  .title-right {
-    font-size: 1.1em;
-  }
-
-  .post-footer {
-    padding-left: 38%;
-    padding-top: 1.3em;
-    padding-bottom: 1.3em;
-    font-size: 0.9em;
-  }
-
-  .more-button:hover,.more-button:active {
-    width: 105px;
-  }
-
-  .container .share-btn {
-    padding-left: .6em;
-  }
-
-  .more-button:hover > .container,.more-button:active > .container {
-    left: 1.2em;
-    opacity: 1;
-    width: 100px;
+  .index-icon {
+    object-fit: contain;
+    height: 1.3rem;
+    margin-top: 3rem;
+    padding: 0.3rem;
   }
 }

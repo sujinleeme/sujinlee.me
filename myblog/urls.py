@@ -1,4 +1,5 @@
 from django.conf.urls import url, include
+import django.views.defaults
 from . import views
 
 urlpatterns = [
@@ -10,4 +11,6 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^like-blog/$', views.like_count_blog, name='like_count_blog'),
     url(r'^like-project/$', views.like_count_project, name='like_count_project'),
+    url(r'^404/$', django.views.defaults.page_not_found, ),
+    
 ]

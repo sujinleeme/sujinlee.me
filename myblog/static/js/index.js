@@ -27,12 +27,12 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
       ctx.lineWidth = 0.15;
       ctx.strokeStyle = color;
       var mousePosition = {
-          x: 30 * canvas.width / 100,
-          y: 30 * canvas.height / 100
+          x: 10 * canvas.width / 100,
+          y: 10 * canvas.height / 100
       };
       var dots = {
           nb: 150,
-          distance: 300,
+          distance: 30,
           d_radius: 20,
           array: []
       };
