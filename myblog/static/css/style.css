@@ -1403,7 +1403,6 @@ available at: https://github.com/nsept/rippleria
 }
 
 /* phone */
-
 @media only screen and (max-width: 412px) {
   nav ul {
     margin-top: 20vh;
@@ -1434,7 +1433,7 @@ available at: https://github.com/nsept/rippleria
   .index-icon {
     height: 1.6rem;
     margin-top: 3rem;
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .quote-box {

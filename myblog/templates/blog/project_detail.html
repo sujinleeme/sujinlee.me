@@ -9,7 +9,7 @@
 <meta property="og:title" content="{{ project.title }}" />
 <meta property="og:description" content="{{ project.summary|truncatechars:230 }}" />
 <meta property="og:image" content="http://www.sujinlee.me/{{ project.image.url }}/" />
-<meta property="og:url" content="http://sujinlee.me/project/{{ project.slug }}" />
+<meta property="og:url" content="http://www.sujinlee.me/project/{{ project.slug }}" />
 {% endblock %}
 {% block content %}
 <section class="page-name">
@@ -59,16 +59,16 @@
           <i class="fa fa-share-alt"></i>
           <div class="container">
             <a class="facebook share-btn customer share"
-              href="http://www.facebook.com/share.php?u=http://sujinlee.me/project/{{ project.slug }}"
+              href="http://www.facebook.com/share.php?u=http://www.sujinlee.me/project/{{ project.slug }}"
               target="_blank" onclick="return fbshare()">
             <i class="fa fa-facebook"></i></a>
             <a class="twitter customer share share-btn customer share"
-              href="http://twitter.com/share?url=http://sujinlee.me/project/{{ project.slug }}
-              &amp;text={{ project.title }} http://sujinlee.me/blog/{{ project.slug }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
+              href="http://twitter.com/share?url=http://www.sujinlee.me/project/{{ project.slug }}
+              &amp;text={{ project.title }} http://www.sujinlee.me/blog/{{ project.slug }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
               target="_blank" title="Twitter Share">
             <i class="fa fa-twitter"></i></a>
             <a class="google_plus customer share share-btn customer share"
-              href="https://plus.google.com/share?url=http://sujinlee.me/project/{{ project.slug }}"
+              href="https://plus.google.com/share?url=http://www.sujinlee.me/project/{{ project.slug }}"
               target="_blank" title="Google Plus Share">
             <i class="fa fa-google-plus"></i></a>
           </div>
