@@ -2,7 +2,7 @@
 ## About
 - See : https://www.sujinlee.me
 - Author : Design & Code by Sujin Lee
-- Tech: Django 1.9, HTML5 & CSS3, Jquery
+- Tech: Django 1.9, HTML5 & CSS3, JavaScript(Jquery)
 - Date: March, 2016
 
 ## References
@@ -12,6 +12,7 @@
 
 #### [ Design ]
 Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Article News Card UI by Justin Kwak](https://dribbble.com/shots/2001637-Article-News-Card-UI)
+
 ##### Main Concept
 * Color & Font & Concept : [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
 
@@ -29,6 +30,4 @@ Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Articl
 * Icon : [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/), [Devicons](http://vorillaz.github.io/devicons/#/main)
 
 ##### Fonts
-* [Spoqa Han Sans](http://www.spoqa-han-sans.com/)
-* [Montserrat](https://www.google.com/fonts/specimen/Montserrat)
-* [Montserrat Alternates](https://www.google.com/fonts/specimen/Montserrat+Alternates)
+* [Spoqa Han Sans](http://www.spoqa-han-sans.com/), Space Mono, Surce Code Pro, Devicons, FontAwesome

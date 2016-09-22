@@ -736,6 +736,7 @@ figure.pr-card:hover img {
   opacity: 0.2;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
+  padding: 0.3rem;
 }
 
 figure.pr-card figcaption {
@@ -757,7 +758,7 @@ figure.pr-card .pr-category-icon {
 figure.pr-card h2,figure.pr-card h3,figure.pr-card h4 {
   margin: 0;
   text-decoration: none;
-  padding-bottom: 0.1em;
+  padding: 0.4em;
 }
 
 figure.pr-card h2 {
@@ -820,7 +821,6 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 #about {
   min-width: 240px;
 }
-
 .profile-box {
   left: 0;
   padding: 0;
@@ -995,19 +995,18 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
   list-style-type: none;
   font-family: "devicons";
   font-size: 2rem;
-  display:flex;
-  
+  padding: 0;
+  text-align: center;
+  margin-top: -1rem;
 }
 
 
 .dev-icons li {
-  display: flex;
-  padding: 0 1.5rem;
-  width: auto;
   cursor: pointer;
+  display: inline-block;
 }
 .dev-icons ul li span {
-        visibility: hidden;
+    visibility: hidden;
     display: block;
     font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
     font-size: 0.7rem;
@@ -1016,8 +1015,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
     background: #6200ea;
     border-radius: 5px;
     width: 3.4rem;
-    left: 2.7rem;
-    bottom: 2.5rem;
+    bottom: 1rem;
     position: relative;
 }
 
@@ -1036,8 +1034,9 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 }
 
 .dev-icons li:after{
+  padding: 1rem;
   color: #f7f9fb;
-    text-shadow: -1px 0 #6200ea, 0 1px #6200ea, 1px 0 #6200ea, 0 -1px #6200ea;
+  text-shadow: -1px 0 #6200ea, 0 1px #6200ea, 1px 0 #6200ea, 0 -1px #6200ea;
 }
 
 .dev-icons li:nth-of-type(1):after { content: '\e63c'; }
@@ -1056,16 +1055,15 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 }
 
 .dev-icons li:hover {
-  bottom:50px;
   visibility:visible;
   opacity:1;
   color: #6200ea;
 }
 
-/*.skill-box {
+.skill-box {
   padding: 1rem;
   box-shadow: 0 0 2em rgba(0,0,0,0.1);
-  background: #fff;*/
+  background: #fff;
 }
 
 .made-box p {
@@ -1327,31 +1325,26 @@ available at: https://github.com/nsept/rippleria
 }
 
 /*-- tablet --*/
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 769px) {
   
   .nav-wrap {
-    padding-left: 3.8em;
+    padding-left: 1.5rem;
   }
   .menu-toggle{
-    right: 2rem;
+    right: 1rem;
   }
-
   .card {
     width: 88%;
   }
-
   .pr-card {
     width: 88%;
   }
-
   .post-card_body {
     padding: 0 2em 2em 2em;
   }
-
   .disqus {
     padding: 2em;
   }
-
   .comment-entry {
     margin-bottom: 5vh;
   }
@@ -1409,27 +1402,39 @@ available at: https://github.com/nsept/rippleria
   }
 }
 
+/* phone */
+
 @media only screen and (max-width: 412px) {
+  nav ul {
+    margin-top: 20vh;
+}
+  
   .socials {
     visibility: hidden;
   }
 
+  .copyright {
+    padding-right: 0;
+  }
   .page-name {
-    padding: 1em 0 0 0;
+    padding: 2rem 0 0 0;
   }
 
+  .page-name h1 {
+    padding-top: 1.3rem;
+  }
   .page-name h2 {
     font-size: 1rem;
+    padding-bottom: 1.3rem;
   }
   .index-title h2{
     font-size: 0.8rem;
     letter-spacing: 0.5rem;
   }
   .index-icon {
-    object-fit: contain;
-    height: 1.3rem;
+    height: 1.6rem;
     margin-top: 3rem;
-    padding: 0.3rem;
+    padding: 1rem;
   }
 
   .quote-box {
@@ -1439,10 +1444,6 @@ available at: https://github.com/nsept/rippleria
   .dec-icons ul{
     padding-left: 3rem;
   }
-  .dev-icons li {
-    display: inline;
-    padding: 0;
-  }
 
   .dev-icons ul li span {
     bottom: 1rem;
@@ -1451,7 +1452,6 @@ available at: https://github.com/nsept/rippleria
   .dev-icons li:hover span {
     visibility: visible;
     opacity: 1;
-    left: -0.8rem;
   }
 
   .btn-container {
