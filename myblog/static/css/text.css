@@ -12,7 +12,6 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
   color: #353a3d;
-  line-height: 1.6;
   word-wrap: break-word;
 }
 
@@ -26,8 +25,7 @@ body {
 }
 
 @media only screen and (max-width: 384px) {
-  h1 {
-  }
+
   p {
     font-size: 0.8em;
   }
@@ -94,6 +92,7 @@ h1,h2,h3,h4,h5 {
   letter-spacing: .005em;
   font-weight: 400;
   color: #050505;
+  vertical-align:middle;
 }
 
 .markdown-body h2:before {
@@ -171,8 +170,9 @@ h6 {
 
 p,blockquote,ul,ol,dl,table{
   margin: 16px 0;
-  font-size: 14px;
-  line-height: 2em;
+  font-size: 0.9rem;
+  line-height: 1.8rem;
+  vertical-align:middle;
 }
 
 hr {

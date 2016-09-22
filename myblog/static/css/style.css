@@ -16,6 +16,8 @@ body {
   display: flex;
   flex-direction: column;
   background: #f7f9fb;
+  vertical-align:middle;
+  word-wrap: break-word;
 }
 
 a {
@@ -146,7 +148,6 @@ img {
   line-height: 1em;
   letter-spacing: 1rem;
   display: block;
-  cursor: pointer;
   color: #fff;
 }
 
@@ -180,7 +181,8 @@ img {
 
 .page-name {
   font-weight: 700;
-  padding: 4em 3em 2em;
+  padding: 4em 0em 2em 0em;
+  width: 100%;
   color: #6200ea;
 }
 
@@ -190,15 +192,26 @@ img {
   font-weight: 700;
   font-size: 1.75em;
   text-align: center;
+  text-transform: uppercase;
 }
 
-.page-name p {
-  font-weight: 400;
-  font-family: 'Space Mono', monospace;
-  font-size: 1.1em;
+.page-name h2{
+  color: #6200ea;
+  font-size: 1.1rem;
+  top: 1rem;
   text-align: center;
+  font-family: 'Space Mono', monospace;
 }
 
+.page-name h3{
+  color: #6200ea;
+  font-size: 1.5rem;
+  padding-top: 3rem;
+  text-align: center;
+  font-weight: 700;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center
+}
 
 /* animation nav */
 
@@ -234,7 +247,7 @@ img {
   top: 1.8rem;
   cursor: pointer;
   right: 3rem;
-  z-index: 10;
+  z-index: 12;
 }
 .menu-toggle.on .one {
   transform: rotate(45deg) translate(7px, 7px);
@@ -299,13 +312,12 @@ nav ul a {
   text-decoration: none;
   color: white;
   font-size: 2rem;
-  line-height: 1.5;
+  line-height: 5.2rem;
   margin: 28vh auto;
   display: block;
   font-family: 'Share Tech Mono', monospace;
   font-weight: 600;
   letter-spacing: 1rem;
-  padding-bottom: 1em;
   cursor: pointer;
 }
 nav ul a:hover {
@@ -313,25 +325,30 @@ nav ul a:hover {
   opacity: 0.2;
 }
 
+.menu-section {
+  height: 0;
+  background-color: #6200ea;
+  overflow: hidden;
+  top: 0;
+}
+
 .menu-section.on {
   z-index: 10;
-  width: 100%;
+  opacity:0.9;
+   width: 100%;
   height: 100%;
-  display: block;
-  background-color: #6200ea;
   position: absolute;
   left: 0;
-  animation: moveFromBottomFade .7s ease both;
-}
-
-.pt-page-moveToBottomFade {
-	-webkit-animation: moveToBottomFade .7s ease both;
-	animation: moveToBottomFade .7s ease both;
+  animation: moveFromTopDown .7s ease both;
 }
 
 
-@keyframes moveFromBottomFade {
-	from { opacity: 0.3; transform: translateY(-50%); }
+@keyframes moveFromTopDown {
+	from { opacity: 0.1; transform: translateY(-50%); }
+}
+
+@keyframes moveFromDownTop {
+	from { opacity: 0.1; transform: translateY(100%); }
 }
 
 /*-- post_list.html --*/
@@ -815,8 +832,6 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 
 .quote-box {
   box-shadow: 0 0 2em rgba(0,0,0,0.1);
-  background: #fff;
-  padding: 0em;
   border: 6px solid #6200ea;
   border-style: double;
   color: #6200ea;
@@ -824,22 +839,18 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 }
 
 .quote-box p {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
-  font-size: 0.8em;
+  font-weight: 600;
+  font-size: 0.85rem;
+  font-style: italic;
 }
 
 .about-box {
   box-shadow: 0 0 2em rgba(0,0,0,0.1);
   background: #6200ea;
-  padding: 2em 3em;
+  padding: 1em 2em;
   color: #fff;
 }
 
-.about-box h3 {
-  font-family: 'Josefin Sans', sans-serif;
-  color: #fff;
-}
 
 .about-box a {
   color: #fff;
@@ -850,11 +861,13 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
   text-decoration: line-through;
 }
 
+.about-box p {
+  font-size: 0.85rem;
+}
+
 .contact-box {
-  box-shadow: 0 0 2em rgba(0,0,0,0.1);
-  background: #fff;
-  padding: 3em 0em 3em 3em;
   color: #6200ea;
+  padding: 2rem;
 }
 
 .contact-box a {
@@ -865,21 +878,194 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
   text-decoration: line-through;
 }
 
-.contact-box h3 {
-  font-weight: 400;
-}
-
-.contact-box p {
-  line-height: 1em;
-}
-
-.made-box {
-  box-shadow: 0 0 2em rgba(0,0,0,0.1);
-  background: #fff;
-  padding: 1em 2em 1em 2em;
-  border: 2px solid #6200ea;
+.contact-box h1 {
+  padding-left: 1em;
+  text-align: right;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.75em;
+  font-weight: 700;
   color: #6200ea;
-  margin-bottom: 10vh;
+}
+
+.contact-box h1 mark {
+    background: #6200ea;
+    color: #fff;
+}
+
+
+.contact-box h2 {
+    font-size: 0.8rem;
+    font-family: 'Space Mono', monospace;
+    text-align: right;
+    color: #6200ea;
+    line-height: 1.4rem;
+}
+
+.contact-box h2 mark{
+  
+  background: none;
+  text-decoration: none;
+  font-weight: 700;
+
+    color: #6200ea;
+}
+
+.contact-button {
+  padding: 0.5rem;
+}
+
+
+.btn-container {
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding-bottom: 10vh;
+}
+
+.btn-material,
+.btn-material::after {
+	transition: all 0.5s;
+}
+
+.btn-material {
+    flex: 1 1 auto;
+    padding: 20px 20px;
+    position: relative;
+    text-decoration: none;
+    border-radius: 4px;
+    background: transparent;
+    border: 1px solid  #6200ea;
+    text-align: center;
+    color: #6200ea;
+    text-transform: uppercase;
+    width: 13rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-material a{
+    color:  #6200ea;
+}
+
+.contact-button:nth-child(1) span:before{
+    font-family: "FontAwesome" !important;
+    content: '\f003';
+    padding-right: 10px;
+}
+
+.contact-button:nth-child(2) span:before{
+    font-family: "FontAwesome" !important;
+    content: '\f019';
+    padding-right: 10px;
+}
+
+.btn-material::before,
+.btn-material::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+.btn-material:hover, .btn-material:hover a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-material:hover {
+  background: #6200ea;
+}
+
+.btn-material::after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0;
+}
+
+.btn-material:hover:after {
+  width: 100%;
+  background: #6200ea;
+}
+
+.dev-icons ul{
+  list-style-type: none;
+  font-family: "devicons";
+  font-size: 2rem;
+  display:flex;
+  
+}
+
+
+.dev-icons li {
+  display: flex;
+  padding: 0 1.5rem;
+  width: auto;
+  cursor: pointer;
+}
+.dev-icons ul li span {
+        visibility: hidden;
+    display: block;
+    font-family: 'Spoqa Han Sans','Spoqa Han Sans JP','Sans-serif';
+    font-size: 0.7rem;
+    text-align: center;
+    color: #fff;
+    background: #6200ea;
+    border-radius: 5px;
+    width: 3.4rem;
+    left: 2.7rem;
+    bottom: 2.5rem;
+    position: relative;
+}
+
+
+/* pop-up text arrow */
+.dev-icons li span:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #6200ea;
+    position: absolute;
+    bottom: -4px;
+    left: 1.5rem;
+}
+
+.dev-icons li:after{
+  color: #f7f9fb;
+    text-shadow: -1px 0 #6200ea, 0 1px #6200ea, 1px 0 #6200ea, 0 -1px #6200ea;
+}
+
+.dev-icons li:nth-of-type(1):after { content: '\e63c'; }
+.dev-icons li:nth-of-type(2):after { content: '\e61d'; }
+.dev-icons li:nth-of-type(3):after { content: '\e636'; }
+.dev-icons li:nth-of-type(4):after { content: '\e649'; }
+.dev-icons li:nth-of-type(5):after { content: '\e650'; }
+.dev-icons li:nth-of-type(6):after { content: '\e681'; }
+
+
+/* text pops up when icon is in hover state */
+.dev-icons li:hover span {
+  visibility:visible;
+  opacity:1;
+  
+}
+
+.dev-icons li:hover {
+  bottom:50px;
+  visibility:visible;
+  opacity:1;
+  color: #6200ea;
+}
+
+/*.skill-box {
+  padding: 1rem;
+  box-shadow: 0 0 2em rgba(0,0,0,0.1);
+  background: #fff;*/
 }
 
 .made-box p {
@@ -894,6 +1080,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 .made-box a:hover {
   text-decoration: line-through;
 }
+
 
 /*-- like button --*/
 /*
@@ -940,11 +1127,11 @@ button.likes {
 
 #heart-counter {
   font-weight: 700;
+  padding: 0.5rem;
   font-size: 0.8em;
   opacity: 1;
-  font-size: 13px;
   font-weight: 400;
-  color: #f55567;
+  color: #80939d;
 }
 
 .heart-particle {
@@ -1114,16 +1301,24 @@ available at: https://github.com/nsept/rippleria
   position: fixed;
   bottom: 2em;
   right: 7%;
-  color: #fff;
-  background-color: rgba(0,0,0,0.3);
+  color: #6200ea;
+  background-color: #f7f9fb;
   font-size: 16px;
-  padding: .3em .8em;
-  border-radius: 5px;
+  padding: .5em .8em;
+  border-radius: 4px;
+  border: 1px solid #6200ea;
   z-index: 1;
+  opacity: 0.9;
+}
+
+.go-top:after{
+  font-family:  "FontAwesome";
+  content: "\f106";
 }
 
 .go-top:hover {
-  background-color: rgba(0,0,0,0.6);
+  background-color: #6200ea;
+  color: #fff;
 }
 
 .go-top i {
@@ -1219,6 +1414,13 @@ available at: https://github.com/nsept/rippleria
     visibility: hidden;
   }
 
+  .page-name {
+    padding: 1em 0 0 0;
+  }
+
+  .page-name h2 {
+    font-size: 1rem;
+  }
   .index-title h2{
     font-size: 0.8rem;
     letter-spacing: 0.5rem;
@@ -1228,5 +1430,31 @@ available at: https://github.com/nsept/rippleria
     height: 1.3rem;
     margin-top: 3rem;
     padding: 0.3rem;
+  }
+
+  .quote-box {
+    padding: 1rem;
+  }
+
+  .dec-icons ul{
+    padding-left: 3rem;
+  }
+  .dev-icons li {
+    display: inline;
+    padding: 0;
+  }
+
+  .dev-icons ul li span {
+    bottom: 1rem;
+  }
+
+  .dev-icons li:hover span {
+    visibility: visible;
+    opacity: 1;
+    left: -0.8rem;
+  }
+
+  .btn-container {
+    padding-bottom: 3vh;
   }
 }
