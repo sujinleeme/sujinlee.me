@@ -1329,7 +1329,7 @@ available at: https://github.com/nsept/rippleria
 @media only screen and (max-width: 769px) {
   
   .nav-wrap {
-    padding-left: 1.5rem;
+    padding-left: 1rem;
   }
   .menu-toggle{
     right: 1rem;
@@ -1407,14 +1407,9 @@ available at: https://github.com/nsept/rippleria
 @media only screen and (max-width: 412px) {
   nav ul {
     margin-top: 20vh;
-}
-  
+  }
   .socials {
     visibility: hidden;
-  }
-
-  .copyright {
-    padding-right: 0;
   }
   .page-name {
     padding: 2rem 0 0 0;
@@ -1457,4 +1452,14 @@ available at: https://github.com/nsept/rippleria
   .btn-container {
     padding-bottom: 3vh;
   }
+
+  .copyright {
+   padding-right: 0;
+  }
+
+  .copyright-on {
+   padding-right: 2rem;
+  }
+
+  
 }

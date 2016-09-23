@@ -7,6 +7,7 @@ $(".menu-toggle").on('click', function() {
   $("#wrapper").toggleClass("wrapper-on");
   $(".logo a").toggleClass("logo-on");
   $(".footer").toggleClass("footer-on");
+  $(".copyright").toggleClass("copyright-on");
 
 });
 

@@ -1,7 +1,7 @@
-$('.title').fadeIn(2000,function() {
-    $('.index-title').fadeIn(2500,function() {
-      $('.large-header').fadeIn(2900)
-      $('.footer').fadeIn(2900);
+$('.title').fadeIn(1000,function() {
+    $('.index-title').fadeIn(1500,function() {
+      $('.large-header').fadeIn(1900)
+      $('.footer').fadeIn(1900);
     });
 });
 
