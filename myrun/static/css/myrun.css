@@ -746,12 +746,17 @@ input:checked + section.box .box-title:before {
     opacity: 0;
     transform: scaleX(0);
 }
-.customoverlay {
+
+.section__map .customoverlay {
     position: relative;
     bottom: 5rem;
     border-radius: 6px;
     float: left;
 }
+/*
+.section__map map:hover .customverlay{
+    visibility: visible;
+}*/
 .customoverlay:nth-of-type(n) {
     border: 0;
     box-shadow: 0px 1px 3px #888;

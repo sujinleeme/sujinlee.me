@@ -695,7 +695,6 @@ figure.pr-card {
   -webkit-perspective: 50em;
   perspective: 50em;
   margin: 0 auto 3em;
-  width: 90%;
   height: 240px;
   background: #fff;
   color: #fff;
@@ -737,7 +736,6 @@ figure.pr-card:hover img {
   opacity: 0.2;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
-  padding: 0.3rem;
 }
 
 figure.pr-card figcaption {

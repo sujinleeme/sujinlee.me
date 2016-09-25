@@ -6,7 +6,6 @@
 import re
 import datetime
 import requests
-import urllib.request
 import json
 import forecastio
 from bs4 import BeautifulSoup
@@ -32,8 +31,9 @@ def count_annual_event():
     return(total)
 
 def extract_event_data(url):
-    content = urllib.request.urlopen(str(url))
-    soup = BeautifulSoup(content.read().decode('euc-kr', 'ignore'), 'html.parser')
+    read = requests.get(str(url))
+    read.encoding = 'euc-kr'
+    soup = BeautifulSoup(read.content, 'html.parser')
     table = soup.find_all('table')[1]
     info = [s.strip() for s in table.text.splitlines() if s]
     info = list(filter(None, info))[1::2]
