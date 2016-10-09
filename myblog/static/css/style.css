@@ -1013,7 +1013,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
     color: #fff;
     background: #6200ea;
     border-radius: 5px;
-    width: 3.4rem;
+    width: 3.6rem;
     bottom: 1rem;
     position: relative;
 }
@@ -1042,8 +1042,10 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 .dev-icons li:nth-of-type(2):after { content: '\e61d'; }
 .dev-icons li:nth-of-type(3):after { content: '\e636'; }
 .dev-icons li:nth-of-type(4):after { content: '\e649'; }
-.dev-icons li:nth-of-type(5):after { content: '\e650'; }
-.dev-icons li:nth-of-type(6):after { content: '\e681'; }
+.dev-icons li:nth-of-type(5):after { content: '\e64e'; }
+.dev-icons li:nth-of-type(6):after { content: '\e650'; }
+.dev-icons li:nth-of-type(7):after { content: '\e663'; }
+
 
 
 /* text pops up when icon is in hover state */
