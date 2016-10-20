@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django_markdown',
-    'tagging',
+#    'tagging',
     'myblog',
     'myrun',
 ]
@@ -136,17 +136,16 @@ SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
+# Markdown
+MARKDOWN_STYLE = '/static/css/markdown.css'
+
+MARKDOWN_EXTENSIONS = 'extra', 'codehilite'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'image')
-
-
-# Markdown
-MARKDOWN_STYLE = '/static/css/markdown.css'
-
-MARKDOWN_EXTENSIONS = 'extra', 'codehilite'
 
 #SSL
 SECURE_SSL_REDIRECT = True
