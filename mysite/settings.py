@@ -34,9 +34,10 @@ else:
 
 if DEBUG:
     SECRET_KEY = 'sujinlee'
+    SECURE_SSL_REDIRECT = True
 else:
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-    SECURE_SSL_REDIRECT = True
+    
 
 
 # Application definition
