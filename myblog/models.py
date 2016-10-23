@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django_markdown.models import MarkdownField
-
+from tagging.fields import TagField
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
@@ -22,6 +22,7 @@ class Post(models.Model):
     published_date = models.DateField(default=timezone.now)
     slug = models.SlugField(max_length=100)
     likes = models.PositiveIntegerField(default=0)
+    tag = TagField()
 
     @property
     def total_likes(self):

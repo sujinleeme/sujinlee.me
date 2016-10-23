@@ -36,8 +36,13 @@
       {% endif %}
     </div>
     <div itemprop="description" class="markdown-body">
-      {{ post.body|markdown }}
+      {{ post.body|markdown }}  
     </div>
+    <div class="tags--container">
+      {% for tag in tags %}
+      <a href= "{% url 'tagged_object_list' tag.name %}" class="tag">{{tag.name}}</a>
+      {% endfor %}
+    </div>   
     <div class="heart-particle-box" align="center">
       <button class="likes post-likes" id="heart-icon" data-post-id="{{post.id}}">
       {% if liked %}

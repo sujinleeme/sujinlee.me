@@ -452,7 +452,6 @@ a.overlay {
   padding: 0 0 10px;
   margin: 0;
   font-size: 1.1em;
-  font-weight: 400;
   color: #050505;
   line-height: 1.8rem;
 }
@@ -466,7 +465,9 @@ a.overlay {
   color: #353a3d;
   font-size: 0.8em;
   line-height: 20px;
+  font-weight: 400;
   opacity: 0;
+  font-weight: 400;
   transition: opacity 0.3s,transform .3s;
   transition-delay: 0;
   transform: translateY(25px);
@@ -689,6 +690,24 @@ a.overlay {
   color: #6200ea;
 }
 
+.tags--container{
+  float: right;
+  margin: 1rem 0;
+  font-size: 0.7rem;
+}
+
+.tag {
+  color: #80939d;
+  text-transform: uppercase;
+  padding: 0.3rem;
+  margin : 0.3rem 0.2rem;
+  border-radius: 4px;
+  background: #f4f4f4;
+}
+
+.tag:hover{
+ background: #e4e8ea;
+}
 /*-- project_list --*/
 figure.pr-card {
   text-align: center;
@@ -1077,7 +1096,7 @@ figure.pr-card:hover:after,figure.pr-card.hover:after {
 }
 
 .made-box a:hover {
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 
@@ -1460,6 +1479,4 @@ available at: https://github.com/nsept/rippleria
   .copyright-on {
    padding-right: 2rem;
   }
-
-  
 }

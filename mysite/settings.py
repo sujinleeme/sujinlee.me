@@ -36,7 +36,7 @@ if DEBUG:
     SECRET_KEY = 'sujinlee'
 else:
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-
+    SECURE_SSL_REDIRECT = True
 
 
 # Application definition
@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django_markdown',
-#    'tagging',
+    'tagging',
     'myblog',
     'myrun',
 ]
@@ -146,6 +146,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'image')
-
-#SSL
-SECURE_SSL_REDIRECT = True

@@ -1,10 +1,18 @@
+from django.views.generic import TemplateView
+from django.shortcuts import render, render_to_response, get_object_or_404
+
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Project, Category
-from django.shortcuts import render, render_to_response, get_object_or_404
+
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
+
+from tagging.models import Tag, TaggedItem
+from tagging.views import TaggedObjectList
+
+from .models import Post, Project, Category
+
 
 def index(request):
     return render(request, 'blog/index.html')
@@ -21,6 +29,7 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post_id = post.pk
     liked = False
+    tags = Tag.objects.get_for_object(post) 
     try:
         next = post.get_next_by_published_date()
     except Post.DoesNotExist:
@@ -31,7 +40,7 @@ def post_detail(request, slug):
         previous = None
     if request.session.get('has_liked_'+str(post_id), liked):
         liked = True
-    context = {'post':post,'next':next,'previous':previous,"liked": liked}
+    context = {'post':post, 'next':next, 'previous':previous, 'liked':liked, 'tags':tags}
     return render(request,'blog/post_detail.html', context)
 
 # project
@@ -101,3 +110,11 @@ def like_count_project(request):
 
 def custom_404(request):
     return render_to_response('404.html')
+
+#postList views
+class TagTV(TemplateView):
+    template_name = 'blog/tagging_cloud.html'
+
+class PostTOL(TaggedObjectList):
+    model = Post
+    template_name = 'blog/tagging_post_list.html'
