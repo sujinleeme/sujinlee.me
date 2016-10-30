@@ -1,7 +1,8 @@
-sujinvenv/
 db.sqlite3
 *__pycache__
 *.pyc
 .DS_Store
 staticfiles
 image
+djangovenv
+node_modules

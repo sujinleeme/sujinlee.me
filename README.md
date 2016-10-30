@@ -2,13 +2,13 @@
 ## About
 - See : https://www.sujinlee.me
 - Author : Design & Code by Sujin Lee
-- Tech: Django 1.9, HTML5 & CSS3, JavaScript(Jquery)
+- Tech: Django 1.9, HTML5 & SASS, JavaScript(Jquery)
 - Date: March, 2016
 
 ## References
 #### [ Code ]
 ##### Django third party apps
-* [django-Markdown](https://github.com/klen/django_markdown)
+* [django-Markdown](https://github.com/klen/django_markdown), [django-tagging](https://github.com/brosner/django-tagging), [django-runsslserver](https://github.com/teddziuba/django-sslserver)
 
 #### [ Design ]
 Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Article News Card UI by Justin Kwak](https://dribbble.com/shots/2001637-Article-News-Card-UI)
