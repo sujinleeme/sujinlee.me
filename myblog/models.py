@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django_markdown.models import MarkdownField
 from tagging.fields import TagField
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     title = models.CharField(max_length=50)

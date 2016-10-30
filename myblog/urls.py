@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^project/$', views.project_list, name='project_list'),
     url(r'^blog/(?P<slug>[-_\w]*)/$',views.post_detail, name='post_detail'),
     url(r'^blog/$', views.post_list, name='post_list'),
+    url(r'^blog/new/$', views.post_new, name='post_new'),
     url(r'^about/$', views.about, name='about'),
 
     #likes 

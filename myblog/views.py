@@ -12,7 +12,7 @@ from tagging.models import Tag, TaggedItem
 from tagging.views import TaggedObjectList
 
 from .models import Post, Project, Category
-
+from .forms import PostForm
 
 def index(request):
     return render(request, 'blog/index.html')
@@ -64,6 +64,11 @@ def project_detail(request, slug):
         liked = True
     context = {'project':project,'next':next,'previous':previous,"liked": liked}
     return render(request,'blog/project_detail.html', context)
+
+#add new post form
+def post_new(request):
+    form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})
 
 #Likes
 def like_count_blog(request):
