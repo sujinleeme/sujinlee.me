@@ -1,8 +1,8 @@
+# -*- coding: utf-8 -*-
 # title : crawling event data in pathetic old Korean marathon website
 # website : http://www.roadrun.co.kr/schedule/
 # Korean : 마라톤 웹사이트 이벤트(2016부터) 데이터 크롤링
 
-# -*- coding: utf-8 -*-
 import re
 import datetime
 import requests
@@ -21,8 +21,12 @@ def count_annual_event():
         table = soup.find('body').find_all('table')[10:11]
         trs = [tr for tr in table][0].find_all('tr')
         total = int(len(trs)/2)
-        if total == 0:
-            print("Can't read data table from original website")
+        if total <= 1:
+            print("Can't crawl the data table from original website")
+            print("Read another data table..")
+            table = soup.find('body').find_all('table')[9:10]
+            trs = [tr for tr in table][0].find_all('tr')
+            total = int(len(trs)/2)
         else:
             print("Ready to crawl {} marathon events since 2016.".format(total))
 
@@ -47,7 +51,7 @@ def get_all_events_data(start):
     total = int(count_annual_event())
     #get final URL query
     end = int(start) + total
-    print("Collecting data... wait for a second.")
+    print("Collecting data... wait for a minute.")
     try:
         for i in range(start, end):
             url = 'http://www.roadrun.co.kr/schedule/view.php?no={}'.format(i)
@@ -103,7 +107,7 @@ def data_formatting(data):
     print('Data formatting...')
     return(data)
 
-# daum mpa API
+# daum map API
 def get_map_data(place):
     baseUrl = 'https://apis.daum.net/local/v1/search/keyword.json'
     params = {'apikey':'317394cebdea4b6359a849bcf994be38', 'sort':1, 'query':place}
@@ -123,7 +127,7 @@ def get_map_data(place):
 
 # forcase.io API
 def get_weather_data(latitude, longitude, date):
-    apikey = "d5e9ae1a96b8e4a1509ceba9e8ebd92d"
+    apikey = 'd5e9ae1a96b8e4a1509ceba9e8ebd92d'
     formatted_date = datetime.datetime(*date)
     if len(longitude) == 0:
         weather_list = ['', 'null']
@@ -146,6 +150,14 @@ print("Ready to save {} events in file".format(len(all_data)))
 with open("event_data.py", "w") as f:
     try:
         f.write('# -*- coding: utf-8 -*-\nevent_dict={}'.format(str(all_data)))
-        print("event_data.py Updated all data successfully!")
+        print("Updated all data successfully in event_data.py!")
     except:
-        print("event_data.py Error processing")
+        print("ERROR: event_data.py can't be updated.")
+
+# with open('event_data.json', 'w', encoding='utf8') as json_file:
+#     try:
+#         json_file.write(all_data)
+#         print("Updated all data successfully in event_data.json!")
+#     except:
+#         print("ERROR: event_data.json Error processing.")
+
