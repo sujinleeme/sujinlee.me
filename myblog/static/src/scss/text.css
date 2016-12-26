@@ -150,13 +150,13 @@ h1,h2,h3,h4,h5 {
   vertical-align:middle;
 }
 
-.markdown-body h2:before {
+.markdown-body h2, .markdownx-preview h2:before {
    content: "# ";
    color: #e4d3fb;
    font-weight: 600;
 }
 
-.markdown-body h3:before {
+.markdown-body h3, .markdown-preview h3:before {
    content: "## ";
    color: #e4d3fb;
    font-weight: 600;
@@ -499,7 +499,7 @@ pre code {
 pre {
   background: #282a36;
   line-height: 1.7em;
-  font-size: 0.8em;
+  font-size: 0.9em;
   overflow: auto;
   padding: 6px 10px;
   border-radius: 2px;

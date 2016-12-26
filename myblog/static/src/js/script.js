@@ -1,3 +1,4 @@
+
 /*-- open navigation menu --*/
 $(".menu-toggle").on('click', function() {
   $(this).toggleClass("on");
@@ -8,9 +9,7 @@ $(".menu-toggle").on('click', function() {
   $(".logo a").toggleClass("logo-on");
   $(".footer").toggleClass("footer-on");
   $(".copyright").toggleClass("copyright-on");
-
 });
-
 /*-- svg image --*/
 /*
 title: change svg to img

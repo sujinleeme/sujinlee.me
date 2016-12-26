@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% block title %}
+<title>{{ post.title }}</title>
+{% endblock %}
+{% block ogtags %}
+<meta property="og:type" content="Sujin Lee:Post" />
+<meta property="og:title" content="{{ post.title }}" />
+<meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
+<meta property="og:image" content="http://www.sujinlee.me/{{ post.image.url }}" />
+<meta property="og:url" content="http://www.sujinlee.me/blog/{{post.slug }}/" />
+{% endblock %}
+
+{% block content %}
+<section class="page-name">
+  <h1> {Write down blog post }</h1>
+  <h2>/* Now is better than Never */</h2>
+</section>
+<article class="mdl-grid">
+  <div class="post-card mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+      <form method="post" enctype="multipart/form-data" class="blog-form">
+        {% csrf_token %}
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+         {% for field in form %}
+    <ul class="field-wrapper">
+       
+        <li class="field-label">{{ field.label_tag }}</li>
+        <li class="field-input">{{ field }}</li>
+        <!--<li> {{ field.errors }}</li>-->
+        {% if field.help_text %}
+        <li class="help">{{ field.help_text|safe }}</li>
+        {% endif %}
+    </ul>
+{% endfor %}
+        </div>
+       
+        <button type="submit" class="btn-material">Save</button>
+    </form>
+  </div>
+ 
+{% endblock %}

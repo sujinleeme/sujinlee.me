@@ -1,8 +1,8 @@
 from django.views.generic import TemplateView
-from django.shortcuts import render, render_to_response, get_object_or_404
-
-from django.shortcuts import render
+from django.views.generic.base import View
+from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.utils import timezone
+from django.utils.text import slugify
 
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -43,6 +43,33 @@ def post_detail(request, slug):
     context = {'post':post, 'next':next, 'previous':previous, 'liked':liked, 'tags':tags}
     return render(request,'blog/post_detail.html', context)
 
+
+#add new post form
+class CreatePost(View):
+    def get(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
+        form = PostForm(instance=post)
+        context = {'form':form}
+        return render(request, 'blog/post_edit.html', context)
+
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
+        form = PostForm(request.POST, request.FILES)
+        context = {'form':form}
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            #if Post.objects.filter(slug=post.cleaned_data['slug']).exists():
+            #    raise forms.ValidationError(_("This Blog URL has already existed."))
+            post.save()
+            return redirect('post_detail', slug=post.slug)
+
+        return render(request, 'blog/post_edit.html', context)
+        # #     form = PostForm()
+        # return HttpResponse('Error!')
+            
+
 # project
 def project_list(request):
     projects = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -62,13 +89,8 @@ def project_detail(request, slug):
         previous = None
     if request.session.get('has_liked_'+str(project_id), liked):
         liked = True
-    context = {'project':project,'next':next,'previous':previous,"liked": liked}
+    context = {'project':project,'next':next,'previous':previous,'liked': liked}
     return render(request,'blog/project_detail.html', context)
-
-#add new post form
-def post_new(request):
-    form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
 
 #Likes
 def like_count_blog(request):

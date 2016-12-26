@@ -155,7 +155,9 @@ select.goog-te-combo {
     font-size: 0.7rem;
     width: 115px;
 }
-
+.pluginConnectTextDark {
+    color: #FFFFFF!important;
+}
 /* about dropdown box*/
 .custom-dropdown select:focus {
     outline: none;
@@ -304,7 +306,6 @@ tbody td:hover:before {
     background: rgba(255, 255, 255, 0.5);
     color: #1a1a1a;
     position: relative;
-    width: 2.9rem;
     font-size: 0.7rem;
     padding: 5px 8px;
     border-radius: 15px;
@@ -313,9 +314,10 @@ tbody td:hover:before {
     display: block;
     border: 1px solid #1a1a1a;
     text-align: center;
+    width: 5rem;
 }
 .city_intl {
-    width: 5rem;
+    width: 6rem;
 }
 .weather_icons {
     width: 4rem;
@@ -715,7 +717,7 @@ input:checked + section.box .box-title:before {
 .burger__patty {
     position: relative;
     width: 60%;
-    height: 2px;
+    height: 1px;
     background: #fff;
     transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -726,7 +728,7 @@ input:checked + section.box .box-title:before {
     position: absolute;
     left: 0;
     background: #fff;
-    height: 2px;
+    height: 1px;
     width: 100%;
     transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 }

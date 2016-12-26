@@ -5,6 +5,7 @@ $('.title').fadeIn(1000,function() {
     });
 });
 
+
 /*-- mouse effect --*/
 /*
 title: Connections with JavaScript
