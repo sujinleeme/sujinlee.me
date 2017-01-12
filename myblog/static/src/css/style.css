@@ -628,12 +628,15 @@ a.overlay {
     width: 6rem; }
 
 /*-- project_list --*/
+.card-list {
+  margin-bottom: 4rem;
+}
+
 figure.pr-card {
   text-align: center;
   -webkit-perspective: 50em;
   perspective: 50em;
-  margin: 0 auto 3em;
-  height: 240px;
+  margin: 0 auto;
   background: #fff;
   color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

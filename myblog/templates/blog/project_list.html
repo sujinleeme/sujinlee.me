@@ -5,13 +5,14 @@
    <h1>{ PROJECT }</h1>
    <h2> /* Web & Music */ </h2>
 </section>
-<div class="card-warpper">
+<div class="card-container">
+    {% for project in projects %}
+
 <div class="mdl-grid">
-   {% for project in projects %}
-   {% if forloop.counter0|divisibleby:"2" %}
-   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
-      <figure class="pr-card" style="background: {{project.category.color}}">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="mdl-cell mdl-cell--8-col  mdl-cell--12-col-tablet">
+    
+    <figure class="pr-card" style="background: {{project.category.color}}">
          <img class="" src="{{ project.image.url }}" onload="imgLoaded(this)"/>
          <figcaption>
             <img class="svg pr-category-icon" src="{% static project.category.image_url %}">
@@ -22,8 +23,7 @@
          <a href="{% url 'project_detail' slug=project.slug %}" rippleria></a>
       </figure>
    </div>
-   {% endif %}
-   {% if forloop.last or forloop.counter|divisibleby:"2" %}
+   <!--{% if forloop.last or forloop.counter|divisibleby:"2" %}
    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
       <figure class="pr-card" style="background: {{project.category.color}}">
          <img class="" src="{{ project.image.url }}" onload="imgLoaded(this)"/>
@@ -37,7 +37,10 @@
       </figure>
    </div>
    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-   {% endif %}
+   {% endif %}-->
+
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  </div>
    {% endfor %}
-</div>
+
 {% endblock content %}

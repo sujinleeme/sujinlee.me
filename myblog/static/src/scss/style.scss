@@ -725,17 +725,20 @@ a.overlay {
   .field-label {
     width: 6rem;
   }
-
-  }
+}
 
 
 /*-- project_list --*/
+.card-container {
+  margin-bottom: 3rem;
+}
+
 figure.pr-card {
   text-align: center;
   -webkit-perspective: 50em;
   perspective: 50em;
-  margin: 0 auto 3em;
-  height: 240px;
+  margin: 0 auto;
+  height: 3rem;
   background: #fff;
   color: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);

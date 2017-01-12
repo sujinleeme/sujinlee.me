@@ -6,3 +6,4 @@ staticfiles
 image
 djangovenv
 node_modules
+.vscode
