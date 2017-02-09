@@ -1,0 +1,7 @@
+/* common styling */
+#snb_left_box {
+  width: 30vw !important; }
+
+main {
+  overflow-y: auto;
+  width: 70vw !important; }

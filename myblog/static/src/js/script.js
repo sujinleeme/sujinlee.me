@@ -1,54 +1,35 @@
 
 /*-- open navigation menu --*/
-$(".menu-toggle").on('click', function() {
-  $(this).toggleClass("on");
-  $('.menu-section').toggleClass("on");
-  $("nav ul").toggleClass('hidden');
-  $(".one, .two, .three").toggleClass("color-on");
-  $("#wrapper").toggleClass("wrapper-on");
-  $(".logo a").toggleClass("logo-on");
-  $(".footer").toggleClass("footer-on");
-  $(".copyright").toggleClass("copyright-on");
+const menuIcon = document.getElementsByClassName("ico_menu")[0];
+const gnb = document.getElementsByClassName("gnb")[0];
+menuIcon.addEventListener("mouseenter", function(evt){
+    overMenu(evt);
 });
-/*-- svg image --*/
-/*
-title: change svg to img
-date: Aug 4, 2013
-author: Drew Baker (http://stackoverflow.com/users/503546/drew-baker)
-available at: http://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement
-*/
-$(function() {
-    jQuery('img.svg').each(function() {
-        var $img = jQuery(this);
-        var imgID = $img.attr('id');
-        var imgClass = $img.attr('class');
-        var imgURL = $img.attr('src');
-        jQuery.get(imgURL, function(data) {
-            // Get the SVG tag, ignore the rest
-            var $svg = jQuery(data).find('svg');
-            // Add replaced image's ID to the new SVG
-            if (typeof imgID !== 'undefined') {
-                $svg = $svg.attr('id', imgID);
-            }
-            // Add replaced image's classes to the new SVG
-            if (typeof imgClass !== 'undefined') {
-                $svg = $svg.attr('class', imgClass +
-                    ' replaced-svg');
-            }
-            // Remove any invalid XML tags as per http://validator.w3.org
-            $svg = $svg.removeAttr('xmlns:a');
-            // Check if the viewport is set, else we gonna set it if we can.
-            if (!$svg.attr('viewBox') && $svg.attr(
-                'height') && $svg.attr('width')) {
-                $svg.attr('viewBox', '0 0 ' + $svg.attr(
-                    'height') + ' ' + $svg.attr(
-                    'width'))
-            }
-            // Replace image with new SVG
-            $img.replaceWith($svg);
-        }, 'xml');
-    });
+
+function overMenu(evt){
+    let target = evt.target;
+    if (target.tagName === "UL") {target = menuIcon;}
+        menuIcon.classList.add("_active");
+        gnb.classList.add("_show");
+}
+
+gnb.addEventListener("mouseleave", function(evt){
+   let target = evt.target;
+   tags = ["UL", "LI", "A"];
+   if (target.tagName.indexOf !== undefined){
+       target = gnb;
+   }
+   hideMenu();
 });
+
+function hideMenu(){
+    if (menuIcon.classList.contains("_active")) {
+        menuIcon.classList.remove("_active");
+        gnb.classList.remove("_show");
+    }
+}
+
+
 
 /*-- like button --*/
 /*
@@ -59,43 +40,51 @@ author: Zan Ilic
 available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
 */
 
-$(document).ready(function() {
-$('button').on('click', function() {
-  // change button type by clicking
-  $('.heart-shaped').toggle();
-
-  // initailize
-  var rand = Math.floor((Math.random() * 100) + 1);
-  var flows = ["flows"];
-  var colors = ["heart-particle-col"];
-  var timing = (1.3).toFixed(1);
-
-  // Animate Particle
-  $('<div class="heart-particle part-' + rand + ' ' + colors[Math.floor((Math.random()))] + '" style="font-size:' + Math.floor(Math.random() * (28 - 12)) + 'px;"><i class="fa fa-heart"></i><i class="fa fa-heart"></i></div>').appendTo('.heart-particle-box').css({
-    animation: "" + flows[Math.floor((Math.random()))] + " " + timing + "s linear"
-  });
-  $('.part-' + rand).show();
-  // Remove Particle
-  setTimeout(function() {
-    $('.part-' + rand).remove();
-  }, timing * 1000 - 100);
-});
-});
-
-
 /* like counting */
-$(document).ready(function() {
-    $('.post-likes').click(function() {
-        var id;
-        id = $(this).attr('data-post-id');
-        $.get('/like-blog/', {
-            post_id: id
-        }, function(data) {
-            $('.like_count_blog').html(data);
-        });
-    });
+const buttonLike = document.getElementsByClassName("btn_like")[0];
+const likeData = document.getElementsByClassName("like_count")[0];
+let icon = buttonLike.getElementsByClassName("icon-heart");
+
+console.log(icon);
+buttonLike.addEventListener("click", function(evt){
+   let id = this.getAttribute('data-post-id');
+   var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/like_count_blog/?post_id='+id);
+    xhr.onload = function() {
+    if (xhr.status === 200) {
+        likeData.innerHTML = xhr.responseText;
+       toggleLikeIcon();
+    }
+    else {
+        alert('Request failed.  Returned status of ' + xhr.status);
+    }
+};
+xhr.send();
 });
 
+function toggleLikeIcon(){
+for (let ele of icon){
+ if (ele.style.display === 'none') {
+        ele.style.display = 'block';
+    } else {
+        ele.style.display = 'none';
+    }
+}
+};
+
+
+
+// $('.btn_like').click(function() {
+//         var id;
+//         id = $(this).attr('data-post-id');
+//         $.get('/like-blog/', {
+//             post_id: id
+//         }, function(data) {
+//             $('.like_count_blog').html(data);
+//         });
+//     $('.icon-heart').toggle();
+//     });
+    
 $(document).ready(function() {
     $('.project-likes').click(function() {
         var id;
@@ -105,6 +94,7 @@ $(document).ready(function() {
         }, function(data) {
             $('.like_count_project').html(data);
         });
+    $('.btn_like').toggle();
     });
 });
 
@@ -116,125 +106,6 @@ $(document).ready(function() {
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
 })();
-
-/*-- click button --*/
-/*
-title: Rippleria Plugin
-date: Aug 4, 2013
-author: Nsept
-available at: https://github.com/nsept/rippleria
-*/
-(function($, window, document, undefined) {
-    function Rippleria(element, options) {
-        var base = this;
-        this.$element = $(element);
-        this.options = $.extend({}, Rippleria.Defaults, this._getOptionsFromElementAttributes(),
-            options);
-        this._prepare();
-        this._bind();
-    };
-    Rippleria.prototype._bind = function() {
-        var elem = this.$element,
-            options = this.options,
-            ink, d, x, y, isTouchSupported, eventType;
-        isTouchSupported = 'ontouchend' in window || window.DocumentTouch &&
-            document instanceof DocumentTouch;
-        eventType = isTouchSupported == true ? 'touchend.rippleria' :
-            'click.rippleria';
-        this.$element.bind(eventType, function(e) {
-            e.stopPropagation();
-            var ink = $("<span class='rippleria-ink'></span>");
-            elem.prepend(ink);
-            if (options.color != undefined) {
-                ink.css('background-color', options.color);
-            }
-            ink.css('animation', 'rippleria ' + options.duration /
-                1000 + 's ' + options.easing);
-            setTimeout(function() {
-                ink.remove();
-            }, parseFloat(options.duration));
-            if (!ink.height() && !ink.width()) {
-                d = Math.max(elem.outerWidth(), elem.outerHeight());
-                ink.css({
-                    height: d,
-                    width: d
-                });
-            }
-            if (isTouchSupported == true) {
-                var touch = e.originalEvent.touches[0] || e.originalEvent
-                    .changedTouches[0];
-                x = touch.pageX - elem.offset().left - ink.width() /
-                    2;
-                y = touch.pageY - elem.offset().top - ink.height() /
-                    2;
-            } else {
-                x = e.pageX - elem.offset().left - ink.width() /
-                    2;
-                y = e.pageY - elem.offset().top - ink.height() /
-                    2;
-            }
-            ink.css({
-                top: y + 'px',
-                left: x + 'px'
-            });
-        });
-    }
-    Rippleria.prototype._prepare = function() {
-        var elem = this.$element;
-        if (elem.css('position') == 'static') {
-            elem.css('position', 'relative');
-        }
-        elem.css('overflow', 'hidden');
-        var disp = elem.css('display') == 'block' ? 'block' :
-            'inline-block';
-        elem.css('display', disp);
-        elem.wrapInner("<div class='rippleria-wrap'></div>");
-    };
-    Rippleria.prototype._getOptionsFromElementAttributes = function() {
-        var base = this;
-        attrs = {};
-        $.each(Rippleria.Defaults, function(option, val) {
-            var attr = base.$element.attr('rippleria-' + option);
-            if (attr != null) {
-                attrs[option] = attr;
-            }
-        });
-        return attrs;
-    };
-    Rippleria.prototype.changeColor = function(color) {
-        this.options.color = color;
-    }
-    Rippleria.prototype.changeEasing = function(easing) {
-        this.options.easing = easing;
-    }
-    Rippleria.prototype.changeDuration = function(duration) {
-        this.options.duration = duration;
-    }
-    Rippleria.Defaults = {
-        duration: 750,
-        easing: 'linear',
-        color: undefined
-    };
-    $.fn.rippleria = function(option) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        return this.each(function() {
-            var $this = $(this),
-                data = $this.data('rippleria');
-            if (!data) {
-                data = new Rippleria(this, typeof option ==
-                    'object' && option);
-                $this.data('rippleria', data);
-            }
-            if (typeof option == 'string' && option.charAt(0) !==
-                '_') {
-                data[option].apply(data, args);
-            }
-        });
-    };
-    $(function() {
-        $('[rippleria]').rippleria();
-    });
-})(window.jQuery, window, document);
 
 
 /* open new window */

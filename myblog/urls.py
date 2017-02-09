@@ -21,9 +21,10 @@ urlpatterns = [
 
     #about
     url(r'^about/$', views.about, name='about'),
+    
     #likes 
-    url(r'^like-blog/$', views.like_count_blog, name='like_count_blog'),
-    url(r'^like-project/$', views.like_count_project, name='like_count_project'),
+    url(r'^like_count_blog/$', views.like_count_blog, name='like_count_blog'),
+    url(r'^like_count_project/$', views.like_count_project, name='like_count_project'),
 
     #tag
     url(r'^tag/$', views.TagTV.as_view(), name='tag_cloud'),

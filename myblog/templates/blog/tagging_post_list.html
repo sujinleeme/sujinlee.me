@@ -1,72 +1,40 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
+{% block title %}
+<title>Blog - Sujin Lee</title>
+{% endblock %}
+
+{% block ogtags %}
+<meta property="og:type" content="Sujin Lee:Post" />
+<meta property="og:title" content="Blog - Sujin Lee" />
+<meta property="og:description" content="Creative Developer" />
+<meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
+<meta property="og:url" content="http://www.sujinlee.me/project/" />
+{% endblock %}
+
 {% block content %}
-<title>BLOG | Sujin Lee</title>
-<section class="page-name">
-  
-  <h1>{ Posts for tag : {{ tag.name }} }</h1>
-  <h2>/* Now is better than Never */</h2>
-</section>
-<div class="card-warpper">
-  <div class="mdl-grid">
-    {% for post in object_list %}
-    {% if forloop.counter0|divisibleby:"2" %}
-    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
-      <div class="card">
-        <a class="overlay rippleria-dark"
-            href="{% url 'post_detail' slug=post.slug %}" rippleria>
-        <header class="card-thumb">
-          <img src="{{ post.image.url }}" onload="imgLoaded(this)">
+<header class="page_title">
+  <h1>BLOG : tag : {{ tag.name }} </h1>
+</header>
+<div id="main_content_v2">
+  {% if object_list %}
+  <ul id="lst_wrap_blog">
+     {% for post in object_list %}
+    <a href="{% url 'post_detail' slug=post.slug %}">
+    <li class="blog_ele">
+           <header>
+          <span class="date">{{ post.published_date }}</span>
+          <h3>{{ post.summary|truncatechars:40 }}</h3>
+          <div class="detail">
+            <h2>{{ post.title }}</h2>
+            <button class="btn_read material-icons">arrow_forward</button>
+          </div>
         </header>
-        <div class="card-btn" style="background: {{post.category.color}}">
-          <img class="svg category-icon" src="{% static post.category.image_url %}">
-        </div>
-        <div class="card-body">
-          <div class="card-category" style="background: {{post.category.color}}">{{ post.category.title }}</div>
-          <div class="card-title">{{ post.title }}</div>
-          <div class="card-description">{{ post.summary|truncatechars:230 }}</div>
-        </div>
-      </a>
-        <footer class="card-footer">
-          <span class="card-icon"><i class="fa fa-heart"></i> {{ post.likes }}</span>
-          <span class="card-icon"><i class="fa fa-comment-o"></i>
-            <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a>
-          </span>
-          <span class="card-icon"><i class="fa fa-clock-o"></i> {{ post.published_date }}</span>
-      </div>
-      </footer>
-    </div>
-    {% endif %}
-    {% if forloop.last or forloop.counter|divisibleby:"2" %}
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
-      <div class="card">
-        <a class="overlay rippleria-dark"
-            href="{% url 'post_detail' slug=post.slug %}" rippleria>
-        <header class="card-thumb">
-          <img src="{{ post.image.url }}">
-        </header>
-        <div class="card-btn" style="background: {{post.category.color}}">
-          <img class="svg category-icon" src="{% static post.category.image_url %}">
-        </div>
-        <div class="card-body">
-          <div class="card-category" style="background: {{post.category.color}}">{{ post.category.title }}</div>
-          <div class="card-title">{{ post.title }}</div>
-          <div class="card-description">{{ post.summary|truncatechars:230 }}</div>
-        </div>
-      </a>
-        <footer class="card-footer">
-          <span class="card-icon"><i class="fa fa-heart"></i> {{ post.likes }}</span>
-          <span class="card-icon"><i class="fa fa-comment-o"></i>
-            <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a>
-          </span>
-          <span class="card-icon"><i class="fa fa-clock-o"></i> {{ post.published_date }}</span>
-      </div>
-      </footer>
-    </div>
-    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    {% endif %}
+        <picture><img src="{{ post.image.url }}"></picture>
+    </li>
+     </a>
     {% endfor %}
-  </div>
+  </ul>
+  {% endif %}
 </div>
 {% endblock content %}

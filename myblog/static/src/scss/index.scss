@@ -1,0 +1,36 @@
+/* common styling */
+
+
+$page_margin: 3%;
+
+$snb_left_width_home: 30vw;
+$main_width_home: 100vw - $snb_left_width_home;
+#snb_left_box {
+  width: $snb_left_width_home !important;
+}
+
+
+main {
+  overflow-y: auto;
+ width: $main_width_home !important;
+}
+// body, .ico_logo {
+//     background: $theme-col;
+// }
+
+
+
+// .ico_logo a:before, footer li, .copyright {
+//     color: #fff; opacity: 0.6;
+
+// }
+// .line_1, .line_2, .line_3 {
+//     background: #fff; opacity: 0.6;
+// // }
+
+// footer {
+//   background: none;
+//   bottom: 6vh;
+//   position: absolute;
+//   min-width: 100-$page_margin*2;
+// }

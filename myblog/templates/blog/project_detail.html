@@ -1,109 +1,102 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
+{% load django_markdown %}
+
 {% block title %}
-<title>{{ project.title }}</title>
+<title>{{ post.title }}</title>
 {% endblock %}
+
 {% block ogtags %}
-<meta property="og:type" content="Sujin Lee:Project" />
+<meta property="og:type" content="Sujin Lee:Post" />
 <meta property="og:title" content="{{ project.title }}" />
 <meta property="og:description" content="{{ project.summary|truncatechars:230 }}" />
-<meta property="og:image" content="http://www.sujinlee.me/{{ project.image.url }}/" />
-<meta property="og:url" content="http://www.sujinlee.me/project/{{ project.slug }}" />
+<meta property="og:image" content="http://www.sujinlee.me/{{ project.image.url }}" />
+<meta property="og:url" content="http://www.sujinlee.me/blog/{{project.slug }}/" />
 {% endblock %}
+
 {% block content %}
-<section class="page-name">
-  <h1>{ PROJECT }</h1>
-  <h2>/* Web & Music */</h2>
-</section>
-<article class="mdl-grid">
-  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  <div class="post-card mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-  <div class="post-card_main-image">
-    <img itemprop="image" src="{{ project.image.url }}" onload="imgLoaded(this)">
-  </div>
-  <div class="post-card_category" style="background: {{ project.category.color }}">
-    {{ project.category.title }}
-  </div>
-  <div class="post-card_body">
-    <div class="post-card_btn" style="background: {{ project.category.color }}">
-      <img class="post-category-icon" src="{% static project.category.image_url %}">
-    </div>
-    <h1 itemprop="name">{{ project.title }}</h1>
-    <div class="post-card_date">
-      {% if project.published_date %}
-      <i class="fa fa-clock-o"></i>{{ project.published_date }}
-      {% endif %}
-    </div>
-    <div itemprop="description" class="markdown-body">
-      {{ project.body|markdown }}
-    </div>
-    <div class="heart-particle-box" align="center">
-      <button class="likes project-likes" id="heart-icon" data-project-id="{{project.id}}">
-      {% if liked %}
-      <i class="heart-shaped fa fa-heart" style="display: line-block"></i>
-      <i class="heart-shaped fa fa-heart-o" style="display: none"></i>
-      {% else %}
-      <i class="heart-shaped fa fa-heart" style="display: none"></i>
-      <i class="heart-shaped fa fa-heart-o" style="display: line-block"></i>
-      {% endif %}
-      </button>
-      <div class="like_count_project" id="heart-counter">{{ project.likes }}</div>
-    </div>
-    <footer class="post-footer">
-      <span class="post-comment">
-      <i class="fa fa-comment-o"></i>
-      <a href="{% url 'project_detail' slug=project.slug %}#disqus_thread"></a></span>
-      <div class="post-share">
-        <div class="more-button">
-          <i class="fa fa-share-alt"></i>
-          <div class="container">
-            <a class="facebook share-btn customer share"
-              href="http://www.facebook.com/share.php?u=http://www.sujinlee.me/project/{{ project.slug }}"
-              target="_blank" onclick="return fbshare()">
-            <i class="fa fa-facebook"></i></a>
-            <a class="twitter customer share share-btn customer share"
-              href="http://twitter.com/share?url=http://www.sujinlee.me/project/{{ project.slug }}
-              &amp;text={{ project.title }} http://www.sujinlee.me/blog/{{ project.slug }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
-              target="_blank" title="Twitter Share">
-            <i class="fa fa-twitter"></i></a>
-            <a class="google_plus customer share share-btn customer share"
-              href="https://plus.google.com/share?url=http://www.sujinlee.me/project/{{ project.slug }}"
-              target="_blank" title="Google Plus Share">
-            <i class="fa fa-google-plus"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-</article>
-<div class="comment-entry mdl-grid">
-  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  <div class="post-card mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <div class="disqus" id="disqus_thread"></div>
-  </div>
-</div>
-<nav class="pagination_nav mdl-grid">
-  <a href="{% url 'project_detail' slug=previous.slug %}">
-    <div class="pagination_col mdl-cell mdl-cell--6-col"
-      style="background: {{ project.category.color }}" rippleria>
-      {% if previous %}
-      <i class="fa fa-angle-left fa-2x"></i>
-      <span class="previous">Previous</span>
-      <span class="title-left">{{ previous.title|truncatechars:46 }}</span>
-  </a>
+<header class="page_title">
+  <a href="/blog"><button class="btn_blog material-icons">keyboard_backspace</button></a>
+  <h1>BLOG</h1>
+</header>
+<article>
+  <picture><img src="{{ project.image.url }}" ></picture>
+  <header class="post_title">
+    <h1>{{ project.title }}</h1>
+    {% if project.published_date %}
+    <span class="date">
+    {{ project.published_date }}
+    </span>
+  </header>
   {% endif %}
+  <div id="post_wrap_v1" class="post_body">
+    {{ project.body|markdown }}
   </div>
-  <div class="pagination_col mdl-cell mdl-cell--6-col"
-    style="background: {{ project.category.color }}" rippleria>
-    {% if next %}
-    <i class="fa fa-angle-right fa-2x"></i>
-    <a href="{% url 'project_detail' slug=next.slug %}">
-    <span class="next">Next</span>
-    <span class="title-right">{{ next.title|truncatechars:46 }}</span></a>
-    {% endif %}
+  {% if tags %}
+  <div class="tag_box">
+    {% for tag in tags %}
+    <a href= "{% url 'tagged_object_list' tag.name %}" class="tag">{{tag.name}}</a>
+    {% endfor %}
   </div>
+  {% endif%}
+  <footer class="share_container">
+    <ul>
+      <li>
+        <div class="btn_like project-likes" data-post-id="{{project.id}}">
+          {% if liked %}
+          <span class="show_like icon-heart"></span>
+          <span class="show_unlike icon-heart" style="display: none"></span>
+          {% else %}
+          <span class="show_like icon-heart "  style="display: none"></span>
+          <span class="show_unlike icon-heart "></span>
+          {% endif %}
+        </div>
+        <span class="like_count">{{ project.likes }}</span>
+      </li>
+      <a href="{% url 'project_detail' slug=project.slug %}#disqus_thread"></a>
+      <li><span class="icon-bubble"></span><a href="{% url 'project_detail' slug=project.slug %}#disqus_thread"></a></li>
+    </ul>
+    <ul class="btn_share">
+      <a class="facebook customer share"
+        href = "http://www.facebook.com/share.php?u=http://www.sujinlee.me/blog/{{ project.slug }}"
+        target="_blank" onclick="return fbshare()">
+        <li class="icon-social-facebook"></li>
+      </a>
+      <a class="twitter share-btn customer share"
+        href="http://twitter.com/share?url=http://www.sujinlee.me/blog/{{ project.slug }}
+        &amp;text={{ project.title }} http://www.sujinlee.me/blog/{{ project.slug }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
+        target="_blank" title="Twitter Share">
+        <li class="icon-social-twitter"></li>
+      </a>
+      <a class="google_plus customer share"
+        href="https://plus.google.com/share?url=http://www.sujinlee.me/blog/{{ project.slug }}"
+        target="_blank" title="Google Plus Share">
+        <li class="icon-social-google"></li>
+      </a>
+    </ul>
+  </footer>
+</article>
+<nav id="pagination">
+  {% if previous %}
+  <div class="pagination_col" onclick="location.href='{% url 'project_detail' slug=previous.slug %}';">
+    <div class="previous_page">
+      <button class="btn_blog material-icons">keyboard_arrow_left</button>
+      <h2 class="title-left">{{ previous.title|truncatechars:46 }}</h2>
+    </div>
+  </div>
+  {% endif %}
+  {% if next %}
+  <div class="pagination_col" onclick="location.href='{% url 'project_detail' slug=next.slug %}';">
+    <div class="next_page">
+      <h2 class="title-left">{{ next.title|truncatechars:46 }}</h2>
+      <button class="btn_blog material-icons">keyboard_arrow_right</button>
+    </div>
+    </a>
+  </div>
+  {% endif %}
 </nav>
-<div class="go-top"></div>
+<div class="disqus" id="disqus_thread"></div>
+
 <script>
   // facebook share
   function fbshare() {
@@ -116,9 +109,10 @@
             'og:title': '{{ project.title }}',
             'og:description': '{{ project.summary|truncatechars:230 }}',
             'og:image': 'http://www.sujinlee.me/{{ project.image.url }}/',
-            'og:type': 'Sujin Lee:Project',
+            'og:type': 'Sujin Lee:blog',
           }
         })
       });
+  }
 </script>
 {% endblock %}

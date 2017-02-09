@@ -1,46 +1,40 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
+{% block title %}
+<title>Project - Sujin Lee</title>
+{% endblock %}
+
+{% block ogtags %}
+<meta property="og:type" content="Sujin Lee:Post" />
+<meta property="og:title" content="Blog - Sujin Lee" />
+<meta property="og:description" content="Creative Developer" />
+<meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
+<meta property="og:url" content="http://www.sujinlee.me/project/" />
+{% endblock %}
+
 {% block content %}
-<section class="page-name">
-   <h1>{ PROJECT }</h1>
-   <h2> /* Web & Music */ </h2>
-</section>
-<div class="card-container">
+<header class="page_title">
+  <h1> PROJECT</h1>
+</header>
+<div id="main_content">
+  {% if projects %}
+  <ul id="lst_project_wrap">
     {% for project in projects %}
-
-<div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="mdl-cell mdl-cell--8-col  mdl-cell--12-col-tablet">
-    
-    <figure class="pr-card" style="background: {{project.category.color}}">
-         <img class="" src="{{ project.image.url }}" onload="imgLoaded(this)"/>
-         <figcaption>
-            <img class="svg pr-category-icon" src="{% static project.category.image_url %}">
-            <h3>{{ project.category }}</h3>
+    <li class="project_ele">
+      <a href="{% url 'project_detail' slug=project.slug %}">
+        <picture><img src="{{ project.image.url }}"></picture>
+        <header>
+          <span class="date">{{ project.published_date }}</span>
+          <h3>{{ project.summary|truncatechars:30 }}</h3>
+          <div class="detail">
             <h2>{{ project.title }}</h2>
-            <h4>{{ project.published_date|date:"M. Y" }}</h4>
-         </figcaption>
-         <a href="{% url 'project_detail' slug=project.slug %}" rippleria></a>
-      </figure>
-   </div>
-   <!--{% if forloop.last or forloop.counter|divisibleby:"2" %}
-   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
-      <figure class="pr-card" style="background: {{project.category.color}}">
-         <img class="" src="{{ project.image.url }}" onload="imgLoaded(this)"/>
-         <figcaption>
-            <img class="svg pr-category-icon" src="{% static project.category.image_url %}">
-            <h3>{{ project.category }}</h3>
-            <h2>{{ project.title }}</h2>
-            <h4>{{ project.published_date|date:"M. Y" }}</h4>
-         </figcaption>
-         <a href="{% url 'project_detail' slug=project.slug %}" rippleria></a>
-      </figure>
-   </div>
-   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-   {% endif %}-->
-
-  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  </div>
-   {% endfor %}
-
+            <button class="btn_read material-icons">arrow_forward</button>
+          </div>
+        </header>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
 {% endblock content %}

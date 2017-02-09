@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load django_markdown %}
 {% block title %}
-<title>{{ post.title }}</title>
+<!--<title>{{ post.title }}</title>
 {% endblock %}
 {% block ogtags %}
 <meta property="og:type" content="Sujin Lee:Post" />
@@ -26,9 +26,9 @@
     <ul class="field-wrapper">
        
         <li class="field-label">{{ field.label_tag }}</li>
-        <li class="field-input">{{ field }}</li>
+        <li class="field-input">{{ field }}</li>-->
         <!--<li> {{ field.errors }}</li>-->
-        {% if field.help_text %}
+        <!--{% if field.help_text %}
         <li class="help">{{ field.help_text|safe }}</li>
         {% endif %}
     </ul>
@@ -37,6 +37,5 @@
        
         <button type="submit" class="btn-material">Save</button>
     </form>
-  </div>
- 
+  </div>-->
 {% endblock %}

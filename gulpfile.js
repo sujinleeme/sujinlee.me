@@ -6,7 +6,7 @@ var htmlreplace = require('gulp-html-replace');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var concat = require('gulp-concat');
-
+var reload = browserSync.reload;
 
 // path
 var src = 'myblog/static/src';
@@ -65,9 +65,11 @@ gulp.task('browserSync', ['runserver'], function() {
   })
 });
 
+
 gulp.task('watch', ['browserSync', 'sass'], function() {
-  gulp.watch('myblog/static/scss/**/*.scss', ['sass']);
-  gulp.watch('myblog/static/js/**/*.js', browserSync.reload);
-  gulp.watch('myblog/templates/blog/*.html', browserSync.reload);
+  gulp.watch('myblog/static/src/scss/*.scss', ['sass']);
+  gulp.watch(['myblog/templates/blog/*.html', 'myblog/static/src/css/**/*.css', 'myblog/static/src/js/**/*.js'], reload);
   
+  //gulp.watch('myblog/static/src/**/*.js', reload);
+  //gulp.watch('myblog/static/js/**/*.js', reload);
 })

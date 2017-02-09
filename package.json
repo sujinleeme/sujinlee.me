@@ -1,5 +1,5 @@
 {
-  "name": "sujin-website",
+  "name": "sujin",
   "version": "0.1.0",
   "devDependencies": {
     "browser-sync": "^2.17.0",
@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/sujinleeme/official-website/issues"
   },
-  "homepage": "https://github.com/sujinleeme/official-website#readme"
+  "homepage": "https://github.com/sujinleeme/official-website#readme",
+  "keywords": [
+    "website"
+  ]
 }

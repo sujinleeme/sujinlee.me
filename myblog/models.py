@@ -3,14 +3,13 @@ from django.utils import timezone
 from django_markdown.models import MarkdownField
 
 from tagging.fields import TagField
-from django.contrib.auth.models import User
 import uuid
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
     image_url = models.CharField(max_length=100)
     color = models.CharField(max_length=50)
-
+    
     def __str__(self):
         return (self.title)
 

@@ -1,49 +1,44 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
+
+{% block title %}
+<title>Blog - Sujin Lee</title>
+{% endblock %}
+
+{% block ogtags %}
+<meta property="og:type" content="Sujin Lee:Post" />
+<meta property="og:title" content="Blog - Sujin Lee" />
+<meta property="og:description" content="Creative Developer" />
+<meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
+<meta property="og:url" content="http://www.sujinlee.me/project/" />
+{% endblock %}
+
 {% block content %}
-<title>BLOG | Sujin Lee</title>
-<section class="page-name">
-  {% if user.is_authenticated %}
-  <a href="{% url 'post_new' %}"><button class="btn-newpost">New Post</button></a>
-  {% endif %}
-  <h1>{ BLOG }</h1>
-  <h2>/* Now is better than Never */</h2>
-</section>
-<div class="card-container">
-  <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="mdl-cell mdl-cell--8-col  mdl-cell--12-col-tablet">
-      <section class="card-wrapper mdl-cell mdl-cell--12-col">
+<header class="page_title">
+  <h1>BLOG</h1>
+</header>
+<div>
+  {% if posts %}
+  <ul id="lst_wrap_blog">
     {% for post in posts %}
-    <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
-      <div class="card">
-        <a class="overlay rippleria-dark"
-            href="{% url 'post_detail' slug=post.slug %}" rippleria>
-        <div class="card-thumb">
-          <img src="{{ post.image.url }}" onload="imgLoaded(this)">
-        </div>
-        <div class="card-btn" style="background: {{post.category.color}}">
-          <img class="svg category-icon" src="{% static post.category.image_url %}">
-        </div>
-        <div class="card-body">
-          <div class="card-category" style="background: {{post.category.color}}">{{ post.category.title }}</div>
-          <div class="card-title">{{ post.title }}</div>
-          <p class="card-description">{{ post.summary|truncatechars:130 }}</p>
-        </div>
-      </a>
-        <footer class="card-footer">
-          <span class="card-icon"><i class="fa fa-heart"></i> {{ post.likes }}</span>
-          <span class="card-icon"><i class="fa fa-comment-o"></i>
-            <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a>
-          </span>
-          <span class="card-icon"><i class="fa fa-clock-o"></i> {{ post.published_date }}</span>
-      </footer>
-      </div>
-    </div>
+    <a href="{% url 'post_detail' slug=post.slug %}">
+      <li class="blog_ele">
+        <header>
+          <span class="date">{{ post.published_date }}</span>
+          <h3>{{ post.summary|truncatechars:60 }}</h3>
+          <div class="detail">
+            <h2>{{ post.title }}</h2>
+            <button class="btn_read material-icons">arrow_forward</button>
+          </div>
+          <footer>
+          <span class="icon-heart"></span>
+    <a>{{ post.likes }}</a>
+    </header>
+    <picture><img src="{{ post.image.url }}"></picture>
+    </li>
+    </a>
     {% endfor %}
-      </section>
-  </div>
-  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  </div>
+  </ul>
+  {% endif %}
 </div>
 {% endblock content %}

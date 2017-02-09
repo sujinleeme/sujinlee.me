@@ -4,6 +4,7 @@ db.sqlite3
 .DS_Store
 staticfiles
 image
-djangovenv
+myvenv
 node_modules
 .vscode
+gulpfile.js
