@@ -1,0 +1,71 @@
+/* common styling */
+$theme-col: #4B21FF;
+$accent-col: #E73E85;
+$bg-col: #fff;
+$black: #232528;
+$black-code: #282a36;
+$dark-light-gray: #656c7a;
+$light-gray: rgba(0,0,0,.05);
+$light-gray-hover: rgba(0,0,0,0.1);
+
+$form-border1: 1px $theme-col solid;
+$form-border2: 1px $light-gray solid;
+
+$page_margin: 3%;
+$snb_left_width_home: 0vw;
+$main_width_home: 100vw - $snb_left_width_home;
+
+#snb_left_box {
+  width: $snb_left_width_home !important;
+  display: none;
+}
+
+
+main {
+  overflow-y: auto;
+ width: $main_width_home !important;
+}
+
+
+.blog-form {
+  padding: 0 3rem 3rem 0;
+  .field {
+    padding: 1rem;
+  } 
+  input, textarea {
+    width: 100%;
+    border: 0;
+    background-color: rgba(#fff, 0.5);
+    border-bottom: $form-border2;
+    font-size: 1rem;
+    padding: 0.4rem;
+    &:focus {
+      font-size: 1rem;
+      outline: 0;
+      color: $black;
+      background-color: #fff;
+      border-bottom: $form-border1;
+    }
+  
+  }
+
+  }
+
+
+  .blog-form input#id_image{
+    border-bottom:1px #fff solid;
+  } 
+  // &_button {
+  //   margin: 2rem 0 3rem 0;
+  //   float: right;
+  //   width: 10rem;
+  //   // @extend .button;
+  //   font-size: 0.8rem;
+  //   padding: 0.4rem;
+  //   color: $dark-light-gray;
+  //   &:hover,
+  //   &:focus{
+  //     color: #fff;
+  //   }
+  //}
+

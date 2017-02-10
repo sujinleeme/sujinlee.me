@@ -8,4 +8,4 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('category', 'image', 'title', 'summary', 'body', 'tag', 'slug')
         content = forms.CharField(widget=MarkdownWidget())
-        content2 = MarkdownFormField()
+        

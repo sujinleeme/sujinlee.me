@@ -184,7 +184,7 @@ img {
 .line_2,
 .line_3 {
   width: 100%;
-  height: 3px;
+  height: 4px;
   background: #232528;
   margin-bottom: 0.4rem;
   backface-visibility: hidden;
@@ -201,7 +201,7 @@ img {
 
 ._active .line_3 {
   background: #fff;
-  transform: rotate(-45deg) translate(8px, -8px); }
+  transform: rotate(-45deg) translate(9px, -9px); }
 
 f .btn_blog {
   margin-right: 1vh; }
@@ -209,7 +209,8 @@ f .btn_blog {
 .btn_blog,
 .ico_menu {
   font-size: 3.2rem;
-  line-height: 2rem; }
+  line-height: 2rem;
+  margin: -0.3vh; }
 
 /* navigation menu effect */
 .gnb {
@@ -255,7 +256,7 @@ footer li {
 
 .share_container ul:nth-child(1) li,
 footer ul:nth-child(1) li {
-  width: 3rem; }
+  width: 3.0rem; }
 
 .share_container ul:nth-child(2),
 footer ul:nth-child(2) {
@@ -340,7 +341,8 @@ span.show_unlike.icon-heart {
   width: 50%;
   max-height: 45vh;
   min-height: 200px;
-  padding-bottom: 14vh; }
+  padding-bottom: 14vh;
+  cursor: pointer; }
 
 .project_ele a,
 #lst_wrap_blog a {
@@ -484,3 +486,16 @@ article {
   margin: 3.5vh 0;
   float: right;
   font-size: 0.9rem; }
+
+.form_wrap {
+  width: 100%;
+  display: flex; }
+  .form_wrap form {
+    width: 50%; }
+  .form_wrap button {
+    color: #4B21FF;
+    font-size: 1.3rem; }
+
+.form_view {
+  width: 50%;
+  background: #232528; }

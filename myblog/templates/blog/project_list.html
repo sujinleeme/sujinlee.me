@@ -20,21 +20,23 @@
   {% if projects %}
   <ul id="lst_project_wrap">
     {% for project in projects %}
-    <li class="project_ele">
-      <a href="{% url 'project_detail' slug=project.slug %}">
-        <picture><img src="{{ project.image.url }}"></picture>
-        <header>
-          <span class="date">{{ project.published_date }}</span>
-          <h3>{{ project.summary|truncatechars:30 }}</h3>
-          <div class="detail">
-            <h2>{{ project.title }}</h2>
-            <button class="btn_read material-icons">arrow_forward</button>
-          </div>
-        </header>
-      </a>
+    <li class="project_ele" onclick="location.href='{% url 'project_detail' slug=project.slug %}';">
+      <picture><img src="{{ project.image.url }}"></picture>
+      <header>
+        <span class="date">{{ project.published_date }}</span>
+        <h3>{{ project.summary|truncatechars:30 }}</h3>
+        <div class="detail">
+          <h2>{{ project.title }}</h2>
+          <button class="btn_read material-icons">arrow_forward</button>
+        </div>
+      </header>
     </li>
     {% endfor %}
   </ul>
+  {% else %}
+  <div id="main_content">
+    <h3>No Post in here. Write new post!</h3>
+  </div>
   {% endif %}
 </div>
 {% endblock content %}

@@ -1,38 +1,4 @@
-@charset "UTF-8";
-/*
-UPDATE : 2017.02.
-AUTHOR : SUJIN LEE (sujinlee.me@gmail.com)
-*/
-/* === Common Style === */
-/* main color */
-/* layout */
-/* left navigation */
-/* css reset */
-body,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-ol,
-li,
-dl,
-dt,
-dd,
-table,
-th,
-td,
-form,
-fieldset,
-legend,
-input,
-textarea,
-button,
-select,
-menu {
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select, menu {
   margin: 0;
   padding: 0; }
 
@@ -44,18 +10,13 @@ button {
 a {
   text-decoration: none; }
 
-ul,
-ol {
+ul, ol {
   list-style: none; }
 
-blockquote,
-q {
+blockquote, q {
   quotes: none; }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after, q:before, q:after {
   content: '';
   content: none; }
 
@@ -63,13 +24,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* typograhpy */
 html {
   font-size: 15px; }
 
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins',sans-serif;
   color: #232528;
   word-wrap: break-word;
   display: flex;
@@ -83,9 +43,7 @@ body {
   background-color: #4B21FF;
   color: #fff; }
 
-/* header */
-h1,
-h2 {
+h1, h2 {
   font-weight: 700;
   text-transform: uppercase; }
 
@@ -93,21 +51,15 @@ h3 {
   font-weight: 500; }
 
 .post_body {
-  line-height: 2rem;
-  /*
-Modify from Github Markdown Stylesheet
-author: Chris Patuzzo
-available at: https://gist.github.com/tuzz/3331384
-*/ }
+  line-height: 2rem; }
   .post_body body > :first-child {
     margin-top: 0 !important; }
   .post_body body > :last-child {
     margin-bottom: 0 !important; }
   .post_body a.absent {
-    color: #FA055F; }
-  .post_body a:active,
-  .post_body a:visited {
-    color: #FA055F; }
+    color: #E73E85; }
+  .post_body a:active, .post_body a:visited {
+    color: #E73E85; }
   .post_body a.anchor {
     display: block;
     padding-left: 30px;
@@ -120,30 +72,19 @@ available at: https://gist.github.com/tuzz/3331384
   .post_body mark {
     background-color: transparent;
     color: #4B21FF; }
-  .post_body h1:hover a.anchor,
-  .post_body h2:hover a.anchor,
-  .post_body h3:hover a.anchor,
-  .post_body h4:hover a.anchor,
-  .post_body h5:hover a.anchor,
-  .post_body h6:hover a.anchor {
+  .post_body h1:hover a.anchor, .post_body h2:hover a.anchor, .post_body h3:hover a.anchor, .post_body h4:hover a.anchor, .post_body h5:hover a.anchor, .post_body h6:hover a.anchor {
     text-decoration: none; }
-  .post_body h1 tt,
-  .post_body h1 code {
+  .post_body h1 tt, .post_body h1 code {
     font-size: inherit; }
-  .post_body h2 tt,
-  .post_body h2 code {
+  .post_body h2 tt, .post_body h2 code {
     font-size: inherit; }
-  .post_body h3 tt,
-  .post_body h3 code {
+  .post_body h3 tt, .post_body h3 code {
     font-size: inherit; }
-  .post_body h4 tt,
-  .post_body h4 code {
+  .post_body h4 tt, .post_body h4 code {
     font-size: inherit; }
-  .post_body h5 tt,
-  .post_body h5 code {
+  .post_body h5 tt, .post_body h5 code {
     font-size: inherit; }
-  .post_body h6 tt,
-  .post_body h6 code {
+  .post_body h6 tt, .post_body h6 code {
     font-size: inherit; }
   .post_body h1 {
     font-size: 1.5rem;
@@ -165,29 +106,19 @@ available at: https://gist.github.com/tuzz/3331384
     font-weight: 400; }
   .post_body li p {
     margin: 0; }
-  .post_body p {
+  .post_body p, .post_body pre {
     margin-bottom: 3.5vh; }
-  .post_body p,
-  .post_body blockquote,
-  .post_body ul,
-  .post_body ol,
-  .post_body dl,
-  .post_body table {
+  .post_body p, .post_body blockquote, .post_body ul, .post_body ol, .post_body dl, .post_body table {
     font-size: 1rem;
     vertical-align: middle; }
-  .post_body blockquote,
-  .post_body ul,
-  .post_body ol,
-  .post_body dl,
-  .post_body table {
+  .post_body blockquote, .post_body ul, .post_body ol, .post_body dl, .post_body table {
     margin-top: 3.5vh;
     padding-bottom: 3.5vh; }
   .post_body ul:first-child {
     margin-top: 0; }
   .post_body ul > h3 {
     padding-top: 0; }
-  .post_body ul,
-  .post_body ol {
+  .post_body ul, .post_body ol {
     list-style: initial; }
   .post_body hr {
     border: 0 none;
@@ -205,26 +136,13 @@ available at: https://gist.github.com/tuzz/3331384
   .post_body body > h1:first-child + h2 {
     margin-top: 0;
     padding-top: 0; }
-  .post_body body > h3:first-child,
-  .post_body body > h4:first-child,
-  .post_body body > h5:first-child,
-  .post_body body > h6:first-child {
+  .post_body body > h3:first-child, .post_body body > h4:first-child, .post_body body > h5:first-child, .post_body body > h6:first-child {
     margin-top: 0;
     padding-top: 0; }
-  .post_body a:first-child h1,
-  .post_body a:first-child h2,
-  .post_body a:first-child h3,
-  .post_body a:first-child h4,
-  .post_body a:first-child h5,
-  .post_body a:first-child h6 {
+  .post_body a:first-child h1, .post_body a:first-child h2, .post_body a:first-child h3, .post_body a:first-child h4, .post_body a:first-child h5, .post_body a:first-child h6 {
     margin-top: 0;
     padding-top: 0; }
-  .post_body h1 p,
-  .post_body h2 p,
-  .post_body h3 p,
-  .post_body h4 p,
-  .post_body h5 p,
-  .post_body h6 p {
+  .post_body h1 p, .post_body h2 p, .post_body h3 p, .post_body h4 p, .post_body h5 p, .post_body h6 p {
     margin-top: 0; }
   .post_body dl {
     padding: 0; }
@@ -253,7 +171,7 @@ available at: https://gist.github.com/tuzz/3331384
     border-left: 4px solid rgba(35, 37, 40, 0.1);
     padding: 0 15px;
     margin: 20px 40px;
-    color: rgba(0, 0, 0, 0.6); }
+    color: #656c7a; }
   .post_body blockquote:before {
     content: ""; }
   .post_body blockquote:after {
@@ -282,11 +200,9 @@ available at: https://gist.github.com/tuzz/3331384
     text-align: left;
     margin: 0;
     padding: 6px 13px; }
-  .post_body table tr th:first-child,
-  .post_body table tr td:first-child {
+  .post_body table tr th:first-child, .post_body table tr td:first-child {
     margin-top: 0; }
-  .post_body table tr th:last-child,
-  .post_body table tr td:last-child {
+  .post_body table tr th:last-child, .post_body table tr td:last-child {
     margin-bottom: 0; }
   .post_body span.frame {
     display: block;
@@ -348,8 +264,7 @@ available at: https://gist.github.com/tuzz/3331384
     overflow: hidden;
     margin: 13px auto 0;
     text-align: right; }
-  .post_body code,
-  .post_body tt {
+  .post_body code, .post_body tt {
     margin: 0 2px;
     padding: 0 5px;
     white-space: nowrap;
@@ -360,21 +275,13 @@ available at: https://gist.github.com/tuzz/3331384
     margin: 0;
     padding: 0;
     white-space: pre-wrap;
-    /* CSS 2.0 */
     white-space: pre-wrap;
-    /* CSS 2.1 */
     white-space: pre-wrap;
-    /* CSS 3.0 */
     white-space: -pre-wrap;
-    /* Opera 4-6 */
     white-space: -o-pre-wrap;
-    /* Opera 7 */
     white-space: -moz-pre-wrap;
-    /* Mozilla */
     white-space: -hp-pre-wrap;
-    /* HP Printers */
     word-wrap: break-word;
-    /* IE 5+ */
     border: none;
     background: transparent;
     color: #fff; }
@@ -386,25 +293,21 @@ available at: https://gist.github.com/tuzz/3331384
     padding: 6px 10px;
     border-radius: 2px;
     width: inherit;
-    font-family: 'Source Code Pro', monospace; }
-  .post_body pre code,
-  .post_body pre tt {
+    font-family: 'Source Code Pro',monospace; }
+  .post_body pre code, .post_body pre tt {
     background-color: transparent;
     border: none;
-    font-family: 'Source Code Pro', monospace; }
+    font-family: 'Source Code Pro',monospace; }
   .post_body .post_body ul {
     list-style-type: initial !important; }
   .post_body .post_body ul:first-child {
     margin-top: 0; }
-  .post_body .post_body ul:first-child,
-  .post_body .post_body ol:first-child {
+  .post_body .post_body ul:first-child, .post_body .post_body ol:first-child {
     margin-top: 0;
     padding: 0; }
-  .post_body .post_body ul:last-child,
-  .post_body .post_body ol:last-child {
+  .post_body .post_body ul:last-child, .post_body .post_body ol:last-child {
     margin-bottom: 0; }
 
-/* quote */
 .quote {
   font-weight: 500;
   color: #4B21FF; }
@@ -414,8 +317,7 @@ available at: https://gist.github.com/tuzz/3331384
   .page_title h1 {
     vertical-align: middle; }
 
-.page_title h1,
-.post_title h1 {
+.page_title h1, .post_title h1 {
   font-size: 2rem;
   line-height: 2rem;
   letter-spacing: 0.1rem; }
@@ -423,7 +325,6 @@ available at: https://gist.github.com/tuzz/3331384
 .post_title h1 {
   text-align: center; }
 
-/* home -- index.html*/
 .home_title h1 {
   font-size: 2.2rem;
   margin-bottom: 4%; }
@@ -435,63 +336,28 @@ available at: https://gist.github.com/tuzz/3331384
 .home_title h3 {
   font-size: 1.2rem; }
 
-/*
-Customization Dracula Theme v1.2.0
-https://github.com/zenorocha/dracula-theme
-Copyright 2015, All rights reserved
-Code licensed under the MIT license
-http://zenorocha.mit-license.org
-@author Éverton Ribeiro <nuxlli@gmail.com>
-@author Zeno Rocha <hi@zenorocha.com>
-*/
 .hljs {
   display: block;
   overflow-x: auto;
   background: #232528;
   padding: 1%; }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-section,
-.hljs-link {
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-section, .hljs-link {
   color: #8be9fd; }
 
 .hljs-function .hljs-keyword {
   color: #ff79c6; }
 
-.hljs,
-.hljs-subst {
+.hljs, .hljs-subst {
   color: #f8f8f2; }
 
-.hljs-string,
-.hljs-title,
-.hljs-name,
-.hljs-type,
-.hljs-attribute,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
+.hljs-string, .hljs-title, .hljs-name, .hljs-type, .hljs-attribute, .hljs-symbol, .hljs-bullet, .hljs-addition, .hljs-variable, .hljs-template-tag, .hljs-template-variable {
   color: #f1fa8c; }
 
-.hljs-comment,
-.hljs-quote,
-.hljs-deletion,
-.hljs-meta {
+.hljs-comment, .hljs-quote, .hljs-deletion, .hljs-meta {
   color: #6272a4; }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-title,
-.hljs-section,
-.hljs-doctag,
-.hljs-type,
-.hljs-name,
-.hljs-strong {
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-title, .hljs-section, .hljs-doctag, .hljs-type, .hljs-name, .hljs-strong {
   font-weight: bold; }
 
 .hljs-emphasis {

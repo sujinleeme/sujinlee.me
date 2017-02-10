@@ -21,8 +21,7 @@
   {% if posts %}
   <ul id="lst_wrap_blog">
     {% for post in posts %}
-    <a href="{% url 'post_detail' slug=post.slug %}">
-      <li class="blog_ele">
+      <li class="blog_ele" onclick="location.href='{% url 'post_detail' slug=post.slug %}';">
         <header>
           <span class="date">{{ post.published_date }}</span>
           <h3>{{ post.summary|truncatechars:60 }}</h3>
@@ -32,13 +31,16 @@
           </div>
           <footer>
           <span class="icon-heart"></span>
-    <a>{{ post.likes }}</a>
-    </header>
-    <picture><img src="{{ post.image.url }}"></picture>
+          <a>{{ post.likes }}</a>
+        </header>
+        <picture><img src="{{ post.image.url }}"></picture>
     </li>
-    </a>
     {% endfor %}
   </ul>
+  {% else %}
+  <div id="main_content">
+    <h3>No Post in here. Write new post!</h3>
+  </div>
   {% endif %}
 </div>
 {% endblock content %}

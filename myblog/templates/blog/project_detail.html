@@ -17,7 +17,7 @@
 {% block content %}
 <header class="page_title">
   <a href="/blog"><button class="btn_blog material-icons">keyboard_backspace</button></a>
-  <h1>BLOG</h1>
+  <h1>Project</h1>
 </header>
 <article>
   <picture><img src="{{ project.image.url }}" ></picture>
@@ -42,34 +42,33 @@
   <footer class="share_container">
     <ul>
       <li>
-        <div class="btn_like project-likes" data-post-id="{{project.id}}">
+        <div class="btn_like project-like" data-post-id="{{project.id}}">
           {% if liked %}
           <span class="show_like icon-heart"></span>
           <span class="show_unlike icon-heart" style="display: none"></span>
           {% else %}
-          <span class="show_like icon-heart "  style="display: none"></span>
+          <span class="show_like icon-heart" style="display: none"></span>
           <span class="show_unlike icon-heart "></span>
           {% endif %}
         </div>
         <span class="like_count">{{ project.likes }}</span>
       </li>
-      <a href="{% url 'project_detail' slug=project.slug %}#disqus_thread"></a>
       <li><span class="icon-bubble"></span><a href="{% url 'project_detail' slug=project.slug %}#disqus_thread"></a></li>
     </ul>
     <ul class="btn_share">
       <a class="facebook customer share"
-        href = "http://www.facebook.com/share.php?u=http://www.sujinlee.me/blog/{{ project.slug }}"
+        href = "http://www.facebook.com/share.php?u=http://www.sujinlee.me/project/{{ project.slug }}"
         target="_blank" onclick="return fbshare()">
         <li class="icon-social-facebook"></li>
       </a>
       <a class="twitter share-btn customer share"
-        href="http://twitter.com/share?url=http://www.sujinlee.me/blog/{{ project.slug }}
-        &amp;text={{ project.title }} http://www.sujinlee.me/blog/{{ project.slug }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
+        href="http://twitter.com/share?url=http://www.sujinlee.me/project/{{ project.slug }}
+        &amp;text={{ project.title }} http://www.sujinlee.me/project/{{ project.slug }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
         target="_blank" title="Twitter Share">
         <li class="icon-social-twitter"></li>
       </a>
       <a class="google_plus customer share"
-        href="https://plus.google.com/share?url=http://www.sujinlee.me/blog/{{ project.slug }}"
+        href="https://plus.google.com/share?url=http://www.sujinlee.me/project/{{ project.slug }}"
         target="_blank" title="Google Plus Share">
         <li class="icon-social-google"></li>
       </a>

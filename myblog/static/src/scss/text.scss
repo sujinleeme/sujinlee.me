@@ -1,64 +1,20 @@
 @charset "utf-8";
-/*
-UPDATE : 2017.02.
-AUTHOR : SUJIN LEE (sujinlee.me@gmail.com)
-*/
-/* === Common Style === */
-/* main color */
-
 $theme-col: #4B21FF;
-$accent-col: #FA055F;
+$accent-col: #E73E85;
 $bg-col: #fff;
 $black: #232528;
-$dark-gray: rgba(0,
-0,
-0,
-.6);
-$light-gray: rgba(0,
-0,
-0,
-.05);
-/* layout */
-
+$black-code: #282a36;
+$dark-gray: #656c7a;
+$light-gray: rgba(0,0,0,.05);
+$light-gray-hover: rgba(0,0,0,0.1);
 $page_margin_reset: 0%;
 $page_margin: 7vh;
-/* left navigation */
-
 $line_height: 2rem;
-$light-gray: rgba(35,
-37,
-40,
-0.1);
+$light-gray: rgba(35,37,40,0.1);
 $black: #232528;
-/* css reset */
-
-body,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-ol,
-li,
-dl,
-dt,
-dd,
-table,
-th,
-td,
-form,
-fieldset,
-legend,
-input,
-textarea,
-button,
-select,
-menu {
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select, menu {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 button {
     background: none;
@@ -68,18 +24,13 @@ button {
 a {
     text-decoration: none;
 }
-ul,
-ol {
+ul, ol {
     list-style: none;
 }
-blockquote,
-q {
+blockquote, q {
     quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after, q:before, q:after {
     content: '';
     content: none;
 }
@@ -87,14 +38,12 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-/* typograhpy */
-
 html {
     font-size: 15px;
 }
 body {
     -webkit-font-smoothing: antialiased;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins',sans-serif;
     color: $black;
     word-wrap: break-word;
     display: flex;
@@ -108,10 +57,7 @@ body {
     background-color: $theme-col;
     color: #fff;
 }
-/* header */
-
-h1,
-h2 {
+h1, h2 {
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -129,8 +75,7 @@ h3 {
     a.absent {
         color: $accent-col;
     }
-    a:active,
-    a:visited {
+    a:active, a:visited {
         color: $accent-col;
     }
     a.anchor {
@@ -147,36 +92,25 @@ h3 {
         background-color: transparent;
         color: $theme-col;
     }
-    h1:hover a.anchor,
-    h2:hover a.anchor,
-    h3:hover a.anchor,
-    h4:hover a.anchor,
-    h5:hover a.anchor,
-    h6:hover a.anchor {
+    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
         text-decoration: none;
     }
-    h1 tt,
-    h1 code {
+    h1 tt, h1 code {
         font-size: inherit;
     }
-    h2 tt,
-    h2 code {
+    h2 tt, h2 code {
         font-size: inherit;
     }
-    h3 tt,
-    h3 code {
+    h3 tt, h3 code {
         font-size: inherit;
     }
-    h4 tt,
-    h4 code {
+    h4 tt, h4 code {
         font-size: inherit;
     }
-    h5 tt,
-    h5 code {
+    h5 tt, h5 code {
         font-size: inherit;
     }
-    h6 tt,
-    h6 code {
+    h6 tt, h6 code {
         font-size: inherit;
     }
     h1 {
@@ -206,40 +140,25 @@ h3 {
     li p {
         margin: 0;
     }
-    p {
+    p, pre {
         margin-bottom: $page_margin / 2;
     }
-    p,
-    blockquote,
-    ul,
-    ol,
-    dl,
-    table {
+
+    p, blockquote, ul, ol, dl, table {
         font-size: 1rem;
         vertical-align: middle;
     }
-    blockquote,
-    ul,
-    ol,
-    dl,
-    table {
+    blockquote, ul, ol, dl, table {
         margin-top: $page_margin / 2;
         padding-bottom: $page_margin / 2;
     }
     ul:first-child {
         margin-top: 0;
     }
-    /*
-Modify from Github Markdown Stylesheet
-author: Chris Patuzzo
-available at: https://gist.github.com/tuzz/3331384
-*/
-    
     ul > h3 {
         padding-top: 0;
     }
-    ul,
-    ol {
+    ul, ol {
         list-style: initial;
     }
     hr {
@@ -263,28 +182,15 @@ available at: https://gist.github.com/tuzz/3331384
         margin-top: 0;
         padding-top: 0;
     }
-    body > h3:first-child,
-    body > h4:first-child,
-    body > h5:first-child,
-    body > h6:first-child {
+    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
         margin-top: 0;
         padding-top: 0;
     }
-    a:first-child h1,
-    a:first-child h2,
-    a:first-child h3,
-    a:first-child h4,
-    a:first-child h5,
-    a:first-child h6 {
+    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
         margin-top: 0;
         padding-top: 0;
     }
-    h1 p,
-    h2 p,
-    h3 p,
-    h4 p,
-    h5 p,
-    h6 p {
+    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
         margin-top: 0;
     }
     dl {
@@ -361,12 +267,10 @@ available at: https://gist.github.com/tuzz/3331384
         margin: 0;
         padding: 6px 13px;
     }
-    table tr th:first-child,
-    table tr td:first-child {
+    table tr th:first-child, table tr td:first-child {
         margin-top: 0;
     }
-    table tr th:last-child,
-    table tr td:last-child {
+    table tr th:last-child, table tr td:last-child {
         margin-bottom: 0;
     }
     span.frame {
@@ -443,8 +347,7 @@ available at: https://gist.github.com/tuzz/3331384
         margin: 13px auto 0;
         text-align: right;
     }
-    code,
-    tt {
+    code, tt {
         margin: 0 2px;
         padding: 0 5px;
         white-space: nowrap;
@@ -456,48 +359,31 @@ available at: https://gist.github.com/tuzz/3331384
         margin: 0;
         padding: 0;
         white-space: pre-wrap;
-        /* CSS 2.0 */
-        
         white-space: pre-wrap;
-        /* CSS 2.1 */
-        
         white-space: pre-wrap;
-        /* CSS 3.0 */
-        
         white-space: -pre-wrap;
-        /* Opera 4-6 */
-        
         white-space: -o-pre-wrap;
-        /* Opera 7 */
-        
         white-space: -moz-pre-wrap;
-        /* Mozilla */
-        
         white-space: -hp-pre-wrap;
-        /* HP Printers */
-        
         word-wrap: break-word;
-        /* IE 5+ */
-        
         border: none;
         background: transparent;
         color: #fff;
     }
     pre {
-        background: #282a36;
+        background: $black-code;
         line-height: $line_height;
         font-size: 0.9em;
         overflow: auto;
         padding: 6px 10px;
         border-radius: 2px;
         width: inherit;
-        font-family: 'Source Code Pro', monospace;
+        font-family: 'Source Code Pro',monospace;
     }
-    pre code,
-    pre tt {
+    pre code, pre tt {
         background-color: transparent;
         border: none;
-        font-family: 'Source Code Pro', monospace;
+        font-family: 'Source Code Pro',monospace;
     }
     .post_body {
         ul {
@@ -506,19 +392,15 @@ available at: https://gist.github.com/tuzz/3331384
         ul:first-child {
             margin-top: 0;
         }
-        ul:first-child,
-        ol:first-child {
+        ul:first-child, ol:first-child {
             margin-top: 0;
             padding: 0;
         }
-        ul:last-child,
-        ol:last-child {
+        ul:last-child, ol:last-child {
             margin-bottom: 0;
         }
     }
 }
-/* quote */
-
 .quote {
     font-weight: 500;
     color: $theme-col;
@@ -529,8 +411,7 @@ available at: https://gist.github.com/tuzz/3331384
         vertical-align: middle;
     }
 }
-.page_title h1,
-.post_title h1 {
+.page_title h1, .post_title h1 {
     font-size: 2rem;
     line-height: 2rem;
     letter-spacing: 0.1rem;
@@ -538,8 +419,6 @@ available at: https://gist.github.com/tuzz/3331384
 .post_title h1 {
     text-align: center;
 }
-/* home -- index.html*/
-
 $txt_margin: 4%;
 .home_title {
     h1 {
@@ -554,64 +433,28 @@ $txt_margin: 4%;
         font-size: 1.2rem;
     }
 }
-/*
-Customization Dracula Theme v1.2.0
-https://github.com/zenorocha/dracula-theme
-Copyright 2015, All rights reserved
-Code licensed under the MIT license
-http://zenorocha.mit-license.org
-@author Éverton Ribeiro <nuxlli@gmail.com>
-@author Zeno Rocha <hi@zenorocha.com>
-*/
-
 .hljs {
     display: block;
     overflow-x: auto;
     background: $black;
     padding: 1%;
 }
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-section,
-.hljs-link {
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-section, .hljs-link {
     color: #8be9fd;
 }
 .hljs-function .hljs-keyword {
     color: #ff79c6;
 }
-.hljs,
-.hljs-subst {
+.hljs, .hljs-subst {
     color: #f8f8f2;
 }
-.hljs-string,
-.hljs-title,
-.hljs-name,
-.hljs-type,
-.hljs-attribute,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
+.hljs-string, .hljs-title, .hljs-name, .hljs-type, .hljs-attribute, .hljs-symbol, .hljs-bullet, .hljs-addition, .hljs-variable, .hljs-template-tag, .hljs-template-variable {
     color: #f1fa8c;
 }
-.hljs-comment,
-.hljs-quote,
-.hljs-deletion,
-.hljs-meta {
+.hljs-comment, .hljs-quote, .hljs-deletion, .hljs-meta {
     color: #6272a4;
 }
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-title,
-.hljs-section,
-.hljs-doctag,
-.hljs-type,
-.hljs-name,
-.hljs-strong {
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-title, .hljs-section, .hljs-doctag, .hljs-type, .hljs-name, .hljs-strong {
     font-weight: bold;
 }
 .hljs-emphasis {

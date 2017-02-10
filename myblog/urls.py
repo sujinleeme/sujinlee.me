@@ -16,8 +16,8 @@ urlpatterns = [
     #blog
     url(r'^blog/$', views.post_list, name='post_list'),
     url(r'^blog/(?P<slug>(?!new)[-_\w]*)/$', views.post_detail, name='post_detail'),
-    url(r'^blog/(?P<slug>(?!new)[-_\w]*)/edit$', views.CreatePost.as_view(), name='post_new'),
-    url(r'^blog/new/$', views.CreatePost.as_view(), name='post_new'),
+    # url(r'^blog/(?P<slug>(?!new)[-_\w]*)/edit$', views.CreatePost.as_view(), name='post_new'),
+    url(r'^blog/new/$', views.post_create, name='post_new'),
 
     #about
     url(r'^about/$', views.about, name='about'),

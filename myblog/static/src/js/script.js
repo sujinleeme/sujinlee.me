@@ -1,3 +1,7 @@
+/*
+UPDATE : 2017.02.
+AUTHOR : SUJIN LEE (sujinlee.me@gmail.com)
+*/
 
 /*-- open navigation menu --*/
 const menuIcon = document.getElementsByClassName("ico_menu")[0];
@@ -30,30 +34,28 @@ function hideMenu(){
 }
 
 
-
-/*-- like button --*/
-/*
-Reference Code
-title: Periscope Likes Tutorial
-date: Jun 6, 2015
-author: Zan Ilic
-available at: http://zanilic.com/periscope-likes-tutorial-jquery-css3
-*/
-
-/* like counting */
+/*-- Like Button Counting --*/
 const buttonLike = document.getElementsByClassName("btn_like")[0];
 const likeData = document.getElementsByClassName("like_count")[0];
 let icon = buttonLike.getElementsByClassName("icon-heart");
+var url;
 
-console.log(icon);
 buttonLike.addEventListener("click", function(evt){
    let id = this.getAttribute('data-post-id');
    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/like_count_blog/?post_id='+id);
+
+    if (buttonLike.classList.contains('blog-like')) {
+        var url = '/like_count_blog/?post_id='+id;
+    }
+    if (buttonLike.classList.contains('project-like')) {
+        var url = '/like_count_project/?project_id='+id;
+    }
+
+    xhr.open('GET', url);
     xhr.onload = function() {
     if (xhr.status === 200) {
         likeData.innerHTML = xhr.responseText;
-       toggleLikeIcon();
+        toggleLikeIcon();
     }
     else {
         alert('Request failed.  Returned status of ' + xhr.status);
@@ -63,40 +65,19 @@ xhr.send();
 });
 
 function toggleLikeIcon(){
-for (let ele of icon){
- if (ele.style.display === 'none') {
-        ele.style.display = 'block';
-    } else {
-        ele.style.display = 'none';
+    for (let ele of icon){
+        if (ele.style.display === 'none') {
+            ele.style.display = 'block';
+        } else {
+            ele.style.display = 'none';
+        }
     }
-}
 };
 
 
 
-// $('.btn_like').click(function() {
-//         var id;
-//         id = $(this).attr('data-post-id');
-//         $.get('/like-blog/', {
-//             post_id: id
-//         }, function(data) {
-//             $('.like_count_blog').html(data);
-//         });
-//     $('.icon-heart').toggle();
-//     });
-    
-$(document).ready(function() {
-    $('.project-likes').click(function() {
-        var id;
-        id = $(this).attr('data-project-id');
-        $.get('/like-project/', {
-            project_id: id
-        }, function(data) {
-            $('.like_count_project').html(data);
-        });
-    $('.btn_like').toggle();
-    });
-});
+
+
 
 /*-- Disqus Comment --*/
 (function() {
@@ -107,28 +88,27 @@ $(document).ready(function() {
     (d.head || d.body).appendChild(s);
 })();
 
-
 /* open new window */
-$(document).ready(function() {
-    $(".newtab").attr("target", "_blank");
-});
+// $(document).ready(function() {
+//     $(".newtab").attr("target", "_blank");
+// });
 
 
 /* sticky back to the top button */
-$(document).ready(function() {
-    // Show or hide the sticky footer button
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 200) {
-            $('.go-top').fadeIn(200);
-        } else {
-            $('.go-top').fadeOut(200);
-        }
-    });
-    // Animate the scroll to top
-    $('.go-top').click(function(event) {
-        event.preventDefault();
-        $('html, body').animate({
-            scrollTop: 0
-        }, 300);
-    })
-});
+// $(document).ready(function() {
+//     // Show or hide the sticky footer button
+//     $(window).scroll(function() {
+//         if ($(this).scrollTop() > 200) {
+//             $('.go-top').fadeIn(200);
+//         } else {
+//             $('.go-top').fadeOut(200);
+//         }
+//     });
+//     // Animate the scroll to top
+//     $('.go-top').click(function(event) {
+//         event.preventDefault();
+//         $('html, body').animate({
+//             scrollTop: 0
+//         }, 300);
+//     })
+// });

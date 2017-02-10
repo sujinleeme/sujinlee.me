@@ -1,0 +1,29 @@
+/* common styling */
+#snb_left_box {
+  width: 0vw !important;
+  display: none; }
+
+main {
+  overflow-y: auto;
+  width: 100vw !important; }
+
+.blog-form {
+  padding: 0 3rem 3rem 0; }
+  .blog-form .field {
+    padding: 1rem; }
+  .blog-form input, .blog-form textarea {
+    width: 100%;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px rgba(0, 0, 0, 0.05) solid;
+    font-size: 1rem;
+    padding: 0.4rem; }
+    .blog-form input:focus, .blog-form textarea:focus {
+      font-size: 1rem;
+      outline: 0;
+      color: #232528;
+      background-color: #fff;
+      border-bottom: 1px #4B21FF solid; }
+
+.blog-form input#id_image {
+  border-bottom: 1px #fff solid; }
