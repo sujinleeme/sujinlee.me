@@ -457,7 +457,6 @@ span.show_unlike.icon-heart {
 }
 .project_ele {
     transition: all .5s ease;
-    width: 50%;
     max-height: 45vh;
     min-height: 200px;
     padding-bottom: $page_margin * 2;
@@ -532,6 +531,7 @@ span.show_unlike.icon-heart {
 #lst_project_wrap {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     ul {
         line-height: 0 !important;
     }
@@ -607,6 +607,7 @@ button .material-icons {
 }
 .next_page {
     float: right;
+    padding-left: 2vh;
 }
 article {
     position: relative;
