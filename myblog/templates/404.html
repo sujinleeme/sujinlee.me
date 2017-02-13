@@ -1,35 +1,27 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
+
+{% block title %}
+<title>Not Found - Sujin Lee</title>
+{% endblock %}
+
+{% block ogtags %}
+<meta property="og:type" content="Sujin Lee:Post" />
+<meta property="og:title" content="About - Sujin Lee" />
+<meta property="og:description" content="Creative Developer" />
+<meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
+<meta property="og:url" content="http://www.sujinlee.me/about/" />
+
+{% endblock %}
 {% block content %}
-<style>
-  body {background: #6200ea;}
-  .nav-wrap {background: none;}
-  .title a {color: #fff; opacity: 0.9;}
-  .one, .two, .three {background: #fff;}
-  .socials a {color: #fff; opacity: 0.6;}
-  .socials a:hover {opacity: 0.3;}
-  .copyright {color: #fff; opacity: 0.6;}
-  .title {display: none;}
-  .footer {display: none;}
-  .large-header {display: none;}
-  .index-title {display: none;}
-  #wrapper {overflow: hidden;}
-</style>
-<div id="large-header" class="large-header">
-  <canvas id="demo-canvas">
-  </canvas>
+<header class="page_title">
+  <h1>Not Found</h1>
+</header>
+
+<div id="main_content">
+  <div id="post_wrap_v2" class="error_msg">
+    <h1>໒( •́ ‸ •̀ )໒</h1>
+    <p>Unfortunately, this page doesn't exist.</p>
+  </div>
 </div>
-<div class="index-title">
-    <h1>NOT FOUND</h1>
-  <a href="/about" class="index-title_style rippleria-dark" rippleria>
-    
-    <h2>{ the connectivist }</h2>
-    <img class="svg index-icon" src="{% static 'image/svg-icons/code.svg' %}">
-    <img class="svg index-icon" src="{% static 'image/svg-icons/close.svg' %}">
-    <img class="svg index-icon" src="{% static 'image/svg-icons/image.svg' %}">
-    <img class="svg index-icon" src="{% static 'image/svg-icons/close.svg' %}">
-    <img class="svg index-icon" src="{% static 'image/svg-icons/music.svg' %}">
-  </a>
-</div>
-<script src="/static/js/index.js"></script>
 {% endblock content %}

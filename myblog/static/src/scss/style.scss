@@ -7,8 +7,8 @@ AUTHOR : SUJIN LEE (sujinlee.me@gmail.com)
 
 /* === Common Style === */
 /* main color */
-$theme-col: #4B21FF;
-$accent-col: #E73E85;
+$theme-col: #1f00ff;
+$accent-col: #ff00db;
 $bg-col: #fff;
 $black: #232528;
 $black-code: #282a36;
@@ -289,31 +289,6 @@ img {
     background: #fff;
     opacity: 0.8;
 }
-
-
-// .line_1,
-// .line_2,
-// .line_3 {
-//     width: 100%;
-//     height: 4px;
-//     background: $black;
-//     margin-bottom: 0.4rem;
-//     backface-visibility: hidden;
-//     transition-duration: 0.1s;
-//     padding: 0;
-// }
-// ._active .line_1 {
-//     background: #fff;
-//     transform: rotate(45deg) translate(5px, 5px);
-// }
-// ._active .line_2 {
-//     opacity: 0;
-//     transition-duration: 0s;
-// }
-// ._active .line_3 {
-//     background: #fff;
-//     transform: rotate(-45deg) translate(9px, -9px);
-// }
 
 .btn_back {
     margin-right: 1vh;
@@ -658,3 +633,11 @@ article {
     font-size: 0.9rem;
 }
 
+.error_msg {
+    margin-top: 25vh;
+    text-align: center;
+    h1 {
+        font-size: 3rem;
+        color: $dark-gray;
+    }
+}

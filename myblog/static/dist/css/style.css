@@ -41,7 +41,7 @@ main {
   margin-right: 25vw; }
 
 #snb_left_box {
-  background: #4B21FF;
+  background: #1f00ff;
   width: 25vw;
   transition: transform 2s;
   overflow: hidden; }
@@ -69,7 +69,7 @@ article, .disqus {
 /* ==== STYLE ==== */
 .snb_left {
   padding: 7vh;
-  background: #4B21FF;
+  background: #1f00ff;
   color: #fff;
   transition: width 2s; }
   .snb_left h1 {
@@ -131,14 +131,14 @@ article, .disqus {
   top: 46%;
   right: 42%;
   width: 5vw;
-  border-bottom: 4px solid #4B21FF; }
+  border-bottom: 4px solid #1f00ff; }
 
 button {
   cursor: pointer; }
 
 mark {
   background: transparent;
-  color: #4B21FF; }
+  color: #1f00ff; }
 
 /* animation on external link */
 a, li {
@@ -280,7 +280,7 @@ img {
   position: fixed;
   margin-top: 7vh;
   right: 0;
-  background-color: #4B21FF;
+  background-color: #1f00ff;
   width: 30vw;
   display: table;
   margin: 0 auto; }
@@ -305,7 +305,7 @@ img {
 .disqus {
   position: relative; }
   .disqus a {
-    color: #4B21FF; }
+    color: #1f00ff; }
 
 /* share */
 .share_container ul, .share_container li,
@@ -355,11 +355,11 @@ footer .icon-social-facebook {
   display: inline-block; }
 
 span.show_like.icon-heart {
-  color: #E73E85;
+  color: #ff00db;
   vertical-align: top; }
 
 span.show_unlike.icon-heart {
-  color: #4B21FF;
+  color: #1f00ff;
   vertical-align: top; }
 
 .share_container {
@@ -450,7 +450,7 @@ span.show_unlike.icon-heart {
   position: absolute;
   bottom: 0; }
   .blog_ele footer .icon-heart {
-    color: #4B21FF;
+    color: #1f00ff;
     vertical-align: middle; }
 
 .project_ele .detail {
@@ -515,7 +515,7 @@ button .material-icons {
   .pagination_col a {
     display: block; }
   .pagination_col a:active {
-    color: #E73E85; }
+    color: #ff00db; }
   .pagination_col a:visited {
     color: #232528; }
 
@@ -547,3 +547,10 @@ article {
   margin: 3.5vh 0;
   float: right;
   font-size: 0.9rem; }
+
+.error_msg {
+  margin-top: 25vh;
+  text-align: center; }
+  .error_msg h1 {
+    font-size: 3rem;
+    color: #656c7a; }

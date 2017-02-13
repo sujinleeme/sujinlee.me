@@ -3,7 +3,6 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var exec = require('child_process').exec;
 var htmlreplace = require('gulp-html-replace');
-var uglify = require('gulp-uglifyjs');
 var gulpIf = require('gulp-if');
 var concat = require('gulp-concat');
 var reload = browserSync.reload;
