@@ -4,32 +4,36 @@ A website for personal blogging and project.
 ## About
 - See : https://www.sujinlee.me
 - Author : Design & Code by Sujin Lee
-- Tech: Django 1.10(python 3.5+), HTML5 & SASS, JavaScript(Jquery), gulp
+- Tech: Django 1.10(python 3.5+), HTML5 & SASS, JavaScript, gulp
 
 ## Version
 - Last Updated : 2017. 2.
 - version 1. : 2016. 3.
 
 ## References
-##### Django third party apps
+#### Django third party apps
 * [django-Markdown](https://github.com/klen/django_markdown), [django-tagging](https://github.com/brosner/django-tagging), [django-runsslserver](https://github.com/teddziuba/django-sslserver)
 
+#### Design
+* [Personal VCard](https://dribbble.com/shots/2529393-Personal-VCard) by Ali Sayed
+* [Material Design Guide](https://material.io/) by Google
+
 ## Setting up Development Environment
-First, git clone this repository in your working directory.
-`https://github.com/sujinleeme/official-website.git`
+Git clone this repository in your working directory.
+`git clone https://github.com/sujinleeme/official-website.git`
 
 ## virtualenv
-1. Install new virtual environment
+1 - Install new virtual environment
 ```python
 python3 -m venv [name]
 ```
 
-2. Activate your virtual environment
+2 - Activate your virtual environment
 ```
 source [name]/bin/activate
 ```
 
-3. Install packages according to requirements.txt
+3 - Install packages according to requirements.txt
 ```
 pip install -r requirements.txt
 ```
@@ -39,6 +43,7 @@ pip install -r requirements.txt
 Because`django_mardown` doesn't support the lastet version of django, depreciated `django.conf.urls.patterns' must to be removed. 
 
 Make sure that hange your `urls.py` under `Lib/site-packages/django_markdown` to:
+
 ```python
 """ Define preview URL. """
 
@@ -52,24 +57,24 @@ urlpatterns = [
 ```
 
 ## gulp
-1. Make sure that activate virtual enviroment firstly and run this command in your project directory to install gulp.
+1 - Activate virtual enviroment firstly and run this command in your project directory to install gulp.
 ```
 npm install --save-dev gulp
 ```
 
-2. And than, install gulp packages according to package.json.
+2 - And than, install gulp packages according to `package.json`.
 ```
 npm install
 ```
 
 
-## Run server
-1. Start the web server by running python manage.py runserver
+## Run Development Server
+1 - Start the web server by running python manage.py runserver
 ```
 python manage.py runsslserver
 ```
 
-2. Run gulp to work frontend automating tasks.
+2 - Run gulp to work frontend automating tasks.
 ```
 gulp watch
 ```
