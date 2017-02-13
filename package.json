@@ -5,10 +5,11 @@
     "browser-sync": "^2.17.0",
     "gulp": "^3.9.1",
     "gulp-html-replace": "^1.6.1",
+    "gulp-ignore": "^2.0.2",
     "gulp-inject": "^4.1.0",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.0",
+    "gulp-uglify": "^2.0.1",
     "gulp-useref": "^3.1.2",
     "gulp-using": "^0.1.1"
   },

@@ -8,9 +8,9 @@ $dark-light-gray: #656c7a;
 $light-gray: rgba(0,0,0,.05);
 $light-gray-hover: rgba(0,0,0,0.1);
 
+/* form style */
 $form-border1: 1px $theme-col solid;
 $form-border2: 1px $light-gray solid;
-
 $page_margin: 3%;
 $snb_left_width_home: 0vw;
 $main_width_home: 100vw - $snb_left_width_home;
@@ -25,7 +25,6 @@ main {
   overflow-y: auto;
  width: $main_width_home !important;
 }
-
 
 .blog-form {
   padding: 0 3rem 3rem 0;
@@ -46,15 +45,13 @@ main {
       background-color: #fff;
       border-bottom: $form-border1;
     }
-  
   }
+}
 
-  }
 
-
-  .blog-form input#id_image{
-    border-bottom:1px #fff solid;
-  } 
+.blog-form input#id_image{
+  border-bottom:1px #fff solid;
+} 
   // &_button {
   //   margin: 2rem 0 3rem 0;
   //   float: right;

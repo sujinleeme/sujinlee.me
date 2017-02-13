@@ -19,11 +19,6 @@ window.fbAsyncInit = function() {
 
 
 /*-- social popup UI --*/
-/*
-title: Add share popup to links
-author: Partrick Kahl
-available at: https://codepen.io/patrickkahl/pen/DxmfG
-*/
 // (function($){
 //   $.fn.customerPopup = function (e, intWidth, intHeight, blnResize) {
 

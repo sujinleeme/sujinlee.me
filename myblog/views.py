@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from django.views.generic.base import View
+
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.utils import timezone
 from django.utils.text import slugify
@@ -44,35 +45,7 @@ def post_detail(request, slug):
     return render(request,'blog/post_detail.html', context)
 
 
-#add new post form
-# class CreatePost(View):
-#     def get(self, request, slug):
-#         post = get_object_or_404(Post, slug=slug)
-#         form = PostForm(instance=post)
-#         context = {'form':form}
-#         return render(request, 'blog/post_edit.html', context)
-
-#     def post(self, request, slug=None):
-#         post = get_object_or_404(Post, slug=slug)
-#         form = PostForm(request.POST, request.FILES)
-#         context = {'form':form}
-#         if form.is_valid():
-#             post = form.save(commit=False)
-#             post.author = request.user
-#             post.published_date = timezone.now()
-#             #if Post.objects.filter(slug=post.cleaned_data['slug']).exists():
-#             #    raise forms.ValidationError(_("This Blog URL has already existed."))
-#             post.save()
-#             return redirect('post_detail', slug=post.slug)
-
-#         return render(request, 'blog/post_edit.html', context)
-#         # #     form = PostForm()
-#         # return HttpResponse('Error!')
-            
-
-
 def post_create(request):
-    # post = get_object_or_404(Post, slug=slug)
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -83,9 +56,6 @@ def post_create(request):
             summary = form.cleaned_data['summary']
             body = form.cleaned_data['body']
             tag = form.cleaned_data['tag']
-            # post = Post.objects.create(title=title, summary=summary, body=body, tag=tag)
-            
-            
             post.save()
             return render(request, 'blog/post_edit.html', {'form': form})
     else:
@@ -93,17 +63,6 @@ def post_create(request):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
-
-# def post_create(self, request, slug):
-#     post = get_object_or_404(Post, slug=slug)
-#     form = PostForm(request.POST, request.FILES)
-#     context = {'form':form}
-#     if form.is_valid():
-#         post = form.save(commit=False)
-#         post.author = request.user
-#         post.published_date = timezone.now()
-#         post.save()    
-#         redirect('post_detail', slug=post.slug)        
 
 # project
 def project_list(request):

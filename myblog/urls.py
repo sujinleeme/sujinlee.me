@@ -2,6 +2,8 @@ from django.conf.urls import url, include
 import django.views.defaults
 from . import views
 
+handler404 = 'views.custom_404'
+
 urlpatterns = [
     #home
     url(r'^$', views.index, name='index'),
@@ -31,7 +33,7 @@ urlpatterns = [
     url(r'^tag/(?P<tag>[^/]+(?u))/$', views.PostTOL.as_view(), name='tagged_object_list'),
 
     #404 error
-    url(r'^404/$', django.views.defaults.page_not_found, ),
+    url(r'^404/$', django.views.defaults.page_not_found, name="custom_404"),
 
 
     

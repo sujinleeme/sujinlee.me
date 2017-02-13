@@ -1,33 +1,76 @@
 # Sujin Lee's official website
+A website for personal blogging and project.
+
 ## About
 - See : https://www.sujinlee.me
 - Author : Design & Code by Sujin Lee
-- Tech: Django 1.9, HTML5 & SASS, JavaScript(Jquery)
-- Date: March, 2016
+- Tech: Django 1.10(python 3.5+), HTML5 & SASS, JavaScript(Jquery), gulp
+
+## Version
+- Last Updated : 2017. 2.
+- version 1. : 2016. 3.
 
 ## References
-#### [ Code ]
 ##### Django third party apps
 * [django-Markdown](https://github.com/klen/django_markdown), [django-tagging](https://github.com/brosner/django-tagging), [django-runsslserver](https://github.com/teddziuba/django-sslserver)
 
-#### [ Design ]
-Mainly inspried by [Alessan Drorisso](http://www.alessandrorisso.com/) & [Article News Card UI by Justin Kwak](https://dribbble.com/shots/2001637-Article-News-Card-UI)
+## Setting up Development Environment
+First, git clone this repository in your working directory.
+`https://github.com/sujinleeme/official-website.git`
 
-##### Main Concept
-* Color & Font & Concept : [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
+## virtualenv
+1. Install new virtual environment
+```python
+python3 -m venv [name]
+```
 
-##### Responsive Web Design
-* 12 column grid : [Material Design Lite](http://www.getmdl.io/)
+2. Activate your virtual environment
+```
+source [name]/bin/activate
+```
 
-##### UI Effect
-* [jQuery SVG image replacement](http://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement)
-* [Connections with JavaScript](http://codepen.io/matmarsiglio/pen/Avmxb) by  Matheus Marsiglio
-* [Rippleria Plugin](https://github.com/nsept/rippleria) by Nsept
-* [Periscope Likes](http://zanilic.com/periscope-likes-tutorial-jquery-css3) by Zan Ilic
+3. Install packages according to requirements.txt
+```
+pip install -r requirements.txt
+```
 
-##### Icons
-* SVG icons : [Taras Shypka (CC 3.0 BY)](http://www.flaticon.com/packs/great-icon-set/3)
-* Icon : [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/), [Devicons](http://vorillaz.github.io/devicons/#/main)
+:heavy_exclamation_mark: [django_markdown package Issue](https://github.com/klen/django_markdown/issues/71)
 
-##### Fonts
-* [Spoqa Han Sans](http://www.spoqa-han-sans.com/), Space Mono, Surce Code Pro, Devicons, FontAwesome
+Because`django_mardown` doesn't support the lastet version of django, depreciated `django.conf.urls.patterns' must to be removed. 
+
+Make sure that hange your `urls.py` under `Lib/site-packages/django_markdown` to:
+```python
+""" Define preview URL. """
+
+from django.conf.urls import url
+
+from .views import preview
+
+urlpatterns = [
+    url('preview/$', preview, name='django_markdown_preview'),
+]
+```
+
+## gulp
+1. Make sure that activate virtual enviroment firstly and run this command in your project directory to install gulp.
+```
+npm install --save-dev gulp
+```
+
+2. And than, install gulp packages according to package.json.
+```
+npm install
+```
+
+
+## Run server
+1. Start the web server by running python manage.py runserver
+```
+python manage.py runsslserver
+```
+
+2. Run gulp to work frontend automating tasks.
+```
+gulp watch
+```
+
