@@ -3,7 +3,7 @@ UPDATE : 2017.02.
 AUTHOR : SUJIN LEE (sujinlee.me@gmail.com)
 */
 
-/*-- open navigation menu --*/
+/*-- Show Navigation Menu --*/
 const menuIcon = document.getElementsByClassName("ico_menu")[0];
 const gnb = document.getElementsByClassName("gnb")[0];
 menuIcon.addEventListener("mouseenter", function(evt){
@@ -34,7 +34,7 @@ function hideMenu(){
 }
 
 
-/*-- Like Button Counting --*/
+/*-- Like Button Counting : AJAX with Django --*/
 const buttonLike = document.getElementsByClassName("btn_like")[0];
 const likeData = document.getElementsByClassName("like_count")[0];
 let icon = buttonLike.getElementsByClassName("icon-heart");
@@ -42,7 +42,7 @@ var url;
 
 buttonLike.addEventListener("click", function(evt){
    let id = this.getAttribute('data-post-id');
-   var xhr = new XMLHttpRequest();
+   let xhr = new XMLHttpRequest();
 
     if (buttonLike.classList.contains('blog-like')) {
         var url = '/like_count_blog/?post_id='+id;
@@ -75,8 +75,66 @@ function toggleLikeIcon(){
 };
 
 
+/* Open External Links in blog post & social Icons in New Window */
+const postBody = document.getElementsByClassName("post_body")[0];
+const postBodyLinks = Array.prototype.slice.call(postBody.querySelectorAll('a'));
+
+postBodyLinks.forEach(function(e){
+    e.addEventListener("click", function(evt){
+        evt.preventDefault();
+        evt.stopPropagation();
+        window.open(this.href);
+    })
+});
 
 
+/* Hide Side bar to shwo wide post */
+const buttonExpand = document.getElementsByClassName("btn_expand")[0];
+const main = document.querySelectorAll("main")[0];
+const mainBox = document.getElementById("#main_box");
+const container = document.getElementById("container");
+
+buttonExpand.addEventListener("click", function(evt) {
+    let target = evt.target;
+    if (target.tagName === "BUTTON") {
+        container.classList.toggle("_expand-container");
+        main.classList.toggle("_expand-main");
+    }
+});
+
+
+/* Move to page top */
+const buttonGoTop = document.getElementsByClassName("btn_gototop")[0];
+
+main.addEventListener("scroll", function(evt){
+    let target = evt.target;
+    let showPageScrollY = 200;
+    if (main.scrollTop > showPageScrollY) {
+        buttonGoTop.classList.add('_fadeIn');
+    }
+    else {
+        buttonGoTop.classList.remove('_fadeIn');
+    }
+});
+
+buttonGoTop.addEventListener("click", function(evt){
+    let target = evt.target;
+        if (target.tagName === "BUTTON") {
+            let pageScrollY = main.scrollTop;
+            moveTop(pageScrollY, 30, 4);
+        }
+    
+    function moveTop(from, distance, duration){
+        if (from >= 0) {
+            let posY = from-distance;
+            main.scrollTop = posY;
+            setTimeout(function() {
+                (moveTop(posY, distance));
+            }, duration);
+            return
+        }
+    }
+});
 
 
 /*-- Disqus Comment --*/
@@ -87,28 +145,3 @@ function toggleLikeIcon(){
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
 })();
-
-/* open new window */
-// $(document).ready(function() {
-//     $(".newtab").attr("target", "_blank");
-// });
-
-
-/* sticky back to the top button */
-// $(document).ready(function() {
-//     // Show or hide the sticky footer button
-//     $(window).scroll(function() {
-//         if ($(this).scrollTop() > 200) {
-//             $('.go-top').fadeIn(200);
-//         } else {
-//             $('.go-top').fadeOut(200);
-//         }
-//     });
-//     // Animate the scroll to top
-//     $('.go-top').click(function(event) {
-//         event.preventDefault();
-//         $('html, body').animate({
-//             scrollTop: 0
-//         }, 300);
-//     })
-// });

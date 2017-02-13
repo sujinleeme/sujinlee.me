@@ -44,16 +44,70 @@ main {
     overflow-y: auto;
     height: 100vh;
     overflow-x: hidden;
-    ;
     width: $main_width;
+    transition: padding 2s;
+
 }
+
+
+
+
+
+// ::-webkit-scrollbar {
+//     width: 5px;
+//     transform:rotateX(-180deg);
+// }
+// ::-webkit-scrollbar-track {
+//     background-color: #eaeaea;
+//     border-left: 1px solid #ccc;
+// }
+// ::-webkit-scrollbar-thumb {
+//     background-color: #ccc;
+// }
+// ::-webkit-scrollbar-thumb:hover {
+//   background-color: #aaa;
+// }
+
+// #container{
+//     transition: transform 2s;
+// }
+
+// ._expand {
+//     transform: translateX(-25vw);
+// }
+
+
 #container {
     display: flex;
     min-height: 100vh;
+    transition: transform 2s;
 }
+
+
+._expand-container {
+    transform: translateX(-25vw);
+}
+
+
+
+._expand-main{
+    padding-left: 50vw;
+    padding-right: 25vw;
+}
+
+
+// #container {
+//     display: flex;
+//     min-height: 100vh;
+//     transition-property: transform, margin-left;
+//     transition-duration: 2s 2s;
+//     transition-delay: 2s 2s;
+// }
+
 #snb_left_box {
     background: $theme-col;
     width: $snb_left_width;
+    transition: transform 2s;
     overflow: hidden;
     ul, ol {
         list-style: none;
@@ -64,12 +118,17 @@ main {
 }
 #main_content {
     padding: $page_margin;
+    margin: 0 2rem;
 }
-article {
-    margin-top: $page_margin;
-    margin-bottom: 0;
-    margin-left: $page_margin;
-    margin-right: $page_margin;
+#main_lst {
+    margin: 0 2rem;
+}
+article, .disqus {
+    padding-top: $page_margin;
+    padding-bottom: 0;
+    padding-left: $page_margin;
+    padding-right: $page_margin;
+    margin: 0 2rem;
 }
 /* ==== STYLE ==== */
 
@@ -82,12 +141,7 @@ article {
         font-size: 1.5rem;
         line-height: 1.5rem;
     }
-    ul {
-        // width: $snb_left_width - 7vh;
-        bottom: $page_margin;
-        position: absolute;
-        padding: 7vh;
-    }
+   
     ul,
     ol,
     h1,
@@ -98,15 +152,25 @@ article {
     h1 {
         margin: 0;
     }
-    ol {
+    ul:nth-child(-n+2) {
+        .title {
         margin-top: 4vh;
         font-weight: 600;
+    
+    
     }
+    } 
+    
     li {
         margin-top: 2vh;
         font-weight: 400;
     }
 }
+.contact {
+        bottom: $page_margin;
+        position: absolute;
+}
+
 .ico_soical {
     display: flex;
     font-size: 0.9rem;
@@ -174,10 +238,9 @@ li,
 }
 button:hover,
 .btn_share li:hover {
-    color: $theme-col;
+    color: $dark-gray;
 }
-button,
-.btn_share li {
+button, .btn_share li {
     transition: color 0.5s ease-in-out;
 }
 .gnb a:hover,
@@ -238,17 +301,44 @@ img {
     background: #fff;
     transform: rotate(-45deg) translate(9px, -9px);
 }
-f .btn_blog {
+.btn_back {
     margin-right: 1vh;
 }
-.btn_blog,
-.ico_menu {
+.btn_back, .btn_expand, .ico_menu, .btn_gototop {
+    height: 2rem;
     font-size: 3.2rem;
     line-height: 2rem;
-    margin: -0.3vh;
 }
-/* navigation menu effect */
 
+.btn_expand, .btn_gototop {
+    position: fixed;
+    cursor: pointer;
+    &:hover{
+        color: $black;
+    }
+}
+
+.btn_expand {
+    color: $light-gray-hover;
+    top: 50%;
+    margin-left: -1vh;
+}
+
+.btn_gototop {
+    bottom: $page_margin;
+    transition: opacity 1s; 
+    opacity:0;
+        transform: translateX(63.5vw);
+    z-index: 1;
+
+}
+
+._fadeIn{
+    opacity:1;
+}
+
+
+/* navigation menu effect */
 .gnb {
     transition: transform 2s;
     transform: translateX(105%);
@@ -283,10 +373,12 @@ f .btn_blog {
 ._show {
     transform: translateX(0%);
 }
+
+
 /* disqus */
 
 .disqus {
-    margin: $page_margin;
+    position: relative;
     a {
         color: $theme-col;
     }
@@ -297,11 +389,7 @@ footer {
         display: inline-flex;
         padding-bottom: 0;
     }
-    ul:nth-child(1) {
-        li {
-            width: 3.0rem;
-        }
-    }
+  
     ul:nth-child(2) {
         float: right;
         li {
@@ -318,7 +406,7 @@ footer {
     }
     a,
     span {
-        padding-left: 0.4rem;
+        padding-right: 0.4rem;
     }
     .icon-heart,
     .icon-bubble,
@@ -401,8 +489,15 @@ span.show_unlike.icon-heart {
     margin-right: $page_margin;
     opacity: 1;
     height: 40%;
+    .detail {
+        width: 100%;
+    }
+    h2 {
+        width: 90%;
+    }
     .btn_read {
-        margin-left: $page_margin;
+        width: 10%;
+        float: right;
     }
 }
 .project_ele header,
@@ -423,7 +518,7 @@ span.show_unlike.icon-heart {
 }
 .blog_ele header {
     h2, h3 {
-        width: 90%;
+        width: 80%;
         margin-top: 0;
     }
 }

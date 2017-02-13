@@ -3,7 +3,7 @@
 {% load django_markdown %}
 
 {% block title %}
-<title>{{ post.title }}</title>
+<title>{{ post.title }} - Sujin Lee</title>
 {% endblock %}
 
 {% block ogtags %}
@@ -16,9 +16,10 @@
 
 {% block content %}
 <header class="page_title">
-  <a href="/blog"><button class="btn_blog material-icons">keyboard_backspace</button></a>
+  <a href="/blog"><button class="btn_back material-icons">keyboard_backspace</button></a>
   <h1>BLOG</h1>
 </header>
+
 <article>
   <picture><img src="{{ post.image.url }}" ></picture>
   <header class="post_title">
@@ -57,24 +58,26 @@
       <li><span class="icon-bubble"></span><a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></li>
     </ul>
     <ul class="btn_share">
-      <a class="facebook customer share"
+      <a class="facebook share"
         href = "http://www.facebook.com/share.php?u=http://www.sujinlee.me/blog/{{ post.slug }}"
         target="_blank" onclick="return fbshare()">
         <li class="icon-social-facebook"></li>
       </a>
-      <a class="twitter share-btn customer share"
+      <a class="twitter share"
         href="http://twitter.com/share?url=http://www.sujinlee.me/blog/{{ post.slug }}
         &amp;text={{ post.title }} http://www.sujinlee.me/blog/{{ post.slug }} via @sujinleeme &amp;hashtags={{ post.category.title }}"
         target="_blank" title="Twitter Share">
         <li class="icon-social-twitter"></li>
       </a>
-      <a class="google_plus customer share"
+      <a class="google_plus share"
         href="https://plus.google.com/share?url=http://www.sujinlee.me/blog/{{ post.slug }}"
         target="_blank" title="Google Plus Share">
         <li class="icon-social-google"></li>
       </a>
     </ul>
   </footer>
+  
+ 
 </article>
 <nav id="pagination">
   {% if previous %}
@@ -96,7 +99,8 @@
   {% endif %}
 </nav>
 <div class="disqus" id="disqus_thread"></div>
-
+<button class="btn_expand material-icons">keyboard_arrow_left</button>
+<button class="btn_gototop material-icons">keyboard_arrow_up</button>
 <script>
   // facebook share
   function fbshare() {

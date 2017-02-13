@@ -3,7 +3,7 @@
 {% load django_markdown %}
 
 {% block title %}
-<title>{{ post.title }}</title>
+<title>{{ project.title }} - Project</title>
 {% endblock %}
 
 {% block ogtags %}
@@ -16,9 +16,10 @@
 
 {% block content %}
 <header class="page_title">
-  <a href="/blog"><button class="btn_blog material-icons">keyboard_backspace</button></a>
+  <a href="/project"><button class="btn_back material-icons">keyboard_backspace</button></a>
   <h1>Project</h1>
 </header>
+
 <article>
   <picture><img src="{{ project.image.url }}" ></picture>
   <header class="post_title">

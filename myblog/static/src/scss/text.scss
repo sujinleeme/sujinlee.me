@@ -15,6 +15,7 @@ $black: #232528;
 body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select, menu {
     margin: 0;
     padding: 0;
+    font-weight: 400;
 }
 button {
     background: none;
@@ -49,6 +50,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 400;
 }
 ::-moz-selection {
     background-color: $theme-col;
@@ -63,6 +65,10 @@ h1, h2 {
 }
 h3 {
     font-weight: 500;
+}
+
+strong {
+    font-weight: 600;
 }
 .post_body {
     line-height: $line_height;
@@ -128,6 +134,7 @@ h3 {
     }
     h4 {
         font-size: 16px;
+        font-weight: 500;
     }
     h5 {
         font-size: 14px;

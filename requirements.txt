@@ -2,7 +2,6 @@ Django==1.10.5
 django-markdown==0.8.4
 django-tagging==0.4.5
 django-sslserver==0.19
-Pillow==3.1.0
 requests==2.8.1
 simplejson==3.8.1
 wheel==0.26.0
