@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = os.getenv('DJANGO_DEBUG') != 'False'
+DEBUG = os.getenv('DJANGO_DEBUG') != 'True'
 
 TEAMPLATE_DEBUG = DEBUG
 
@@ -31,7 +31,7 @@ if DEBUG:
     ALLOWED_HOSTS = ['*']
     SECRET_KEY = 'sujinlee'
 else:
-    ALLOWED_HOSTS = ['sujinleeme.pythonanywhere.com','sujinlee.me','www.sujinlee.me']
+    # ALLOWED_HOSTS = ['sujinleeme.pythonanywhere.com','sujinlee.me','www.sujinlee.me']
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
     
 # Application definition
