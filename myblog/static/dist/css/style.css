@@ -394,6 +394,7 @@ span.show_unlike.icon-heart {
 /* blog & project card list */
 .project_ele {
   transition: all .5s ease;
+  width: 50%;
   max-height: 45vh;
   min-height: 200px;
   padding-bottom: 14vh;

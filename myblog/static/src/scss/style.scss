@@ -457,6 +457,7 @@ span.show_unlike.icon-heart {
 }
 .project_ele {
     transition: all .5s ease;
+    width: 50%;
     max-height: 45vh;
     min-height: 200px;
     padding-bottom: $page_margin * 2;
