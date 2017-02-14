@@ -57,9 +57,11 @@ main {
 }
 
 ._expand-main{
-    padding-left: 25vw;
-    padding-right: 25vw;
-    margin-right: 25vw;
+    transform: translateX(-($snb_left_width/2));
+}
+
+._expand-nav {
+    transform: translateX(-25vw);
 }
 
 #snb_left_box {
