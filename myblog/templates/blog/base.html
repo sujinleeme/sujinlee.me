@@ -88,6 +88,9 @@
     {% endblock %}
     
     {% block jsblock %}
+    {% endblock %}
+
+    {% block basejsblock %}
     <!-- javascript -->
     <!--<script src="{% static 'dist/js/script.min.js' %}"></script>-->
     
@@ -97,7 +100,6 @@
     
     <!-- build:js -->
     <script src="{% static 'src/js/script.js' %}"></script>
-    <script src="{% static 'src/js/highlight.pack.js' %}"></script>
     <script src="{% static 'src/js/social.js' %}"></script>
     <!-- endbuild -->
 

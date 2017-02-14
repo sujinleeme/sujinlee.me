@@ -36,9 +36,10 @@ main {
   transition: transform 2s; }
 
 ._expand-main {
-  padding-left: 25vw;
-  padding-right: 25vw;
-  margin-right: 25vw; }
+  transform: translateX(-12.5vw); }
+
+._expand-nav {
+  transform: translateX(-25vw); }
 
 #snb_left_box {
   background: #1f00ff;
