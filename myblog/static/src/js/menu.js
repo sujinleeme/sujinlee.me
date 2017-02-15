@@ -20,7 +20,6 @@ const menuIcon = document.getElementsByClassName("ico_menu")[0];
 const gnb = document.getElementsByClassName("gnb")[0];
 
 let useDevice = chkDeviceType();
-
 let mouseEventName;
 if (useDevice === "mobile") {
     mouseEventName = "click";
@@ -58,3 +57,4 @@ function hideMenu(){
         gnb.classList.remove("_show");
     }
 }
+

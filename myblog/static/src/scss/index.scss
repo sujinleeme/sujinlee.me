@@ -1,6 +1,8 @@
 /* common styling */
 $page_margin: 3%;
 $default_page_margin: 7vh;
+
+$mobile_page_margin: $default_page_margin / 2;
 $snb_left_width_home: 30vw;
 $main_width_home: 100vw - $snb_left_width_home;
 
@@ -33,16 +35,32 @@ $txt_margin: 4%;
 }
 
 
+
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
+@media screen 
+and (min-width : 320px) 
+and (max-width : 480px) {
+html,
 body {
-  height: 100vh;
-  
+    overflow: hidden;
+    position: relative;
+    min-height: 100%;
+}
+#container {
+  // margin: $mobile_page_margin !important;
+  position:relative; //that's it
+  overflow:hidden;
+
 }
 #snb_left_box {
   width: 100vw !important;
+  
+}
+.snb_left {
+  h1 {
+    margin-bottom: $mobile_page_margin;
+    transform: translate(-$mobile_page_margin, -$mobile_page_margin);
+  }
 }
 main {
   width: 0vw !important;
@@ -51,7 +69,7 @@ main {
   color: #fff;
 }
 .ico_menu {
-  top: $default_page_margin - 0.5vh;
+  top: $mobile_page_margin - 0.5vh;
 }
 .ico_menu span, .ico_menu span:before, .ico_menu span:after{
   background: #fff;
@@ -64,12 +82,10 @@ main {
 
 .home {
   &_img {
-    top: 25vh;
-    width: 50vw;
-    height: 25vh;
-    margin: 5vh;
-
-
+    top: 26vh;
+    width: 60vw;
+    height: 30vh;
+    margin: 2.5vh;
   }
   &_title{
     top: 55vh;
@@ -91,17 +107,19 @@ main {
 
  .snb_left {
         display: block !important;
-       
+  
     }
 
 .snb_left ul:nth-child(-n+2) .title{
   margin-top: 2vh;
 }
-
+.contact {
+  transform: translate(-$mobile_page_margin, $mobile_page_margin);
+  
+}
 .contact, ul.ico_soical {
-  font-size: 0.8rem;
-  position: fixed; 
-  margin-bottom: 7vh;
+  font-size: 0.9rem;
+  // transform: translateY(7vh);
 }
     
 }

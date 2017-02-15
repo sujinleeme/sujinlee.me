@@ -50,7 +50,9 @@ main {
     list-style: none; }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  html {
+    -webkit-overflow-scrolling: touch; }
   #snb_left_box {
     width: 0; }
   main {
@@ -312,16 +314,20 @@ button, .btn_share li {
   transform: translateX(0%); }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
   .ico_menu {
     right: 3.5vh;
     top: 3.5vh; }
   .gnb {
-    width: 25vh;
-    padding: 15vh 5vh;
-    height: 20vh; }
-    .gnb li {
-      display: block; } }
+    width: 100%;
+    height: 20vh;
+    opacity: 0.9;
+    padding: 0; }
+    .gnb ul {
+      width: 100%;
+      margin-top: 5vh; }
+    .gnb a {
+      font-size: 1.3rem; } }
 
 /* disqus */
 .disqus {
@@ -443,9 +449,9 @@ span.show_unlike.icon-heart {
   .project_ele header .detail {
     width: 100%; }
   .project_ele header h2 {
-    width: 90%; }
+    width: 85%; }
   .project_ele header .btn_read {
-    width: 10%;
+    width: 15%;
     float: right; }
 
 .project_ele header,
@@ -480,12 +486,20 @@ span.show_unlike.icon-heart {
   bottom: 0;
   display: flex; }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  .blog_ele {
-    width: 100%; }
+@media screen and (min-width: 320px) and (max-width: 480px) {
   .project_ele {
     width: 100%;
-    max-height: 30vh; } }
+    padding-bottom: 7vh;
+    max-height: 50vh; }
+    .project_ele header {
+      margin: 3.5vh;
+      min-height: 30% !important; }
+    .project_ele .detail {
+      position: relative; }
+  picture {
+    height: 40%; }
+  header {
+    height: 60%; } }
 
 /* blog */
 #lst_project_wrap {
@@ -586,14 +600,29 @@ article {
     font-size: 3rem;
     color: #656c7a; }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
   #main_lst {
     margin: 0 !important; }
   .blog_ele {
-    padding: 3vh;
-    height: 18vh; } }
+    padding: 3vh 0;
+    max-height: 24vh; }
+    .blog_ele .btn_read {
+      display: none; }
+    .blog_ele header {
+      width: 65%; }
+      .blog_ele header h2, .blog_ele header h3 {
+        width: 90%; }
+    .blog_ele picture {
+      width: 35%;
+      height: 24vh; }
+    .blog_ele img {
+      height: 100%;
+      width: 100%; }
+  .blog_ele footer {
+    position: relative;
+    padding: 1.75vh 0; } }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
   .btn_back {
     margin-left: -1vh; }
   .btn_expand {
@@ -601,11 +630,24 @@ article {
   article img {
     width: 100%;
     height: 30vh; }
+  article {
+    padding-top: 1vh; }
   article, .disqus {
     padding-left: 0;
     padding-right: 0;
     margin: 0; }
+  #pagination h2 {
+    font-size: 1.2em; }
+  .post_title {
+    margin: 3.5vh 0; }
   .snb_left {
     display: none; }
   .disqus {
+    padding: 0; }
+  .pagination_col {
+    padding: 3.5vh 0; }
+  .btn_gototop {
+    bottom: 2.5vh;
+    right: 2.5vh; }
+  .next_page {
     padding: 0; } }

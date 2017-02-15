@@ -14,43 +14,50 @@
 <meta property="og:url" content="http://www.sujinlee.me/blog/{{post.slug }}/" />
 {% endblock %}
 
-{% block content %}
+{% block stylesheet %}
 <link rel="stylesheet" href="{% static 'dist/css/form.css' %}">
+{% endblock %}
+
+{% block content %}
+
 
 <header class="page_title">
-  <a href="/blog"><button class="btn_blog material-icons">keyboard_backspace</button></a>
+  <button class="btn_back material-icons">mode_edit</button>
   <h1>write new blog</h1>
 </header>
-
-
+<!--
+fields = ('category', 'image', 'title', 'summary', 'body', 'tag', 'slug')-->
 <div class = "form_wrap">
   <form method="post" enctype="multipart/form-data" class="blog-form">
     {% csrf_token %}
-    
-      <table class="field">
-      
-      <tr>
-        {% for field in form %}
-        <th class="blog-form_label">{{ field.label_tag }}</th>
-      
-      <td> {{ field }}</td>
-    
-      </tr>
-      <p>{{ field.errors }}</p>
-      {% if field.help_text %}
-      <p class="help">{{ field.help_text|safe }}</p>
-    {% endif %}
+   
+     {{ form.title }}
+     {{ form.summary }}
+     {{ form.body }}
+     {{ form.tag }}
+     {{ form.slug }}
 
-{% endfor %}
-       
-        <button type="submit" class="btn-material">Save</button>
+        <!--{% for field in form %}-->
+<!--        
+        <th class="blog-form_label">{{ field.label_tag }}</th>
+        <input placeholder="Cafegory"> {{ field }}</td>
+      </tr>
+      {% if field.help_text %}
+        <p>{{ field.errors }}</p>
+      {% endif %}
+      {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+      {% endif %}-->
+
+      <!--{% endfor %}-->
+       </table>
+        <input id="submit" type="submit" class="btn-material"></input>
     </form>
 
-
-<div class = "form_view">
 </div>
 
 
   </div>
-
+<div class="form_view">
+  </div>
 {% endblock %}

@@ -23,17 +23,26 @@ main {
   font-size: 1.2rem; }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  html,
   body {
-    height: 100vh; }
+    overflow: hidden;
+    position: relative;
+    min-height: 100%; }
+  #container {
+    position: relative;
+    overflow: hidden; }
   #snb_left_box {
     width: 100vw !important; }
+  .snb_left h1 {
+    margin-bottom: 3.5vh;
+    transform: translate(-3.5vh, -3.5vh); }
   main {
     width: 0vw !important; }
   .home_title, mark {
     color: #fff; }
   .ico_menu {
-    top: 6.5vh; }
+    top: 3vh; }
   .ico_menu span, .ico_menu span:before, .ico_menu span:after {
     background: #fff;
     opacity: 0.9; }
@@ -41,10 +50,10 @@ main {
     background-color: transparent;
     transition-delay: 0.2s; }
   .home_img {
-    top: 25vh;
-    width: 50vw;
-    height: 25vh;
-    margin: 5vh; }
+    top: 26vh;
+    width: 60vw;
+    height: 30vh;
+    margin: 2.5vh; }
   .home_title {
     top: 55vh;
     width: 90%;
@@ -61,7 +70,7 @@ main {
     display: block !important; }
   .snb_left ul:nth-child(-n+2) .title {
     margin-top: 2vh; }
+  .contact {
+    transform: translate(-3.5vh, 3.5vh); }
   .contact, ul.ico_soical {
-    font-size: 0.8rem;
-    position: fixed;
-    margin-bottom: 7vh; } }
+    font-size: 0.9rem; } }

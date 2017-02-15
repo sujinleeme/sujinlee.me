@@ -4,6 +4,47 @@ AUTHOR : SUJIN LEE (sujinlee.me@gmail.com)
 */
 
 
+/*-- Like Button Counting : AJAX with Django --*/
+const buttonLike = document.getElementsByClassName("btn_like")[0];
+const likeData = document.getElementsByClassName("like_count")[0];
+let icon = buttonLike.getElementsByClassName("icon-heart");
+var url;
+
+buttonLike.addEventListener("click", function(evt){
+   let id = this.getAttribute('data-post-id');
+   let xhr = new XMLHttpRequest();
+
+    if (buttonLike.classList.contains('blog-like')) {
+        var url = '/like_count_blog/?post_id='+id;
+    }
+    if (buttonLike.classList.contains('project-like')) {
+        var url = '/like_count_project/?project_id='+id;
+    }
+
+    xhr.open('GET', url);
+    xhr.onload = function() {
+    if (xhr.status === 200) {
+        likeData.innerHTML = xhr.responseText;
+        toggleLikeIcon();
+    }
+    else {
+        alert('Request failed.  Returned status of ' + xhr.status);
+    }
+};
+xhr.send();
+});
+
+function toggleLikeIcon(){
+    for (let ele of icon){
+        if (ele.style.display === 'none') {
+            ele.style.display = 'block';
+        } else {
+            ele.style.display = 'none';
+        }
+    }
+};
+
+
 /* Open External Links in blog post & social Icons in New Window */
 const postBody = document.getElementsByClassName("post_body")[0];
 const postBodyLinks = Array.prototype.slice.call(postBody.querySelectorAll('a'));
