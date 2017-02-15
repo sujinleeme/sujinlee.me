@@ -331,17 +331,6 @@ strong {
 .post_title h1 {
   text-align: center; }
 
-.home_title h1 {
-  font-size: 2.2rem;
-  margin-bottom: 4%; }
-
-.home_title h2 {
-  margin-bottom: 8%;
-  font-size: 1.4rem; }
-
-.home_title h3 {
-  font-size: 1.2rem; }
-
 .hljs {
   display: block;
   overflow-x: auto;
@@ -368,3 +357,10 @@ strong {
 
 .hljs-emphasis {
   font-style: italic; }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  html {
+    font-size: 13px; }
+  .page_title h1 {
+    font-size: 1.8rem; } }

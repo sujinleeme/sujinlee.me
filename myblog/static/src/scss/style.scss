@@ -19,7 +19,7 @@ $light-gray-hover: rgba(0,0,0,0.1);
 /* --- layout --- */
 $page_margin_reset: 0%;
 $page_margin: 7vh;
-
+$mobile_page_margin: 3.5vh;
 /* left navigation */
 $snb_left_width: 25vw;
 
@@ -73,9 +73,31 @@ main {
         list-style: none;
     }
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+#snb_left_box {
+    width: 0;
+}
+main {
+    width: 100vw;
+}
+#main_content {
+    padding: $mobile_page_margin 0 !important;
+    position: relative;
+    margin: 0 !important;
+}
+#main_box {
+    padding: $mobile_page_margin !important;
+}
+}
+
+
 #main_box {
     padding: $page_margin;
-     transition: transform 2s; 
+    transition: transform 2s; 
 }
 #main_content {
     padding: $page_margin;
@@ -92,7 +114,6 @@ article, .disqus {
     margin: 0 2rem;
 }
 
-/* ==== STYLE ==== */
 .snb_left {
     padding: $page_margin;
     background: $theme-col;
@@ -103,10 +124,7 @@ article, .disqus {
         line-height: 1.5rem;
     }
    
-    ul,
-    ol,
-    h1,
-    a {
+    ul, ol, h1, a {
         padding: 0;
         color: #fff;
     }
@@ -115,11 +133,9 @@ article, .disqus {
     }
     ul:nth-child(-n+2) {
         .title {
-        margin-top: 4vh;
-        font-weight: 600;
-    
-    
-    }
+            margin-top: 4vh;
+            font-weight: 600;
+        }
     } 
     
     li {
@@ -127,6 +143,8 @@ article, .disqus {
         font-weight: 400;
     }
 }
+
+/*------------- base.html ------------------*/
 .contact {
         bottom: $page_margin;
         position: absolute;
@@ -145,7 +163,9 @@ article, .disqus {
         color: #fff;
     }
 }
-.home_img {
+
+.home {
+    &_img {
     position: absolute;
     top: 50%;
     left: 34%;
@@ -153,22 +173,22 @@ article, .disqus {
     height: 75vh;
     transform: translate(-30%, -50%);
     img {
-        width: 30vw;
         max-height: 100%;
+        width: 100%;
+        height: 100%;
     }
     @extend .shadow;
+    }
+
+    &_title{
+        position: absolute;
+        top: 50%;
+        right: 8%;
+        width: 35%;
+        transform: translate(10%, -50%);
+    }
 }
-.home_img img {
-    width: 100%;
-    height: 100%;
-}
-.home_title {
-    position: absolute;
-    top: 50%;
-    right: 8%;
-    width: 35%;
-    transform: translate(10%, -50%);
-}
+
 .straight_line {
     position: absolute;
     top: 46%;
@@ -176,6 +196,8 @@ article, .disqus {
     width: 5vw;
     border-bottom: 4px solid $theme-col;
 }
+
+/*--------------------------------------------*/
 button {
     cursor: pointer;
 }
@@ -198,9 +220,7 @@ button:hover,
 .btn_share li:hover {
     color: $dark-gray;
 }
-button, .btn_share li {
-    transition: color 0.5s ease-in-out;
-}
+
 .gnb a:hover,
 .snb_left a:hover {
     opacity: 0.5;
@@ -292,6 +312,10 @@ img {
     opacity: 0.8;
 }
 
+/* button style */
+button, .btn_share li {
+    transition: color 0.5s ease-in-out;
+}
 .btn_back {
     margin-right: 1vh;
 }
@@ -365,6 +389,24 @@ img {
 }
 ._show {
     transform: translateX(0%);
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+.ico_menu {
+    right: $mobile_page_margin;
+    top: $mobile_page_margin;
+}
+.gnb {
+   width: 25vh;
+    padding: 15vh 5vh;
+    height: 20vh;
+    li {
+        display: block;
+    }
+}
 }
 
 
@@ -529,6 +571,17 @@ span.show_unlike.icon-heart {
     bottom: 0;
     display: flex;
 }
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+.blog_ele {
+    width: 100%;
+}
+.project_ele {
+    width: 100%;
+    max-height: 30vh;
+}
+}
 
 /* blog */
 #lst_project_wrap {
@@ -644,4 +697,49 @@ article {
         font-size: 3rem;
         color: $dark-gray;
     }
+}
+
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+#main_lst {
+    margin: 0 !important;
+}
+.blog_ele {
+    padding: 3vh;
+    height: 18vh;
+
+
+}
+
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+.btn_back {
+    margin-left: -1vh;
+}
+.btn_expand {
+    display: none;
+}
+article {
+    img {
+        width: 100%;
+        height: 30vh;
+    }
+}
+article, .disqus {
+     padding-left: 0;
+     padding-right: 0;
+     margin: 0;
+}
+ .snb_left {
+        display: none;
+
+    }
+.disqus {
+    padding: 0;
+}
 }

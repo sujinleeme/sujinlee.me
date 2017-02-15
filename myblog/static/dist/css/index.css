@@ -1,7 +1,67 @@
 /* common styling */
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
 #snb_left_box {
   width: 30vw !important; }
 
 main {
   overflow-y: auto;
   width: 70vw !important; }
+
+.home_title h1 {
+  font-size: 2.2rem;
+  margin-bottom: 4%; }
+
+.home_title h2 {
+  margin-bottom: 8%;
+  font-size: 1.4rem; }
+
+.home_title h3 {
+  font-size: 1.2rem; }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  body {
+    height: 100vh; }
+  #snb_left_box {
+    width: 100vw !important; }
+  main {
+    width: 0vw !important; }
+  .home_title, mark {
+    color: #fff; }
+  .ico_menu {
+    top: 6.5vh; }
+  .ico_menu span, .ico_menu span:before, .ico_menu span:after {
+    background: #fff;
+    opacity: 0.9; }
+  ._active span {
+    background-color: transparent;
+    transition-delay: 0.2s; }
+  .home_img {
+    top: 25vh;
+    width: 50vw;
+    height: 25vh;
+    margin: 5vh; }
+  .home_title {
+    top: 55vh;
+    width: 90%;
+    margin: 5%;
+    text-align: center; }
+    .home_title h1 {
+      display: none; }
+    .home_title h2 {
+      font-size: 1.5rem;
+      margin-bottom: 5%; }
+    .home_title h3 {
+      font-size: 1rem; }
+  .snb_left {
+    display: block !important; }
+  .snb_left ul:nth-child(-n+2) .title {
+    margin-top: 2vh; }
+  .contact, ul.ico_soical {
+    font-size: 0.8rem;
+    position: fixed;
+    margin-bottom: 7vh; } }

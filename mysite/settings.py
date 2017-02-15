@@ -31,7 +31,7 @@ if DEBUG:
     ALLOWED_HOSTS = ['*']
     SECRET_KEY = 'sujinlee'
 else:
-    # ALLOWED_HOSTS = ['sujinleeme.pythonanywhere.com','sujinlee.me','www.sujinlee.me']
+    ALLOWED_HOSTS = ['sujinleeme.pythonanywhere.com','sujinlee.me','www.sujinlee.me']
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
     
 # Application definition

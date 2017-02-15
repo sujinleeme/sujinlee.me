@@ -1,12 +1,107 @@
 /* common styling */
 $page_margin: 3%;
+$default_page_margin: 7vh;
 $snb_left_width_home: 30vw;
 $main_width_home: 100vw - $snb_left_width_home;
+
+
+body { width:100%; height:100%; overflow:hidden; }
+
+
 #snb_left_box {
   width: $snb_left_width_home !important;
 }
 
 main {
   overflow-y: auto;
- width: $main_width_home !important;
+  width: $main_width_home !important;
+}
+
+$txt_margin: 4%;
+.home_title {
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: $txt_margin;
+    }
+    h2 {
+        margin-bottom: $txt_margin * 2;
+        font-size: 1.4rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+body {
+  height: 100vh;
+  
+}
+#snb_left_box {
+  width: 100vw !important;
+}
+main {
+  width: 0vw !important;
+}
+.home_title, mark {
+  color: #fff;
+}
+.ico_menu {
+  top: $default_page_margin - 0.5vh;
+}
+.ico_menu span, .ico_menu span:before, .ico_menu span:after{
+  background: #fff;
+  opacity: 0.9;
+}
+._active span {
+    background-color: transparent;
+    transition-delay: 0.2s;
+}
+
+.home {
+  &_img {
+    top: 25vh;
+    width: 50vw;
+    height: 25vh;
+    margin: 5vh;
+
+
+  }
+  &_title{
+    top: 55vh;
+    width: 90%;
+    margin: 5%;
+    text-align: center;
+    h1 {
+      display: none;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 5%;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+  }
+}
+
+ .snb_left {
+        display: block !important;
+       
+    }
+
+.snb_left ul:nth-child(-n+2) .title{
+  margin-top: 2vh;
+}
+
+.contact, ul.ico_soical {
+  font-size: 0.8rem;
+  position: fixed; 
+  margin-bottom: 7vh;
+}
+    
 }
