@@ -11,7 +11,7 @@ $light-gray-hover: rgba(0,0,0,0.1);
 /* form style */
 $form-border1: 1px $theme-col solid;
 $form-border2: 1px $light-gray solid;
-$page_margin: 3%;
+$page_margin: 7vh;
 $snb_left_width_home: 0vw;
 $main_width_home: 100vw - $snb_left_width_home;
 
@@ -20,12 +20,10 @@ $main_width_home: 100vw - $snb_left_width_home;
   display: none;
 }
 
-
 main {
   overflow-y: auto;
- width: $main_width_home !important;
+  width: $main_width_home !important;
 }
-
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: $dark-light-gray;
@@ -37,6 +35,13 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
   color: $light-gray;
 }
 
+.form_wrap {
+  margin: $page_margin;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background: transparent;
+}
 // input::-moz-placeholder, textarea::-moz-placeholder {
 //   color: #aca49c;
 //   font-size: 0.875em;
@@ -110,21 +115,19 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 }
 
 input {
-  font-size: 0.875em;
+  font-size: 1.3rem;
   width: 100%;
   height: 50px;
   padding: 0px 15px 0px 15px;
-  
   background: transparent;
   outline: none;
   color: $black;
-  
   border-bottom: none;
-  
   transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
+}
+
+input#id_tag {
+    color: $theme-col;
 }
 
 input:hover {
@@ -133,20 +136,15 @@ input:hover {
 
 textarea {
   width: 100%;
-  height: 110px;
-  max-height: 110px;
   padding: 15px;
-  
+  font-size: 1.3rem;
+  line-height: 1.5rem;
   background: transparent;
   outline: none;
-  
+  font-weight: 300;
   color: $dark-light-gray;;
-  font-size: 1rem;
-  
+  font-size: 1.3rem;
   transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
 }
 
 textarea:hover {
@@ -155,22 +153,22 @@ textarea:hover {
 }
 
 #submit {
-  width: 502px;
-  
+  width: 20rem;
+  text-transform: uppercase;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 500;
   padding: 0;
-  margin: -5px 0px 0px 0px;
-  font-size: 0.875em;
-  color: $black;
+  font-size: 1.3rem;
+  color: $theme-col;
   
   outline:none;
   cursor: pointer;
-  
   border: solid 1px $light-gray;
-  border-top: none;
+  border-radius: 6px;
 }
 
 #submit:hover {
-  color: $theme-col;
+  opacity: 1;
 }
 
 
@@ -178,7 +176,7 @@ textarea:hover {
     width: 100%;
     border: 0;
     background-color: rgba(#fff, 0.5);
-    font-size: 1rem;
+
     // &:focus {
     //   font-size: 1rem;
     //   color: $black;

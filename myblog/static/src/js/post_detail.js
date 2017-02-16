@@ -60,12 +60,13 @@ postBodyLinks.forEach(function(e){
 /* Hide Side bar to shwo wide post */
 const buttonExpand = document.getElementsByClassName("btn_expand")[0];
 const main = document.querySelectorAll("main")[0];
+const container = document.getElementById("container");
 const sideNav = document.getElementById("snb_left_box");
 
 buttonExpand.addEventListener("click", function(evt) {
     let target = evt.target;
     if (target.tagName === "BUTTON") {
-        main.classList.toggle("_expand-main");
+        container.classList.toggle("_expand-main");
         sideNav.classList.toggle("_expand-nav");
     }
 });

@@ -7,8 +7,8 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('category', 'image', 'title', 'summary', 'body', 'tag', 'slug')
-        content = forms.CharField(widget=MarkdownWidget())
-        #field.field.widget.attrs.update({ "placeholder": args })
+        content1 = forms.CharField(widget=MarkdownWidget())
+        content2 = MarkdownFormField()
        
         widgets = {
             'title' : forms.TextInput(attrs = {'placeholder': 'title'}),

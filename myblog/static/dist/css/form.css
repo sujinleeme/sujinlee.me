@@ -16,6 +16,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.05); }
 
+.form_wrap {
+  margin: 7vh; }
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background: transparent; }
+
 /* on hover placeholder */
 #form {
   position: relative;
@@ -23,7 +29,7 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
   margin: 50px auto 100px auto; }
 
 input {
-  font-size: 0.875em;
+  font-size: 1.3rem;
   width: 100%;
   height: 50px;
   padding: 0px 15px 0px 15px;
@@ -31,51 +37,50 @@ input {
   outline: none;
   color: #232528;
   border-bottom: none;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out; }
+  transition: all 0.3s ease-in-out; }
+
+input#id_tag {
+  color: #1f00ff; }
 
 input:hover {
   background: rgba(0, 0, 0, 0.05); }
 
 textarea {
   width: 100%;
-  height: 110px;
-  max-height: 110px;
   padding: 15px;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
   background: transparent;
   outline: none;
+  font-weight: 300;
   color: #656c7a;
-  font-size: 1rem;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out; }
+  font-size: 1.3rem;
+  transition: all 0.3s ease-in-out; }
 
 textarea:hover {
   background: rgba(0, 0, 0, 0.05);
   color: #232528; }
 
 #submit {
-  width: 502px;
+  width: 20rem;
+  text-transform: uppercase;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 500;
   padding: 0;
-  margin: -5px 0px 0px 0px;
-  font-size: 0.875em;
-  color: #232528;
+  font-size: 1.3rem;
+  color: #1f00ff;
   outline: none;
   cursor: pointer;
   border: solid 1px rgba(0, 0, 0, 0.05);
-  border-top: none; }
+  border-radius: 6px; }
 
 #submit:hover {
-  color: #1f00ff; }
+  opacity: 1; }
 
 input, textarea {
   width: 100%;
   border: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  font-size: 1rem; }
+  background-color: rgba(255, 255, 255, 0.5); }
 
 #id_title {
   font-size: 2rem;
