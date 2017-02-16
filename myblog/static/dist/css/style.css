@@ -169,7 +169,7 @@ mark {
 a, li {
   transition: opacity 0.5s ease-in-out; }
 
-.shadow, .home_img, .gnb, .project_ele:hover,
+.shadow, .home_img, .btn_write, .gnb, .project_ele:hover,
 .blog_ele:hover, .pagination_col:hover {
   transition: 1s all;
   box-shadow: 1rem 1rem 7.5rem 0 rgba(0, 0, 0, 0.48); }
@@ -265,6 +265,20 @@ img {
 /* button style */
 button, .btn_share li {
   transition: color 0.5s ease-in-out; }
+
+.btn_write {
+  bottom: 7vh;
+  right: 7vh;
+  position: absolute;
+  color: #fff;
+  z-index: 2;
+  background: #1f00ff;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem; }
+  .btn_write:hover {
+    color: #fff;
+    background: #ff00db; }
 
 .btn_back {
   margin-right: 1vh; }

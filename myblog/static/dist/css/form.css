@@ -17,7 +17,8 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
   color: rgba(0, 0, 0, 0.05); }
 
 .form_wrap {
-  margin: 7vh; }
+  margin: 7vh;
+  width: 1000px; }
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   background: transparent; }
@@ -42,9 +43,6 @@ input {
 input#id_tag {
   color: #1f00ff; }
 
-input:hover {
-  background: rgba(0, 0, 0, 0.05); }
-
 textarea {
   width: 100%;
   padding: 15px;
@@ -56,10 +54,6 @@ textarea {
   color: #656c7a;
   font-size: 1.3rem;
   transition: all 0.3s ease-in-out; }
-
-textarea:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: #232528; }
 
 #submit {
   width: 20rem;
@@ -85,3 +79,39 @@ input, textarea {
 #id_title {
   font-size: 2rem;
   font-weight: 600; }
+
+input#id_image {
+  font-size: 1rem;
+  margin-top: 12px;
+  display: inline-flex; }
+
+.select-box {
+  display: inline-flex; }
+
+.label-desc {
+  font-size: 1.4rem;
+  vertical-align: text-bottom;
+  line-height: 40px;
+  padding: 0 1rem 0 0; }
+
+input[type='file'] {
+  line-height: 40px;
+  border: none;
+  border: 0;
+  color: inherit; }
+
+select {
+  background: #fff;
+  width: 50%;
+  padding: 5px 0;
+  height: 40px;
+  font-size: 1rem;
+  border: none; }
+  select:after {
+    padding: 30px; }
+
+select:focus {
+  outline: none; }
+
+option {
+  width: 100%; }

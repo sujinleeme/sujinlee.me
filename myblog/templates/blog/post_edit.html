@@ -19,38 +19,26 @@
 {% endblock %}
 
 {% block content %}
-
-
 <header class="page_title">
-  <button class="btn_back icon-notes"></button>
+  <button class="btn_back icon-notes"></button>  
   <h1>New blog</h1>
 </header>
-<!--
-fields = ('category', 'image', 'title', 'summary', 'body', 'tag', 'slug')-->
-<div class = "form_wrap">
+
+<div class="form_wrap">
   <form method="post" enctype="multipart/form-data" class="blog-form">
     {% csrf_token %}
-   
+    <div class="select-box">
+    <label for="" class="label"><span class="label-desc icon-folder"></span> </label>
+      {{ form.category }}
+      <span class="label-desc icon-picture"></span>{{ form.image }}
+        </div>
+
      {{ form.title }}
      {{ form.summary }}
      {{ form.body }}
      
      {{ form.tag }}
      {{ form.slug }}
-
-        <!--{% for field in form %}-->
-<!--        
-        <th class="blog-form_label">{{ field.label_tag }}</th>
-        <input placeholder="Cafegory"> {{ field }}</td>
-      </tr>
-      {% if field.help_text %}
-        <p>{{ field.errors }}</p>
-      {% endif %}
-      {% if field.help_text %}
-        <p class="help">{{ field.help_text|safe }}</p>
-      {% endif %}-->
-
-      <!--{% endfor %}-->
        </table>
         <input id="submit" type="submit" class="btn-material"></input>
     </form>
@@ -61,4 +49,11 @@ fields = ('category', 'image', 'title', 'summary', 'body', 'tag', 'slug')-->
 
 <div class="form_view">
   </div>
+  <button class="btn_gototop material-icons">keyboard_arrow_up</button>
+{% endblock %}
+
+{% block jsblock %}
+<script src="{% static 'src/js/highlight.pack.js' %}"></script>
+<script src="{% static 'src/js/post_detail.js' %}"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}

@@ -129,8 +129,6 @@ def like_count_project(request):
     project.save()
     return HttpResponse(likes, liked)
 
-def custom_404(request):
-    return render_to_response('404.html')
 
 #postList views
 class TagTV(TemplateView):

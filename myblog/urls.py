@@ -2,8 +2,6 @@ from django.conf.urls import url, include
 import django.views.defaults
 from . import views
 
-handler404 = 'views.custom_404'
-
 urlpatterns = [
     #home
     url(r'^$', views.index, name='index'),

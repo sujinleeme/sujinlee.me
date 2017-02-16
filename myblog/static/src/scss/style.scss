@@ -345,10 +345,30 @@ img {
 button, .btn_share li {
     transition: color 0.5s ease-in-out;
 }
+
+.btn_write {
+    bottom: $page_margin;
+    right: $page_margin;
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+    background: $theme-col;
+    border-radius: 50%;
+	width: 3.5rem;
+	height: 3.5rem;
+    @extend .shadow;
+
+    &:hover {
+        color: #fff;
+        background: $accent-col;
+        
+    }
+}
+
 .btn_back {
     margin-right: 1vh;
 }
-.btn_back, .btn_expand, .ico_menu, .btn_gototop {
+.btn_back, .btn_expand, .ico_menu, .btn_gototop, {
     font-size: 3.2rem;
     line-height: 2rem;
 }
@@ -534,7 +554,7 @@ span.show_unlike.icon-heart {
 
 /* blog & project card list */
 .project_ele:hover,
-.blog_ele:hover {
+.blog_ele:hover{
     @extend .shadow;
 }
 .project_ele {
