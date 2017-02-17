@@ -22,15 +22,15 @@ main {
 $txt_margin: 4%;
 .home_title {
     h1 {
-        font-size: 2.2rem;
+        font-size: 3rem;
         margin-bottom: $txt_margin;
     }
     h2 {
         margin-bottom: $txt_margin * 2;
-        font-size: 1.4rem;
+        font-size: 1.8rem;
     }
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -105,10 +105,9 @@ main {
   }
 }
 
- .snb_left {
-        display: block !important;
-  
-    }
+.snb_left {
+      display: block !important;
+}
 
 .snb_left ul:nth-child(-n+2) .title{
   margin-top: 2vh;

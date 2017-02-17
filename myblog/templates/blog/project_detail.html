@@ -56,19 +56,19 @@
       </li>
       <li><span class="icon-bubble"></span><a href="{% url 'project_detail' slug=project.slug %}#disqus_thread"></a></li>
     </ul>
-    <ul class="btn_share">
-      <a class="facebook customer share"
+    <ul>
+      <a class="facebook btn_share"
         href = "http://www.facebook.com/share.php?u=http://www.sujinlee.me/project/{{ project.slug }}"
         target="_blank" onclick="return fbshare()">
         <li class="icon-social-facebook"></li>
       </a>
-      <a class="twitter share-btn customer share"
+      <a class="twitter btn_share"
         href="http://twitter.com/share?url=http://www.sujinlee.me/project/{{ project.slug }}
         &amp;text={{ project.title }} http://www.sujinlee.me/project/{{ project.slug }} via @sujinleeme &amp;hashtags={{ project.category.title }}"
         target="_blank" title="Twitter Share">
         <li class="icon-social-twitter"></li>
       </a>
-      <a class="google_plus customer share"
+      <a class="google_plus btn_share"
         href="https://plus.google.com/share?url=http://www.sujinlee.me/project/{{ project.slug }}"
         target="_blank" title="Google Plus Share">
         <li class="icon-social-google"></li>
@@ -95,7 +95,7 @@
   </div>
   {% endif %}
 </nav>
-<div class="disqus" id="disqus_thread"></div>
+<!--<div class="disqus" id="disqus_thread"></div>-->
 <button class="btn_expand material-icons">keyboard_arrow_left</button>
 <button class="btn_gototop material-icons">keyboard_arrow_up</button>
 {% endblock %}
@@ -114,7 +114,7 @@
         action_type: 'og.shares',
         action_properties: JSON.stringify({
           object: {
-            'og:url': 'http: //sujinlee.me/project/{{ project.slug }}',
+            'og:url': 'http://sujinlee.me/project/{{ project.slug }}',
             'og:title': '{{ project.title }}',
             'og:description': '{{ project.summary|truncatechars:230 }}',
             'og:image': 'http://www.sujinlee.me/{{ project.image.url }}/',

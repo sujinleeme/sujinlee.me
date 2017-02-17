@@ -5,7 +5,7 @@ UPDATE : 2017.02.
 AUTHOR : SUJIN LEE (sujinlee.me@gmail.com)
 */
 
-/* === Common Style === */
+/* Valuables ----------- */
 /* main color */
 $theme-col: #1f00ff;
 $accent-col: #ff00db;
@@ -16,16 +16,37 @@ $dark-gray: #656c7a;
 $light-gray: rgba(0,0,0,.05);
 $light-gray-hover: rgba(0,0,0,0.1);
 
-/* --- layout --- */
+/* layout */
 $page_margin_reset: 0%;
-$page_margin: 7vh;
+$page_margin: 3.5rem;
 $mobile_page_margin: 3.5vh;
-/* left navigation */
-$snb_left_width: 25vw;
+$snb_left_width: 25vw; /* left navigation */
+$main_width: 100vw - $snb_left_width; /* right section */
 
-/* right section */
-$main_width: 100vw - $snb_left_width;
+/* button & hover */
+button { cursor: pointer; }
+button .material-icons {
+    font-size: 2rem;
+    margin: auto;
+}
+mark {
+    background: transparent;
+    color: $theme-col;
+}
+/* animation on external link */
+a, li { transition: opacity 0.5s ease-in-out; }
+.shadow {
+    transition: 1s all;
+    box-shadow: 1rem 1rem 7.5rem 0 rgba(0, 0, 0, 0.48);
+}
 
+/* scroll */
+::-webkit-scrollbar { width: 0px; }
+::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0.0); }
+::-webkit-scrollbar-thumb { -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0.0); }
+
+
+/* Common Layout --------------------------------------- */
 body {
     background: $bg-col;
     overflow: hidden;
@@ -36,41 +57,20 @@ body {
     margin: 0;
 }
 
-
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.0);
-	border-radius: 10px;
-	background-color: #fff;
-}
-
-::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: #fff;
-}
-
-::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.0);
-	background-color: #fff;
-}
-
-
 #wrap {
     padding: $page_margin_reset;
     min-height: 100vh;
 }
+
 section {
     margin-bottom: $page_margin;
 }
+
 main {
     overflow-y: auto;
     height: 100vh;
     overflow-x: hidden;
     width: $main_width;
-    transition: all 2s;
 }
 
 #container {
@@ -79,18 +79,10 @@ main {
     transition: transform 2s;
 }
 
-._expand-main{
-    transform: translateX(-($snb_left_width/2));
-}
-
-._expand-nav {
-    transform: translateX(-25vw);
-}
-
 #snb_left_box {
     background: $theme-col;
     width: $snb_left_width;
-    transition: transform 2s;
+    transition: transform 2s; 
     overflow: hidden;
     ul, ol {
         list-style: none;
@@ -101,18 +93,9 @@ main {
 @media screen 
 and (min-width : 320px) 
 and (max-width : 480px) {
-
-
-html {
-      -webkit-overflow-scrolling: touch;
-
-}
-#snb_left_box {
-    width: 0;
-}
-main {
-    width: 100vw;
-}
+html { -webkit-overflow-scrolling: touch; }
+#snb_left_box { width: 0; }
+main { width: 100vw; }
 #main_content {
     padding: $mobile_page_margin 0 !important;
     position: relative;
@@ -122,25 +105,113 @@ main {
     padding: $mobile_page_margin !important;
 }
 }
+/* ------------------------------------------------ */
 
 
-#main_box {
-    padding: $page_margin;
-    transition: transform 2s; 
+/* base.html -------------------------------------- */
+/* hamberger menu */
+.ico_menu {
+    position: fixed;
+    cursor: pointer;
+    z-index: 4;
+    right: $page_margin; 
+    top: $page_margin;
+    width: 2rem;
+    height: 2rem;
+    display:  inline-block;
+    span {
+        margin: 0 auto;
+        position: relative;
+        top: 10px;
+        transition-duration: 0s;
+        transition-delay: 0.2s;
+        &:before, &:after {
+            position: absolute;
+	        content: '';
+        }
+        &:before{
+            margin-top: -10px;
+            @extend .animation_ico_menu;
+        }
+        &:after {
+            margin-top: 10px;
+            @extend .animation_ico_menu;
+        }
+    }
 }
-#main_content {
-    padding: $page_margin;
-    margin: 0 2rem;
+
+.ico_menu span, .ico_menu span:before, .ico_menu span:after {
+	width: 30px;
+	height: 4px;
+	background-color: $black;
+	display: block;
 }
-#main_lst {
-    margin: 0 2rem;
+
+._active span {
+	background-color: rgba(0,0,0,0.0);
+	transition-delay: 0.2s;
+
+    &:before{
+        margin-top: 0;
+        transform: rotate(45deg);
+        transition-delay: 0s, 0.2s;
+        background: #fff;
+        opacity: 0.8;
+    }
+    &:after{
+        margin-top: 0;
+        transform: rotate(-45deg);
+        transition-delay: 0s, 0.2s;
+        background: #fff;
+        opacity: 0.8;
+    }
 }
-article, .disqus {
-    padding-top: $page_margin;
-    padding-bottom: 0;
-    padding-left: $page_margin;
-    padding-right: $page_margin;
-    margin: 0 2rem;
+
+.animation_ico_menu {
+	transition-property: margin, transform;
+	transition-duration: 0.2s;
+}
+
+/* navigation menu */
+.gnb {
+    transition: transform 2s;
+    transform: translateX(105%);
+    z-index: 1;
+    padding: 6%;
+    position: fixed;
+    margin-top: $page_margin;
+    right: 0;
+    background-color: $theme-col;
+    width: 30vw;
+    display: table;
+    margin: 0 auto;
+    @extend .shadow;
+    ul {
+        width: 100%;
+        padding: 0;
+        margin: auto;
+        list-style: none;
+        @extend .u_centr_pg_v1;
+    }
+    li {
+        padding: 2%;
+        display: inline-flex;
+    }
+    a {
+        color: #fff;
+        font-size: 1.2rem;
+        display: block;
+        font-weight: 600;
+    }
+}
+._show {
+    transform: translateX(0%);
+}
+
+.gnb a:hover,
+.snb_left a:hover {
+    opacity: 0.5;
+    color: #fff;
 }
 
 .snb_left {
@@ -151,29 +222,24 @@ article, .disqus {
     h1 {
         font-size: 1.5rem;
         line-height: 1.5rem;
+        margin: 0;
     }
-   
     ul, ol, h1, a {
         padding: 0;
         color: #fff;
-    }
-    h1 {
-        margin: 0;
     }
     ul:nth-child(-n+2) {
         .title {
             margin-top: 4vh;
             font-weight: 600;
         }
-    } 
-    
+    }
     li {
         margin-top: 2vh;
         font-weight: 400;
     }
 }
 
-/*------------- base.html ------------------*/
 .contact {
         bottom: $page_margin;
         position: absolute;
@@ -225,35 +291,36 @@ article, .disqus {
     width: 5vw;
     border-bottom: 4px solid $theme-col;
 }
+/* ------------------------------------------------ */
 
-/*--------------------------------------------*/
-button {
-    cursor: pointer;
+/* post_detail.html ------------------------------- */
+._expand-main{ transform: translateX(-($snb_left_width/2)); }
+._expand-nav { transform: translateX(-25vw); }
+
+#main_box {
+    padding: $page_margin;
+    transition: transform 2s; 
 }
-mark {
-    background: transparent;
-    color: $theme-col;
+#main_content {
+    padding: $page_margin;
+    margin: 0 2rem;
 }
-/* animation on external link */
-a, li {
-    transition: opacity 0.5s ease-in-out;
-}
-.shadow {
-    transition: 1s all;
-    box-shadow: 1rem 1rem 7.5rem 0 rgba(0, 0, 0, 0.48);
-}
-.hover {
-    transition: opacity 0.5s all;
-}
-button:hover,
-.btn_share li:hover {
-    color: $dark-gray;
+#main_lst {
+    margin: 0 2rem;
 }
 
-.gnb a:hover,
-.snb_left a:hover {
-    opacity: 0.5;
-    color: #fff;
+article {
+    padding-top: $page_margin;
+    padding-bottom: 0;
+    padding-left: $page_margin;
+    padding-right: $page_margin;
+    margin: 0 2rem;
+}
+
+.disqus {
+    padding: 0 $page_margin;
+    position: relative;
+    a { color: $theme-col; }
 }
 
 /* image */
@@ -277,76 +344,22 @@ img {
     transform: translate(-50%, -50%);
 }
 
-/* button */
-.ico_menu {
-    position: fixed;
-    cursor: pointer;
-    z-index: 4;
-    right: 7vh; //$page_margin
-    top: 7vh;
-    width: 2rem;
-    height: 2rem;
-    display:  inline-block;
-}
-
-.ico_menu span {
-	margin: 0 auto;
-	position: relative;
-	top: 10px;
-    transition-duration: 0s;
-    transition-delay: 0.2s;
-
-}
-.ico_menu span:before, .ico_menu span:after {
-	position: absolute;
-	content: '';
-}
-.ico_menu span, .ico_menu span:before, .ico_menu span:after {
-	width: 30px;
-	height: 4px;
-	background-color: $black;
-	display: block;
-}
-.ico_menu span:before {
-	margin-top: -10px;
-    @extend .animation_ico_menu;
-}
-.ico_menu span:after {
-	margin-top: 10px;
-    @extend .animation_ico_menu;
-}
-
-._active span {
-	background-color: rgba(0,0,0,0.0);
-	transition-delay: 0.2s;
-}
-
-._active span:before {
-	margin-top: 0;
-	transform: rotate(45deg);
-	transition-delay: 0s, 0.2s;
-    background: #fff;
-    opacity: 0.8;
-}
-.animation_ico_menu {
-	transition-property: margin, transform;
-	transition-duration: 0.2s;
-	// transition-delay: 0.2s, 0s;
-}
-._active span:after {
-	margin-top: 0;
-	transform: rotate(-45deg);
-	transition-delay: 0s, 0.2s;
-    background: #fff;
-    opacity: 0.8;
-}
-
 /* button style */
+.hover {
+    transition: opacity 0.5s all;
+}
+button:hover,
+.btn_share:hover {
+    color: $dark-gray;
+}
+
 button, .btn_share li {
     transition: color 0.5s ease-in-out;
 }
 
 .btn_write {
+	width: 3.5rem;
+	height: 3.5rem;
     bottom: $page_margin;
     right: $page_margin;
     position: absolute;
@@ -354,14 +367,10 @@ button, .btn_share li {
     z-index: 2;
     background: $theme-col;
     border-radius: 50%;
-	width: 3.5rem;
-	height: 3.5rem;
     @extend .shadow;
-
     &:hover {
         color: #fff;
         background: $accent-col;
-        
     }
 }
 
@@ -388,7 +397,7 @@ button, .btn_share li {
 .btn_expand {
     color: $light-gray-hover;
     top: 50%;
-    margin-left: -1vh;
+    left: 28vw;
 }
 
 .btn_gototop {
@@ -404,78 +413,6 @@ button, .btn_share li {
 }
 
 
-/* navigation menu effect */
-.gnb {
-    transition: transform 2s;
-    transform: translateX(105%);
-    z-index: 1;
-    padding: 6%;
-    position: fixed;
-    margin-top: 7vh;
-    right: 0;
-    background-color: $theme-col;
-    width: 30vw;
-    display: table;
-    margin: 0 auto;
-    @extend .shadow;
-    ul {
-        width: 100%;
-        padding: 0;
-        margin: auto;
-        list-style: none;
-        @extend .u_centr_pg_v1;
-    }
-    li {
-        padding: 2%;
-        display: inline-flex;
-    }
-    a {
-        color: #fff;
-        font-size: 1.2rem;
-        display: block;
-        font-weight: 600;
-    }
-}
-._show {
-    transform: translateX(0%);
-}
-
-/* Smartphones (portrait and landscape) ----------- */
-@media screen 
-and (min-width : 320px) 
-and (max-width : 480px) {
-.ico_menu {
-    right: $mobile_page_margin;
-    top: $mobile_page_margin;
-}
-.gnb {
-    width: 100%;
-    height: 20vh;
-    opacity: 0.9;
-    padding: 0;
-    ul {
-            width: 100%;
-    
-    margin-top: 5vh;
-    }
-    li {
-        // display: block;
-    }
-    a {
-        font-size: 1.3rem;
-    }
-}
-}
-
-
-/* disqus */
-.disqus {
-    position: relative;
-    a {
-        color: $theme-col;
-    }
-}
-
 /* share */
 .share_container,
 footer {
@@ -487,7 +424,10 @@ footer {
     ul:nth-child(2) {
         float: right;
         li {
-            padding-left: 1rem;
+            margin-left: 1rem;
+            &:hover{
+                color: $theme-col;
+            }
         }
     }
     li,
@@ -510,10 +450,15 @@ footer {
         font-size: 1.4rem !important;
         vertical-align: top;
     }
+    
 }
 .btn_like {
     display: inline-block;
 }
+span.like_count {
+    padding-right: 0.95rem;
+}
+
 span.show_like.icon-heart {
     color: $accent-col;
     vertical-align: top;
@@ -551,8 +496,35 @@ span.show_unlike.icon-heart {
 .date {
     color: $dark-gray;
 }
+/* ------------------------------------------------ */
 
-/* blog & project card list */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media screen 
+and (min-width : 320px) 
+and (max-width : 480px) {
+.ico_menu {
+    right: $mobile_page_margin;
+    top: $mobile_page_margin;
+}
+.gnb {
+    width: 100%;
+    height: 20vh;
+    opacity: 0.9;
+    padding: 0;
+    ul {
+        width: 100%;
+        margin-top: 5vh;
+    }
+    a {
+        font-size: 1.3rem;
+    }
+}
+}
+/* ------------------------------------------------ */
+
+
+/* Blog & Project Card List ----------------------- */
 .project_ele:hover,
 .blog_ele:hover{
     @extend .shadow;
@@ -560,40 +532,47 @@ span.show_unlike.icon-heart {
 .project_ele {
     transition: all .5s ease;
     width: 50%;
-    max-height: 45vh;
-    min-height: 200px;
-    padding-bottom: $page_margin * 2;
+    max-height: 50rem;
+    // padding-bottom: $page_margin * 2;
     cursor: pointer;
-}
-.project_ele a,
-#lst_wrap_blog a {
-    color: $black;
-}
-.project_ele img {
-    width: 100%;
-    height: 60%;
-}
-.project_ele header {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: $page_margin - 2vh;
-    margin-bottom: $page_margin - 2vh;
-    margin-left: $page_margin;
-    margin-right: $page_margin;
-    opacity: 1;
-    height: 40%;
+
+    img {
+        width: 100%;
+        height: 50%;
+    }
+    header {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: $page_margin;
+        margin-bottom: $page_margin;
+        margin-left: $page_margin;
+        margin-right: $page_margin;
+        opacity: 1;
+        height: 50%;
     .detail {
         width: 100%;
+        display: flex;
+        bottom: 0;
+        padding: 1rem 0;
+        h2 {
+            width: 85%;
+        }
     }
-    h2 {
-        width: 85%;
-    }
+    
     .btn_read {
         width: 15%;
         float: right;
     }
+
 }
+}
+
+.project_ele a,
+#lst_wrap_blog a {
+    color: $black;
+}
+
 .project_ele header,
 .blog_ele header {
     position: relative;
@@ -606,7 +585,9 @@ span.show_unlike.icon-heart {
         font-weight: 400;
     }
     h2 {
-        line-height: 3.6vh;
+        line-height: 1.8rem;
+        letter-spacing: 0.1rem;
+        padding: 0.2rem 0;
         bottom: 0;
     }
 }
@@ -617,44 +598,40 @@ span.show_unlike.icon-heart {
     }
 }
 .blog_ele footer {
+    padding-left: 0.045rem;
     position: absolute;
     bottom: 0;
     .icon-heart {
         color: $theme-col;
         vertical-align: middle;
     }
+    a {
+        color: $dark-gray !important;
+    }
 }
-.project_ele .detail {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-}
+/* ------------------------------------------------ */
+
+/* Smartphones (portrait and landscape) ----------- */
 @media screen 
 and (min-width : 320px) 
 and (max-width : 480px) {
 .project_ele {
     width: 100%;
-    padding-bottom: 7vh;
-    max-height: 50vh;
+    min-height: 50vh;
     
     header {
         margin: $mobile_page_margin;
-        min-height: 30% !important;
+        height: 50%;
+        
     }
     .detail {
-        position: relative;
-    }
-    }
-    picture {
-        height: 40%;
-    }
-    header {
-        height: 60%;
+        position: relative;  
     }
 }
+}
+/*------------------------------------------------ */
 
-
-/* blog */
+/* Post List & Card Elements --------------------- */
 #lst_project_wrap {
     width: 100%;
     display: flex;
@@ -678,35 +655,46 @@ and (max-width : 480px) {
     padding: $page_margin;
     display: flex;
     cursor: pointer;
-}
-.blog_ele header {
-    width: 70%;
-}
-.blog_ele picture {
-    width: 30%;
-    float: right;
-}
-.blog_ele img {
-    width: 100%;
-    height: 100%;
-}
-.blog_ele .detail {
-    margin-top: $page_margin / 3;
-    display: flex;
-    width: 100%;
-    .btn_read {
-        width: 10%;
+    header {
+        width: 70%;
     }
+    picture {
+        width: 30%;
+        height: 150px;
+        float: right;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    .detail {
+        display: flex;
+        width: 100%;
+        .btn_read {
+            width: 10%;
+        }
+    }
+
 }
-button .material-icons {
-    font-size: 2rem;
-    margin: auto;
+/*------------------------------------------------ */
+
+/* Post Detail ----------------------------------- */
+// blog post detail
+#post_wrap_v1 {
+    padding-top: $page_margin;
+    position: relative;
 }
+// plain post wrap
+#post_wrap_v2 {
+    padding-top: 0 !important;
+}
+
 #pagination {
     display: inline-flex;
     width: 100%;
     a {
         display: block;
+        letter-spacing: 0.01rem;
     }
 }
 .pagination_col {
@@ -732,10 +720,12 @@ button .material-icons {
     display: inline-flex;
     vertical-align: bottom;
 }
+
 .next_page {
     float: right;
     padding-left: 2vh;
 }
+
 article {
     position: relative;
     img {
@@ -746,15 +736,7 @@ article {
 .post_title {
     margin: $page_margin 0;
 }
-// blog post detail
-#post_wrap_v1 {
-    padding-top: $page_margin;
-    position: relative;
-}
-// plain post wrap
-#post_wrap_v2 {
-    padding-top: 0 !important;
-}
+
 .post_title .date {
     margin: $page_margin/2 0;
     float: right;
@@ -770,7 +752,8 @@ article {
     }
 }
 
-
+/* Smartphones (portrait and landscape) ----------- */
+/* blog list */
 @media screen 
 and (min-width : 320px) 
 and (max-width : 480px) {
@@ -789,6 +772,12 @@ and (max-width : 480px) {
             width: 90%;
         }
     }
+    footer {
+        position: relative;
+        padding: $mobile_page_margin / 2 0;
+        bottom: 0;
+        position: absolute;
+    }
     picture {
         width: 35%;
         height: 24vh;
@@ -798,20 +787,12 @@ and (max-width : 480px) {
         width: 100%;
     }
 }
-
-.blog_ele {
-    footer {
-        position: relative;
-        padding: $mobile_page_margin / 2 0;
-        // transform: translateY(7.5vh);
-    }
-}
 }
 
+/* blog detail */
 @media screen 
 and (min-width : 320px) 
 and (max-width : 480px) {
-
 .btn_back {
     margin-left: -1vh;
 }
@@ -819,34 +800,29 @@ and (max-width : 480px) {
     display: none;
 }
 article {
-    img {
-        width: 100%;
-        height: 30vh;
-    }
-}
-article {
     padding-top: 1vh;
+img {
+    width: 100%;
+    height: 30vh;
+}
 }
 article, .disqus {
-     padding-left: 0;
-     padding-right: 0;
-     margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
 }
-
 
 #pagination {
     h2 {
         font-size: 1.2em;
     }
 }
-
 .post_title {
     margin: $mobile_page_margin 0;
 }
- .snb_left {
-        display: none;
-
-    }
+.snb_left {
+    display: none;
+}
 .disqus {
     padding: 0;
 }
@@ -860,5 +836,6 @@ article, .disqus {
 .next_page {
     padding: 0;
 }
-
 }
+
+

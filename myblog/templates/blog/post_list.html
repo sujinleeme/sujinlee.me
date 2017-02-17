@@ -26,7 +26,7 @@
           <span class="date">{{ post.published_date }}</span>
           <h3>{{ post.summary|truncatechars:60 }}</h3>
           <div class="detail">
-            <h2>{{ post.title }}</h2>
+            <h2>{{ post.title|truncatechars:48 }}</h2>
             <button class="btn_read material-icons">arrow_forward</button>
           </div>
           <footer>

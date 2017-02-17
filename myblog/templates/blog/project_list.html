@@ -21,12 +21,12 @@
   <ul id="lst_project_wrap">
     {% for project in projects %}
     <li class="project_ele" onclick="location.href='{% url 'project_detail' slug=project.slug %}';">
-      <picture><img src="{{ project.image.url }}"></picture>
+      <img src="{{ project.image.url }}">
       <header>
         <span class="date">{{ project.published_date }}</span>
         <h3>{{ project.summary|truncatechars:30 }}</h3>
         <div class="detail">
-          <h2>{{ project.title }}</h2>
+          <h2>{{ project.title|truncatechars:48 }}</h2>
           <button class="btn_read material-icons">arrow_forward</button>
         </div>
       </header>

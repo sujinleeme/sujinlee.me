@@ -419,13 +419,15 @@ strong {
 
     }
 }
-.page_title h1, .post_title h1 {
+.page_title h1 {
     font-size: 2rem;
     line-height: 2rem;
     letter-spacing: 0.1rem;
 }
 .post_title h1 {
     text-align: center;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
 }
 .hljs {
     display: block;

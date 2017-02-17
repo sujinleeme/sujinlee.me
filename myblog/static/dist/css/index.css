@@ -12,15 +12,15 @@ main {
   width: 70vw !important; }
 
 .home_title h1 {
-  font-size: 2.2rem;
+  font-size: 3rem;
   margin-bottom: 4%; }
 
 .home_title h2 {
   margin-bottom: 8%;
-  font-size: 1.4rem; }
+  font-size: 1.8rem; }
 
 .home_title h3 {
-  font-size: 1.2rem; }
+  font-size: 1.3rem; }
 
 /* Smartphones (portrait and landscape) ----------- */
 @media screen and (min-width: 320px) and (max-width: 480px) {
