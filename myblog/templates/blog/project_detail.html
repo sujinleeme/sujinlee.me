@@ -8,7 +8,7 @@
 
 {% block ogtags %}
 <meta property="og:type" content="Sujin Lee:Post" />
-<meta property="og:title" content="{{ project.title }}" />
+<meta property="og:title" content="{{ project.title }} - Sujin Lee" />
 <meta property="og:description" content="{{ project.summary|truncatechars:230 }}" />
 <meta property="og:image" content="http://www.sujinlee.me/{{ project.image.url }}" />
 <meta property="og:url" content="http://www.sujinlee.me/blog/{{project.slug }}/" />
@@ -21,7 +21,12 @@
 </header>
 
 <article>
-  <picture><img src="{{ project.image.url }}" ></picture>
+  <picture>
+    <div class="thumbnail placeholder" data-large="{{ project.image.url }}">
+      <img src="{{ project.image_thumbnail.url }}" class="mainPostImg img-small">
+      <div class="img_area"></div>
+    </div>
+  </picture>
   <header class="post_title">
     <h1>{{ project.title }}</h1>
     {% if project.published_date %}
@@ -103,7 +108,9 @@
 {% block jsblock %}
 <script src="{% static 'src/js/highlight.pack.js' %}"></script>
 <script src="{% static 'src/js/post_detail.js' %}"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initHighlightingOnLoad();
+        window.onload = loadPreImage();
+</script>
 {% endblock %}
 
 {% block facebookShare %}
@@ -115,7 +122,7 @@
         action_properties: JSON.stringify({
           object: {
             'og:url': 'http://sujinlee.me/project/{{ project.slug }}',
-            'og:title': '{{ project.title }}',
+            'og:title': '{{ project.title }} - Sujin Lee',
             'og:description': '{{ project.summary|truncatechars:230 }}',
             'og:image': 'http://www.sujinlee.me/{{ project.image.url }}/',
             'og:type': 'Sujin Lee:blog',

@@ -3,7 +3,28 @@ UPDATE : 2017.02.
 AUTHOR : SUJIN LEE (sujinlee.me@gmail.com)
 */
 
-/*-- check Device ---*/
+/*-- Image Preloading Effect --*/
+function loadPreImage() {
+  var placeholder = document.querySelector('.placeholder'),
+      small = placeholder.querySelector('.img-small');
+  // 1. Load small image and show it
+  var img = new Image();
+  
+  img.src = small.src;
+  img.onload = function () {
+   small.classList.add('_loaded');
+  };
+  
+  // 2. Load large image
+  var imgLarge = new Image();
+  imgLarge.src = placeholder.dataset.large; 
+  imgLarge.onload = function () {
+    imgLarge.classList.add('_loaded');
+  };
+  placeholder.appendChild(imgLarge);
+}
+
+/*-- Check Device Type ---*/
 function chkDeviceType(){
     let device;
     let ismobile=navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
@@ -58,7 +79,7 @@ function hideMenu(){
     }
 }
 
-/*- facebook -*/
+/*-- facebook OG Tag --*/
 window.fbAsyncInit = function() {
     FB.init({
         appId: '1081681621896558',
@@ -76,3 +97,4 @@ window.fbAsyncInit = function() {
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+

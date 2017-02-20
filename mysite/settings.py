@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = os.getenv('DJANGO_DEBUG') != 'False'
+DEBUG = os.getenv('DJANGO_DEBUG') != 'True'
 
 TEAMPLATE_DEBUG = DEBUG
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'myblog',
     'myrun',
     'sslserver',
+    'imagekit',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -214,7 +214,7 @@ main {
   top: 50%;
   left: 34%;
   width: 29vw;
-  height: 75vh;
+  height: 70vh;
   transform: translate(-30%, -50%); }
   .home_img img {
     max-height: 100%;
@@ -313,7 +313,8 @@ button, .btn_share li {
     background: #ff00db; }
 
 .btn_back {
-  margin-right: 1vh; }
+  margin-right: 0.1rem;
+  margin-top: -0.07rem; }
 
 .btn_back, .btn_expand, .ico_menu, .btn_gototop {
   font-size: 3.2rem;
@@ -394,7 +395,8 @@ footer .icon-social-facebook {
   display: inline-block; }
 
 span.like_count {
-  padding-right: 0.95rem; }
+  padding-right: 0.95rem;
+  width: auto; }
 
 span.show_like.icon-heart {
   color: #ff00db;
@@ -448,7 +450,7 @@ span.show_unlike.icon-heart {
       width: 100%;
       margin-top: 5vh; }
     .gnb a {
-      font-size: 1.3rem; } }
+      font-size: 1.5rem; } }
 
 /* ------------------------------------------------ */
 /* Blog & Project Card List ----------------------- */
@@ -458,8 +460,7 @@ span.show_unlike.icon-heart {
   max-height: 50rem;
   cursor: pointer; }
   .project_ele img {
-    width: 100%;
-    height: 50%; }
+    width: 100%; }
   .project_ele header {
     display: flex;
     flex-direction: column;
@@ -514,7 +515,7 @@ span.show_unlike.icon-heart {
   .blog_ele footer .icon-heart {
     color: #1f00ff;
     vertical-align: middle; }
-  .blog_ele footer a {
+  .blog_ele footer data, .blog_ele footer a {
     color: #656c7a !important; }
 
 /* ------------------------------------------------ */
@@ -605,9 +606,37 @@ span.show_unlike.icon-heart {
 
 article {
   position: relative; }
-  article img {
+  article .mainPostImg {
     width: 100%;
-    height: 60vh; }
+    min-height: 500px; }
+  article img {
+    width: 100%; }
+
+.img_area {
+  padding-bottom: 66.6%; }
+
+.placeholder {
+  background-color: #f6f6f6;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden; }
+
+.placeholder img {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 1s linear; }
+
+.placeholder img._loaded {
+  opacity: 1; }
+
+.img-small {
+  filter: blur(50px);
+  /* this is needed so Safari keeps sharp edges */
+  transform: scale(1); }
 
 .post_title {
   margin: 3.5rem 0; }

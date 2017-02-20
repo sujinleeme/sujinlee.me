@@ -84,21 +84,15 @@
       </div>
     </div>
 
-    {% block facebookShare %}
-    {% endblock %}
-    
-    {% block jsblock %}
-    {% endblock %}
 
     {% block basejsblock %}
     <!-- javascript -->
-    
     <!-- disqus -->
     <!--<script scr="//sujinlee.disqus.com/embed.js"></script>
     <script src="//sujinlee.disqus.com/count.js" id="dsq-count-scr" async></script>-->
     
     <!-- build:js -->
-    <script src="{% static 'src/js/menu.js' %}"></script>
+    <script src="{% static 'src/js/baseUI.js' %}"></script>
     <!-- endbuild -->
     
     <!--google-analytics-->
@@ -110,6 +104,12 @@
       ga('create', 'UA-53782262-2', 'auto');
       ga('send', 'pageview');
     </script>
+    {% endblock %}
+
+    {% block facebookShare %}
+    {% endblock %}
+    
+    {% block jsblock %}
     {% endblock %}
   </body>
   <!-- end -->

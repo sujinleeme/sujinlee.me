@@ -265,7 +265,7 @@ main { width: 100vw; }
     top: 50%;
     left: 34%;
     width: 29vw;
-    height: 75vh;
+    height: 70vh;
     transform: translate(-30%, -50%);
     img {
         max-height: 100%;
@@ -375,7 +375,8 @@ button, .btn_share li {
 }
 
 .btn_back {
-    margin-right: 1vh;
+    margin-right: 0.1rem;
+    margin-top: -0.07rem;
 }
 .btn_back, .btn_expand, .ico_menu, .btn_gototop, {
     font-size: 3.2rem;
@@ -457,6 +458,7 @@ footer {
 }
 span.like_count {
     padding-right: 0.95rem;
+    width: auto;
 }
 
 span.show_like.icon-heart {
@@ -517,7 +519,7 @@ and (max-width : 480px) {
         margin-top: 5vh;
     }
     a {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 }
 }
@@ -538,7 +540,6 @@ and (max-width : 480px) {
 
     img {
         width: 100%;
-        height: 50%;
     }
     header {
         display: flex;
@@ -605,7 +606,7 @@ and (max-width : 480px) {
         color: $theme-col;
         vertical-align: middle;
     }
-    a {
+    data, a {
         color: $dark-gray !important;
     }
 }
@@ -728,11 +729,44 @@ and (max-width : 480px) {
 
 article {
     position: relative;
+    .mainPostImg {
+        width: 100%;
+        min-height: 500px;
+    }
     img {
         width: 100%;
-        height: 60vh;
     }
 }
+
+.img_area {
+    padding-bottom: 66.6%;
+}
+.placeholder {
+  background-color: #f6f6f6;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+.placeholder img {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 1s linear;
+}
+
+.placeholder img._loaded {
+  opacity: 1;
+}
+
+.img-small {
+  filter: blur(50px);
+  /* this is needed so Safari keeps sharp edges */
+  transform: scale(1);
+}
+
 .post_title {
     margin: $page_margin 0;
 }

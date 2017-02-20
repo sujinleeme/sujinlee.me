@@ -3,6 +3,10 @@ from django.utils import timezone
 from django_markdown.models import MarkdownField
 
 from tagging.fields import TagField
+
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
 import uuid
 
 class Category(models.Model):
@@ -17,6 +21,10 @@ class Post(models.Model):
     category = models.ForeignKey('Category')
     author = models.ForeignKey('auth.User')
     image = models.ImageField(upload_to='myblog/image/blog')
+    image_thumbnail = ImageSpecField(source='image',
+                                    processors=[ResizeToFill(100, 50)],
+                                    format='JPEG',
+                                    options={'quality': 60})
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=1000)
     body = MarkdownField()
@@ -43,6 +51,10 @@ class Project(models.Model):
     category = models.ForeignKey('Category')
     author = models.ForeignKey('auth.User', blank=True, null=True)
     image = models.ImageField(upload_to='myblog/image/project')
+    image_thumbnail = ImageSpecField(source='image',
+                                    processors=[ResizeToFill(100, 50)],
+                                    format='JPEG',
+                                    options={'quality': 60})
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=1000)
     body = MarkdownField()

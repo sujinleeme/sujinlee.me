@@ -31,9 +31,14 @@
           </div>
           <footer>
           <span class="icon-heart"></span>
-          <a>{{ post.likes }}</a>
+          <data>{{ post.likes }}</data>
         </header>
-        <picture><img src="{{ post.image.url }}"></picture>
+        <picture>
+          <div class="placeholder" data-large="{{ post.image.url }}">
+            <img src="{{ post.image_thumbnail.url }}" class="img-small">
+            <div class="img_area"></div>
+          </div>
+        </picture>
     </li>
     {% endfor %}
   </ul>
@@ -44,8 +49,10 @@
   {% endif %}
 </div>
   {% if user.is_authenticated %}
-  
   <a href="{% url 'post_new' %}"><button class="btn_write material-icons">create</button></a>
   {% endif %}
-
 {% endblock content %}
+
+{% block jsblock %}
+<script>window.onload = loadPreImage();</script>
+{% endblock %}
