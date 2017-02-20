@@ -48,7 +48,6 @@ function toggleLikeIcon(){
 const postBody = document.getElementsByClassName("post_body")[0];
 const postBodyLinks = Array.prototype.slice.call(postBody.querySelectorAll('a'));
 
-
 postBodyLinks.forEach(function(e){
     e.addEventListener("click", function(evt){
         evt.preventDefault();

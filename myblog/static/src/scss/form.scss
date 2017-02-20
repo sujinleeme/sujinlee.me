@@ -152,7 +152,7 @@ textarea {
 //   color: $black;
 // }
 
-#submit {
+.form-btn {
   width: 20rem;
   text-transform: uppercase;
   font-family: 'Poppins',sans-serif;
@@ -161,6 +161,7 @@ textarea {
   font-size: 1.3rem;
   color: $theme-col;
   outline:none;
+  text-align: center;
   cursor: pointer;
   border: solid 1px $light-gray;
   border-radius: 6px;

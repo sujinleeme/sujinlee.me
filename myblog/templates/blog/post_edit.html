@@ -4,7 +4,7 @@
 {% block title %}
 
 
-<title>{{ post.title }} - Sujin Lee</title>
+<title>Write New Post - Sujin Lee</title>
 {% endblock %}
 {% block ogtags %}
 <meta property="og:type" content="Sujin Lee:Post" />
@@ -25,7 +25,7 @@
 </header>
 
 <div class="form_wrap">
-  <form method="post" enctype="multipart/form-data" class="blog-form">
+  <form method="post" enctype="multipart/form-data" class="blogForm">
     {% csrf_token %}
     <div class="select-box">
     <label for="" class="label"><span class="label-desc icon-folder"></span> </label>
@@ -40,7 +40,9 @@
      {{ form.tag }}
      {{ form.slug }}
        </table>
-        <input id="submit" type="submit" class="btn-material"></input>
+        <input type="submit" value="sumbit" class="form-btn btn-material"></input>
+        <input type="draft" value="draft" class="form-btn btn-material"></input>
+        <input type="reset" value="reset" class="form-btn btn-material"></input>
     </form>
 
 </div>
@@ -54,6 +56,6 @@
 
 {% block jsblock %}
 <script src="{% static 'src/js/highlight.pack.js' %}"></script>
-<script src="{% static 'src/js/post_detail.js' %}"></script>
+<script src="{% static 'src/js/post_edit.js' %}"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}
