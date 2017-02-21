@@ -5,23 +5,25 @@ AUTHOR : SUJIN LEE (sujinlee.me@gmail.com)
 
 /*-- Image Preloading Effect --*/
 function loadPreImage() {
-  var placeholder = document.querySelector('.placeholder'),
-      small = placeholder.querySelector('.img-small');
-  // 1. Load small image and show it
-  var img = new Image();
-  
-  img.src = small.src;
-  img.onload = function () {
-   small.classList.add('_loaded');
-  };
-  
-  // 2. Load large image
-  var imgLarge = new Image();
-  imgLarge.src = placeholder.dataset.large; 
-  imgLarge.onload = function () {
-    imgLarge.classList.add('_loaded');
-  };
-  placeholder.appendChild(imgLarge);
+    let placeholder = document.querySelectorAll('.placeholder'),
+        imgSmall = document.querySelectorAll('.img-small');
+
+    for (let i=0; i < placeholder.length; i++) {
+         // 1. Load small image and show it
+        let img = new Image();
+        img.src = imgSmall[i].src;
+        img.onload = function () {
+            imgSmall[i].classList.add('_loaded');
+        };
+
+        // 2. Load large image
+        let imgLarge = new Image();
+        imgLarge.src = placeholder[i].dataset.large;
+        imgLarge.onload = function () {
+            imgLarge.classList.add('_loaded');
+        };
+        placeholder[i].appendChild(imgLarge);
+    };
 }
 
 /*-- Check Device Type ---*/

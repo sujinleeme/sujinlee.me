@@ -139,9 +139,6 @@ function popup(url) {
     newWin = window.open(url,'share', params);
 }
 
-
-
-
 /* Disqus Comment */
 // (function() {
 //     var d = document,
