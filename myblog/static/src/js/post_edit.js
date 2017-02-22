@@ -20,7 +20,6 @@ var formEditor = {
     init : function() {
         this.enterBodyText();
         this.publish();
-        this.emptyFieldCheck();
         this.reset();
     },
 
@@ -36,26 +35,24 @@ var formEditor = {
     },
 
 
-    emptyFieldCheck : function(){
-        let category = formElement.selectbox.options[formElement.selectbox.selectedIndex].value;
-        let fileVolume = form.querySelector('input[type=file]').files.length;
-        result = false;
+    validFieldCheck : function(){
+        let category = formElement.selectbox;
+        let file = form.querySelector('input[type=file]');
+
+        validResult = (category.checkValidity());
+        validResult = (file.checkValidity());
+
         formElement.fields.forEach(function(e){
-            if (e.value.length == 0){
-                result = true;
-            }
+            validResult = e.checkValidity();
         });
-        if ((fileVolume == 0) || (category.length == 0)) {
-            result = true;
-        }
-        return result;
+        return validResult;
     },
 
 
      publish : function() {
         formElement.submitButton.addEventListener('click', function(){
-            valid = formEditor.emptyFieldCheck();
-            if (!valid) {
+            valid = formEditor.validFieldCheck();
+            if (valid) {
                 let msg = confirm("Do you want to submit?");
                 if (msg == true) {
                     form.submit();
