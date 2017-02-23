@@ -620,7 +620,8 @@ article {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%; }
 
 .placeholder img {
   position: absolute;
@@ -660,7 +661,7 @@ article {
     margin: 0 !important; }
   .blog_ele {
     padding: 3vh 0;
-    max-height: 24vh; }
+    min-height: 24vh; }
     .blog_ele .btn_read {
       display: none; }
     .blog_ele header {
@@ -669,11 +670,11 @@ article {
         width: 90%; }
     .blog_ele footer {
       position: relative;
-      padding: 1.75vh 0;
       bottom: 0;
       position: absolute; }
     .blog_ele picture {
-      width: 35%;
+      width: 35%; }
+    .blog_ele .placeholder {
       height: 24vh; }
     .blog_ele img {
       height: 100%;
@@ -690,6 +691,8 @@ article {
     article img {
       width: 100%;
       height: 30vh; }
+    article .img_area {
+      padding-bottom: 60%; }
   article, .disqus {
     padding-left: 0;
     padding-right: 0;

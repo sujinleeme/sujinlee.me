@@ -19,7 +19,6 @@ var formEditor = {
 
     init : function() {
         this.enterBodyText();
-        // this.validFieldCheck();
         this.publish();
         this.reset();
 
@@ -45,11 +44,6 @@ var formEditor = {
                 return false;
             }
         };
-        // required.forEach(function(e){
-        //     if (!e.checkValidity()){
-        //         return false;
-        //     }
-        // });
         return true;
     },
 
@@ -60,10 +54,8 @@ var formEditor = {
             if (valid) {
                 let msg = confirm("Do you want to submit?");
                 if (msg) {
-                    // form.submit();
                     alert("Post Sucessfully!");
                     createPost();
-
                 }
                 else {
                     return false;
@@ -83,7 +75,7 @@ var formEditor = {
                 else {
                     return false;
                 }
-        })
+        });
     }
 }
 

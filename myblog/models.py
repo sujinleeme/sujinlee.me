@@ -33,6 +33,9 @@ class Post(models.Model):
     slug = models.SlugField(unique=True)
     likes = models.PositiveIntegerField(default=0)
     tag = TagField()
+    # recent_blogs = Post.objects.order_by('-created_date')
+
+
 
     @property
     def total_likes(self):
@@ -46,6 +49,7 @@ class Post(models.Model):
         self.status == self.STATUS_PUBLIC
         self.save()
 
+Post.objects.all().order_by('-create_date')
 
 class Project(models.Model):
     category = models.ForeignKey('Category')

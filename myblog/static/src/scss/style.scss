@@ -747,6 +747,7 @@ article {
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 .placeholder img {
   position: absolute;
@@ -796,7 +797,7 @@ and (max-width : 480px) {
 }
 .blog_ele {
     padding: 3vh 0;
-    max-height: 24vh;
+    min-height: 24vh;
     .btn_read {
         display: none;
     }
@@ -808,14 +809,17 @@ and (max-width : 480px) {
     }
     footer {
         position: relative;
-        padding: $mobile_page_margin / 2 0;
         bottom: 0;
         position: absolute;
     }
     picture {
         width: 35%;
+        // height: 24vh;
+    }
+    .placeholder {
         height: 24vh;
     }
+    
     img {
         height: 100%;
         width: 100%;
@@ -839,6 +843,9 @@ img {
     width: 100%;
     height: 30vh;
 }
+.img_area {
+        padding-bottom: 60%;
+    }
 }
 article, .disqus {
     padding-left: 0;
