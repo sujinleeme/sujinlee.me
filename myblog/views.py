@@ -57,7 +57,7 @@ def post_create(request):
             body = form.cleaned_data['body']
             tag = form.cleaned_data['tag']
             post.save()
-            return render(request, 'blog/post_edit.html', {'form': form})
+            return render(request, 'blog/post_detail.html', {'post': post}, status=400)
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})

@@ -556,7 +556,7 @@ span.show_unlike.icon-heart {
     width: 70%; }
   .blog_ele picture {
     width: 30%;
-    height: 150px;
+    height: 100%;
     float: right; }
   .blog_ele img {
     width: 100%;

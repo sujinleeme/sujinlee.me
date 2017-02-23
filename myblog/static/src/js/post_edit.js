@@ -19,8 +19,10 @@ var formEditor = {
 
     init : function() {
         this.enterBodyText();
+        // this.validFieldCheck();
         this.publish();
         this.reset();
+
     },
 
 
@@ -36,16 +38,19 @@ var formEditor = {
 
 
     validFieldCheck : function(){
-        let category = formElement.selectbox;
-        let file = form.querySelector('input[type=file]');
-
-        validResult = (category.checkValidity());
-        validResult = (file.checkValidity());
-
-        formElement.fields.forEach(function(e){
-            validResult = e.checkValidity();
-        });
-        return validResult;
+        required = form.querySelectorAll("[required]")
+        for (let i = 0; i < required.length; i++) { 
+            console.log(required[i], required[i].checkValidity())
+            if (!required[i].checkValidity()){
+                return false;
+            }
+        };
+        // required.forEach(function(e){
+        //     if (!e.checkValidity()){
+        //         return false;
+        //     }
+        // });
+        return true;
     },
 
 
@@ -54,10 +59,11 @@ var formEditor = {
             valid = formEditor.validFieldCheck();
             if (valid) {
                 let msg = confirm("Do you want to submit?");
-                if (msg == true) {
-                    form.submit();
+                if (msg) {
+                    // form.submit();
                     alert("Post Sucessfully!");
-                    form.reset();
+                    createPost();
+
                 }
                 else {
                     return false;
@@ -69,8 +75,8 @@ var formEditor = {
 
     reset : function() {
         formElement.resetButton.addEventListener('click', function(){
-        let msg = confirm("Do you want to delete content?");
-                if (msg == true) {
+            let msg = confirm("Do you want to delete content?");
+                if (msg) {
                     form.reset();
                     alert("Delete Content");   
                 }

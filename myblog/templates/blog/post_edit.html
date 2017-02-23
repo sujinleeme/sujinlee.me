@@ -32,25 +32,22 @@
       {{ form.category }}
       <span class="label-desc icon-picture"></span>{{ form.image }}
         </div>
-
      {{ form.title }}
      {{ form.summary }}
      {{ form.body }}
-     
      {{ form.tag }}
+     {% if form.errors %}
+     {% endif %}
+     {{ form.errors.slug }}
      {{ form.slug }}
        </table>
-        <input type="submit" value="sumbit" class="form-btn btn-material"></input>
-        <input type="draft" value="draft" class="form-btn btn-material"></input>
-        <input type="reset" value="reset" class="form-btn btn-material"></input>
+        <input type="submit" class="form-btn btn-material" value="sumbit"/>
+        <input type="draft" class="form-btn btn-material" value="draft"/>
+        <input type="reset" class="form-btn btn-material" value="reset">
     </form>
-
-</div>
-
+    </div>
   </div>
-
-<div class="form_view">
-  </div>
+  
   <button class="btn_gototop material-icons">keyboard_arrow_up</button>
 {% endblock %}
 
