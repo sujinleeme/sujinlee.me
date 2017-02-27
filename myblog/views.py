@@ -23,7 +23,7 @@ def about(request):
 
 #blog
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts':posts})
 
 def post_detail(request, slug):
@@ -57,16 +57,36 @@ def post_create(request):
             body = form.cleaned_data['body']
             tag = form.cleaned_data['tag']
             post.save()
-            return render(request, 'blog/post_detail.html', {'post': post}, status=400)
+            return render(request, 'blog/post_detail.html', slug=post.slug)
+        else:
+            print("form is not valid errors: {}".format(form.errors.as_json))
     else:
         form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})
+
+
+def post_edit(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return render(request, 'blog/post_detail.html', {'post': post})
+        else:
+            print("form is not valid errors: {}".format(form.errors.as_json))
+    else:
+        form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
 
 # project
 def project_list(request):
-    projects = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    projects = Project.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/project_list.html', {'projects':projects})
 
 def project_detail(request, slug):

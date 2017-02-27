@@ -1,8 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
-{% load django_markdown %}
 {% block title %}
-
 
 <title>Write New Post - Sujin Lee</title>
 {% endblock %}
@@ -16,43 +14,54 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href="{% static 'dist/css/form.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 {% endblock %}
 
 {% block content %}
-<header class="page_title">
-  <button class="btn_back icon-notes"></button>  
-  <h1>New blog</h1>
-</header>
-
-<div class="form_wrap">
+<div id="form_wrap">
   <form method="post" enctype="multipart/form-data" class="blogForm">
-    {% csrf_token %}
-    <div class="select-box">
-    <label for="" class="label"><span class="label-desc icon-folder"></span> </label>
+  {% csrf_token %}
+    <header>
+      <h1><a href="/">SUJIN LEE</a></h1>
+      <div class="btn_wrap">
+        <input type="submit" class="form-btn" value="publish"/>
+        <input type="reset" class="form-btn" value="draft">
+      </div>
+    </header>
+   
+    <div class="form_field">
+      <div class="select-box">
+      <span class="label-desc icon-folder"></span> </label>
       {{ form.category }}
+      
       <span class="label-desc icon-picture"></span>{{ form.image }}
-        </div>
+      </div>
+        
+     {{form.published_date}}
      {{ form.title }}
      {{ form.summary }}
+
      {{ form.body }}
+     
      {{ form.tag }}
      {% if form.errors %}
      {% endif %}
      {{ form.errors.slug }}
      {{ form.slug }}
-       </table>
-        <input type="submit" class="form-btn btn-material" value="sumbit"/>
-        <input type="draft" class="form-btn btn-material" value="draft"/>
-        <input type="reset" class="form-btn btn-material" value="reset">
+       </div>
     </form>
     </div>
-  </div>
   
+  </div>
+
   <button class="btn_gototop material-icons">keyboard_arrow_up</button>
 {% endblock %}
 
 {% block jsblock %}
 <script src="{% static 'src/js/highlight.pack.js' %}"></script>
 <script src="{% static 'src/js/post_edit.js' %}"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.slim.min.js" charset="utf-8"></script>
+
 <script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}

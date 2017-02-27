@@ -41,8 +41,6 @@ main {
     width: 0vw !important; }
   .home_title, mark {
     color: #fff; }
-  .ico_menu {
-    top: 3vh; }
   .ico_menu span, .ico_menu span:before, .ico_menu span:after {
     background: #fff;
     opacity: 0.9; }

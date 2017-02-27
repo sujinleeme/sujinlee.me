@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+
 from django_markdown.models import MarkdownField
 
 from tagging.fields import TagField
@@ -25,17 +26,14 @@ class Post(models.Model):
                                     processors=[ResizeToFill(100, 50)],
                                     format='JPEG',
                                     options={'quality': 60})
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, verbose_name=u'Title')
     summary = models.CharField(max_length=1000)
-    body = MarkdownField()
+    body =  MarkdownField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateField(default=timezone.now)
     slug = models.SlugField(unique=True)
     likes = models.PositiveIntegerField(default=0)
     tag = TagField()
-    # recent_blogs = Post.objects.order_by('-created_date')
-
-
 
     @property
     def total_likes(self):
@@ -49,11 +47,9 @@ class Post(models.Model):
         self.status == self.STATUS_PUBLIC
         self.save()
 
-Post.objects.all().order_by('-create_date')
-
 class Project(models.Model):
     category = models.ForeignKey('Category')
-    author = models.ForeignKey('auth.User', blank=True, null=True)
+    author = models.ForeignKey('auth.User')
     image = models.ImageField(upload_to='myblog/image/project')
     image_thumbnail = ImageSpecField(source='image',
                                     processors=[ResizeToFill(100, 50)],

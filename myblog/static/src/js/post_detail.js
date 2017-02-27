@@ -34,11 +34,11 @@ xhr.send();
 });
 
 function toggleLikeIcon(){
-    for (let ele of icon){
-        if (ele.style.display === 'none') {
-            ele.style.display = 'block';
+    for (let i=0; i < icon.length; i++ ){
+        if (icon[i].style.display === 'none') {
+            icon[i].style.display = 'block';
         } else {
-            ele.style.display = 'none';
+            icon[i].style.display = 'none';
         }
     }
 };

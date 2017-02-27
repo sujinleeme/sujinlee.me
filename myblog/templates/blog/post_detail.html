@@ -104,6 +104,10 @@
 <!--<div class="disqus" id="disqus_thread"></div>-->
 <button class="btn_expand material-icons">keyboard_arrow_left</button>
 <button class="btn_gototop material-icons">keyboard_arrow_up</button>
+
+{% if user.is_authenticated %}
+<a href="{% url 'post_edit' slug=post.slug %}"><button class="btn_write material-icons">create</button></a>
+{% endif %}
 {% endblock %}
 
 {% block jsblock %}

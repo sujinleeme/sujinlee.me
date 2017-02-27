@@ -4,36 +4,59 @@
   width: 0vw !important;
   display: none; }
 
+nav {
+  display: none; }
+
 main {
   overflow-y: auto;
   width: 100vw !important; }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #656c7a;
+  color: #bbb;
   text-transform: uppercase;
   font-size: 0.875em; }
 
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.05); }
+  color: #bbb; }
 
-.form_wrap {
-  margin: 7vh;
-  width: 1000px; }
+input[type='date'], input[type='time'] {
+  -webkit-appearance: none; }
+
+#form_wrap form {
+  width: 100%; }
+
+#form_wrap header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  margin-left: -4rem;
+  background: #fff;
+  height: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  #form_wrap header a, #form_wrap header a:visited {
+    color: #1f00ff; }
+  #form_wrap header a:hover {
+    color: #ff00db;
+    transition: color 0.5s all; }
+  #form_wrap header h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 0 2rem; }
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   background: transparent; }
 
-/* on hover placeholder */
-#form {
-  position: relative;
-  width: 500px;
-  margin: 50px auto 100px auto; }
+.form_field {
+  padding-top: 4rem; }
 
+/* on hover placeholder */
 input {
   font-size: 1.3rem;
   width: 100%;
   height: 50px;
-  padding: 0px 15px 0px 15px;
   background: transparent;
   outline: none;
   color: #232528;
@@ -51,31 +74,52 @@ textarea {
   background: transparent;
   outline: none;
   font-weight: 300;
-  color: #656c7a;
+  color: #2c3e50;
   font-size: 1.3rem;
   transition: all 0.3s ease-in-out; }
 
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s; }
+
+.btn_wrap {
+  margin-right: 4rem;
+  display: inline-flex; }
+
 .form-btn {
-  width: 20rem;
+  width: 5rem;
+  height: 2rem;
   text-transform: uppercase;
   font-family: 'Poppins',sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   padding: 0;
-  font-size: 1.3rem;
-  color: #1f00ff;
+  font-size: 0.9rem;
+  background: #1f00ff;
+  color: #fff;
   outline: none;
   text-align: center;
-  cursor: pointer;
-  border: solid 1px rgba(0, 0, 0, 0.05);
-  border-radius: 6px; }
-
-#submit:hover {
-  opacity: 1; }
+  cursor: pointer; }
+  .form-btn:nth-child(n+1) {
+    margin-right: 0.5rem; }
+  .form-btn:hover {
+    background: #ff00db;
+    transition: background 0.5s all; }
 
 input, textarea {
   width: 100%;
   border: 0;
-  background-color: rgba(255, 255, 255, 0.5); }
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 #id_title {
   font-size: 2rem;

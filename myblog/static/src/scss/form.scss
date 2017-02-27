@@ -4,22 +4,26 @@ $accent-col: #ff00db;
 $bg-col: #fff;
 $black: #232528;
 $black-code: #282a36;
-$dark-light-gray: #656c7a;
-$light-gray: rgba(0,0,0,.05);
+$dark-light-gray: #2c3e50;
+$light-gray: #bbb;
 $light-gray-hover: rgba(0,0,0,0.1);
 
 /* form style */
 $form-border1: 1px $theme-col solid;
 $form-border2: 1px $light-gray solid;
-$page_margin: 7vh;
+$page_margin: 2rem;
 $snb_left_width_home: 0vw;
 $main_width_home: 100vw - $snb_left_width_home;
-
+$header_font_size: 1.5rem;
 
 $line_height: 40px;
 
 #snb_left_box {
   width: $snb_left_width_home !important;
+  display: none;
+}
+
+nav {
   display: none;
 }
 
@@ -29,7 +33,7 @@ main {
 }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: $dark-light-gray;
+  color: $light-gray;
   text-transform: uppercase;
   font-size: 0.875em;
 }
@@ -38,14 +42,50 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
   color: $light-gray;
 }
 
-.form_wrap {
-  margin: $page_margin;
-  width: 1000px;
+input[type='date'], input[type='time'] {
+    -webkit-appearance: none;
+}
+
+
+#form_wrap {
+  form{ 
+    width: 100%;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: $page_margin;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin-left: - $page_margin * 2;
+    background: #fff;
+    height: $header_font_size;
+    border-bottom: 1px solid $light-gray-hover;
+    a, a:visited {
+      color: $theme-col;
+    }
+    a:hover {
+      color: $accent-col;
+      transition: color 0.5s all;
+    }
+    
+    h1 {
+      font-size: $header_font_size;
+      line-height: $page_margin;
+      margin: 0 $page_margin;
+    }
+  }
 }
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   background: transparent;
 }
+
+.form_field {
+  padding-top: $page_margin * 2;
+}
+
 // input::-moz-placeholder, textarea::-moz-placeholder {
 //   color: #aca49c;
 //   font-size: 0.875em;
@@ -112,17 +152,11 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 //   color: #cbc6c1;
 // }
 
-#form {
-  position: relative;
-  width: 500px;
-  margin: 50px auto 100px auto;
-}
 
 input {
   font-size: 1.3rem;
   width: 100%;
   height: 50px;
-  padding: 0px 15px 0px 15px;
   background: transparent;
   outline: none;
   color: $black;
@@ -147,44 +181,55 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-// textarea:hover {
-//   background: $light-gray;
-//   color: $black;
-// }
-
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.btn_wrap {
+  margin-right: $page_margin * 2;
+  display: inline-flex;
+}
 .form-btn {
-  width: 20rem;
+  width: 5rem;
+  height: 2rem;
   text-transform: uppercase;
   font-family: 'Poppins',sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   padding: 0;
-  font-size: 1.3rem;
-  color: $theme-col;
+  font-size: 0.9rem;
+  background: $theme-col;
+  color: #fff;
   outline:none;
   text-align: center;
   cursor: pointer;
-  border: solid 1px $light-gray;
-  border-radius: 6px;
-}
-
-#submit:hover {
-  opacity: 1;
-}
-
-
-  input, textarea {
-    width: 100%;
-    border: 0;
-    background-color: rgba(#fff, 0.5);
-
-    // &:focus {
-    //   font-size: 1rem;
-    //   color: $black;
-    //   background-color: #fff;
-    //   // border-bottom: $form-border1;
-    // }
-
+  &:nth-child(n+1){
+    margin-right: 0.5rem;
   }
+  &:hover{
+    background: $accent-col;
+    transition: background 0.5s all;
+    
+  }
+}
+
+
+
+input, textarea {
+  width: 100%;
+  border: 0;
+      border-top: 1px solid $light-gray-hover;
+}
 #id_title {
   font-size: 2rem;
   font-weight: 600;
@@ -192,7 +237,6 @@ textarea {
 
 input#id_image {
     font-size: 1rem;
-
     margin-top: 12px;
     display: inline-flex;
 }
@@ -235,51 +279,3 @@ select:focus {
 option {
   width: 100%;
 }
-
-// .blog-form {
-//   padding: 0 3rem 3rem 0;
-//   .field {
-//     padding: 1rem;
-//   } 
-//   input, textarea {
-//     width: 100%;
-//     border: 0;
-//     background-color: rgba(#fff, 0.5);
-//     border-bottom: $form-border2;
-//     font-size: 1rem;
-//     padding: 0.4rem;
-//     &:focus {
-//       font-size: 1rem;
-//       outline: 0;
-//       color: $black;
-//       background-color: #fff;
-//       border-bottom: $form-border1;
-//     }
-//   }
-// }
-
-
-// .blog-form input#id_image{
-//   border-bottom:1px #fff solid;
-// } 
-//   // &_button {
-//   //   margin: 2rem 0 3rem 0;
-//   //   float: right;
-//   //   width: 10rem;
-//   //   // @extend .button;
-//   //   font-size: 0.8rem;
-//   //   padding: 0.4rem;
-//   //   color: $dark-light-gray;
-//   //   &:hover,
-//   //   &:focus{
-//   //     color: #fff;
-//   //   }
-//   //}
-
-
-// .form_view{
-//   background: $dark-light-gray;
-//   width: 50vw;
-//   height: 50vh;
-//   border: 1px;
-// }

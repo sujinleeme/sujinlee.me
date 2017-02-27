@@ -141,6 +141,16 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MARKDOWN_STYLE = '/static/css/markdown.css'
 MARKDOWN_EXTENSIONS = 'extra', 'codehilite'
 
+
+# Markdown simplemde
+# SIMPLEMDE_OPTIONS = {
+#     'placeholder': 'Write down here..',
+#     'status': False,
+#     'autosave': {
+#         'enabled': True
+#     }
+# }
+
 # Media Files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'image')

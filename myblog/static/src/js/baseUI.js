@@ -26,23 +26,41 @@ function loadPreImage() {
     };
 }
 
+
+
 /*-- Check Device Type ---*/
+var isMobile = {
+    Android: function() {
+		return navigator.userAgent.match(/Android/i);
+	},
+	BlackBerry: function() {
+		return navigator.userAgent.match(/BlackBerry/i);
+	},
+	iOS: function() {
+		return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+	},
+	Opera: function() {
+		return navigator.userAgent.match(/Opera Mini/i);
+	},
+	Windows: function() {
+		return navigator.userAgent.match(/IEMobile/i);
+	},
+	any: function() {
+		return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+	}
+};
+
 function chkDeviceType(){
-    let device;
-    let ismobile=navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
-    if (ismobile) {
-        device = "mobile";
-        return device;
-    }
-    device = "pc";
-    return device;
+    const browserType = isMobile.any()?"mobile":"not mobile";
+    return browserType;
 }
 
 /*-- Show Navigation Menu --*/
 const menuIcon = document.getElementsByClassName("ico_menu")[0];
-const gnb = document.getElementsByClassName("gnb")[0];
+let gnb = document.getElementsByClassName("gnb")[0];
 
 let useDevice = chkDeviceType();
+console.log(useDevice);
 let mouseEventName;
 if (useDevice === "mobile") {
     mouseEventName = "click";
