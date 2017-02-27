@@ -4,7 +4,6 @@ from django.core import validators
 
 from .models import Post
 from django_markdown.fields import MarkdownFormField
-from simplemde.fields import SimpleMDEField
 
 class PostForm(forms.ModelForm):
     class Meta:

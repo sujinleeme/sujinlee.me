@@ -60,7 +60,6 @@ const menuIcon = document.getElementsByClassName("ico_menu")[0];
 let gnb = document.getElementsByClassName("gnb")[0];
 
 let useDevice = chkDeviceType();
-console.log(useDevice);
 let mouseEventName;
 if (useDevice === "mobile") {
     mouseEventName = "click";
