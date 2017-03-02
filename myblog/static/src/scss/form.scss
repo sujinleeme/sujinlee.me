@@ -6,7 +6,7 @@ $black: #232528;
 $black-code: #282a36;
 $dark-light-gray: #2c3e50;
 $light-gray: #bbb;
-$light-gray-hover: rgba(0,0,0,0.1);
+$light-gray-hover: rgba(0,0,0,0.05);
 
 /* form style */
 $form-border1: 1px $theme-col solid;
@@ -162,6 +162,7 @@ input {
   color: $black;
   border-bottom: none;
   transition: all 0.3s ease-in-out;
+  font-family: 'Poppins',sans-serif;
 }
 
 input#id_tag {

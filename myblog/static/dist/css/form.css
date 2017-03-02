@@ -35,7 +35,7 @@ input[type='date'], input[type='time'] {
   margin-left: -4rem;
   background: #fff;
   height: 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
   #form_wrap header a, #form_wrap header a:visited {
     color: #1f00ff; }
   #form_wrap header a:hover {
@@ -61,7 +61,8 @@ input {
   outline: none;
   color: #232528;
   border-bottom: none;
-  transition: all 0.3s ease-in-out; }
+  transition: all 0.3s ease-in-out;
+  font-family: 'Poppins',sans-serif; }
 
 input#id_tag {
   color: #1f00ff; }
@@ -119,7 +120,7 @@ select:-webkit-autofill:focus {
 input, textarea {
   width: 100%;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+  border-top: 1px solid rgba(0, 0, 0, 0.05); }
 
 #id_title {
   font-size: 2rem;

@@ -12,11 +12,9 @@ var formElement = {
     fields : form.querySelectorAll('input[type=text]'),
     submitButton : form.querySelector('input[type=submit]'),
     resetButton : form.querySelector('input[type=reset]'),
-    tags : document.getElementById('id_tag')
+    tagsField : form.getElementsByClassName('tags_field'),
+    tagsInput : document.getElementById('id_tag'),
 }
-
-
-
 
 
 
@@ -103,27 +101,37 @@ var formEditor = {
 
     tag : function() {
         tagList = [];
-        formElement.tags.addEventListener('keydown', function(evt){
+        formElement.tagsInput.addEventListener('keydown', function(evt){
+            
             if (!evt.target.matches("#id_tag")){
                 return;
             }
-          
             if ((evt.keyCode == 13) || (evt.keyCode == 188)){
-                str = formElement.tags.value.split(",");
+                str = this.value.split(",");
                 newTag = str.slice(-1)[0].replace(/\s/g,'');
+
                 if (!/^[a-zA-Z]+$/.test(newTag)){
                     error = "Tags only support letters.";
                     formEditor.message(error);
                     return;
                 }
-                else if (newTag in tagList){
-                    console.log(newTag);
-                }
-                
-                tagList.push(newTag);
 
+                else {
+                    formElement.tagsField[0].insertAdjacentHTML('afterbegin', '<div class="tag">'+newTag+'</div>');
+                    tagList.push(newTag);
+                   
+                    this.value = "";
+                }
+            }
+
+            if (evt.keyCode == 188) {
+                 formElement.tagsInput.addEventListener('change', function(evt){
+            this.value = this.value.replace(",", "");
+        });
+                
             }
         })
+
     },
 
     message : function(msg){
