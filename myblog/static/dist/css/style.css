@@ -470,7 +470,8 @@ span.show_unlike.icon-heart {
     margin-left: 3.5rem;
     margin-right: 3.5rem;
     opacity: 1;
-    height: 50%; }
+    height: 50%;
+    z-index: 1; }
     .project_ele header .detail {
       width: 100%;
       display: flex;

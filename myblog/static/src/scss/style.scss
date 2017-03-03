@@ -551,6 +551,7 @@ and (max-width : 480px) {
         margin-right: $page_margin;
         opacity: 1;
         height: 50%;
+        z-index: 1;
     .detail {
         width: 100%;
         display: flex;

@@ -108,10 +108,11 @@ var formEditor = {
             }
             if ((evt.keyCode == 13) || (evt.keyCode == 188)){
                 str = this.value.split(",");
+                console.log(str);
                 newTag = str.slice(-1)[0].replace(/\s/g,'');
 
                 if (!/^[a-zA-Z]+$/.test(newTag)){
-                    error = "Tags only support letters.";
+                    error = "Tags only support English letters.";
                     formEditor.message(error);
                     return;
                 }
@@ -119,15 +120,17 @@ var formEditor = {
                 else {
                     formElement.tagsField[0].insertAdjacentHTML('afterbegin', '<div class="tag">'+newTag+'</div>');
                     tagList.push(newTag);
-                   
+                    
                     this.value = "";
+                    console.log(this.value);
                 }
             }
 
             if (evt.keyCode == 188) {
-                 formElement.tagsInput.addEventListener('change', function(evt){
-            this.value = this.value.replace(",", "");
-        });
+                this.value = this.value.replace(",", "");
+        //          formElement.tagsInput.addEventListener('change', function(evt){
+        //     this.value = this.value.replace(",", "");
+        // });
                 
             }
         })
@@ -155,3 +158,11 @@ var simplemdeEditor = new SimpleMDE({
         delay: 1000
     }
 });
+
+
+form.onkeypress = function(e) {
+  var key = e.charCode || e.keyCode || 0;     
+  if (key == 13) {
+    e.preventDefault();
+  }
+}
