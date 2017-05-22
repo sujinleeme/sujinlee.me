@@ -12,7 +12,7 @@ A website for personal blogging and project.
 
 ## References
 #### Django third party apps
-* [django-Markdown](https://github.com/klen/django_markdown), [django-tagging](https://github.com/brosner/django-tagging), [django-runsslserver](https://github.com/teddziuba/django-sslserver)
+* [django-Markdown](https://github.com/klen/django_markdown), [django-simplemde](https://github.com/onepill/django-simplemde), [django-tagging](https://github.com/brosner/django-tagging), [django-runsslserver](https://github.com/teddziuba/django-sslserver)
 
 #### Design
 * [Personal VCard](https://dribbble.com/shots/2529393-Personal-VCard) by Ali Sayed
