@@ -35,7 +35,7 @@ source [name]/bin/activate
 
 3 - Install packages according to requirements.txt
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 :heavy_exclamation_mark: [django_markdown package Issue](https://github.com/klen/django_markdown/issues/71)
@@ -54,6 +54,10 @@ from .views import preview
 urlpatterns = [
     url('preview/$', preview, name='django_markdown_preview'),
 ]
+```
+4. DB migration
+```
+python3 manage.py migrate
 ```
 
 ## gulp

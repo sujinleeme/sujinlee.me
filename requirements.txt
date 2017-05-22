@@ -6,4 +6,4 @@ django-imagekit==3.3
 requests==2.8.1
 simplejson==3.8.1
 wheel==0.26.0
-
+django-simplemde==0.1.0

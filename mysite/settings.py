@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     'django_markdown',
     'tagging',
     'myblog',
-    'myrun',
     'sslserver',
     'imagekit',
+    'simplemde'
 ]
 
 MIDDLEWARE_CLASSES = [
