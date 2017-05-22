@@ -494,6 +494,7 @@ span.show_unlike.icon-heart {
 }
 .tag:hover {
     background: $light-gray-hover;
+    cursor: pointer;
 }
 .date {
     color: $dark-gray;

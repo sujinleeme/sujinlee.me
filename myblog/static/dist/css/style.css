@@ -430,7 +430,8 @@ span.show_unlike.icon-heart {
   transition: background 0.5s ease-in-out; }
 
 .tag:hover {
-  background: rgba(0, 0, 0, 0.1); }
+  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer; }
 
 .date {
   color: #656c7a; }

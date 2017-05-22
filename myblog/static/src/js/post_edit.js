@@ -12,9 +12,10 @@ var formElement = {
     fields : form.querySelectorAll('input[type=text]'),
     submitButton : form.querySelector('input[type=submit]'),
     resetButton : form.querySelector('input[type=reset]'),
-    tagsField : form.getElementsByClassName('tags_field'),
-    tagsInput : document.getElementById('id_tag'),
+    tagsField : form.querySelector('.tags_field'),
+    tagsInput : document.getElementById('id_tag')
 }
+
 
 
 
@@ -100,15 +101,32 @@ var formEditor = {
     },
 
     tag : function() {
+        
+        
+        
         tagList = [];
+
+
+        formElement.tagsField.insertAdjacentHTML('afterbegin', '<div class=tag-group></div>');
+        
+        tagGroup = formElement.tagsField.children[0];
+        
+        function addNewTag(tag){
+            tagList.push(tag);
+            formElement.tagsField.children[0].insertAdjacentHTML('beforeend', '<div class="tag">'+newTag+'</div>');
+        }
+        
+        
+        
         formElement.tagsInput.addEventListener('keydown', function(evt){
             
             if (!evt.target.matches("#id_tag")){
                 return;
             }
+
+            //insert new tag
             if ((evt.keyCode == 13) || (evt.keyCode == 188)){
                 str = this.value.split(",");
-                console.log(str);
                 newTag = str.slice(-1)[0].replace(/\s/g,'');
 
                 if (!/^[a-zA-Z]+$/.test(newTag)){
@@ -116,24 +134,83 @@ var formEditor = {
                     formEditor.message(error);
                     return;
                 }
-
                 else {
-                    formElement.tagsField[0].insertAdjacentHTML('afterbegin', '<div class="tag">'+newTag+'</div>');
-                    tagList.push(newTag);
+                    console.log(tagList[tagList.length - 1], newTag);
+                    addNewTag(newTag);
                     
+
+
+                    setTimeout(function(){ 
+                    formElement.tagsInput.value = "";},
+                    10);
+            
+                    // if (tagList.length === 0) {
+                       
+                    // }
+                    // else {
+                    //     for (let i = 0; i < tagList.length; i++) {
+                    //         if(tagList[i] === newTag){
+                    //             console.log("noe");
+                    //             return false;
+                    //         }
+                    //         else {
+                    //             addNewTag(newTag);
+                    //         }
+                    //     // if (newTag in tagList){
+                    //     //     console.log("no")
+                    //     // }
+                    // };
+                    }
+                    // for (let i = 0; i < tagList.length; i++) { 
+                    //     if (tagList[i] !== newTag){
+                    //         console.log(tagList[i], tagList);
+                            
+                    //     }
+                    // };
+
+                    
+                    
+                    //tagList.push(newTag);
+                    console.log(tagList);
                     this.value = "";
-                    console.log(this.value);
+
+
+
                 }
+               
+               
+            
+
+            //delete last tag element
+            if (evt.keyCode == 8){
+                tagGroup.removeChild(tagGroup.lastElementChild);
+                tagList.pop();
+                console.log(tagList);
             }
 
-            if (evt.keyCode == 188) {
-                this.value = this.value.replace(",", "");
-        //          formElement.tagsInput.addEventListener('change', function(evt){
-        //     this.value = this.value.replace(",", "");
+    });
+
+        tagGroup.addEventListener('click', function(evt){
+            let target = evt.target;
+
+            if (target.className === "tag") {
+                tagIndex = [].indexOf.call (target.parentNode.children, target);
+                tagList.splice(tagIndex, 1);
+                tagGroup.removeChild(target);
+            };
+        });
+        
+        // tagItem.forEach(function(tag){
+        //     tag.addEventListener("click", function(evt){
+        //         console.log('hi');
+        //         // evt.preventDefault();
+        //         // evt.stopPropagation();
+        //         // window.open(this.href);
+        // })
         // });
-                
-            }
-        })
+        
+
+        
 
     },
 
@@ -144,6 +221,9 @@ var formEditor = {
             msgBox.className = msgBox.className.replace("_show", "");
         }, 3000);
     }
+
+
+    //formElement.tagsInput.value(;)
 
 
 }
