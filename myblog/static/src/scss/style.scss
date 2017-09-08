@@ -18,9 +18,9 @@ $light-gray-hover: rgba(0,0,0,0.1);
 
 /* layout */
 $page_margin_reset: 0%;
-$page_margin: 3.5rem;
+$page_margin: 3rem;
 $mobile_page_margin: 3.5vh;
-$snb_left_width: 25vw; /* left navigation */
+$snb_left_width: 20vw; /* left navigation */
 $main_width: 100vw - $snb_left_width; /* right section */
 
 /* button & hover */
@@ -245,6 +245,10 @@ main { width: 100vw; }
         position: absolute;
 }
 
+.mailto {
+  font-size: 0.8rem;  
+}
+
 .ico_soical {
     display: flex;
     font-size: 0.9rem;
@@ -376,7 +380,6 @@ button, .btn_share li {
 
 .btn_back {
     margin-right: 0.1rem;
-    margin-top: -0.07rem;
 }
 .btn_back, .btn_expand, .ico_menu, .btn_gototop, {
     font-size: 3.2rem;
@@ -398,7 +401,7 @@ button, .btn_share li {
 .btn_expand {
     color: $light-gray-hover;
     top: 50%;
-    left: 28vw;
+    left: auto;    
 }
 
 .btn_gototop {
@@ -580,7 +583,7 @@ and (max-width : 480px) {
 .blog_ele header {
     position: relative;
     span {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         font-weight: 400;
     }
     h3 {
@@ -611,6 +614,10 @@ and (max-width : 480px) {
     data, a {
         color: $dark-gray !important;
     }
+}
+
+.blog_title {
+    width: 80%;
 }
 /* ------------------------------------------------ */
 
@@ -673,6 +680,7 @@ and (max-width : 480px) {
     .detail {
         display: flex;
         width: 100%;
+        height: 100%;        
         .btn_read {
             width: 10%;
         }
@@ -683,6 +691,15 @@ and (max-width : 480px) {
 
 /* Post Detail ----------------------------------- */
 // blog post detail
+.page_title {
+    line-height: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    display: flex;
+    a, h1 {
+        margin-bottom: 0;        
+    }
+}
 #post_wrap_v1 {
     padding-top: $page_margin;
     position: relative;
