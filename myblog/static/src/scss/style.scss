@@ -625,7 +625,8 @@ line-height: 0.9rem;
 }
 
 .blog_title {
-width: 80%;
+width: 100%;
+margin-right: 3rem;
 }
 /* ------------------------------------------------ */
 
@@ -686,9 +687,9 @@ width: 100%;
 height: 100%;
 }
 .detail {
+width: 100%; 
 display: flex;
-width: 100%;
-height: 100%;        
+height: 100%;
 .btn_read {
 width: 10%;
 }
@@ -830,9 +831,6 @@ display: none;
 }
 header {
 width: 65%;
-h2, h3 {
-width: 90%;
-}
 }
 footer {
 position: relative;
