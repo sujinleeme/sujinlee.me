@@ -322,7 +322,7 @@ margin: 0 2rem;
 }
 
 .disqus {
-padding: 0 $page_margin;
+padding: $page_margin 0 0 0;
 position: relative;
 a { color: $theme-col; }
 }

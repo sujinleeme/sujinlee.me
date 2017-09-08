@@ -117,3 +117,11 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+/*-- Disqus Comment --*/
+(function() {
+    var d = document,
+        s = d.createElement('script');
+    s.src = '//sujinlee.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();

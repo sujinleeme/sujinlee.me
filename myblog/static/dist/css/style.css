@@ -265,7 +265,7 @@ article {
   margin: 0 2rem; }
 
 .disqus {
-  padding: 0 3rem;
+  padding: 3rem 0 0 0;
   position: relative; }
   .disqus a {
     color: #1f00ff; }
