@@ -530,7 +530,8 @@ span.show_unlike.icon-heart {
     line-height: 0.9rem; }
 
 .blog_title {
-  width: 80%; }
+  width: 100%;
+  margin-right: 3rem; }
 
 /* ------------------------------------------------ */
 /* Smartphones (portrait and landscape) ----------- */
@@ -576,8 +577,8 @@ span.show_unlike.icon-heart {
     width: 100%;
     height: 100%; }
   .blog_ele .detail {
-    display: flex;
     width: 100%;
+    display: flex;
     height: 100%; }
     .blog_ele .detail .btn_read {
       width: 10%; }
@@ -689,8 +690,6 @@ article {
       display: none; }
     .blog_ele header {
       width: 65%; }
-      .blog_ele header h2, .blog_ele header h3 {
-        width: 90%; }
     .blog_ele footer {
       position: relative;
       bottom: 0;
