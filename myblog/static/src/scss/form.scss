@@ -19,68 +19,68 @@ $header_font_size: 1.5rem;
 $line_height: 40px;
 
 #snb_left_box {
-  width: $snb_left_width_home !important;
-  display: none;
+width: $snb_left_width_home !important;
+display: none;
 }
 
 nav {
-  display: none;
+display: none;
 }
 
 main {
-  overflow-y: auto;
-  width: $main_width_home !important;
+overflow-y: auto;
+width: $main_width_home !important;
 }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: $light-gray;
-  text-transform: uppercase;
-  font-size: 0.875em;
+color: $light-gray;
+text-transform: uppercase;
+font-size: 0.875em;
 }
 
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
-  color: $light-gray;
+color: $light-gray;
 }
 
 input[type='date'], input[type='time'] {
-    -webkit-appearance: none;
+-webkit-appearance: none;
 }
 
 
 #form_wrap {
-  form{ 
-    width: 100%;
-  }
-  header {
-    z-index: 9;
-    display: flex;
-    justify-content: space-between;
-    padding: $page_margin;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    margin-left: - $page_margin * 2;
-    background: #fff;
-    height: $header_font_size;
-    border-bottom: 1px solid $light-gray-hover;
-    a, a:visited {
-      color: $theme-col;
-    }
-    a:hover {
-      color: $accent-col;
-      transition: color 0.5s all;
-    }
-    
-    h1 {
-      font-size: $header_font_size;
-      line-height: $page_margin;
-      margin: 0 $page_margin;
-    }
-  }
+form{ 
+width: 100%;
+}
+header {
+z-index: 9;
+display: flex;
+justify-content: space-between;
+padding: $page_margin;
+position: fixed;
+width: 100%;
+top: 0;
+margin-left: - $page_margin * 2;
+background: #fff;
+height: $header_font_size;
+border-bottom: 1px solid $light-gray-hover;
+a, a:visited {
+color: $theme-col;
+}
+a:hover {
+color: $accent-col;
+transition: color 0.5s all;
+}
+
+h1 {
+font-size: $header_font_size;
+line-height: $page_margin;
+margin: 0 $page_margin;
+}
+}
 }
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-  background: transparent;
+background: transparent;
 }
 
 // input::-moz-placeholder, textarea::-moz-placeholder {
@@ -94,7 +94,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 // input::placeholder, textarea::placeholder {
 //   color: $dark-light-gray;
-  
+
 //   font-size: 0.9rem;
 // }
 
@@ -151,34 +151,34 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 
 input {
-  font-size: 1rem;
-  width: 100%;
-  height: 50px;
-  background: transparent;
-  outline: none;
-  color: $black;
-  border-bottom: none;
-  transition: all 0.3s ease-in-out;
-  font-family: 'Poppins',sans-serif;
+font-size: 1rem;
+width: 100%;
+height: 50px;
+background: transparent;
+outline: none;
+color: $black;
+border-bottom: none;
+transition: all 0.3s ease-in-out;
+font-family: 'Poppins',sans-serif;
 }
 
 input#id_tag {
-    color: $theme-col;
+color: $theme-col;
 }
 
 
 
 textarea {
-  width: 100%;
-  padding: 15px;
-  font-size: 1.3rem;
-  line-height: 1.5rem;
-  background: transparent;
-  outline: none;
-  font-weight: 300;
-  color: $dark-light-gray;;
-  font-size: 1.3rem;
-  transition: all 0.3s ease-in-out;
+width: 100%;
+padding: 15px;
+font-size: 1.3rem;
+line-height: 1.5rem;
+background: transparent;
+outline: none;
+font-weight: 300;
+color: $dark-light-gray;;
+font-size: 1.3rem;
+transition: all 0.3s ease-in-out;
 }
 
 /* Change Autocomplete styles in Chrome*/
@@ -192,152 +192,152 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: #fff;
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-  transition: background-color 5000s ease-in-out 0s;
+-webkit-text-fill-color: #fff;
+-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+transition: background-color 5000s ease-in-out 0s;
 }
 .btn_wrap {
-  margin-right: $page_margin * 2;
-  display: inline-flex;
+margin-right: $page_margin * 2;
+display: inline-flex;
 }
 .form-btn {
-  width: 5rem;
-  height: 2rem;
-  text-transform: uppercase;
-  font-family: 'Poppins',sans-serif;
-  font-weight: 400;
-  padding: 0;
-  font-size: 0.9rem;
-  background: $theme-col;
-  color: #fff;
-  outline:none;
-  text-align: center;
-  cursor: pointer;
-  &:nth-child(n+1){
-    margin-right: 0.5rem;
-  }
-  &:hover{
-    background: $accent-col;
-    transition: background 0.5s all;
-    
-  }
+width: 5rem;
+height: 2rem;
+text-transform: uppercase;
+font-family: 'Poppins',sans-serif;
+font-weight: 400;
+padding: 0;
+font-size: 0.9rem;
+background: $theme-col;
+color: #fff;
+outline:none;
+text-align: center;
+cursor: pointer;
+&:nth-child(n+1){
+margin-right: 0.5rem;
+}
+&:hover{
+background: $accent-col;
+transition: background 0.5s all;
+
+}
 }
 
 
 
 input, textarea {
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid $light-gray-hover;
+width: 100%;
+border: 0;
+border-bottom: 1px solid $light-gray-hover;
 }
 #id_title {
-  font-size: 2rem;
-  font-weight: 600;
+font-size: 2rem;
+font-weight: 600;
 }
 
 input#id_image {
-    font-size: 1rem;
-    margin-top: 12px;
-    display: inline-flex;
+font-size: 1rem;
+margin-top: 12px;
+display: inline-flex;
 }
 
 .select-box {
-  display: inline-flex;
+display: inline-flex;
 }
 
 .label-desc {
-  font-size: 1.4rem;
-  vertical-align: text-bottom;
-  line-height: $line_height;
-  padding: 0 1rem 0 0;
+font-size: 1.4rem;
+vertical-align: text-bottom;
+line-height: $line_height;
+padding: 0 1rem 0 0;
 }
 
 input[type='file']{
-  line-height: $line_height;
-  border: none;
-  border: 0;
-    color: inherit;
+line-height: $line_height;
+border: none;
+border: 0;
+color: inherit;
 }
 
 select {
-  background: #fff;
-  width: 50%;
-  padding: 5px 0;
-  height: $line_height;
-  font-size: 1rem;
-  border: none;
-  &:after {
-    padding: 30px;
-  }
+background: #fff;
+width: 50%;
+padding: 5px 0;
+height: $line_height;
+font-size: 1rem;
+border: none;
+&:after {
+padding: 30px;
+}
 }
 
 select:focus {
-    outline: none;
+outline: none;
 }
 
 
 option {
-  width: 100%;
+width: 100%;
 }
 
 
 .message {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: $black;
-    color: #fff;
-    text-align: center;
-    border-radius: 4px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    bottom: 30px;
-    font-size: 1rem;
-    &._show {
-      visibility: visible;
-      animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    }
+visibility: hidden;
+min-width: 250px;
+margin-left: -125px;
+background-color: $black;
+color: #fff;
+text-align: center;
+border-radius: 4px;
+padding: 16px;
+position: fixed;
+z-index: 1;
+left: 50%;
+bottom: 30px;
+font-size: 1rem;
+&._show {
+visibility: visible;
+animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
 }
 
 @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+from {bottom: 0; opacity: 0;}
+to {bottom: 30px; opacity: 1;}
 }
 
 @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
+from {bottom: 30px; opacity: 1;}
+to {bottom: 0; opacity: 0;}
 }
 
 
 .form_field {
-  padding-top: $page_margin * 2;
+padding-top: $page_margin * 2;
 }
 
 #id_tag {
-  width: 30%;
-  border: none;
+width: 30%;
+border: none;
 }
 .tags_field{
-  display: inline-flex;
-  width: 100%;
+display: inline-flex;
+width: 100%;
 }
 
 .tag-group {
-  display: flex;
-  height: 50%;
-  
-  .tag {
-    padding: 0.5rem;
-    margin: 0.5rem 0.5rem 0.5rem 0;
+display: flex;
+height: 50%;
 
-    &:after{
-      font-family: 'Material Icons';
-      content: '\E5CD';
-      vertical-align: middle;
-      padding-left: 0.5rem;
-    }
-  }
+.tag {
+padding: 0.5rem;
+margin: 0.5rem 0.5rem 0.5rem 0;
+
+&:after{
+font-family: 'Material Icons';
+content: '\E5CD';
+vertical-align: middle;
+padding-left: 0.5rem;
+}
+}
 }

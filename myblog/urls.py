@@ -8,6 +8,7 @@ urlpatterns = [
     
     #markdownx
     url('^markdown/', include( 'django_markdown.urls')),
+    
 
     #project
     url(r'^project/$', views.project_list, name='project_list'),
@@ -20,9 +21,10 @@ urlpatterns = [
     url(r'^blog/new/$', views.post_create, name='post_new'),
     url(r'^blog/(?P<slug>(?!new)[-_\w]*)/edit/$', views.post_edit, name='post_edit'),
 
-
     #about
-    url(r'^about/$', views.about, name='about'),
+    url(r'^about/$', views.about_list, name='about_list'),
+    url(r'^about/(?P<slug>(?!new)[-_\w]*)/$', views.about_detail, name='about_detail'),
+
     
     #likes 
     url(r'^like_count_blog/$', views.like_count_blog, name='like_count_blog'),
