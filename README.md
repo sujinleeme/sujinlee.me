@@ -11,8 +11,17 @@ A website for personal blogging and project.
 - version 1. : 2016. 3.
 
 ## References
-#### Django third party apps
-* [django-Markdown](https://github.com/klen/django_markdown), [django-simplemde](https://github.com/onepill/django-simplemde), [django-tagging](https://github.com/brosner/django-tagging), [django-runsslserver](https://github.com/teddziuba/django-sslserver)
+##### Django third party apps
+* [django-Markdown](https://github.com/klen/django_markdown)
+* [django-simplemde](https://github.com/onepill/django-simplemde)
+* [django-tagging](https://github.com/brosner/django-tagging)
+* [django-runsslserver](https://github.com/teddziuba/django-sslserver)
+
+##### Built with
+* HTML & SCSS, Javascript
+* Framework: Django 1.10
+* Build Tools: Gulp
+* Editor: Markdown, KaTeX
 
 #### Design
 * [Personal VCard](https://dribbble.com/shots/2529393-Personal-VCard) by Ali Sayed
