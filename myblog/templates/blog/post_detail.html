@@ -14,6 +14,7 @@
 <meta property="og:url" content="http://www.sujinlee.me/blog/{{post.slug }}/" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
 {% block stylesheet %}
+<script id="dsq-count-scr" src="//sujinlee.disqus.com/count.js" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
 {% endblock %}
@@ -85,6 +86,7 @@
       </a>
     </ul>
   </footer>
+  <div class="disqus" id="disqus_thread"></div>  
 </article>
 <nav id="pagination">
   {% if previous %}
@@ -106,7 +108,6 @@
   {% endif %}
 </nav>
 
-<!--<div class="disqus" id="disqus_thread"></div>-->
 <button class="btn_expand material-icons">keyboard_arrow_left</button>
 <button class="btn_gototop material-icons">keyboard_arrow_up</button>
 
