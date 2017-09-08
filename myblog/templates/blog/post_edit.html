@@ -34,26 +34,22 @@
       <div class="select-box">
       <span class="label-desc icon-folder"></span> </label>
       {{ form.category }}
-      
       <span class="label-desc icon-picture"></span>{{ form.image }}
       </div>
         
      {{form.published_date}}
      {{ form.title }}
      {{ form.summary }}
-
      {{ form.body }}
-     
-      <div class="tags_field">{{ form.tag }}</div>
- 
-     {% if form.errors %}
-     {% endif %}
-     {{ form.errors.slug }}
-     {{ form.slug }}
-       </div>
+  
+     <div class="tags_field">{{ form.tag }}</div>
+      {% if form.errors %}
+      {% endif %}
+      {{ form.errors.slug }}
+      {{ form.slug }}
+      </div>
     </form>
     </div>
-  
   </div>
   <div class="message"></div>
   <button class="btn_gototop material-icons">keyboard_arrow_up</button>
@@ -62,7 +58,5 @@
 {% block jsblock %}
 <script src="{% static 'src/js/highlight.pack.js' %}"></script>
 <script src="{% static 'src/js/post_edit.js' %}"></script>
-<script src="http://code.jquery.com/jquery-3.1.1.slim.min.js" charset="utf-8"></script>
-
 <script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}

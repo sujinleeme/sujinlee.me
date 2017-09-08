@@ -9,7 +9,6 @@ urlpatterns = [
     #markdownx
     url('^markdown/', include( 'django_markdown.urls')),
     
-
     #project
     url(r'^project/$', views.project_list, name='project_list'),
     url(r'^project/(?P<slug>[-_\w]*)/$', views.project_detail, name='project_detail'),
@@ -25,7 +24,6 @@ urlpatterns = [
     url(r'^about/$', views.about_list, name='about_list'),
     url(r'^about/(?P<slug>(?!new)[-_\w]*)/$', views.about_detail, name='about_detail'),
 
-    
     #likes 
     url(r'^like_count_blog/$', views.like_count_blog, name='like_count_blog'),
     url(r'^like_count_project/$', views.like_count_project, name='like_count_project'),
@@ -36,7 +34,4 @@ urlpatterns = [
 
     #404 error
     url(r'^404/$', django.views.defaults.page_not_found, name="custom_404"),
-
-
-    
 ]
