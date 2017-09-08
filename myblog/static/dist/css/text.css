@@ -30,7 +30,7 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: 'Poppins',sans-serif;
+  font-family: 'Poppins','NanumSquare', sans-serif;
   color: #232528;
   word-wrap: break-word;
   display: flex;
@@ -352,7 +352,7 @@ strong {
   color: #f1fa8c; }
 
 .hljs-comment, .hljs-quote, .hljs-deletion, .hljs-meta {
-  color: #6272a4; }
+  color: #889fe8; }
 
 .hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-title, .hljs-section, .hljs-doctag, .hljs-type, .hljs-name, .hljs-strong {
   font-weight: bold; }

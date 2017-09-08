@@ -12,14 +12,22 @@ from django.template import RequestContext
 from tagging.models import Tag, TaggedItem
 from tagging.views import TaggedObjectList
 
-from .models import Post, Project, Category
+from .models import Post, Project, Category, About
 from .forms import PostForm
 
 def index(request):
     return render(request, 'blog/index.html')
 
-def about(request):
-    return render(request, 'blog/about.html')
+#about
+def about_list(request):
+    abouts = About.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/about.html', {'abouts':abouts})
+
+def about_detail(request, pk):
+    about = get_object_or_404(About, pk=pk)
+    context = {'about':about}
+    return render(request,'about/about_detail.html', context)
+
 
 #blog
 def post_list(request):
@@ -81,8 +89,6 @@ def post_edit(request, slug):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
-
-
 
 # project
 def project_list(request):

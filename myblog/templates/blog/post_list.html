@@ -23,10 +23,12 @@
     {% for post in posts %}
       <li class="blog_ele" onclick="location.href='{% url 'post_detail' slug=post.slug %}';">
         <header>
-          <span class="date">{{ post.published_date }}</span>
-          <h3>{{ post.summary|truncatechars:60 }}</h3>
           <div class="detail">
-            <h2>{{ post.title|truncatechars:48 }}</h2>
+            <div class="blog_title">
+              <span class="date">{{ post.published_date }}</span>  
+              <h2>{{ post.title|truncatechars:48 }}</h2>
+              <h3>{{ post.summary|truncatechars:60 }}</h3> 
+            </div>           
             <button class="btn_read material-icons">arrow_forward</button>
           </div>
           <footer>

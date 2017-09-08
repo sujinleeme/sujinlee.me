@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Sujin Lee | Creative Developer">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">    
     <link rel="icon" type="image/png" href="{% static 'image/background/favicon_logo.png' %}">
     {% block title %}
     <title>Sujin Lee - Creative Developer</title>
@@ -20,17 +18,17 @@
     <meta property="og:title" content="Sujin Lee" />
     <meta property="og:author" content="https://www.facebook.com/sujinlee.me" />
     {% block ogtags %}
-      <meta property="og:type" content="website" />
-      <meta property="og:description" content="The connectivist" />
-      <meta property="og:image"content="https://www.sujinlee.me/static/image/background/profile-about.png" />
-      <meta property="og:url" content="https://www.sujinlee.me/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="The connectivist" />
+    <meta property="og:image"content="https://www.sujinlee.me/static/image/background/profile-about.png" />
+    <meta property="og:url" content="https://www.sujinlee.me/" />
     {% endblock %}
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
-    <!--<link rel="stylesheet" href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css">-->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" >    
     <!-- css -->
     <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'dist/css/text.css' %}">
@@ -60,7 +58,7 @@
             <div class="contact">
             <ul>
               <li class="title">EMAIL</li>
-              <li><a href="mailto:sujinlee.me@gmail.com">sujinlee.me@gmail.com</a></li>
+              <li class="mailto"><a href="mailto:sujinlee.me@gmail.com">sujinlee.me@gmail.com</a></li>
             </ul>
             <ul>
                 <li class="title">Find Me On</li>

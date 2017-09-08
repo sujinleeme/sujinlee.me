@@ -1,10 +1,7 @@
 from django.db import models
 from django.utils import timezone
-
 from django_markdown.models import MarkdownField
-
 from tagging.fields import TagField
-
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
@@ -74,3 +71,19 @@ class Project(models.Model):
         self.published_date = timezone.now()
         self.status == self.STATUS_PUBLIC
         self.save()
+
+class About(models.Model):
+    author = models.ForeignKey('auth.User')
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    created_date = models.DateTimeField(
+            default=timezone.now)
+    published_date = models.DateTimeField(
+            blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.title
