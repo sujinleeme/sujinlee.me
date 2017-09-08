@@ -515,12 +515,19 @@ span.show_unlike.icon-heart {
 .blog_ele footer {
   padding-left: 0.045rem;
   position: absolute;
-  bottom: 0; }
+  bottom: 0;
+  display: inline-flex;
+  vertical-align: middle; }
   .blog_ele footer .icon-heart {
-    color: #1f00ff;
-    vertical-align: middle; }
+    color: #1f00ff; }
+  .blog_ele footer .icon-bubble {
+    padding-left: 0.5rem; }
   .blog_ele footer data, .blog_ele footer a {
-    color: #656c7a !important; }
+    color: #656c7a !important;
+    font-size: 0.9rem;
+    vertical-align: middle;
+    margin: auto;
+    line-height: 0.9rem; }
 
 .blog_title {
   width: 80%; }

@@ -607,12 +607,20 @@ margin-top: 0;
 padding-left: 0.045rem;
 position: absolute;
 bottom: 0;
+display: inline-flex;
+vertical-align: middle;
 .icon-heart {
 color: $theme-col;
-vertical-align: middle;
+}
+.icon-bubble {
+padding-left: 0.5rem;
 }
 data, a {
 color: $dark-gray !important;
+font-size: 0.9rem;
+vertical-align: middle;
+margin: auto;
+line-height: 0.9rem;
 }
 }
 

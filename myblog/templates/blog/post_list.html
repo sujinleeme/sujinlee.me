@@ -12,7 +12,9 @@
 <meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
 <meta property="og:url" content="http://www.sujinlee.me/project/" />
 {% endblock %}
-
+{% block stylesheet %}
+<script id="dsq-count-scr" src="//sujinlee.disqus.com/count.js" async></script>
+{% endblock %}
 {% block content %}
 <header class="page_title">
   <h1>BLOG</h1>
@@ -23,9 +25,9 @@
     {% for post in posts %}
       <li class="blog_ele" onclick="location.href='{% url 'post_detail' slug=post.slug %}';">
         <header>
+          <span class="date">{{ post.published_date }}</span>
           <div class="detail">
             <div class="blog_title">
-              <span class="date">{{ post.published_date }}</span>  
               <h2>{{ post.title|truncatechars:48 }}</h2>
               <h3>{{ post.summary|truncatechars:60 }}</h3> 
             </div>           
@@ -34,6 +36,8 @@
           <footer>
           <span class="icon-heart"></span>
           <data>{{ post.likes }}</data>
+          <span class="icon-bubble"></span>
+          <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a>
           </footer>
         </header>
         <picture>
