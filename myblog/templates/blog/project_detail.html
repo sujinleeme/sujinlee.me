@@ -121,11 +121,10 @@
         action_type: 'og.shares',
         action_properties: JSON.stringify({
           object: {
-            'og:url': 'http://sujinlee.me/project/{{ project.slug }}',
+            'og:url': 'http://www.sujinlee.me/project/{{ project.slug }}',
             'og:title': '{{ project.title }} - Sujin Lee',
             'og:description': '{{ project.summary|truncatechars:230 }}',
             'og:image': 'http://www.sujinlee.me/{{ project.image.url }}/',
-            'og:type': 'article',
           }
         })
       });
