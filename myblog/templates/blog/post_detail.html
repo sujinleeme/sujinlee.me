@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block ogtags %}
-<meta property="og:type"   content="website" /> 
+<meta property="og:type"   content="article" /> 
 <meta property="og:title" content="{{ post.title }} - Sujin Lee" />
 <meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
 <meta property="og:image" content="http://www.sujinlee.me/{{ post.image.url }}" />
@@ -150,7 +150,7 @@ hljs.initHighlightingOnLoad();
             'og:title': '{{ blog.title }}',
             'og:description': '{{ blog.summary|truncatechars:230 }}',
             'og:image': 'http://www.sujinlee.me/{{ blog.image.url }}/',
-            'og:type': 'Sujin Lee:blog',
+            'og:type': 'article',
           }
         })
       });
