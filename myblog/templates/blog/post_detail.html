@@ -1,26 +1,16 @@
-{% extends 'blog/base.html' %}
-{% load staticfiles %}
-{% load django_markdown %}
-
-{% block title %}
+{% extends 'blog/base.html' %} {% load staticfiles %} {% load django_markdown %} {% block title %}
 <title>{{ post.title }} - Sujin Lee</title>
-{% endblock %}
-
-{% block ogtags %}
-<meta property="og:type" content="Sujin Lee:Post" />
+{% endblock %} {% block ogtags %}
+<meta property="og:type" content="website" />
 <meta property="og:title" content="{{ post.title }} - Sujin Lee" />
 <meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
 <meta property="og:image" content="http://www.sujinlee.me/{{ post.image.url }}" />
 <meta property="og:url" content="http://www.sujinlee.me/blog/{{post.slug }}/" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
-{% block stylesheet %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"> {% block stylesheet %}
 <script id="dsq-count-scr" src="//sujinlee.disqus.com/count.js" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
-{% endblock %}
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% endblock %} {% block content %}
 <header class="page_title">
   <a href="/blog"><button class="btn_back material-icons">keyboard_backspace</button></a>
   <h1>BLOG</h1>
@@ -47,8 +37,7 @@
   {% if tags %}
   <div class="tag_box">
     {% for tag in tags %}
-    <a href= "{% url 'tagged_object_list' tag.name %}" class="tag">{{tag.name}}</a>
-    {% endfor %}
+    <a href="{% url 'tagged_object_list' tag.name %}" class="tag">{{tag.name}}</a> {% endfor %}
   </div>
   {% endif%}
   <footer class="share_container">
@@ -57,36 +46,29 @@
         <div class="btn_like blog-like" data-post-id="{{post.id}}">
           {% if liked %}
           <span class="show_like icon-heart"></span>
-          <span class="show_unlike icon-heart" style="display: none"></span>
-          {% else %}
-          <span class="show_like icon-heart "  style="display: none"></span>
-          <span class="show_unlike icon-heart "></span>
-          {% endif %}
+          <span class="show_unlike icon-heart" style="display: none"></span> {% else %}
+          <span class="show_like icon-heart " style="display: none"></span>
+          <span class="show_unlike icon-heart "></span> {% endif %}
         </div>
         <span class="like_count">{{ post.likes }}</span>
       </li>
       <li><span class="icon-bubble"></span><a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a></li>
     </ul>
     <ul>
-      <a class="facebook btn_share"
-        href = "http://www.facebook.com/share.php?u=http://www.sujinlee.me/blog/{{ post.slug }}"
-        onclick="return fbshare()">
+      <a class="facebook btn_share" href="http://www.facebook.com/share.php?u=http://www.sujinlee.me/blog/{{ post.slug }}" onclick="return fbshare()">
         <li class="icon-social-facebook"></li>
       </a>
-      <a class="twitter btn_share"
-        href="http://twitter.com/share?url=http://www.sujinlee.me/blog/{{ post.slug }}
+      <a class="twitter btn_share" href="http://twitter.com/share?url=http://www.sujinlee.me/blog/{{ post.slug }}
         &amp;text={{ post.title }} http://www.sujinlee.me/blog/{{ post.slug }} via @sujinleeme &amp;hashtags={{ post.category.title }}"
         title="Twitter Share">
         <li class="icon-social-twitter"></li>
       </a>
-      <a class="google_plus btn_share"
-        href="https://plus.google.com/share?url=http://www.sujinlee.me/blog/{{ post.slug }}"
-        title="Google Plus Share">
+      <a class="google_plus btn_share" href="https://plus.google.com/share?url=http://www.sujinlee.me/blog/{{ post.slug }}" title="Google Plus Share">
         <li class="icon-social-google"></li>
       </a>
     </ul>
   </footer>
-  <div class="disqus" id="disqus_thread"></div>  
+  <div class="disqus" id="disqus_thread"></div>
 </article>
 <nav id="pagination">
   {% if previous %}
@@ -96,8 +78,7 @@
       <h2 class="title-left">{{ previous.title|truncatechars:46 }}</h2>
     </div>
   </div>
-  {% endif %}
-  {% if next %}
+  {% endif %} {% if next %}
   <div class="pagination_col" onclick="location.href='{% url 'post_detail' slug=next.slug %}';">
     <div class="next_page">
       <h2 class="title-left">{{ next.title|truncatechars:46 }}</h2>
@@ -109,51 +90,57 @@
 </nav>
 
 <button class="btn_expand material-icons">keyboard_arrow_left</button>
-<button class="btn_gototop material-icons">keyboard_arrow_up</button>
-
-{% if user.is_authenticated %}
-<a href="{% url 'post_edit' slug=post.slug %}"><button class="btn_write material-icons">create</button></a>
-{% endif %}
-{% endblock %}
-
-{% block jsblock %}
+<button class="btn_gototop material-icons">keyboard_arrow_up</button> {% if user.is_authenticated %}
+<a href="{% url 'post_edit' slug=post.slug %}"><button class="btn_write material-icons">create</button></a> {% endif %} {%
+endblock %} {% block jsblock %}
 <script src="{% static 'src/js/highlight.pack.js' %}"></script>
 <script src="{% static 'src/js/post_detail.js' %}"></script>
 
 <script>
-hljs.initHighlightingOnLoad();
-        window.onload = loadPreImage();
-        renderMathInElement(
-          document.body,
-          {
-              delimiters: [
-                  {left: "$$", right: "$$", display: true},
-                  {left: "\\[", right: "\\]", display: true},
-                  {left: "$", right: "$", display: false},
-                  {left: "\\(", right: "\\)", display: false}
-              ]
-          }
-      );
-
+  hljs.initHighlightingOnLoad();
+  window.onload = loadPreImage();
+  renderMathInElement(
+    document.body, {
+      delimiters: [{
+          left: "$$",
+          right: "$$",
+          display: true
+        },
+        {
+          left: "\\[",
+          right: "\\]",
+          display: true
+        },
+        {
+          left: "$",
+          right: "$",
+          display: false
+        },
+        {
+          left: "\\(",
+          right: "\\)",
+          display: false
+        }
+      ]
+    }
+  );
 </script>
-{% endblock %}
-
-{% block facebookShare %}
+{% endblock %} {% block facebookShare %}
 <script>
   function fbshare() {
     FB.ui({
-        method: 'share_open_graph',
-        action_type: 'og.shares',
-        action_properties: JSON.stringify({
-          object: {
-            'og:url': 'http://sujinlee.me/blog/{{ blog.slug }}',
-            'og:title': '{{ blog.title }}',
-            'og:description': '{{ blog.summary|truncatechars:230 }}',
-            'og:image': 'http://www.sujinlee.me/{{ blog.image.url }}/',
-            'og:type': 'Sujin Lee:blog',
-          }
-        })
-      });
+      method: 'share_open_graph',
+      action_type: 'og.shares',
+      action_properties: JSON.stringify({
+        object: {
+          'og:url': 'http://sujinlee.me/blog/{{ blog.slug }}',
+          'og:title': '{{ blog.title }}',
+          'og:description': '{{ blog.summary|truncatechars:230 }}',
+          'og:image': 'http://www.sujinlee.me/{{ blog.image.url }}/',
+          'og:type': 'Sujin Lee:blog',
+        }
+      })
+    });
   }
 </script>
 {% endblock %}

@@ -1,114 +1,113 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Sujin Lee | Creative Developer">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">    
-    <link rel="icon" type="image/png" href="{% static 'image/background/favicon_logo.png' %}">
-    {% block title %}
-    <title>Sujin Lee - Creative Developer</title>
-    {% endblock %}
-    <!-- meta tags -->
-    <meta property="fb:app_id" content="1081681621896558" />
-    <meta property="og:site_name" content="Sujin Lee" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="ko" />
-    <meta property="og:title" content="Sujin Lee" />
-    <meta property="og:author" content="https://www.facebook.com/sujinlee.me" />
-    {% block ogtags %}
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="The connectivist" />
-    <meta property="og:image"content="https://www.sujinlee.me/static/image/background/profile-about.png" />
-    <meta property="og:url" content="https://www.sujinlee.me/" />
-    {% endblock %}
-    <!-- fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" >    
-    <!-- css -->
-    <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'dist/css/text.css' %}">
-    {% block stylesheet %}
-    {% endblock %}
-  </head>
-  <!-- contents -->
-  <body>
-    <div id="wrap">
-      <nav>
-        <menu class="menu ico_menu">
-          <span></span>
-        </menu>
-        <menuitem class="gnb">
-          <ul>
-            <li><a class="" href="/" >HOME</a></li>
-            <li><a class="" href="/blog" >BLOG</a></li>
-            <li><a class="" href="/project" >PROJECT</a></li>
-            <li><a class="" href="/about" >ABOUT</a></li>
-          </ul>
-        </menuitem>
-      </nav>
-      <div id="container">
-        <div id="snb_left_box">
-          <aside class="snb_left">
-            <h1><a href="/">Sujin Lee</a></h1>
-            <div class="contact">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sujin Lee | Creative Developer">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="icon" type="image/png" href="{% static 'image/background/favicon_logo.png' %}"> {% block title %}
+  <title>Sujin Lee - Creative Developer</title>
+  {% endblock %}
+  <!-- meta tags -->
+  <meta property="fb:app_id" content="1081681621896558" />
+  <meta property="og:site_name" content="Sujin Lee" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ko" />
+  <meta property="og:title" content="Sujin Lee" />
+  <meta property="og:author" content="https://www.facebook.com/sujinlee.me" /> {% block ogtags %}
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="The connectivist" />
+  <meta property="og:image" content="https://www.sujinlee.me/static/image/background/profile-about.png" />
+  <meta property="og:url" content="https://www.sujinlee.me/" /> {% endblock %}
+  <!-- fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700">
+  <!-- css -->
+  <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'dist/css/text.css' %}"> {% block stylesheet %} {% endblock %}
+</head>
+<!-- contents -->
+
+<body>
+  <div id="wrap">
+    <nav>
+      <menu class="menu ico_menu">
+        <span></span>
+      </menu>
+      <menuitem class="gnb">
+      <ul>
+        <li><a class="" href="/">HOME</a></li>
+        <li><a class="" href="/blog">BLOG</a></li>
+        <li><a class="" href="/project">PROJECT</a></li>
+        <li><a class="" href="/about">ABOUT</a></li>
+      </ul>
+      </menuitem>
+    </nav>
+    <div id="container">
+      <div id="snb_left_box">
+        <aside class="snb_left">
+          <h1><a href="/">Sujin Lee</a></h1>
+          <div class="contact">
             <ul>
               <li class="title">EMAIL</li>
               <li class="mailto"><a href="mailto:sujinlee.me@gmail.com">sujinlee.me@gmail.com</a></li>
             </ul>
             <ul>
-                <li class="title">Find Me On</li>
-                <ul class="ico_soical">
-                  <li ><a class="icon-social-github" href="http://www.github.com/sujinleeme" target="_blank"></a></li>
-                  <li ><a class="icon-social-linkedin" href="http://www.linkedin.com/in/leesujin" target="_blank"></a></li>
-                  <li ><a class="icon-social-facebook" href="http://www.facebook.com/sujinlee.me" target="_blank"></a></li>
-                  <li ><a class="icon-social-twitter" href="http://www.twitter.com/sujinleeme" target="_blank"></a></li>
-                  <li ><a class="icon-social-instagram" href="http://www.instagram.com/sujinlee.me/" target="_blank"></a></li>
-                </ul>
+              <li class="title">Find Me On</li>
+              <ul class="ico_soical">
+                <li><a class="icon-social-github" href="http://www.github.com/sujinleeme" target="_blank"></a></li>
+                <li><a class="icon-social-linkedin" href="http://www.linkedin.com/in/leesujin" target="_blank"></a></li>
+                <li><a class="icon-social-facebook" href="http://www.facebook.com/sujinlee.me" target="_blank"></a></li>
+                <li><a class="icon-social-twitter" href="http://www.twitter.com/sujinleeme" target="_blank"></a></li>
+                <li><a class="icon-social-instagram" href="http://www.instagram.com/sujinlee.me/" target="_blank"></a></li>
               </ul>
-            </div>
-          </aside>
+            </ul>
           </div>
-          <main>
-            <div id="main_box">
-              {% block content %}{% endblock %}
-            </div>
-          </main>
-        </div>
+        </aside>
       </div>
+      <main>
+        <div id="main_box">
+          {% block content %}{% endblock %}
+        </div>
+      </main>
     </div>
+  </div>
+  </div>
 
 
-    {% block basejsblock %}
-    <!-- javascript -->
-    <!-- disqus -->
-    <!--<script scr="//sujinlee.disqus.com/embed.js"></script>
+  {% block basejsblock %}
+  <!-- javascript -->
+  <!-- disqus -->
+  <!--<script scr="//sujinlee.disqus.com/embed.js"></script>
     <script src="//sujinlee.disqus.com/count.js" id="dsq-count-scr" async></script>-->
-    
-    <!-- build:js -->
-    <script src="{% static 'src/js/baseUI.js' %}"></script>
-    <!-- endbuild -->
-    
-    <!--google-analytics-->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-53782262-2', 'auto');
-      ga('send', 'pageview');
-    </script>
-    {% endblock %}
 
-    {% block facebookShare %}
-    {% endblock %}
-    
-    {% block jsblock %}
-    {% endblock %}
-  </body>
-  <!-- end -->
+  <!-- build:js -->
+  <script src="{% static 'src/js/baseUI.js' %}"></script>
+  <!-- endbuild -->
+
+  <!--google-analytics-->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-53782262-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+  {% endblock %} {% block facebookShare %} {% endblock %} {% block jsblock %} {% endblock %}
+</body>
+<!-- end -->
+
 </html>
