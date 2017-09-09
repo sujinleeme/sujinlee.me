@@ -1,7 +1,6 @@
 from django import forms
 from django.forms import CharField
 from django.core import validators
-
 from .models import Post
 from django_markdown.fields import MarkdownFormField
 

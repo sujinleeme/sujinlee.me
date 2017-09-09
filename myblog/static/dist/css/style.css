@@ -20,7 +20,8 @@ mark {
   color: #1f00ff; }
 
 /* animation on external link */
-a, li {
+a,
+li {
   transition: opacity 0.5s ease-in-out; }
 
 .shadow, .gnb, .home_img, .btn_write, .project_ele:hover,
@@ -71,7 +72,8 @@ main {
   width: 20vw;
   transition: transform 2s;
   overflow: hidden; }
-  #snb_left_box ul, #snb_left_box ol {
+  #snb_left_box ul,
+  #snb_left_box ol {
     list-style: none; }
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -115,7 +117,9 @@ main {
     .ico_menu span:after {
       margin-top: 10px; }
 
-.ico_menu span, .ico_menu span:before, .ico_menu span:after {
+.ico_menu span,
+.ico_menu span:before,
+.ico_menu span:after {
   width: 30px;
   height: 4px;
   background-color: #232528;
@@ -190,7 +194,10 @@ main {
     font-size: 1.5rem;
     line-height: 1.5rem;
     margin: 3rem; }
-  .snb_left ul, .snb_left ol, .snb_left h1, .snb_left a {
+  .snb_left ul,
+  .snb_left ol,
+  .snb_left h1,
+  .snb_left a {
     padding: 0;
     color: #fff; }
   .snb_left ul:nth-child(-n+2) .title {
@@ -303,7 +310,8 @@ button:hover,
 .btn_share:hover {
   color: #656c7a; }
 
-button, .btn_share li {
+button,
+.btn_share li {
   transition: color 0.5s ease-in-out; }
 
 .btn_write {
@@ -323,17 +331,22 @@ button, .btn_share li {
 .btn_back {
   margin-right: 0.1rem; }
 
-.btn_back, .btn_expand, .ico_menu, .btn_gototop {
+.btn_back,
+.btn_expand,
+.ico_menu,
+.btn_gototop {
   font-size: 3.2rem;
   line-height: 2rem; }
 
 .btn_blog {
   font-size: 2.5rem; }
 
-.btn_expand, .btn_gototop {
+.btn_expand,
+.btn_gototop {
   position: fixed;
   cursor: pointer; }
-  .btn_expand:hover, .btn_gototop:hover {
+  .btn_expand:hover,
+  .btn_gototop:hover {
     color: #232528; }
 
 .btn_expand {
@@ -352,7 +365,8 @@ button, .btn_share li {
   opacity: 1; }
 
 /* share */
-.share_container ul, .share_container li,
+.share_container ul,
+.share_container li,
 footer ul,
 footer li {
   display: inline-flex;
@@ -513,7 +527,8 @@ span.show_unlike.icon-heart {
     padding: 0.2rem 0;
     bottom: 0; }
 
-.blog_ele header h2, .blog_ele header h3 {
+.blog_ele header h2,
+.blog_ele header h3 {
   width: 80%;
   margin-top: 0; }
 
@@ -527,7 +542,8 @@ span.show_unlike.icon-heart {
     color: #1f00ff; }
   .blog_ele footer .icon-bubble {
     padding-left: 0.5rem; }
-  .blog_ele footer data, .blog_ele footer a {
+  .blog_ele footer data,
+  .blog_ele footer a {
     color: #656c7a !important;
     font-size: 0.9rem;
     vertical-align: middle;
@@ -595,7 +611,8 @@ span.show_unlike.icon-heart {
   height: 2rem;
   vertical-align: middle;
   display: flex; }
-  .page_title a, .page_title h1 {
+  .page_title a,
+  .page_title h1 {
     margin-bottom: 0; }
 
 #post_wrap_v1 {
@@ -701,7 +718,8 @@ article {
       display: none; }
     .blog_ele header {
       width: 68%; }
-      .blog_ele header h2, .blog_ele header h3 {
+      .blog_ele header h2,
+      .blog_ele header h3 {
         padding-right: 3.5vh;
         width: auto; }
     .blog_ele footer {
@@ -729,7 +747,8 @@ article {
       height: 30vh; }
     article .img_area {
       padding-bottom: 53%; }
-  article, .disqus {
+  article,
+  .disqus {
     padding-left: 0;
     padding-right: 0;
     margin: 0; }
