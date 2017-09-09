@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block ogtags %}
-<meta property="og:type"   content="website" /> 
+<meta property="og:type"   content="article" /> 
 <meta property="og:title" content="{{ project.title }} - Sujin Lee" />
 <meta property="og:description" content="{{ project.summary|truncatechars:230 }}" />
 <meta property="og:image" content="http://www.sujinlee.me/{{ project.image.url }}" />
@@ -125,7 +125,7 @@
             'og:title': '{{ project.title }} - Sujin Lee',
             'og:description': '{{ project.summary|truncatechars:230 }}',
             'og:image': 'http://www.sujinlee.me/{{ project.image.url }}/',
-            'og:type': 'Sujin Lee:blog',
+            'og:type': 'article',
           }
         })
       });
