@@ -64,7 +64,7 @@
     <ul>
       <a class="facebook btn_share"
         href = "http://www.facebook.com/share.php?u=http://www.sujinlee.me/project/{{ project.slug }}"
-        target="_blank" onclick="return fbshare()">
+        target="_blank">
         <li class="icon-social-facebook"></li>
       </a>
       <a class="twitter btn_share"
@@ -110,24 +110,5 @@
 <script src="{% static 'src/js/post_detail.js' %}"></script>
 <script>hljs.initHighlightingOnLoad();
         window.onload = loadPreImage();
-</script>
-{% endblock %}
-
-{% block facebookShare %}
-<script>
-  function fbshare() {
-    FB.ui({
-        method: 'share_open_graph',
-        action_type: 'og.shares',
-        action_properties: JSON.stringify({
-          object: {
-            'og:url': 'https://www.sujinlee.me/project/{{ project.slug }}',
-            'og:title': '{{ project.title }} - Sujin Lee',
-            'og:description': '{{ project.summary|truncatechars:230 }}',
-            'og:image': 'https://www.sujinlee.me/{{ project.image.url }}/',
-          }
-        })
-      });
-  }
 </script>
 {% endblock %}
