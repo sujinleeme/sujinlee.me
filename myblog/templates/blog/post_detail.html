@@ -146,11 +146,10 @@ hljs.initHighlightingOnLoad();
         action_type: 'og.shares',
         action_properties: JSON.stringify({
           object: {
-            'og:url': 'http://sujinlee.me/blog/{{ blog.slug }}',
+            'og:url': 'http://www.sujinlee.me/blog/{{ blog.slug }}',
             'og:title': '{{ blog.title }}',
             'og:description': '{{ blog.summary|truncatechars:230 }}',
             'og:image': 'http://www.sujinlee.me/{{ blog.image.url }}/',
-            'og:type': 'article',
           }
         })
       });
