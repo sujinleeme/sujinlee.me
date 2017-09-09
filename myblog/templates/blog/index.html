@@ -1,22 +1,31 @@
-{% extends 'blog/base.html' %} {% load staticfiles %} {% block ogtags %}
-<meta property="og:type" content="website" />
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block ogtags %}
+<meta property="og:type"   content="website" /> 
 <meta property="og:title" content="Sujin Lee | Creative Developer" />
 <meta property="og:description" content="Personal Website" />
 <meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
-<meta property="og:url" content="http://www.sujinlee.me/" /> {% endblock %} {% block stylesheet %}
-<link rel="stylesheet" href="{% static 'dist/css/index.css' %}"> {% endblock %} {% block content %}
+<meta property="og:url" content="http://www.sujinlee.me/" />
+{% endblock %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'dist/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
 <div class="home_img">
-  <img src="{% static 'image/background/profile-about.png' %}" alt="profile">
+  <img src="{% static 'image/background/profile-about.png' %}" alt="profile" >
 </div>
-<div class="home_title">
-  <h1>Sujin
-    <mark>Lee</mark>
-  </h1>
-  <h2>Creative Developer</h2>
-  <h3>Living in Seoul, Korea</h3>
-  <h3>Who loves Web and Music Collaboration</h3>
-</div>
-<!--<div class="straight_line"></div>-->
-{% endblock %} {% block jsblock %}
+  <div class="home_title">
+    <h1>Sujin <mark>Lee</mark></h1>
+    <h2>Creative Developer</h2>
+    <h3>Living in Seoul, Korea</h3>
+    <h3>Who loves Web and Music Collaboration</h3>
+  </div>
+  <!--<div class="straight_line"></div>-->
+{% endblock %}
+
+{% block jsblock %}
 <script src="{% static 'index.js' %}"></script>
 {% endblock %}

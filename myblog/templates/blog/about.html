@@ -1,23 +1,33 @@
-{% extends 'blog/base.html' %} {% load staticfiles %} {% load django_markdown %} {% block title %}
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% load django_markdown %}
+
+{% block title %}
 <title>About - Sujin Lee</title>
-{% endblock %} {% block ogtags %}
-<meta property="og:type" content="website" />
+{% endblock %}
+
+{% block ogtags %}
+<meta property="og:type"   content="website" /> 
 <meta property="og:title" content="About - Sujin Lee" />
 <meta property="og:description" content="Creative Developer" />
 <meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
-<meta property="og:url" content="http://www.sujinlee.me/about/" /> {% endblock %} {% block content %}
+<meta property="og:url" content="http://www.sujinlee.me/about/" />
+
+{% endblock %}
+{% block content %}
 <header class="page_title">
   <h1>about</h1>
 </header>
 <div id="main_content">
-  <div id="post_wrap_v2" class="post_body">
-    <p class="quote">
-      Study the science of art. Study the art of science. Develop your senses-learn how to see.<br> Realize that everything
-      connects you to everything else. - Leonardo da Vinci</i><br>
+    <div id="post_wrap_v2" class="post_body">
+    <p class="quote" >
+      Study the science of art. Study the art of science.
+      Develop your senses-learn how to see.<br>
+      Realize that everything connects you to everything else. - Leonardo da Vinci</i><br>
     </p>
-    {% for about in abouts %}
+  {% for about in abouts %}
     <p>{{ about.body|markdown }}</p>
   </div>
-  {% endfor %}
+{% endfor %}
 </div>
 {% endblock content %}
