@@ -3,6 +3,7 @@ $page_margin: 3%;
 $default_page_margin: 7vh;
 $mobile_page_margin: $default_page_margin / 2;
 $snb_left_width_home: 30vw;
+$snb_left_width_home_pad: 35vw;
 $main_width_home: 100vw - $snb_left_width_home;
 
 * {
@@ -57,7 +58,6 @@ overflow:hidden;
 }
 #snb_left_box {
 width: 100vw !important;
-
 }
 .snb_left {
 h1 {

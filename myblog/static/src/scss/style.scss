@@ -215,14 +215,17 @@ color: #fff;
 }
 
 .snb_left {
-padding: $page_margin;
+height: 100%;
 background: $theme-col;
 color: #fff;
 transition: width 2s;
+display: flex;                   /* defines flexbox */
+flex-direction: column;          /* top to bottom */
+justify-content: space-between; 
 h1 {
 font-size: 1.5rem;
 line-height: 1.5rem;
-margin: 0;
+margin: $page_margin;
 }
 ul, ol, h1, a {
 padding: 0;
@@ -241,8 +244,8 @@ font-weight: 400;
 }
 
 .contact {
-bottom: $page_margin;
-position: absolute;
+display: inline-block;
+margin: $page_margin;
 }
 
 .mailto {
@@ -823,14 +826,26 @@ and (max-width : 480px) {
 #main_lst {
 margin: 0 !important;
 }
+ul#lst_wrap_blog{
+margin: 3vh 0;
+}
+.blog_title{
+margin: 0;
+}
 .blog_ele {
-padding: 3vh 0;
+padding: 3vh;
 min-height: 24vh;
+margin: 0 -3vh;
+border-bottom: 1px solid #e8e8e8;
 .btn_read {
 display: none;
 }
 header {
-width: 65%;
+width: 68%;
+h2, h3{
+    padding-right: 3.5vh;
+    width: auto;
+}
 }
 footer {
 position: relative;
@@ -838,7 +853,7 @@ bottom: 0;
 position: absolute;
 }
 picture {
-width: 35%;
+width: 32%;
 // height: 24vh;
 }
 .placeholder {
@@ -863,13 +878,13 @@ margin-left: -1vh;
 display: none;
 }
 article {
-padding-top: 1vh;
+padding-top: 3.5vh;
 img {
 width: 100%;
 height: 30vh;
 }
 .img_area {
-padding-bottom: 60%;
+padding-bottom: 53%;
 }
 }
 article, .disqus {

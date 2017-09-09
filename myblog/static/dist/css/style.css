@@ -177,14 +177,19 @@ main {
   color: #fff; }
 
 .snb_left {
-  padding: 3rem;
+  height: 100%;
   background: #1f00ff;
   color: #fff;
-  transition: width 2s; }
+  transition: width 2s;
+  display: flex;
+  /* defines flexbox */
+  flex-direction: column;
+  /* top to bottom */
+  justify-content: space-between; }
   .snb_left h1 {
     font-size: 1.5rem;
     line-height: 1.5rem;
-    margin: 0; }
+    margin: 3rem; }
   .snb_left ul, .snb_left ol, .snb_left h1, .snb_left a {
     padding: 0;
     color: #fff; }
@@ -196,8 +201,8 @@ main {
     font-weight: 400; }
 
 .contact {
-  bottom: 3rem;
-  position: absolute; }
+  display: inline-block;
+  margin: 3rem; }
 
 .mailto {
   font-size: 0.85rem; }
@@ -683,19 +688,28 @@ article {
 @media screen and (min-width: 320px) and (max-width: 480px) {
   #main_lst {
     margin: 0 !important; }
+  ul#lst_wrap_blog {
+    margin: 3vh 0; }
+  .blog_title {
+    margin: 0; }
   .blog_ele {
-    padding: 3vh 0;
-    min-height: 24vh; }
+    padding: 3vh;
+    min-height: 24vh;
+    margin: 0 -3vh;
+    border-bottom: 1px solid #e8e8e8; }
     .blog_ele .btn_read {
       display: none; }
     .blog_ele header {
-      width: 65%; }
+      width: 68%; }
+      .blog_ele header h2, .blog_ele header h3 {
+        padding-right: 3.5vh;
+        width: auto; }
     .blog_ele footer {
       position: relative;
       bottom: 0;
       position: absolute; }
     .blog_ele picture {
-      width: 35%; }
+      width: 32%; }
     .blog_ele .placeholder {
       height: 24vh; }
     .blog_ele img {
@@ -709,12 +723,12 @@ article {
   .btn_expand {
     display: none; }
   article {
-    padding-top: 1vh; }
+    padding-top: 3.5vh; }
     article img {
       width: 100%;
       height: 30vh; }
     article .img_area {
-      padding-bottom: 60%; }
+      padding-bottom: 53%; }
   article, .disqus {
     padding-left: 0;
     padding-right: 0;
