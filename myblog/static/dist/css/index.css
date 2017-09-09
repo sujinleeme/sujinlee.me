@@ -39,8 +39,11 @@ main {
   #snb_left_box {
     width: 100vw !important; }
   .snb_left h1 {
-    margin-bottom: 3.5vh;
-    transform: translate(-3.5vh, -3.5vh); }
+    margin: 3.5vh;
+    line-height: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    font-size: 2rem; }
   main {
     width: 0vw !important; }
   .home_title,
@@ -55,12 +58,12 @@ main {
     background-color: transparent;
     transition-delay: 0.2s; }
   .home_img {
-    top: 26vh;
+    top: 35vh;
     width: 60vw;
     height: 30vh;
     margin: 2.5vh; }
   .home_title {
-    top: 55vh;
+    top: 60vh;
     width: 90%;
     margin: 5%;
     text-align: center; }
@@ -76,7 +79,9 @@ main {
   .snb_left ul:nth-child(-n+2) .title {
     margin-top: 2vh; }
   .contact {
-    transform: translate(-3.5vh, 3.5vh); }
+    transform: translate(-3.5vh, 3.5vh);
+    bottom: 0;
+    position: absolute; }
   .contact,
   ul.ico_soical {
     font-size: 0.9rem; } }

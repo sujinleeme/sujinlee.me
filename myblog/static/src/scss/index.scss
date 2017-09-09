@@ -60,9 +60,14 @@ $txt_margin: 4%;
     width: 100vw !important;
   }
   .snb_left {
+    
     h1 {
-      margin-bottom: $mobile_page_margin;
-      transform: translate(-$mobile_page_margin, -$mobile_page_margin);
+      margin: 3.5vh;
+      line-height: 2rem;
+      height: 2rem;
+      vertical-align: middle;
+      font-size: 2rem;
+      
     }
   }
   main {
@@ -84,13 +89,13 @@ $txt_margin: 4%;
   }
   .home {
     &_img {
-      top: 26vh;
+      top: 35vh;
       width: 60vw;
       height: 30vh;
       margin: 2.5vh;
     }
     &_title {
-      top: 55vh;
+      top: 60vh;
       width: 90%;
       margin: 5%;
       text-align: center;
@@ -114,6 +119,8 @@ $txt_margin: 4%;
   }
   .contact {
     transform: translate(-$mobile_page_margin, $mobile_page_margin);
+    bottom: 0;
+    position: absolute;
   }
   .contact,
   ul.ico_soical {

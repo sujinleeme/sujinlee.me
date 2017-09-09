@@ -711,7 +711,7 @@ article {
     margin: 0; }
   .blog_ele {
     padding: 3vh;
-    min-height: 24vh;
+    min-height: 28vh;
     margin: 0 -3vh;
     border-bottom: 1px solid #e8e8e8; }
     .blog_ele .btn_read {
