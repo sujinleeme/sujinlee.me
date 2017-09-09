@@ -70,7 +70,7 @@
     <ul>
       <a class="facebook btn_share"
         href = "http://www.facebook.com/share.php?u=http://www.sujinlee.me/blog/{{ post.slug }}"
-        onclick="return fbshare()">
+      >
         <li class="icon-social-facebook"></li>
       </a>
       <a class="twitter btn_share"
@@ -135,24 +135,5 @@ hljs.initHighlightingOnLoad();
           }
       );
 
-</script>
-{% endblock %}
-
-{% block facebookShare %}
-<script>
-  function fbshare() {
-    FB.ui({
-        method: 'share_open_graph',
-        action_type: 'og.shares',
-        action_properties: JSON.stringify({
-          object: {
-            'og:url': 'https://www.sujinlee.me/blog/{{ blog.slug }}',
-            'og:title': '{{ blog.title }}',
-            'og:description': '{{ blog.summary|truncatechars:230 }}',
-            'og:image': 'https://www.sujinlee.me/{{ blog.image.url }}/',
-          }
-        })
-      });
-  }
 </script>
 {% endblock %}
