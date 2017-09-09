@@ -10,7 +10,7 @@ $light-gray-hover: rgba(0, 0, 0, 0.1);
 $page_margin_reset: 0%;
 $page_margin: 7vh;
 $line_height: 2rem;
-$light-gray: rgba(35, 37, 40, 0.1);
+$light-gray: #f6f8fa;
 $black: #232528;
 body,
 p,
@@ -232,6 +232,7 @@ strong {
   ul,
   ol {
     list-style: initial;
+    margin-left: 2rem;
   }
   hr {
     border: 0 none;
@@ -466,13 +467,13 @@ strong {
     padding: 6px 10px;
     border-radius: 2px;
     width: inherit;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Source Code Pro', 'NanumSquare', monospace;
   }
   pre code,
   pre tt {
     background-color: transparent;
     border: none;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Source Code Pro', 'NanumSquare', monospace;
   }
   .post_body {
     ul {

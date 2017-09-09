@@ -7,9 +7,9 @@
 {% block ogtags %}
 <meta property="og:type"   content="website" /> 
 <meta property="og:title" content="{{ tag.name }} - Sujin Lee" />
-<meta property="og:description" content="Creative Developer" />
-<meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
-<meta property="og:url" content="http://www.sujinlee.me/project/" />
+<meta property="og:description" content="Creative Technologist" />
+<meta property="og:image" content="https://www.sujinlee.me/image/background/profile-about.png" />
+<meta property="og:url" content="https://www.sujinlee.me/tag/{{ tag.name }}" />
 {% endblock %}
 
 {% block content %}
@@ -20,21 +20,36 @@
   {% if object_list %}
   <ul id="lst_wrap_blog">
      {% for post in object_list %}
-    <a href="{% url 'post_detail' slug=post.slug %}">
-    <li class="blog_ele">
+     <li class="blog_ele" onclick="location.href='{% url 'post_detail' slug=post.slug %}';">
       <header>
-        <span class="date">{{ post.published_date }}</span>
-        <h3>{{ post.summary|truncatechars:40 }}</h3>
         <div class="detail">
-          <h2>{{ post.title }}</h2>
-          <button class="btn_read material-icons">arrow_forward</button>
+          <div class="blog_title">
+            <span class="date">{{ post.published_date }}</span>                
+            <h2>{{ post.title|truncatechars:35 }}</h2>
+            <h3>{{ post.summary|truncatechars:70 }}</h3> 
+          </div>           
+          <!-- <button class="btn_read material-icons">arrow_forward</button> -->
         </div>
+        <footer>
+        <span class="icon-heart"></span>
+        <data>{{ post.likes }}</data>
+        <span class="icon-bubble"></span>
+        <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a>
+        </footer>
       </header>
-      <picture><img src="{{ post.image.url }}"></picture>
-    </li>
-     </a>
+      <picture>
+        <div class="placeholder" data-large="{{ post.image.url }}">
+          <img src="{{ post.image_thumbnail.url }}" class="img-small">
+          <div class="img_area"></div>
+        </div>
+      </picture>
+  </li>
     {% endfor %}
   </ul>
   {% endif %}
 </div>
 {% endblock content %}
+
+{% block jsblock %}
+<script>window.onload = loadPreImage();</script>
+{% endblock %}

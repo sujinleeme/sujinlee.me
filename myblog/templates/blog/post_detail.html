@@ -8,7 +8,7 @@
 
 {% block ogtags %}
 <meta property="og:type"   content="article" /> 
-<meta property="og:title" content="{{ post.title }} - Sujin Lee" />
+<meta property="og:title" content="{{ post.title }}" />
 <meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
 <meta property="og:image" content="https://www.sujinlee.me/{{ post.image.url }}" />
 <meta property="og:url" content="https://www.sujinlee.me/blog/{{post.slug }}/" />

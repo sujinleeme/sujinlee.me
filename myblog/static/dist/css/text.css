@@ -149,7 +149,7 @@ strong {
   .post_body h5 {
     font-size: 14px; }
   .post_body h6 {
-    color: rgba(35, 37, 40, 0.1);
+    color: #f6f8fa;
     font-size: 12px;
     font-weight: 400; }
   .post_body li p {
@@ -178,7 +178,8 @@ strong {
     padding-top: 0; }
   .post_body ul,
   .post_body ol {
-    list-style: initial; }
+    list-style: initial;
+    margin-left: 2rem; }
   .post_body hr {
     border: 0 none;
     color: #ccc;
@@ -240,7 +241,7 @@ strong {
   .post_body li p.first {
     display: inline-block; }
   .post_body blockquote {
-    border-left: 4px solid rgba(35, 37, 40, 0.1);
+    border-left: 4px solid #f6f8fa;
     padding: 0 15px;
     margin: 20px 40px;
     color: #656c7a; }
@@ -254,7 +255,7 @@ strong {
     padding: 0;
     max-width: 100%; }
   .post_body table tr {
-    border-top: 1px solid rgba(35, 37, 40, 0.1);
+    border-top: 1px solid #f6f8fa;
     background-color: #fff;
     margin: 0;
     padding: 0; }
@@ -262,13 +263,13 @@ strong {
     background-color: #fff; }
   .post_body table tr th {
     font-weight: 700;
-    border: 1px solid rgba(35, 37, 40, 0.1);
-    background: rgba(35, 37, 40, 0.1);
+    border: 1px solid #f6f8fa;
+    background: #f6f8fa;
     text-align: left;
     margin: 0;
     padding: 6px 13px; }
   .post_body table tr td {
-    border: 1px solid rgba(35, 37, 40, 0.1);
+    border: 1px solid #f6f8fa;
     text-align: left;
     margin: 0;
     padding: 6px 13px; }
@@ -343,8 +344,8 @@ strong {
     margin: 0 2px;
     padding: 0 5px;
     white-space: nowrap;
-    border: 1px solid rgba(35, 37, 40, 0.1);
-    background-color: rgba(35, 37, 40, 0.1);
+    border: 1px solid #f6f8fa;
+    background-color: #f6f8fa;
     border-radius: 4px; }
   .post_body pre code {
     margin: 0;
@@ -368,12 +369,12 @@ strong {
     padding: 6px 10px;
     border-radius: 2px;
     width: inherit;
-    font-family: 'Source Code Pro', monospace; }
+    font-family: 'Source Code Pro', 'NanumSquare', monospace; }
   .post_body pre code,
   .post_body pre tt {
     background-color: transparent;
     border: none;
-    font-family: 'Source Code Pro', monospace; }
+    font-family: 'Source Code Pro', 'NanumSquare', monospace; }
   .post_body .post_body ul {
     list-style-type: initial !important; }
   .post_body .post_body ul:first-child {
