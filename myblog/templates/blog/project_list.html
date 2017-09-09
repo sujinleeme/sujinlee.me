@@ -1,11 +1,18 @@
-{% extends 'blog/base.html' %} {% load staticfiles %} {% block title %}
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block title %}
 <title>Project - Sujin Lee</title>
-{% endblock %} {% block ogtags %}
-<meta property="og:type" content="website" />
+{% endblock %}
+
+{% block ogtags %}
+<meta property="og:type"   content="website" /> 
 <meta property="og:title" content="Project - Sujin Lee" />
 <meta property="og:description" content="Creative Developer" />
 <meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
-<meta property="og:url" content="http://www.sujinlee.me/project/" /> {% endblock %} {% block content %}
+<meta property="og:url" content="http://www.sujinlee.me/project/" />
+{% endblock %}
+
+{% block content %}
 <header class="page_title">
   <h1> PROJECT</h1>
 </header>
@@ -14,7 +21,7 @@
   <ul id="lst_project_wrap">
     {% for project in projects %}
     <li class="project_ele" onclick="location.href='{% url 'project_detail' slug=project.slug %}';">
-      <div class="placeholder" data-large="{{ project.image.url }}">
+       <div class="placeholder" data-large="{{ project.image.url }}">
         <img src="{{ project.image_thumbnail.url }}" class="img-small">
         <div class="img_area"></div>
       </div>
@@ -35,8 +42,8 @@
   </div>
   {% endif %}
 </div>
-{% endblock content %} {% block jsblock %}
-<script>
-  window.onload = loadPreImage();
-</script>
+{% endblock content %}
+
+{% block jsblock %}
+<script>window.onload = loadPreImage();</script>
 {% endblock %}

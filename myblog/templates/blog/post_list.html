@@ -1,13 +1,21 @@
-{% extends 'blog/base.html' %} {% load staticfiles %} {% block title %}
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
 <title>Blog - Sujin Lee</title>
-{% endblock %} {% block ogtags %}
-<meta property="og:type" content="website" />
+{% endblock %}
+
+{% block ogtags %}
+<meta property="og:type"   content="website" />
 <meta property="og:title" content="Blog - Sujin Lee" />
 <meta property="og:description" content="Creative Developer" />
 <meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
-<meta property="og:url" content="http://www.sujinlee.me/project/" /> {% endblock %} {% block stylesheet %}
+<meta property="og:url" content="http://www.sujinlee.me/project/" />
+{% endblock %}
+{% block stylesheet %}
 <script id="dsq-count-scr" src="//sujinlee.disqus.com/count.js" async></script>
-{% endblock %} {% block content %}
+{% endblock %}
+{% block content %}
 <header class="page_title">
   <h1>BLOG</h1>
 </header>
@@ -15,29 +23,29 @@
   {% if posts %}
   <ul id="lst_wrap_blog">
     {% for post in posts %}
-    <li class="blog_ele" onclick="location.href='{% url 'post_detail' slug=post.slug %}';">
-      <header>
-        <div class="detail">
-          <div class="blog_title">
-            <span class="date">{{ post.published_date }}</span>
-            <h2>{{ post.title|truncatechars:30 }}</h2>
-            <h3>{{ post.summary|truncatechars:70 }}</h3>
+      <li class="blog_ele" onclick="location.href='{% url 'post_detail' slug=post.slug %}';">
+        <header>
+          <div class="detail">
+            <div class="blog_title">
+              <span class="date">{{ post.published_date }}</span>                
+              <h2>{{ post.title|truncatechars:35 }}</h2>
+              <h3>{{ post.summary|truncatechars:70 }}</h3> 
+            </div>           
+            <!-- <button class="btn_read material-icons">arrow_forward</button> -->
           </div>
-          <!-- <button class="btn_read material-icons">arrow_forward</button> -->
-        </div>
-        <footer>
+          <footer>
           <span class="icon-heart"></span>
           <data>{{ post.likes }}</data>
           <span class="icon-bubble"></span>
           <a href="{% url 'post_detail' slug=post.slug %}#disqus_thread"></a>
-        </footer>
-      </header>
-      <picture>
-        <div class="placeholder" data-large="{{ post.image.url }}">
-          <img src="{{ post.image_thumbnail.url }}" class="img-small">
-          <div class="img_area"></div>
-        </div>
-      </picture>
+          </footer>
+        </header>
+        <picture>
+          <div class="placeholder" data-large="{{ post.image.url }}">
+            <img src="{{ post.image_thumbnail.url }}" class="img-small">
+            <div class="img_area"></div>
+          </div>
+        </picture>
     </li>
     {% endfor %}
   </ul>
@@ -47,10 +55,11 @@
   </div>
   {% endif %}
 </div>
-{% if user.is_authenticated %}
-<a href="{% url 'post_new' %}"><button class="btn_write material-icons">add</button></a> {% endif %} {% endblock content
-%} {% block jsblock %}
-<script>
-  window.onload = loadPreImage();
-</script>
+  {% if user.is_authenticated %}
+  <a href="{% url 'post_new' %}"><button class="btn_write material-icons">add</button></a>
+  {% endif %}
+{% endblock content %}
+
+{% block jsblock %}
+<script>window.onload = loadPreImage();</script>
 {% endblock %}

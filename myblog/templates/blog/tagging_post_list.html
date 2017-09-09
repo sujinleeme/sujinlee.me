@@ -1,21 +1,28 @@
-{% extends 'blog/base.html' %} {% load staticfiles %} {% block title %}
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block title %}
 <title>Blog - Sujin Lee</title>
-{% endblock %} {% block ogtags %}
-<meta property="og:type" content="website" />
+{% endblock %}
+
+{% block ogtags %}
+<meta property="og:type"   content="website" /> 
 <meta property="og:title" content="{{ tag.name }} - Sujin Lee" />
 <meta property="og:description" content="Creative Developer" />
 <meta property="og:image" content="http://www.sujinlee.me/image/background/profile-about.png" />
-<meta property="og:url" content="http://www.sujinlee.me/project/" /> {% endblock %} {% block content %}
+<meta property="og:url" content="http://www.sujinlee.me/project/" />
+{% endblock %}
+
+{% block content %}
 <header class="page_title">
   <h1>BLOG : tag : {{ tag.name }}</h1>
 </header>
 <div id="main_content_v2">
   {% if object_list %}
   <ul id="lst_wrap_blog">
-    {% for post in object_list %}
+     {% for post in object_list %}
     <a href="{% url 'post_detail' slug=post.slug %}">
-      <li class="blog_ele">
-        <header>
+    <li class="blog_ele">
+           <header>
           <span class="date">{{ post.published_date }}</span>
           <h3>{{ post.summary|truncatechars:40 }}</h3>
           <div class="detail">
@@ -24,8 +31,8 @@
           </div>
         </header>
         <picture><img src="{{ post.image.url }}"></picture>
-      </li>
-    </a>
+    </li>
+     </a>
     {% endfor %}
   </ul>
   {% endif %}
