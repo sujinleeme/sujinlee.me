@@ -12,11 +12,12 @@
 <meta property="og:description" content="{{ post.summary|truncatechars:230 }}" />
 <meta property="og:image" content="https://www.sujinlee.me/{{ post.image.url }}" />
 <meta property="og:url" content="https://www.sujinlee.me/blog/{{post.slug }}/" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
 {% block stylesheet %}
 <script id="dsq-count-scr" src="//sujinlee.disqus.com/count.js" async></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.3/jsxgraphcore.js"></script>
 {% endblock %}
 {% endblock %}
 
@@ -97,6 +98,7 @@
     </div>
   </div>
   {% endif %}
+
   {% if next %}
   <div class="pagination_col" onclick="location.href='{% url 'post_detail' slug=next.slug %}';">
     <div class="next_page">
@@ -119,21 +121,19 @@
 {% block jsblock %}
 <script src="{% static 'src/js/highlight.pack.js' %}"></script>
 <script src="{% static 'src/js/post_detail.js' %}"></script>
-
 <script>
 hljs.initHighlightingOnLoad();
-        window.onload = loadPreImage();
-        renderMathInElement(
-          document.body,
-          {
-              delimiters: [
-                  {left: "$$", right: "$$", display: true},
-                  {left: "\\[", right: "\\]", display: true},
-                  {left: "$", right: "$", display: false},
-                  {left: "\\(", right: "\\)", display: false}
-              ]
-          }
-      );
-
+window.onload = loadPreImage();
+renderMathInElement(
+  document.body,
+  {
+      delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "\\[", right: "\\]", display: true},
+          {left: "$", right: "$", display: false},
+          {left: "\\(", right: "\\)", display: false}
+      ]
+  }
+);
 </script>
 {% endblock %}
