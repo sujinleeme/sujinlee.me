@@ -679,7 +679,8 @@ article {
   transition: opacity 1s linear; }
 
 .placeholder img._loaded {
-  opacity: 1; }
+  opacity: 1;
+  height: 100%; }
 
 .img-small {
   filter: blur(50px);
