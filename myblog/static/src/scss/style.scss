@@ -306,6 +306,7 @@ main {
 
 .mailto {
 	font-size: 0.85rem;
+	letter-spacing: 0.01rem;	
 }
 
 .ico_soical {
@@ -324,7 +325,7 @@ main {
 
 .home {
 	&_img {
-		position: absolute;
+		position: absolute !important;
 		top: 50%;
 		left: 34%;
 		width: 29vw;
@@ -597,6 +598,7 @@ span.show_unlike.icon-heart {
 
 .date {
 	color: $dark-gray;
+	letter-spacing: 0.05rem;	
 }
 
 
@@ -891,7 +893,7 @@ article {
 	background-repeat: no-repeat;
 	position: relative;
 	overflow: hidden;
-	width: 100%;
+	// width: 100%;
 }
 
 .placeholder img {
@@ -917,6 +919,8 @@ article {
 
 .post_title {
 	margin: $page_margin 0;
+	font-size: 1.25rem;
+	text-align: center;
 }
 
 .post_title .date {

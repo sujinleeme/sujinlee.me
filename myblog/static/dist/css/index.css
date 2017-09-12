@@ -26,7 +26,8 @@ main {
 .home_title h3 {
   font-size: 1.3rem;
   margin-bottom: 2%;
-  font-weight: 500; }
+  font-weight: 500;
+  letter-spacing: 0.01rem; }
 
 /* Smartphones (portrait and landscape) ----------- */
 @media screen and (min-width: 320px) and (max-width: 480px) {

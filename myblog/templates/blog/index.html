@@ -14,8 +14,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="home_img">
-  <img src="{% static 'image/background/profile-about.png' %}" alt="profile" >
+<div class="home_img placeholder" data-large="{% static 'image/background/profile-about.png' %}">
+  <img src="{% static 'image/background/profile-about.png' %}" class="mainPostImg img-small" alt="profile" >
+  <div class="img_area"></div>
 </div>
   <div class="home_title">
     <h1>Sujin <mark>Lee</mark></h1>
@@ -28,4 +29,7 @@
 
 {% block jsblock %}
 <script src="{% static 'index.js' %}"></script>
+<script>
+  window.onload = loadPreImage();
+  </script>
 {% endblock %}

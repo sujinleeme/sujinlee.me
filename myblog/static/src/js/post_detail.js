@@ -56,7 +56,7 @@ postBodyLinks.forEach(function(e){
     })
 });
 
-/* Hide Side bar to shwo wide post */
+/* Hide Side bar to show wide post */
 const buttonExpand = document.getElementsByClassName("btn_expand")[0];
 const main = document.querySelectorAll("main")[0];
 var container = document.getElementById("container");
