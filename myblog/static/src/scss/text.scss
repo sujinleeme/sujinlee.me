@@ -179,15 +179,15 @@ strong {
   }
   h1 {
     font-size: 1.5rem;
-    margin: $page_margin / 2 0;
+    margin: $page_margin / 2 0 $page_margin / 4 0;
   }
   h2 {
     font-size: 1.3rem;
     padding-top: $page_margin / 2;
-    margin: $page_margin / 2 0;
+    margin: $page_margin / 2 0 $page_margin / 4 0;
   }
   h3 {
-    margin: $page_margin / 2 0;
+    margin: $page_margin / 2 0 $page_margin / 4 0;
     font-size: 1.2rem;
   }
   h4 {

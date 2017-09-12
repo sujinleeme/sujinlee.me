@@ -137,13 +137,13 @@ strong {
     font-size: inherit; }
   .post_body h1 {
     font-size: 1.5rem;
-    margin: 3rem 0; }
+    margin: 3rem 0 1.5rem 0; }
   .post_body h2 {
     font-size: 1.3rem;
     padding-top: 3rem;
-    margin: 3rem 0; }
+    margin: 3rem 0 1.5rem 0; }
   .post_body h3 {
-    margin: 3rem 0;
+    margin: 3rem 0 1.5rem 0;
     font-size: 1.2rem; }
   .post_body h4 {
     font-size: 16px;
