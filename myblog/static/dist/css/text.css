@@ -77,10 +77,12 @@ body {
 h1,
 h2 {
   font-weight: 700;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  letter-spacing: 0.04rem; }
 
 h3 {
-  font-weight: 600; }
+  font-weight: 600;
+  letter-spacing: 0.04rem; }
 
 strong {
   font-weight: 600; }
@@ -166,7 +168,8 @@ strong {
     font-size: 1rem;
     line-height: 2rem;
     vertical-align: middle;
-    font-family: 'NanumSquare', monospace; }
+    font-family: 'NanumSquare', monospace;
+    letter-spacing: 0.04rem; }
   .post_body blockquote,
   .post_body ul,
   .post_body ol,
@@ -377,9 +380,9 @@ strong {
   .post_body pre tt {
     background-color: transparent;
     border: none;
-    font-family: 'Source Code Pro', 'NanumSquare', monospace; }
-  .post_body .post_body .ko {
-    font-family: 'NanumSquare', monospace !important; }
+    font-family: 'Source Code Pro', 'NanumSquare', monospace;
+    letter-spacing: 0.04rem;
+    font-size: 0.9rem; }
   .post_body .post_body ul {
     list-style-type: initial !important; }
   .post_body .post_body ul:first-child,
@@ -403,9 +406,7 @@ strong {
 .page_title h1 {
   font-size: 2rem;
   line-height: 2rem;
-  letter-spacing: 0.1rem; }
-
-.post_title h1 {
+  letter-spacing: 0.1rem;
   text-align: center;
   letter-spacing: 0.1rem;
   font-size: 2rem; }
