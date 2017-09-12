@@ -1,6 +1,7 @@
 @charset "utf-8";
 $theme-col: #1f00ff;
 $accent-col: #ff00db;
+$red-col: #ff1f00;
 $bg-col: #fff;
 $black: #232528;
 $black-code: #282a36;
@@ -8,8 +9,8 @@ $dark-gray: #656c7a;
 $light-gray: rgba(0, 0, 0, .05);
 $light-gray-hover: rgba(0, 0, 0, 0.1);
 $page_margin_reset: 0%;
-$page_margin: 7vh;
-$line_height: 2rem;
+$page_margin: 6rem;
+$line_height: 2.1rem;
 $light-gray: #f6f8fa;
 $black: #232528;
 body,
@@ -106,7 +107,7 @@ h2 {
 }
 
 h3 {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 strong {
@@ -176,15 +177,15 @@ strong {
   }
   h1 {
     font-size: 1.5rem;
-    margin-bottom: $page_margin / 2;
+    margin: $page_margin / 2 0;
   }
   h2 {
     font-size: 1.3rem;
     padding-top: $page_margin / 2;
-    margin-bottom: $page_margin / 2;
+    margin: $page_margin / 2 0;
   }
   h3 {
-    padding-top: $page_margin / 2;
+    margin: $page_margin / 2 0;
     font-size: 1.2rem;
   }
   h4 {
@@ -204,7 +205,7 @@ strong {
   }
   p,
   pre {
-    margin-bottom: $page_margin / 2;
+    margin-bottom: $page_margin / 3;
   }
   p,
   blockquote,
@@ -213,7 +214,9 @@ strong {
   dl,
   table {
     font-size: 1rem;
+    line-height: 2rem;
     vertical-align: middle;
+    font-family: 'NanumSquare', monospace;
   }
   blockquote,
   ul,
@@ -443,6 +446,7 @@ strong {
     border: 1px solid $light-gray;
     background-color: $light-gray;
     border-radius: 4px;
+    color: $red-col;
   }
   pre code {
     margin: 0;
@@ -476,12 +480,13 @@ strong {
     font-family: 'Source Code Pro', 'NanumSquare', monospace;
   }
   .post_body {
+    .ko {
+      font-family: 'NanumSquare', monospace !important;
+    }
     ul {
       list-style-type: initial !important;
     }
-    ul:first-child {
-      margin-top: 0;
-    }
+    
     ul:first-child,
     ol:first-child {
       margin-top: 0;
@@ -497,6 +502,7 @@ strong {
 .quote {
   font-weight: 500;
   color: $theme-col;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .page_title {
@@ -523,6 +529,8 @@ strong {
   overflow-x: auto;
   background: $black;
   padding: 1%;
+  font-size: 1rem;
+  line-height: 2rem;
 }
 
 .hljs-keyword,

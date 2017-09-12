@@ -438,7 +438,7 @@ span.show_unlike.icon-heart {
   cursor: pointer; }
 
 .tag_box {
-  margin: 1.5rem 0; }
+  margin-bottom: 1.5rem; }
 
 .tag {
   padding: 0.5% 1%;
