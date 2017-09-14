@@ -123,16 +123,16 @@
 <script src="{% static 'src/js/post_detail.js' %}"></script>
 <script>
 hljs.initHighlightingOnLoad();
-window.onload = loadPreImage();
-renderMathInElement(
+window.onload = loadPreImage().then().renderMathInElement(
   document.body,
   {
-      delimiters: [
-          {left: "$$", right: "$$", display: true},
-          {left: "\\[", right: "\\]", display: true},
-          {left: "$", right: "$", display: false},
-          {left: "\\(", right: "\\)", display: false}
-      ]
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "\\[", right: "\\]", display: true},
+      {left: "$", right: "$", display: true},
+      {left: "\\(", right: "\\)", display: true},
+      {left: "\\", right: "\\)", display: true}
+    ]
   }
 );
 </script>
