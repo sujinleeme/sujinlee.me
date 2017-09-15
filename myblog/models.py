@@ -1,9 +1,9 @@
 from django.db import models
 from django.utils import timezone
-from django_markdown.models import MarkdownField
 from tagging.fields import TagField
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
+from simplemde.fields import SimpleMDEField
 
 import uuid
 
@@ -25,7 +25,7 @@ class Post(models.Model):
                                     options={'quality': 60})
     title = models.CharField(max_length=200, verbose_name=u'Title')
     summary = models.CharField(max_length=1000)
-    body =  MarkdownField()
+    body = SimpleMDEField(verbose_name=u'')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateField(default=timezone.now)
     slug = models.SlugField(unique=True)
@@ -54,7 +54,7 @@ class Project(models.Model):
                                     options={'quality': 60})
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=1000)
-    body = MarkdownField()
+    body = SimpleMDEField(verbose_name=u'')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateField(default=timezone.now)
     slug = models.SlugField(unique=True)
@@ -75,7 +75,7 @@ class Project(models.Model):
 class About(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
-    body = models.TextField()
+    body = SimpleMDEField(verbose_name=u'')
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(

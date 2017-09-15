@@ -29,9 +29,9 @@
   </picture>
   <header class="post_title">
     <h1>{{ project.title }}</h1>
-    {% if project.published_date %}
+    {% if project.created_date %}
     <span class="date">
-    {{ project.published_date }}
+    {{ project.created_date|date:"M. d. Y" }}
     </span>
   </header>
   {% endif %}

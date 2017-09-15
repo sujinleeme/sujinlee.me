@@ -31,7 +31,7 @@ def about_detail(request, pk):
 
 #blog
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     return render(request, 'blog/post_list.html', {'posts':posts})
 
 def post_detail(request, slug):
@@ -92,7 +92,7 @@ def post_edit(request, slug):
 
 # project
 def project_list(request):
-    projects = Project.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     return render(request, 'blog/project_list.html', {'projects':projects})
 
 def project_detail(request, slug):
