@@ -2,7 +2,7 @@
 A website for personal blogging and project.
 
 ## About
-- See : https://www.sujinlee.me
+- See : https://sujinlee.me
 - Author : Design & Code by Sujin Lee
 - Tech: Django 1.10(python 3.5+), HTML5 & SASS, JavaScript, gulp
 
